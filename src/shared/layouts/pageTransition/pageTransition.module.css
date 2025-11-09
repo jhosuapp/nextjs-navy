@@ -1,0 +1,30 @@
+.curve .curve__svg svg, .curve .curve__bg{
+    height: calc(100vh + 600px);
+    @apply fixed pointer-events-none left-0 top-0 z-[101] w-lvw;
+}
+
+.curve .curve__bg{
+    transition: opacity 0s linear 0.1s;
+    @apply bg-cuartary z-[102];
+}
+.curve .curve__route{
+    font-size: clamp(25px, 6vw, 70px);
+    @apply fixed text-secondary text-center z-[103] left-[50%] top-[40vh] translate-x-[-50%] font-medium uppercase pointer-events-none;
+}
+
+.curve .curve__route__transition{
+    @apply translate-x-[-50%] scale-75;
+    animation: 1s ease forwards 1 transition-text;
+}
+
+
+@keyframes transition-text {
+    from{
+        opacity: 0 !important;
+        transform: translateX(-50%) scale(0.75);
+    }
+    to{
+        opacity: 1 !important;
+        transform: translateX(-50%) scale(1);
+    }
+}

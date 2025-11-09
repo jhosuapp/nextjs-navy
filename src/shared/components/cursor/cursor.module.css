@@ -1,0 +1,3 @@
+.cursor{
+    @apply fixed w-[48px] h-[48px] z-[99] pointer-events-none;
+}

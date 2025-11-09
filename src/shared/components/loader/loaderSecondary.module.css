@@ -1,0 +1,72 @@
+.loaderSecondary{
+    @apply w-full flex justify-center items-center flex-col min-h-[500px];
+}
+
+.loaderSecondaryContent { 
+    @apply w-[100px] h-[100px] relative;
+}
+
+.loaderSecondaryText{
+    font-size: clamp(20px, 2vw, 30px);
+    @apply mt-[30px] text-white uppercase;
+}
+
+.loaderSeconaryInner{
+    @apply block w-[20px] h-[20px] rounded-[20px] absolute;
+}
+
+.loaderSeconaryInner::before{
+    content:"";
+    animation: loadingSecondary infinite normal 2s;
+    @apply w-[20px] h-[20px] rounded-[20px] absolute right-0;
+}
+
+
+.loaderInner1{
+    @apply top-0 left-0 rotate-[70deg];
+}
+
+.loaderInner1::before{
+    @apply bg-primary;
+}
+
+.loaderInner2{
+    @apply top-0 right-0 rotate-[160deg];
+}
+
+.loaderInner2:before{
+    @apply bg-seventh;
+}
+
+.loaderInner3{
+    @apply bottom-0 right-0 rotate-[-110deg];
+}
+
+.loaderInner3:before{
+    @apply bg-primary;
+}
+
+.loaderInner4{
+    @apply bottom-0 left-0 rotate-[-20deg]
+}
+
+.loaderInner4:before{
+    @apply bg-seventh;
+}
+
+@keyframes loadingSecondary {
+    0% {
+        width: 20px;
+        right: 0;
+    }
+    
+    30% {
+        width: 120px;
+        right: -100px;
+    }
+
+    60% {
+        width: 20px;
+        right: -100px;
+    }
+}

@@ -1,0 +1,9 @@
+.container {
+    @apply w-full relative z-10 px-[5%] py-[80px] overflow-hidden;
+}
+
+@media(max-width: 768px){
+    .container{
+        @apply py-[50px];
+    }
+}

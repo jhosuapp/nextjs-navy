@@ -1,0 +1,102 @@
+.button{
+    @apply w-fit h-[2.5vw] min-h-[40px] max-h-[50px] min-w-[150px] flex justify-center items-center gap-[15px] relative overflow-hidden; 
+}
+
+.button__icon{
+    @apply max-w-[17px] block w-full;
+}
+
+.button span{
+    transition: .3s ease left;
+    @apply font-aeonik uppercase relative left-0;
+}
+
+.button__icon {
+    filter: brightness(0) invert(1);
+    transition: .3s ease left;
+    @apply absolute left-[-20px];
+}
+
+.button__iconSecondary{
+    transition: .3s ease all;
+    @apply w-[22.5px] relative right-0;
+}
+
+.button b{
+    transition: .3s ease transform;
+    @apply flex items-center justify-center w-[5px] h-[10px] relative overflow-hidden;
+}
+
+.button b::before{
+    content: "";
+    @apply w-[5px] h-[5px] rounded-full bg-white;
+}
+
+.button:hover span{
+    @apply  left-[20px];
+}
+
+.button:hover b{
+    @apply  scale-0;
+}
+
+button:hover .button__iconSecondary{
+    @apply right-[-15px];
+}
+
+.button:hover .button__icon{
+    @apply absolute left-[15px];
+}
+
+@media(max-width: 768px){
+    .button__iconSecondary{
+        @apply w-[20px];
+    }
+}
+
+/* Primary */
+.button--primary{
+    transition: .5s ease background-color;
+    @apply bg-tertiary rounded-full;
+}
+
+.button--primary:hover{
+    @apply bg-secondary;
+}
+
+.button--primary span{
+    @apply text-white;
+}
+
+/* secondary */
+.button--secondary{
+    transition: .5s ease background-color;
+    @apply bg-secondary rounded-full;
+}
+
+.button--secondary:hover{
+    @apply bg-secondary;
+}
+
+.button--secondary span{
+    @apply text-white;
+}
+
+/* White */
+
+.button--white{
+    @apply bg-white;
+}
+
+.button--white span{
+    @apply text-tertiary;
+}
+
+
+.button--white b::before{
+    @apply bg-tertiary;
+}
+
+.button--white:hover span{
+    @apply text-white;
+}

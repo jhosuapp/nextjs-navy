@@ -1,0 +1,1 @@
+export * from './home/views/Home.view';

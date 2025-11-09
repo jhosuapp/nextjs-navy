@@ -1,26 +1,44 @@
 {
-  "name": "nextjs-navy",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "type-check": "tsc",
+    "generate:diamond": "prisma generate --schema=prisma/diamond/schema.prisma",
+    "generate:netherite": "prisma generate --schema=prisma/netherite/schema.prisma",
+    "generate:all": "npm run generate:diamond && npm run generate:netherite",
+    "migrate:diamond": "prisma migrate dev --schema=prisma/diamond/schema.prisma",
+    "migrate:netherite": "prisma migrate dev --schema=prisma/netherite/schema.prisma",
+    "studio:diamond": "prisma studio --schema=prisma/diamond/schema.prisma",
+    "studio:netherite": "prisma studio --schema=prisma/netherite/schema.prisma"
   },
   "dependencies": {
-    "react": "19.2.0",
-    "react-dom": "19.2.0",
-    "next": "16.0.1"
+    "@prisma/client": "^6.11.1",
+    "@tanstack/react-query": "^5.81.5",
+    "@tanstack/react-query-devtools": "^5.81.5",
+    "axios": "^1.10.0",
+    "framer-motion": "^12.19.2",
+    "i18next": "^25.3.2",
+    "i18next-browser-languagedetector": "^8.2.0",
+    "i18next-http-backend": "^3.0.2",
+    "lenis": "^1.3.4",
+    "next": "latest",
+    "next-i18next": "^15.4.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.6.0",
+    "skinview3d": "^3.4.1",
+    "zustand": "^5.0.6"
   },
   "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
-    "eslint": "^9",
-    "eslint-config-next": "16.0.1"
+    "@types/node": "^12.12.21",
+    "@types/react": "^18.3.23",
+    "@types/react-dom": "^18.3.7",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "prisma": "^6.11.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3"
   }
 }
