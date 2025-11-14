@@ -1,7 +1,7 @@
 import { minecraft, roboto, blockletter, aeonik } from "@/config/typography";
 import Head from "next/head";
 import React, { ReactNode } from "react";
-import { Cursor } from "@/shared/components";
+import { Cursor, Particles } from "@/shared/components";
 import { Header } from "@/shared/layouts";
 
 type Props = {
@@ -47,9 +47,11 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
 
         <Cursor />
 
+
         <Header />
 
         <main className={`relative ${aeonik.variable} ${minecraft.variable} ${roboto.variable} ${blockletter.variable} bg-tertiary min-h-svh pt-10`}>
+            <Particles />
             {children}
         </main>
 

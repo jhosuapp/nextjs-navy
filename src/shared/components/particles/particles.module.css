@@ -1,0 +1,3 @@
+.particles{
+    @apply fixed inset-0 overflow-hidden bg-gradient-to-br bg-tertiary;
+}

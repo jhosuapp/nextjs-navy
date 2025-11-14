@@ -7,7 +7,22 @@
 }
 
 .header__nav{
-    @apply flex justify-between items-center w-full;
+    @apply flex justify-between items-center w-full transition-all;
+}
+
+@media(max-width: 1024px){
+    .header {
+        @apply bg-tertiary bg-opacity-40 backdrop-blur-md border-b border-white my-0;
+    }
+    .header__content{
+        @apply border-none justify-between py-2 w-full;
+    }
+    .header__nav{
+        @apply !absolute h-full top-0 left-0 min-h-svh flex-col justify-start bg-tertiary w-full pt-24 opacity-0 pointer-events-none;
+    }
+    .header__navActive{
+        @apply opacity-100 pointer-events-auto;
+    }
 }
 
 /* Logo */
@@ -20,29 +35,132 @@
     @apply absolute w-full block;
 }
 
+.headerLogoText{
+    @apply text-white font-minecraft text-xl mt-2 ml-[5%] z-10 relative;
+}
+
+@media(max-width: 1024px){
+    .headerLogo{
+        @apply max-w-16;
+    }
+}
+
+
 /* Header list */
 
 .headerList{
     @apply flex w-full justify-center;
 }
 
+@media(max-width: 1024px){
+    .headerList{
+        @apply flex-col justify-start items-start pl-[5%];
+    }    
+}
+
+
 /* Header list item */
-.headerListItem{
-    @apply text-white flex-1 text-center py-4 text-base uppercase;
+
+.HeaderListItem{
+    @apply text-white flex justify-center uppercase font-medium text-base relative w-full leading-none py-5;
 }
 
-.headerListItem a{
-    @apply relative;
+.HeaderListItem a{
+    @apply relative flex items-center justify-center w-fit;
 }
 
-.headerListItem a::before{
-    @apply absolute w-[0] h-0.5 bg-white right-0 bottom-0 content-[""] transition-all;
+.HeaderListItem a::before,
+.HeaderListItem a::after{
+    content: "";
+    transition: .5s ease width;
+    @apply absolute w-0 h-1 z-10 right-0 -bottom-2;
 }
 
-.headerListItem a:hover::before{
-    @apply w-full left-0 right-[unset];
+.HeaderListItem a::before{
+    @apply bg-primary;
 }
 
-.headerListItemActive a::before{
-    @apply w-full;
+.HeaderListItem a::after{
+    transition-delay: 0.1s;
+    @apply bg-secondary;
+}
+
+.HeaderListItem p{
+    @apply opacity-100 odd:z-20;
+}
+
+.HeaderListItem a:hover::before,
+.HeaderListItem a:hover::after,
+.HeaderListItemActive a::before{
+    @apply w-full left-0;
+}
+
+.HeaderListItemActive a::before{
+    @apply z-0;
+}
+
+.HeaderListItemActive{
+    @apply pointer-events-none;
+}
+
+@media(max-width: 1024px){
+    .HeaderListItem{
+        @apply text-[35px] justify-start;
+    }    
+}
+
+@media(max-width: 768px){
+    .HeaderListItem{
+        @apply text-[25px];
+    }    
+    .HeaderListItem::before,
+    .HeaderListItem::after{
+        @apply h-[3.5px] z-10 right-0 bottom-[7.5px];
+    }
+}
+
+/* Header hamburger */
+.headerHamburger {
+    transition: .25s ease all;
+    @apply bg-tertiary flex justify-center flex-col items-center min-w-[40px] max-w-[50px] w-[2.5vw] min-h-[40px] max-h-[50px] h-[2.5vw] rounded-full z-10 mr-[5%];
+}
+
+.headerHamburger span{
+    @apply h-[2px] w-full max-w-[25px] bg-red-50 mb-[5px] last:mb-0;
+}
+
+.headerHamburgerActive {
+    @apply rotate-[180deg] bg-white;
+}
+
+.headerHamburgerActive span:nth-child(2){
+    @apply opacity-0;
+}
+
+.headerHamburgerActive span{
+    @apply bg-tertiary;
+}
+
+.headerHamburgerActive span:first-child{
+    transition: .5s ease transform;
+    @apply rotate-45 mb-0 absolute;
+}
+
+.headerHamburgerActive span:last-child{
+    transition: .5s ease transform;
+    @apply rotate-[-45deg] mb-0 absolute;
+}
+
+.header--light .headerHamburger{
+    @apply bg-white;
+}
+
+.header--light .headerHamburger span{
+    @apply bg-tertiary;
+}
+
+/* MENU OPEN */
+
+.headerMenuOpen .HeaderListItem p{
+    @apply opacity-0 animate-textReveal odd:z-20;
 }

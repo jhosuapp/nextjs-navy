@@ -14,11 +14,11 @@ module.exports = {
                 aeonik: "var(--font-aeonik)",
             },
             colors: {
-                primary: '#890202',
+                primary: '#4B0082',
                 secondary: '#4E324C',
                 tertiary: '#1a151a',
                 cuartary: '#F0F1FA',
-                fifth: '#00548c',
+                fifth: '#2E0854',
                 sixth: '#F50F0E',
                 seventh: '#2C1E30',
                 neutral: {
