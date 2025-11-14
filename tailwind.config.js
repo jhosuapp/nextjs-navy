@@ -69,6 +69,9 @@ module.exports = {
                 fadeUp: 'fadeUp 1s ease forwards',
                 textReveal: 'textReveal 1.5s ease 1 forwards'
             },
+            maxWidth: {
+                limit: '1580px'
+            }
         },
     },
     safelist: [

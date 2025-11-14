@@ -1,0 +1,48 @@
+.header{
+    @apply fixed top-0 left-0 w-full z-30 flex items-center justify-center my-10;
+}
+
+.header__content{
+    @apply max-w-limit w-[90%] border-2 border-white border-opacity-50 flex items-center rounded-md relative bg-tertiary bg-opacity-40 backdrop-blur-md;
+}
+
+.header__nav{
+    @apply flex justify-between items-center w-full;
+}
+
+/* Logo */
+
+.headerLogo{
+    @apply relative w-full max-w-32 flex items-center justify-center z-10;
+}
+
+.headerLogo img{
+    @apply absolute w-full block;
+}
+
+/* Header list */
+
+.headerList{
+    @apply flex w-full justify-center;
+}
+
+/* Header list item */
+.headerListItem{
+    @apply text-white flex-1 text-center py-4 text-base uppercase;
+}
+
+.headerListItem a{
+    @apply relative;
+}
+
+.headerListItem a::before{
+    @apply absolute w-[0] h-0.5 bg-white right-0 bottom-0 content-[""] transition-all;
+}
+
+.headerListItem a:hover::before{
+    @apply w-full left-0 right-[unset];
+}
+
+.headerListItemActive a::before{
+    @apply w-full;
+}

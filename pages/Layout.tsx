@@ -2,6 +2,7 @@ import { minecraft, roboto, blockletter, aeonik } from "@/config/typography";
 import Head from "next/head";
 import React, { ReactNode } from "react";
 import { Cursor } from "@/shared/components";
+import { Header } from "@/shared/layouts";
 
 type Props = {
   children?: ReactNode;
@@ -16,14 +17,14 @@ type Props = {
 };
 
 
-const Layout = ({ children, title, description, image = '', url = "https://www.blotcraft.com", isDark, isDarkBg, textPage, linkPage }: Props) => (
+const Layout = ({ children, title, description, image = '', url = "https://www.navy.com", isDark, isDarkBg, textPage, linkPage }: Props) => (
     <>
         <Head>
             <title>{title}</title>
             <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta name="description" content={description} />
-            <meta name="keywords" content="minecraft pvp, servidor minecraft, blotcraft, minecraft en español, kitpvp, practice, combate minecraft" />
+            <meta name="keywords" content="minecraft pvp, servidor minecraft, navy, minecraft en español, kitpvp, practice, combate minecraft" />
             <meta name="author" content="Navy" />
             <link rel="canonical" href={url} />
             
@@ -46,7 +47,9 @@ const Layout = ({ children, title, description, image = '', url = "https://www.b
 
         <Cursor />
 
-        <main className={`relative ${aeonik.variable} ${minecraft.variable} ${roboto.variable} ${blockletter.variable} ${isDarkBg && 'bg-tertiary'}`}>
+        <Header />
+
+        <main className={`relative ${aeonik.variable} ${minecraft.variable} ${roboto.variable} ${blockletter.variable} bg-tertiary min-h-svh pt-10`}>
             {children}
         </main>
 
