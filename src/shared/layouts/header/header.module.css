@@ -36,7 +36,7 @@
 }
 
 .headerLogoText{
-    @apply text-white font-minecraft text-xl mt-2 ml-[5%] z-10 relative;
+    @apply text-white font-minecraft text-3xl mt-2 ml-[5%] z-10 relative;
 }
 
 @media(max-width: 1024px){
@@ -57,7 +57,6 @@
         @apply flex-col justify-start items-start pl-[5%];
     }    
 }
-
 
 /* Header list item */
 
@@ -107,12 +106,13 @@
     .HeaderListItem{
         @apply text-[35px] justify-start;
     }    
+    .HeaderListItem{
+        @apply !text-2xl normal-case py-2;
+    }    
 }
 
 @media(max-width: 768px){
-    .HeaderListItem{
-        @apply text-[25px];
-    }    
+
     .HeaderListItem::before,
     .HeaderListItem::after{
         @apply h-[3.5px] z-10 right-0 bottom-[7.5px];

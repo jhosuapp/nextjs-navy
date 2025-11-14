@@ -1,0 +1,25 @@
+.floatingDots{
+    @apply w-full h-[100vh] fixed overflow-hidden top-0 left-0 pointer-events-none;
+}
+
+.floatingDots span{
+    @apply rounded-full absolute bg-white;
+    animation: animate 5s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        transform: scale(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1) translateX(-4000%) rotate(360deg);
+        opacity: 0;
+    }
+}

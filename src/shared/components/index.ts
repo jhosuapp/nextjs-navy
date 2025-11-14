@@ -5,3 +5,4 @@ export * from './container/Container';
 export * from './loader/LoaderSecondary';
 export * from './skin-3d/Skin3d';
 export * from './particles/Particles';
+export * from './floating-dots/FloatingDots';
