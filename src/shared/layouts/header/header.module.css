@@ -3,7 +3,7 @@
 }
 
 .header__content{
-    @apply max-w-limit w-[90%] border-2 border-white border-opacity-50 flex items-center rounded-md relative bg-tertiary bg-opacity-40 backdrop-blur-md;
+    @apply max-w-limit w-[90%] border-2 border-purple-300 border-opacity-50 flex items-center rounded-md relative bg-tertiary bg-opacity-40 backdrop-blur-md;
 }
 
 .header__nav{
@@ -37,6 +37,7 @@
 
 .headerLogoText{
     @apply text-white font-minecraft text-3xl mt-2 ml-[5%] z-10 relative;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
 @media(max-width: 1024px){

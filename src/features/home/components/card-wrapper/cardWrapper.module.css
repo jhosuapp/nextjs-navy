@@ -1,0 +1,11 @@
+.cardWrapper{
+    @apply border-2 border-purple-300 w-full p-5 rounded-md border-opacity-50 bg-tertiary bg-opacity-10 backdrop-blur-sm;
+}
+
+.cardWrapper__title{
+    @apply flex justify-between pb-2 mb-2 border-b-2 border-b-purple-300 border-opacity-50;
+}
+
+.cardWrapper__title h2{
+    @apply text-white text-lg font-medium uppercase;
+}

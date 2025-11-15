@@ -1,9 +1,13 @@
 .container {
-    @apply w-full relative z-10 px-[5%] py-[80px] overflow-hidden;
+    @apply relative max-w-limit mx-auto w-[90%];
 }
 
-@media(max-width: 768px){
-    .container{
-        @apply py-[50px];
+.containerFirst{
+    @apply pt-24;
+}
+
+@media(max-width: 1024px){
+    .containerFirst{
+        @apply pt-16;
     }
 }

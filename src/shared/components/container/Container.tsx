@@ -7,16 +7,17 @@ type NativeProps = HTMLAttributes<HTMLElement>;
 type CustomProps = { 
     children: ReactNode;
     className?: string;
+    isFirst?: boolean;
 }
 
 type Props = NativeProps & CustomProps & MotionProps;
 
-const Container = ({ children, className, ...PropSection }:Props):JSX.Element => {
+const Container = ({ children, className, isFirst = false, ...PropSection }:Props):JSX.Element => {
     const [isInView, setIsInView] = useState<boolean>(false);
 
     return (
         <motion.section 
-            className={`${styles.container} ${isInView ? `${styles.animateContainer}` : ""} ${className ?? ""}`}
+            className={`${styles.container} ${isInView ? `${styles.animateContainer}` : ""} ${className ?? ""} ${isFirst && styles.containerFirst}`}
             onViewportEnter={() => setIsInView(true)} 
             onViewportLeave={() => setIsInView(false)}
             { ...PropSection } 

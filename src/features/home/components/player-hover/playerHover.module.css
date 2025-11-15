@@ -1,0 +1,18 @@
+/* Top 1 */
+
+.playerHover{
+    @apply flex flex-col justify-center items-center capitalize w-full p-5;
+}
+
+.playerHover__block{
+    @apply flex gap-1 justify-center;
+}
+
+.playerHover__title{
+    @apply text-transparent text-[20px] font-bold inline-block bg-clip-text max-w-[125px] text-ellipsis whitespace-nowrap;
+}
+
+.playerHover__info{
+    @apply w-full;
+}
+
