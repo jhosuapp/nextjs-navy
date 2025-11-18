@@ -3,7 +3,7 @@
 }
 
 .cardWrapper__title{
-    @apply flex justify-between pb-2 mb-2 border-b-2 border-b-purple-300 border-opacity-50;
+    @apply flex justify-between;
 }
 
 .cardWrapper__title h2{

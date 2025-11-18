@@ -5,7 +5,11 @@ import { fadeInMotion, fadeUpMotion } from "@/shared/motion";
 import styles from './playerHover.module.css';
 import { CrownIcon } from "@/config/assets/icon";
 
-const PlayerHover = ():JSX.Element => {
+type Props = {
+    username: string;
+}
+
+const PlayerHover = ({ username }:Props):JSX.Element => {
 
     return (
         <motion.div className={ styles.playerHover } {...fadeUpMotion(0.66, 0.13)}>
@@ -31,13 +35,13 @@ const PlayerHover = ():JSX.Element => {
                         repeatType: "reverse"
                     }}
                 >
-                    1. Jhosuapp
+                    { username }
                 </motion.span>
             </motion.div>
             <motion.div {...fadeInMotion(0.1, 0.1)}>
                 <Skin3d 
                     walk
-                    username={ 'YunaEz' }
+                    username={ username }
                     autoRotate={ false }
                 />
             </motion.div>

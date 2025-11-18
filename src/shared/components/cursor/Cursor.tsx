@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 
 import styles from './cursor.module.css';
-import pick from '@/config/assets/png/icon-pick.png';
+import pick from '@/config/assets/png/sword.webp';
 import { useCursorStore } from "@/shared/stores";
 
 const Cursor = ():JSX.Element => {

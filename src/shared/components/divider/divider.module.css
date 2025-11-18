@@ -1,0 +1,3 @@
+.divider{
+    @apply pb-2 mb-2 border-b-2 border-b-purple-300 border-opacity-50 w-full;
+}

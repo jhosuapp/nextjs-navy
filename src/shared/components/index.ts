@@ -6,3 +6,5 @@ export * from './loader/LoaderSecondary';
 export * from './skin-3d/Skin3d';
 export * from './particles/Particles';
 export * from './floating-dots/FloatingDots';
+export * from './divider/Divider';
+export * from './chip-regions/ChipRegions';

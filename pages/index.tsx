@@ -13,7 +13,6 @@ const HomePage = () => {
         >
             <PageTransition>
                 <HomeView />
-                <Link href={'/staff'}>Staff</Link>
             </PageTransition>
         </Layout>
     )

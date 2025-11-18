@@ -1,0 +1,25 @@
+.chipRegions{
+    @apply w-9 h-9 rounded-full flex items-center justify-center;
+}
+
+.chipRegions span{
+    @apply text-white text-sm font-medium;
+}
+
+/* Variants */
+
+.chipRegionsgreen{
+    @apply from-green-600 via-green-800 to-white bg-gradient-to-tr;
+}
+
+.chipRegionspurple{
+    @apply from-purple-600 via-purple-800 to-white bg-gradient-to-tr;
+}
+
+.chipRegionsorange{
+    @apply from-orange-600 via-orange-800 to-white bg-gradient-to-tr;
+}
+
+.chipRegionsblue{
+    @apply from-blue-600 via-blue-800 to-white bg-gradient-to-tr;
+}
