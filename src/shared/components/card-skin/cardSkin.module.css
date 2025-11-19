@@ -1,0 +1,3 @@
+.cardSkin__skin{
+    @apply relative w-14 overflow-hidden h-12 bg-black flex justify-center rounded-md shadow-md shadow-white;
+}

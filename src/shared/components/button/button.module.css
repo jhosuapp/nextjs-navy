@@ -1,5 +1,5 @@
 .button{
-    @apply w-fit h-[2.5vw] min-h-[40px] max-h-[50px] min-w-[150px] flex justify-center items-center gap-[15px] relative overflow-hidden; 
+    @apply w-fit h-[2.5vw] px-5 min-h-[40px] max-h-[50px] min-w-[150px] flex justify-center items-center gap-[15px] relative overflow-hidden; 
 }
 
 .button__icon{
@@ -71,7 +71,7 @@ button:hover .button__iconSecondary{
 /* secondary */
 .button--secondary{
     transition: .5s ease background-color;
-    @apply bg-secondary rounded-full;
+    @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 rounded-md;
 }
 
 .button--secondary:hover{

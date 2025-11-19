@@ -6,8 +6,8 @@ import { fadeUpMotion } from "@/shared/motion";
 import { Divider } from "@/shared/components";
 
 type Props = {
-    title: string;
-    icon: string;
+    title?: string;
+    icon?: string;
     children: React.ReactNode;
     animation?: { 
         delayInit: number;

@@ -1,0 +1,23 @@
+.comunity__cta{
+    @apply flex flex-col gap-5 mb-5 justify-center items-center;
+}
+
+.comunity__title{
+    @apply text-lg uppercase text-white font-medium text-center w-full block;
+}
+
+.comunity__title__secondary{
+    @apply text-left;
+}
+
+.comunity__item{
+    @apply flex justify-between items-center px-5;
+}
+
+.comunity__item p{
+    @apply text-white text-lg first:text-opacity-70 flex items-center gap-2;
+}
+
+.comunity__item p span{
+    @apply w-3 h-3 bg-green-600 rounded-full;
+}
