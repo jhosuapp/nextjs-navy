@@ -1,3 +1,7 @@
+.cardSkin{
+    @apply flex flex-col items-center justify-center gap-3;
+}
+
 .cardSkin__skin{
     @apply relative w-14 overflow-hidden h-12 bg-black flex justify-center rounded-md shadow-md shadow-white;
 }

@@ -36,13 +36,54 @@ const Comunity = ():JSX.Element => {
                 <Divider />
                 <h3 className={ `${styles.comunity__title} ${styles.comunity__title__secondary}` }>Testers activos</h3>
                 <Divider />
-                <div>
-                    <CardSkin username={ 'yunaez' } width={ 50 } height={ 150 } />
+                <div className={ styles.comunity__tests__flex }>
+                    {dummyData.map((data:any)=>(
+                        <CardSkin username={ data.username } width={ 50 } height={ 150 } modalitie={ data.modalitie } variant={ data.variant } modalitieImage={ data.modalitieImage } />
+                    ))}
                 </div>
             </div>
 
         </CardWrapper>
     )
 }
+
+export const dummyData = [
+    {
+        username: 'makima',
+        modalitie: 'Sword',
+        variant: 'blue',
+        modalitieImage: 'sword.webp'
+    },
+    {
+        username: 'reze',
+        modalitie: 'Netherite poth',
+        variant: 'purple',
+        modalitieImage: 'netherite.webp'
+    },
+    {
+        username: 'yunaez',
+        modalitie: 'Sword',
+        variant: 'blue',
+        modalitieImage: 'sword.webp'
+    },
+    {
+        username: 'naruto',
+        modalitie: 'Netherite poth',
+        variant: 'purple',
+        modalitieImage: 'netherite.webp'
+    },
+    {
+        username: 'sasuke',
+        modalitie: 'Sword',
+        variant: 'blue',
+        modalitieImage: 'sword.webp'
+    },
+    {
+        username: 'MyTentation',
+        modalitie: 'Crystal',
+        variant: 'pink',
+        modalitieImage: 'crystal.webp'
+    },
+] as any;
 
 export { Comunity }

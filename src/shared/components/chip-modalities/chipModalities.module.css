@@ -1,0 +1,7 @@
+.chipModalities__image{
+    @apply w-10 max-w-10 block;
+}
+
+.chipModalities__image{
+    @apply w-full block;
+}

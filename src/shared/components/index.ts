@@ -9,3 +9,4 @@ export * from './floating-dots/FloatingDots';
 export * from './divider/Divider';
 export * from './chip-regions/ChipRegions';
 export * from './card-skin/CardSkin';
+export * from './chip-modalities/ChipModalities';
