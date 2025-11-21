@@ -1,35 +1,24 @@
-import { ChipRegions, Container } from "@/shared/components";
-import { CardWrapper, Comunity, PlayerHover } from "../components";
-import icon from '@/config/assets/svg/icon-angles-up-solid-full.svg';
-import iconSecondary from '@/config/assets/svg/icon-angle-up-solid-full.svg';
+import { Container } from "@/shared/components";
+import { Comunity, PlayerHover, Results, TotalTests } from "../components";
+import { useSkinStore } from "@/shared/stores";
+
+import styles from './home.module.css';
 
 const HomeView = ():JSX.Element => {
+    const skin = useSkinStore( state => state.skin);
+
     return (
         <Container className="!mt-10" isFirst>
-            <div className="flex flex-col lg:flex-row gap-10 justify-center items-center lg:items-start">
-                <div className="flex-1 w-full flex flex-col gap-5">
-                    <CardWrapper 
-                        title="HIGH RESULTS" 
-                        icon={ icon }
-                        animation={{ delayInit: 0.65, delayEnd: 0.13 }}
-                    >
-                        <ChipRegions variant="green" continent="EU" />
-                        <ChipRegions variant="purple" continent="AS" />
-                    </CardWrapper>
-                    <CardWrapper 
-                        title="LOW RESULTS" 
-                        icon={ iconSecondary } 
-                        animation={{ delayInit: 0.67, delayEnd: 0.13 }}
-                    >
-                        <ChipRegions variant="orange" continent="SA" />
-                        <ChipRegions variant="blue" continent="NA" />
-                    </CardWrapper>
+            <div className={ styles.homeView__content }>
+                <div className={ styles.homeView__block }>
+                    <Results />
                 </div>
                 <div className="w-fit px-10 min-w-96">
-                    <PlayerHover username="Yunaez" />
+                    <PlayerHover username={ skin } />
                 </div>
-                <div className="flex-1 w-full">
+                <div className={ styles.homeView__block }>
                     <Comunity />
+                    <TotalTests />
                 </div>
             </div>
         </Container>

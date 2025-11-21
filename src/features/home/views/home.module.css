@@ -1,0 +1,7 @@
+.homeView__block {
+    @apply flex-1 w-full flex flex-col gap-5;
+}
+
+.homeView__content{
+    @apply flex flex-col lg:flex-row gap-10 justify-center items-center lg:items-start;
+}
