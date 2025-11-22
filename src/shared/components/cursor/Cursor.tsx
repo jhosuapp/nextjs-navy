@@ -1,61 +1,51 @@
-import { useEffect, useState } from "react";
-import Image from "next/image";
+import { useEffect } from "react";
 import { motion, useSpring, useMotionValue } from 'framer-motion';
-
 import styles from './cursor.module.css';
-import pick from '@/config/assets/png/sword.webp';
 import { useCursorStore } from "@/shared/stores";
 
-const Cursor = ():JSX.Element => {
-    const coords = useCursorStore( state => state.coords );
-    const setCoords = useCursorStore( state => state.setCoords );
+const Cursor = (): JSX.Element => {
+    const coords = useCursorStore(state => state.coords);
+    const setCoords = useCursorStore(state => state.setCoords);
     const initCoords = coords.clientX === 0 && coords.clientY === 0;
-    //Get body
-    const body = document.body;
-    //Handler when mouse move
-    const handleMousemove = (e:MouseEvent)=>{
-        const { clientX, clientY } = e;
-        setCoords({clientX, clientY });
-    }
-    //Mount and unmount listener
-    useEffect(()=>{
-        body?.addEventListener('mousemove', handleMousemove);
-        //Unmount
-        return ()=> {
-            body?.removeEventListener('mousemove', handleMousemove);
-        }
-    }, []);
-    // Use motion value and spring to animate the cursor position
+
     const motionX = useMotionValue(coords.clientX);
     const motionY = useMotionValue(coords.clientY);
-    // Use spring to animate the cursor position
-    const springX = useSpring(motionX, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001,
-    });
-    const springY = useSpring(motionY, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001,
-    });
-    // Update motion values when coords change
+
+    const springConfig = { stiffness: 100, damping: 40, mass: 1.5 };
+    const springX = useSpring(motionX, springConfig);
+    const springY = useSpring(motionY, springConfig);
+
+    useEffect(() => {
+        const handleMousemove = (e: MouseEvent) => {
+            setCoords({ clientX: e.clientX, clientY: e.clientY });
+        };
+        document.body.addEventListener('mousemove', handleMousemove);
+        return () => document.body.removeEventListener('mousemove', handleMousemove);
+    }, [setCoords]);
+
     useEffect(() => {
         motionX.set(coords.clientX);
         motionY.set(coords.clientY);
-    }, [coords.clientX, coords.clientY]);
+    }, [coords.clientX, coords.clientY, motionX, motionY]);
 
     return (
-        <motion.div 
-            className={ `${styles.cursor} ${initCoords && 'opacity-0'}` }
-            style={{ 
-                left: springX, 
+        <motion.div
+            className={`${styles.cursor} ${initCoords ? 'opacity-0' : ''}`}
+            style={{
+                left: springX,
                 top: springY,
-            }} 
+                x: '-50%',
+                y: '-50%',
+            }}
         >
-            <Image src={ pick } alt="espada navy"></Image>
+            {/* Glow exterior */}
+            <div className={styles.glowOuter} />
+            {/* Glow medio */}
+            <div className={styles.glowMid} />
+            {/* Núcleo brillante */}
+            <div className={styles.glowCore} />
         </motion.div>
-    )
-}
+    );
+};
 
-export { Cursor }
+export { Cursor };

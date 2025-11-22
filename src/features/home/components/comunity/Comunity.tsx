@@ -3,6 +3,7 @@ import { CardWrapper } from "../card-wrapper/CardWrapper";
 
 import icon from '@/config/assets/svg/icon-discord.svg';
 import styles from './comunity.module.css';
+import { Title } from "../title/Title";
 
 const Comunity = ():JSX.Element => {
     return (
@@ -10,7 +11,7 @@ const Comunity = ():JSX.Element => {
 
             {/* Comunity discord */}
             <div className={ styles.comunity__cta }>
-                <h3 className={ styles.comunity__title }>¿Quieres ser testeado?</h3>
+                <Title text='¿Quieres ser testeado?' className={ styles.comunity__title } />
                 <Button 
                     icon={ icon }
                     text="Unirse a Discord" style={'secondary'} 
@@ -20,7 +21,7 @@ const Comunity = ():JSX.Element => {
             {/* Comunity members */}
             <div className={ styles.comunity__content }>
                 <Divider />
-                <h3 className={ `${styles.comunity__title} ${styles.comunity__title__secondary}` }>Comunidad</h3>
+                <Title text='Comunidad' />
                 <Divider />
                 <div className={ styles.comunity__item }>
                     <p>Miembros totales</p>
@@ -34,7 +35,7 @@ const Comunity = ():JSX.Element => {
 
             <div className={ styles.comunity__tests }>
                 <Divider />
-                <h3 className={ `${styles.comunity__title} ${styles.comunity__title__secondary}` }>Testers activos</h3>
+                <Title text='Testers activos' />
                 <Divider />
                 <div className={ styles.comunity__tests__flex }>
                     {dummyData.map((data:any)=>(

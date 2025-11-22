@@ -1,3 +1,51 @@
-.cursor{
-    @apply fixed w-[48px] h-[48px] z-[99] pointer-events-none;
+.cursor {
+    @apply fixed z-10 pointer-events-none;
+    width: 700px;
+    height: 700px;
+}
+
+.glowOuter {
+    @apply absolute inset-0;
+    background: radial-gradient(
+        ellipse 60% 50% at center,
+        rgba(147, 51, 234, 0.25) 0%,
+        rgba(139, 92, 246, 0.15) 15%,
+        rgba(124, 58, 237, 0.08) 30%,
+        rgba(109, 40, 217, 0.04) 45%,
+        rgba(91, 33, 182, 0.02) 60%,
+        transparent 75%
+    );
+    filter: blur(120px);
+}
+
+.glowMid {
+    @apply absolute;
+    top: 20%;
+    left: 15%;
+    width: 70%;
+    height: 60%;
+    background: radial-gradient(
+        ellipse 70% 55% at center,
+        rgba(167, 139, 250, 0.2) 0%,
+        rgba(147, 51, 234, 0.1) 25%,
+        rgba(139, 92, 246, 0.05) 50%,
+        transparent 75%
+    );
+    filter: blur(90px);
+}
+
+.glowCore {
+    @apply absolute;
+    top: 35%;
+    left: 30%;
+    width: 40%;
+    height: 30%;
+    background: radial-gradient(
+        ellipse 80% 60% at center,
+        rgba(221, 214, 254, 0.25) 0%,
+        rgba(196, 181, 253, 0.12) 30%,
+        rgba(167, 139, 250, 0.05) 60%,
+        transparent 85%
+    );
+    filter: blur(60px);
 }

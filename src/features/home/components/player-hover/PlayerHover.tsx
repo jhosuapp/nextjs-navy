@@ -13,7 +13,7 @@ const PlayerHover = ({ username }:Props):JSX.Element => {
 
     return (
         <AnimatePresence mode="wait">
-            <motion.div className={ styles.playerHover } {...fadeInMotion(0.66, 0.13)} key={ username }>
+            <motion.div className={ styles.playerHover } {...fadeInMotion(0, 0)} key={ username }>
                 <motion.div 
                     className={ styles.playerHover__block }
                     {...fadeInMotion(0,0)}
@@ -39,13 +39,13 @@ const PlayerHover = ({ username }:Props):JSX.Element => {
                         { username }
                     </motion.span>
                 </motion.div>
-                <motion.div {...fadeInMotion(0.1, 0.1)}>
+                <div>
                     <Skin3d 
                         walk
                         username={ username }
                         autoRotate={ false }
                     />
-                </motion.div>
+                </div>
             </motion.div>
         </AnimatePresence>
     )

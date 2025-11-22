@@ -3,11 +3,7 @@
 }
 
 .comunity__title{
-    @apply text-lg uppercase text-white font-medium text-center w-full block;
-}
-
-.comunity__title__secondary{
-    @apply text-left;
+    @apply !text-center;
 }
 
 .comunity__item{

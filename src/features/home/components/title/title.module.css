@@ -1,0 +1,3 @@
+.title{
+    @apply text-lg uppercase text-white font-medium text-left w-full block;
+}

@@ -1,3 +1,7 @@
+.curve{
+    @apply relative z-30 pointer-events-none;
+}
+
 .curve .curve__svg svg, .curve .curve__bg{
     height: calc(100vh + 600px);
     @apply fixed pointer-events-none left-0 top-0 z-[101] w-lvw;

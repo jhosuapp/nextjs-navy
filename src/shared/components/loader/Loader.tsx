@@ -15,9 +15,13 @@ const Loader = ():JSX.Element => {
             <article className={styles.loader__content}>
                 <div className={styles.loader__text}>
                     <p style={{ animationDelay: '0.1s' }} className={`text-primary ${styles.navy}`}>N</p>
-                    <p style={{ animationDelay: '0.125s' }} className={`text-primary ${styles.navy}`}>A</p>
-                    <p style={{ animationDelay: '0.275s' }} className={`text-fifth ${styles.craft}`}>V</p>
-                    <p style={{ animationDelay: '0.3s' }} className={`text-fifth ${styles.craft}`}>Y</p>
+                    <p style={{ animationDelay: '0.125s' }} className={`text-fifth ${styles.craft}`}>A</p>
+                    <p style={{ animationDelay: '0.150s' }} className={`text-primary ${styles.navy}`}>V</p>
+                    <p style={{ animationDelay: '0.175s' }} className={`text-fifth ${styles.craft}`}>Y</p>
+                    <p style={{ animationDelay: '0.175s' }} className={`text-fifth ${styles.craft}`}>&nbsp;</p>
+                    <p style={{ animationDelay: '0.2s' }} className={`text-primary ${styles.navy}`}>P</p>
+                    <p style={{ animationDelay: '0.225s' }} className={`text-fifth ${styles.craft}`}>V</p>
+                    <p style={{ animationDelay: '0.250s' }} className={`text-primary ${styles.navy}`}>P</p>
                 </div>
             </article>
         </section>

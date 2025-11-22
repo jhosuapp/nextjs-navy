@@ -1,6 +1,6 @@
 .loader{
     z-index: 100;
-    @apply fixed left-0 top-0 flex items-center justify-center w-full h-[100svh];  
+    @apply fixed left-0 top-0 flex items-center justify-center w-full h-[100svh] animate-fadeIn;  
 }
 
 .loader__bg{
