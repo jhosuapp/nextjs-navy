@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 import styles from './cursor.module.css';
 import { useCursorStore } from "@/shared/stores";
+import { useMediaQuery } from "@/shared/hooks";
 
 const Cursor = (): JSX.Element => {
+    const isDesktop = useMediaQuery({});
     const coords = useCursorStore(state => state.coords);
     const setCoords = useCursorStore(state => state.setCoords);
     const initCoords = coords.clientX === 0 && coords.clientY === 0;
-
     const motionX = useMotionValue(coords.clientX);
     const motionY = useMotionValue(coords.clientY);
 
@@ -27,6 +28,13 @@ const Cursor = (): JSX.Element => {
         motionX.set(coords.clientX);
         motionY.set(coords.clientY);
     }, [coords.clientX, coords.clientY, motionX, motionY]);
+
+    if(!isDesktop){
+        return (
+            <>
+            </>
+        )
+    }
 
     return (
         <motion.div

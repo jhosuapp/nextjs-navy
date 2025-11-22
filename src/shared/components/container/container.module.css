@@ -6,8 +6,15 @@
     @apply pt-24;
 }
 
+.containerLast{
+    @apply pb-24;
+}
+
 @media(max-width: 1024px){
     .containerFirst{
         @apply pt-16;
+    }
+    .containerLast{
+        @apply pb-16;
     }
 }

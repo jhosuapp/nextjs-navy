@@ -7,7 +7,8 @@
 }
 
 .header__nav{
-    @apply flex justify-between items-center w-full transition-all;
+    transition: 0.5s ease all;
+    @apply flex justify-between items-center w-full;
 }
 
 @media(max-width: 1024px){

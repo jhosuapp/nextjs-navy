@@ -45,14 +45,16 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
             <meta name="theme-color" content="#1e1e1e" />
         </Head>
 
-
-
-        <Header />
         
         <main className={`relative ${aeonik.variable} ${minecraft.variable} ${roboto.variable} ${blockletter.variable} bg-tertiary min-h-svh pt-10`}>
-            <Cursor />
             <FloatingDots />
-            {children}
+            <div className="relative z-10">
+                <Cursor />
+                <div className="relative z-20">
+                    <Header />
+                    {children}
+                </div>
+            </div>
         </main>
 
     </>

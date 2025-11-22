@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html 
         lang={locale} 
-        className={`${minecraft.variable} ${roboto.variable} ${blockletter.variable} ${aeonik.variable}`}
+        className={`${minecraft.variable} ${roboto.variable} ${blockletter.variable} ${aeonik.variable} bg-tertiary`}
       >
         <Head />
         <body>

@@ -1,5 +1,5 @@
 .curve{
-    @apply relative z-30 pointer-events-none;
+    @apply relative;
 }
 
 .curve .curve__svg svg, .curve .curve__bg{

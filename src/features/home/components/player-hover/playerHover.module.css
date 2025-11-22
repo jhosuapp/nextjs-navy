@@ -1,5 +1,3 @@
-/* Top 1 */
-
 .playerHover{
     @apply flex flex-col justify-center items-center capitalize w-full p-5;
 }
@@ -8,11 +6,15 @@
     @apply flex gap-1 justify-center;
 }
 
-.playerHover__title{
+.playerHover__player{
     @apply text-transparent text-[20px] font-bold inline-block bg-clip-text max-w-[125px] text-ellipsis whitespace-nowrap;
 }
 
 .playerHover__info{
     @apply w-full;
+}
+
+.playerHover__title{
+    @apply  text-2xl lg:text-4xl bg-clip-text text-transparent font-medium bg-gradient-to-r from-purple-500 to-white uppercase font-minecraft mb-10 lg:mb-20 text-center;
 }
 

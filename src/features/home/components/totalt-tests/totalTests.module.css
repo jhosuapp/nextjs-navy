@@ -1,0 +1,45 @@
+.totalTests__hero{
+    @apply flex items-end;
+}
+
+.totalTests__hero img{
+    filter: invert(1) brightness(10000%);
+    @apply w-7 block;
+}
+
+.totalTests__items{
+    @apply flex flex-col gap-2 mt-5;
+}
+
+/* Item */
+.totalTestsItem{
+    @apply flex items-center justify-between;
+}
+
+.totalTestsItem__modalitie {
+    @apply text-base uppercase bg-clip-text text-transparent font-medium;
+}
+
+.totalTestsItem__block{
+    @apply flex items-center gap-2;
+}
+
+.totalTestsItem__block p{
+    @apply text-white font-medium text-lg uppercase;
+}
+
+.totalTestsItem__block img{
+    @apply !w-7;
+}
+
+.pink{
+    @apply bg-gradient-to-r from-pink-500 to-white;
+}
+
+.purple {
+    @apply bg-gradient-to-r from-purple-500 to-white;
+}
+
+.blue {
+    @apply bg-gradient-to-r from-blue-500 to-white;
+}

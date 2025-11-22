@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Skin3d } from "@/shared/components";
-import { fadeInMotion, fadeUpMotion } from "@/shared/motion";
+import { fadeInMotion } from "@/shared/motion";
 
 import styles from './playerHover.module.css';
 import { CrownIcon } from "@/config/assets/icon";
@@ -13,14 +13,25 @@ const PlayerHover = ({ username }:Props):JSX.Element => {
 
     return (
         <AnimatePresence mode="wait">
-            <motion.div className={ styles.playerHover } {...fadeInMotion(0, 0)} key={ username }>
+            <motion.div className={ styles.playerHover } key={ username }>
+                <div className={ styles.playerHover__title }>
+                    <p>Navy</p>
+                    <p>Tierlist 1.9+</p>
+                </div>
+                <motion.div {...fadeInMotion(0,0)}>
+                    <Skin3d 
+                        walk
+                        username={ username }
+                        autoRotate={ false }
+                    />
+                </motion.div>
                 <motion.div 
                     className={ styles.playerHover__block }
                     {...fadeInMotion(0,0)}
                 >
                     <CrownIcon />
                     <motion.span
-                        className={ styles.playerHover__title }
+                        className={ styles.playerHover__player }
                         animate={{
                             backgroundImage: [
                             "linear-gradient(45deg, #ff8a00, #e52e71)",
@@ -39,13 +50,6 @@ const PlayerHover = ({ username }:Props):JSX.Element => {
                         { username }
                     </motion.span>
                 </motion.div>
-                <div>
-                    <Skin3d 
-                        walk
-                        username={ username }
-                        autoRotate={ false }
-                    />
-                </div>
             </motion.div>
         </AnimatePresence>
     )

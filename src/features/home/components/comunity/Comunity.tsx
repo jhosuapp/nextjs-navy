@@ -7,7 +7,7 @@ import { Title } from "../title/Title";
 
 const Comunity = ():JSX.Element => {
     return (
-        <CardWrapper>
+        <CardWrapper animation={{ delayInit: 0.65, delayEnd: 0.13 }}>
 
             {/* Comunity discord */}
             <div className={ styles.comunity__cta }>
