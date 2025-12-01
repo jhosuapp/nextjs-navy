@@ -9,13 +9,14 @@ type Props = {
     title?: string;
     icon?: string;
     children: React.ReactNode;
+    className?: string;
     animation?: { 
         delayInit: number;
         delayEnd: number;
      }
 }
 
-const CardWrapper = ({ title, icon, animation = { delayInit: 0.7, delayEnd: 0.13 }, children }:Props):JSX.Element => {
+const CardWrapper = ({ title, icon, className = '', animation = { delayInit: 0.7, delayEnd: 0.13 }, children }:Props):JSX.Element => {
     return (
         <motion.section className={ styles.cardWrapper } {...fadeUpMotion(animation.delayInit, animation.delayEnd)} >
             {title && (
@@ -27,7 +28,7 @@ const CardWrapper = ({ title, icon, animation = { delayInit: 0.7, delayEnd: 0.13
                     <Divider></Divider>
                 </>
             )}
-            <article className={ styles.cardWrapper__content }>
+            <article className={ `${styles.cardWrapper__content} ${className}` }>
                 { children }
             </article>
         </motion.section>

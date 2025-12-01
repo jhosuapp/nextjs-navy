@@ -38,8 +38,8 @@ const Comunity = ():JSX.Element => {
                 <Title text='Testers activos' />
                 <Divider />
                 <div className={ styles.comunity__tests__flex }>
-                    {dummyData.map((data:any)=>(
-                        <CardSkin username={ data.username } width={ 50 } height={ 150 } modalitie={ data.modalitie } variant={ data.variant } modalitieImage={ data.modalitieImage } />
+                    {dummyData.map((data:any, index)=>(
+                        <CardSkin username={ data.username } width={ 50 } height={ 150 } modalitie={ data.modalitie } variant={ data.variant } modalitieImage={ data.modalitieImage } key={`${data.username}-${index}-${data.modalitie}`} />
                     ))}
                 </div>
             </div>

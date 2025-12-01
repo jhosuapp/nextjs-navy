@@ -2,14 +2,14 @@ import { Continents, RegionsVariants } from "@/shared/interfaces";
 
 import styles from './chipRegions.module.css';
 
-type Props = {
-    variant: RegionsVariants;
-    continent: Continents;
+export type PropsChipRegions = {
+    variantRegions?: RegionsVariants;
+    continent?: Continents;
 }
 
-const ChipRegions = ({ variant, continent }:Props):JSX.Element => {
+const ChipRegions = ({ variantRegions, continent }:PropsChipRegions):JSX.Element => {
     return (
-        <div className={ `${styles.chipRegions} ${styles[`chipRegions${variant}`]}` }>
+        <div className={ `${styles.chipRegions} ${styles[`chipRegions${variantRegions}`]}` }>
             <span>
                 { continent }
             </span>

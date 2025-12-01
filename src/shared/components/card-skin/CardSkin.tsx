@@ -1,5 +1,5 @@
 import { useSkinStore } from '@/shared/stores';
-import { ChipModalities, PropsChipModalities } from '../chip-modalities/ChipModalities';
+import { ChipModalities, PropsChipModalities, ChipRegions, PropsChipRegions } from '../';
 import { Skin3d } from '../skin-3d/Skin3d';
 
 import styles from './cardSkin.module.css';
@@ -9,9 +9,25 @@ type Props = {
     width: number;
     height: number;
     className?: string;
-} & PropsChipModalities;
+    showUsername?: boolean; 
+    showRegions?: boolean; 
+    direction?: 'row' | null;
+} & PropsChipModalities & PropsChipRegions;
 
-const CardSkin = ({ username, width, height, className = '', modalitie, variant, modalitieImage }:Props):JSX.Element => {
+const CardSkin = ({ 
+    username, 
+    width, 
+    height, 
+    className = '', 
+    modalitie, 
+    variant, 
+    modalitieImage,
+    variantRegions,
+    continent,
+    showUsername = false,
+    showRegions = false,
+    direction = null,
+}:Props):JSX.Element => {
     const setSkin = useSkinStore(state => state.setSkin);
     const skin = useSkinStore(state => state.skin);
 
@@ -20,7 +36,7 @@ const CardSkin = ({ username, width, height, className = '', modalitie, variant,
     };
 
     return (
-        <div className={ `${styles.cardSkin} ${className}` } onMouseEnter={ handleMouseEnter }>
+        <div className={ `${styles.cardSkin} ${className} ${direction && styles.cardSkin__row}` } onMouseEnter={ handleMouseEnter }>
             <div className={ styles.cardSkin__skin }>
                 <Skin3d 
                     username={ username } 
@@ -29,6 +45,12 @@ const CardSkin = ({ username, width, height, className = '', modalitie, variant,
                     height={ height }
                 />
             </div>
+            {showRegions && (
+                <ChipRegions variantRegions={ variantRegions } continent={ continent } />
+            )}
+            { showUsername && (
+                <p className={ styles.cardSkin__username }>{ username }</p>
+            )}
             <ChipModalities modalitie={ modalitie } variant={ variant } modalitieImage={ modalitieImage } />
         </div>
     )
