@@ -1,10 +1,8 @@
 import { minecraft, roboto, blockletter, aeonik } from "@/config/typography";
 import Head from "next/head";
 import React, { ReactNode } from "react";
-import { Cursor, FloatingDots, Particles } from "@/shared/components";
+import { Cursor, FloatingDots } from "@/shared/components";
 import { Header } from "@/shared/layouts";
-import { motion } from 'framer-motion';
-import { fadeInMotion } from "@/shared/motion";
 
 type Props = {
   children?: ReactNode;
@@ -48,11 +46,11 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
         </Head>
 
         
-        <main className={`relative ${aeonik.variable} ${minecraft.variable} ${roboto.variable} ${blockletter.variable} bg-tertiary min-h-svh pt-10`}>
+        <main className={`relative ${aeonik.variable} ${minecraft.variable} ${roboto.variable} ${blockletter.variable} bg-tertiary min-h-svh pt-10 w-full block`}>
             <FloatingDots />
-            <div className="relative z-10">
+            <div className="relative z-10 w-full block">
                 <Cursor />
-                <div className="relative z-20">
+                <div className="relative z-20 w-full block">
                     <Header />
                     {children}
                 </div>
