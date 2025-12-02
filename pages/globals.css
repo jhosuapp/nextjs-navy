@@ -30,6 +30,10 @@ body::-webkit-scrollbar-thumb {
     @apply bg-tertiary border-tertiary;
 }
 
+.homeView__content{
+    @apply flex flex-col lg:flex-row gap-10 justify-center items-center lg:items-start w-full;
+}
+
 @keyframes text-reveal {
     from{
         opacity: .5;

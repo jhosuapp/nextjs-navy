@@ -11,7 +11,7 @@ const HomeView = ():JSX.Element => {
 
     return (
         <Container className="!mt-10" isFirst isLast>
-            <motion.div className={ styles.homeView__content } {...fadeUpMotion(0,0)}>
+            <motion.div className={ 'homeView__content' } {...fadeUpMotion(0,0)}>
                 <div className={ styles.homeView__block }>
                     <Results />
                 </div>
