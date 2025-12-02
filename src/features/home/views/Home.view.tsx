@@ -10,20 +10,18 @@ const HomeView = ():JSX.Element => {
     const skin = useSkinStore( state => state.skin);
 
     return (
-        <Container className="!mt-10" isFirst isLast>
-            <motion.div className={ styles.homeView__content } {...fadeUpMotion(0,0)}>
-                <div className={ styles.homeView__block }>
-                    <Results />
-                </div>
-                <div className={ styles.homeView__block }>
-                    <PlayerHover username={ skin } />
-                </div>
-                <div className={ styles.homeView__block }>
-                    <Comunity />
-                    <TotalTests />
-                </div>
+        <motion.div className={ styles.homeView__content } {...fadeUpMotion(0,0)}>
+            <div className={ styles.homeView__block }>
+                <Results />
+            </div>
+            <motion.div className="w-fit px-10 min-w-96" {...fadeUpMotion(0.7, 0.13)}>
+                <PlayerHover username={ skin } />
             </motion.div>
-        </Container>
+            <div className={ styles.homeView__block }>
+                <Comunity />
+                <TotalTests />
+            </div>
+        </motion.div>
     )
 }
 
