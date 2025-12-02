@@ -1,6 +1,5 @@
 import { useSkinStore } from '@/shared/stores';
 import { ChipModalities, PropsChipModalities, ChipRegions, PropsChipRegions } from '../';
-import { Skin3d } from '../skin-3d/Skin3d';
 
 import styles from './cardSkin.module.css';
 
@@ -38,12 +37,13 @@ const CardSkin = ({
     return (
         <div className={ `${styles.cardSkin} ${className} ${direction && styles.cardSkin__row}` } onMouseEnter={ handleMouseEnter }>
             <div className={ styles.cardSkin__skin }>
-                <Skin3d 
+                {/* <Skin3d 
                     username={ username } 
                     walk={ false } 
                     width={ width }
                     height={ height }
-                />
+                /> */}
+                <img src={ `https://minotar.net/body/${username}` } alt={ username } width={ width } height={ height } />
             </div>
             {showRegions && (
                 <ChipRegions variantRegions={ variantRegions } continent={ continent } />

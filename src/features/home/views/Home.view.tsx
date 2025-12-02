@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 
 import styles from './home.module.css';
 import { fadeUpMotion } from "@/shared/motion";
-import Link from "next/link";
 
 const HomeView = ():JSX.Element => {
     const skin = useSkinStore( state => state.skin);

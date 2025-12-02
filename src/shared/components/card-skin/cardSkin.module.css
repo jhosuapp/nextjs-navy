@@ -6,6 +6,10 @@
     @apply relative w-14 overflow-hidden h-12 bg-black flex justify-center rounded-md shadow-md shadow-white;
 }
 
+.cardSkin__skin img{
+    @apply max-w-16 min-w-16 object-cover block object-top;
+}
+
 .cardSkin__username{
     @apply text-lg text-white;
 }
