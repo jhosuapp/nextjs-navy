@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 
 import styles from './home.module.css';
 import { fadeUpMotion } from "@/shared/motion";
+import Link from "next/link";
 
 const HomeView = ():JSX.Element => {
     const skin = useSkinStore( state => state.skin);
@@ -22,6 +23,7 @@ const HomeView = ():JSX.Element => {
                     <Comunity />
                     <TotalTests />
                 </div>
+                <Link href={ '/staff' } className="text-3xl">Test</Link>
             </div>
         </Container>
     )
