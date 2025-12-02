@@ -12,7 +12,7 @@ const HomeView = ():JSX.Element => {
 
     return (
         <Container className="!mt-10" isFirst isLast>
-            <div className={ styles.homeView__content }>
+            <motion.div className={ styles.homeView__content } {...fadeUpMotion(0,0)}>
                 <div className={ styles.homeView__block }>
                     <Results />
                 </div>
@@ -23,8 +23,7 @@ const HomeView = ():JSX.Element => {
                     <Comunity />
                     <TotalTests />
                 </div>
-                <Link href={ '/staff' } className="text-3xl">Test</Link>
-            </div>
+            </motion.div>
         </Container>
     )
 }

@@ -3,6 +3,8 @@ import Head from "next/head";
 import React, { ReactNode } from "react";
 import { Cursor, FloatingDots, Particles } from "@/shared/components";
 import { Header } from "@/shared/layouts";
+import { motion } from 'framer-motion';
+import { fadeInMotion } from "@/shared/motion";
 
 type Props = {
   children?: ReactNode;
@@ -46,8 +48,15 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
         </Head>
 
         
-        <main className={`relative ${aeonik.variable} ${minecraft.variable} ${roboto.variable} ${blockletter.variable} ${isDarkBg && 'bg-tertiary'}`}>
-            {children}
+        <main className={`relative ${aeonik.variable} ${minecraft.variable} ${roboto.variable} ${blockletter.variable} bg-tertiary min-h-svh pt-10`}>
+            <FloatingDots />
+            <div className="relative z-10">
+                <Cursor />
+                <div className="relative z-20">
+                    <Header />
+                    {children}
+                </div>
+            </div>
         </main>
 
     </>
