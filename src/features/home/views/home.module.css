@@ -5,3 +5,7 @@
 .homeView__content{
     @apply flex flex-col lg:flex-row gap-10 justify-center items-center lg:items-start w-full;
 }
+
+.homeView__player{
+    @apply w-fit px-10 min-w-96;
+}
