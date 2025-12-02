@@ -16,7 +16,7 @@ const HomeView = ():JSX.Element => {
                     <Results />
                 </div>
                 <motion.div className={ styles.homeView__player } {...fadeUpMotion(0.7, 0.13)}>
-                    {/* <PlayerHover username={ skin } /> */}
+                    <PlayerHover username={ skin } />
                 </motion.div>
                 <div className={ styles.homeView__block }>
                     <Comunity />
