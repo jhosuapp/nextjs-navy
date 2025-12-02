@@ -15,9 +15,9 @@ const HomeView = ():JSX.Element => {
                 <div className={ styles.homeView__block }>
                     <Results />
                 </div>
-                <motion.div className="w-fit px-10 min-w-96" {...fadeUpMotion(0.7, 0.13)}>
+                <div className={ styles.homeView__block }>
                     <PlayerHover username={ skin } />
-                </motion.div>
+                </div>
                 <div className={ styles.homeView__block }>
                     <Comunity />
                     <TotalTests />
