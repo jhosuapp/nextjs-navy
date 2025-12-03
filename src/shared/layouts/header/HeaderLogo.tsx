@@ -29,10 +29,10 @@ const HeaderLogoText = ():JSX.Element => {
 
     return (
         <Link href={ paths.home } onClick={ onClickHamburger } className={ styles.headerLogoText }>
-            <span className="text-primary">N</span>
-            <span className="text-primary">A</span>
-            <span className="text-primary">V</span>
-            <span className="text-primary">Y</span>
+            <span className="text-purple-300 text-opacity-50">N</span>
+            <span className="text-purple-300 text-opacity-50">A</span>
+            <span className="text-purple-300 text-opacity-50">V</span>
+            <span className="text-purple-300 text-opacity-50">Y</span>
         </Link>
     )
 }

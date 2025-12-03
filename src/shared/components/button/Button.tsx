@@ -1,7 +1,9 @@
-import styles from './button.module.css';
-import iconDefault from '@/config/assets/svg/icon-arrow.svg';
 import Image from 'next/image';
 import { ButtonHTMLAttributes } from 'react';
+import { motion, MotionProps } from 'framer-motion';
+
+import iconDefault from '@/config/assets/svg/icon-arrow.svg';
+import styles from './button.module.css';
 
 type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -12,14 +14,16 @@ type CustomProps = {
     className?: string;
     icon?: string;
     iconRight?: string;
-}
+} & MotionProps;
 
 type Props = CustomProps & NativeProps;
 
 const Button = ({ text, style, isLight, className, icon, iconRight, ...props }:Props):JSX.Element => {
     return (
-        <button 
+        <motion.button 
             className={ `${styles.button} ${styles[`button--${style}`]} ${className ?? ''}` }
+            whileTap={{ scale: 0.95 }} 
+            whileHover={{ scale: 1.05 }}
             {...props}
         >
             <Image 
@@ -37,7 +41,7 @@ const Button = ({ text, style, isLight, className, icon, iconRight, ...props }:P
             ) : (
                 <b></b>
             )}
-        </button>
+        </motion.button>
     )
 }
 

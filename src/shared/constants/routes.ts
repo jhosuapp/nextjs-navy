@@ -1,8 +1,7 @@
-import { m } from "framer-motion"
-
 export const routes = {
-    "/": "Navy",
-    "/staff": "Staff"
+    "/": "Inicio",
+    "/staff": "Staff",
+    "/tierlist": "Tierlist"
 }
 
 export const paths = {

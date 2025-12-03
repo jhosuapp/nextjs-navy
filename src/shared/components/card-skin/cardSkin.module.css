@@ -3,15 +3,19 @@
 }
 
 .cardSkin__skin{
-    @apply relative w-14 overflow-hidden h-12 bg-black flex justify-center rounded-md shadow-md shadow-white;
+    @apply relative w-12 max-w-12 overflow-hidden h-10 bg-black flex justify-center rounded-md shadow-md shadow-white;
 }
 
 .cardSkin__skin img{
-    @apply max-w-16 min-w-16 object-cover block object-top;
+    @apply max-w-10 min-w-10 object-cover block object-top;
 }
 
 .cardSkin__username{
-    @apply text-lg text-white;
+    @apply text-lg text-white !w-fit max-w-fit;
+}
+
+.cardSkin__block{
+    @apply flex items-center gap-2;
 }
 
 /* Row direct */

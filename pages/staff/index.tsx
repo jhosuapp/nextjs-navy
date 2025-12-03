@@ -1,7 +1,6 @@
 import { CardWrapper } from "@/features/home/components";
 import { Container } from "@/shared/components";
 import { PageTransition } from "@/shared/layouts";
-import Link from "next/link";
 import Layout from "pages/Layout";
 
 const StaffPage = () => {

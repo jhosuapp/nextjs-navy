@@ -3,14 +3,13 @@ import { Comunity, PlayerHover, Results, TotalTests } from "../components";
 import { useSkinStore } from "@/shared/stores";
 import { motion } from 'framer-motion';
 
-import styles from './home.module.css';
 import { fadeUpMotion } from "@/shared/motion";
 
 const HomeView = ():JSX.Element => {
     const skin = useSkinStore( state => state.skin);
 
     return (
-        <Container className="!mt-10" isFirst isLast>
+        <Container className="!mt-5 lg:!mt-10" isFirst isLast>
             <motion.div className={ 'homeView__content' } {...fadeUpMotion(0,0)}>
                 <div className={ 'homeView__block' }>
                     <Results />

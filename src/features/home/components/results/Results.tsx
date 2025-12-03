@@ -12,7 +12,7 @@ const Results = ():JSX.Element => {
                 title="HIGH RESULTS" 
                 icon={ icon }
                 animation={{ delayInit: 0.65, delayEnd: 0.13 }}
-                className="flex flex-col gap-5"
+                className="flex flex-col gap-4"
             >
                 <Chip text="Última publicaciones" />
                 {dummyDataTwo.map((data:any, index)=>(
@@ -36,9 +36,10 @@ const Results = ():JSX.Element => {
                 title="LOW RESULTS" 
                 icon={ iconSecondary } 
                 animation={{ delayInit: 0.67, delayEnd: 0.13 }}
+                className="flex flex-col gap-4"
             >
                 <Chip text="Última publicaciones" />
-                {/* {dummyData.map((data:any, index)=>(
+                {dummyDataTwo.map((data:any, index)=>(
                     <CardSkin 
                         username={ data.username } 
                         width={ 50 } 
@@ -53,7 +54,7 @@ const Results = ():JSX.Element => {
                         showRegions
                         key={`${data.username}-${index}-${data.continent}`}
                     />
-                ))} */}
+                ))}
             </CardWrapper>
         </>
     )
@@ -91,14 +92,6 @@ export const dummyDataTwo = [
         modalitieImage: 'netherite.webp',
         continent: 'AS',
         variantRegions: 'purple'
-    },
-    {
-        username: 'itachi',
-        modalitie: 'Sword',
-        variant: 'blue',
-        modalitieImage: 'sword.webp',
-        continent: 'EU',
-        variantRegions: 'green'
     },
 ] as any;
 

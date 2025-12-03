@@ -10,6 +10,7 @@ type Props = {
     className?: string;
     showUsername?: boolean; 
     showRegions?: boolean; 
+    showModalities?: boolean;
     direction?: 'row' | null;
 } & PropsChipModalities & PropsChipRegions;
 
@@ -25,6 +26,7 @@ const CardSkin = ({
     continent,
     showUsername = false,
     showRegions = false,
+    showModalities = true,
     direction = null,
 }:Props):JSX.Element => {
     const setSkin = useSkinStore(state => state.setSkin);
@@ -36,22 +38,20 @@ const CardSkin = ({
 
     return (
         <div className={ `${styles.cardSkin} ${className} ${direction && styles.cardSkin__row}` } onMouseEnter={ handleMouseEnter }>
-            <div className={ styles.cardSkin__skin }>
-                {/* <Skin3d 
-                    username={ username } 
-                    walk={ false } 
-                    width={ width }
-                    height={ height }
-                /> */}
-                <img src={ `https://minotar.net/body/${username}` } alt={ username } width={ width } height={ height } />
+            <div className={ styles.cardSkin__block }>
+                <div className={ styles.cardSkin__skin }>
+                    <img src={ `https://minotar.net/body/${username}` } alt={ username } width={ width } height={ height } />
+                </div>
+                {showUsername && (
+                    <p className={ styles.cardSkin__username }>{ username }</p>
+                )}
             </div>
             {showRegions && (
                 <ChipRegions variantRegions={ variantRegions } continent={ continent } />
             )}
-            { showUsername && (
-                <p className={ styles.cardSkin__username }>{ username }</p>
+            {showModalities && (
+                <ChipModalities modalitie={ modalitie } variant={ variant } modalitieImage={ modalitieImage } />
             )}
-            <ChipModalities modalitie={ modalitie } variant={ variant } modalitieImage={ modalitieImage } />
         </div>
     )
 }

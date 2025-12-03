@@ -13,7 +13,7 @@
 
 @media(max-width: 1024px){
     .header {
-        @apply bg-tertiary bg-opacity-40 backdrop-blur-md border-b border-white my-0;
+        @apply bg-tertiary bg-opacity-40 backdrop-blur-md border-b-2 border-purple-300 border-opacity-50 my-0;
     }
     .header__content{
         @apply border-none justify-between py-2 w-full;
@@ -38,7 +38,6 @@
 
 .headerLogoText{
     @apply text-white font-minecraft text-3xl mt-2 ml-[5%] z-10 relative;
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
 }
 
 @media(max-width: 1024px){
@@ -128,7 +127,7 @@
 }
 
 .headerHamburger span{
-    @apply h-[2px] w-full max-w-[25px] bg-red-50 mb-[5px] last:mb-0;
+    @apply h-[2px] w-full max-w-[25px] bg-purple-300 bg-opacity-50 mb-[5px] last:mb-0;
 }
 
 .headerHamburgerActive {

@@ -1,0 +1,15 @@
+.swiperWrapper__navigation{
+    @apply flex items-center justify-between py-2 lg:py-3 px-3 lg:px-5 mt-5 mb-5 gap-5 bg-tertiary bg-opacity-10 backdrop-blur-sm border-2 border-purple-300 border-opacity-50 rounded-md;
+}
+
+.swiperWrapper__navigation div{
+    @apply flex items-center gap-3 lg:gap-5;
+}
+
+.swiperWrapper__navigation p{
+    @apply text-purple-300 text-opacity-50 font-medium;
+}
+
+.swiperWrapper__navigation_btn{
+    @apply !relative text-purple-300 text-opacity-50 border-2 border-purple-300 border-opacity-50 rounded-md min-w-9 min-h-9 flex items-center justify-center cursor-pointer;
+}
