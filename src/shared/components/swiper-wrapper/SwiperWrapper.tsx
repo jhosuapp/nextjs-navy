@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 import styles from './swiperWrapper.module.css';
-import { fadeUpMotion } from '@/shared/motion';
+import { fadeInMotion } from '@/shared/motion';
 
 type Props = {
     children: ReactNode;
@@ -43,7 +43,7 @@ const SwiperWrapper = ({ children }:Props):JSX.Element => {
             >
                 { children }
             </Swiper>
-            <motion.div className={ styles.swiperWrapper__navigation } {...fadeUpMotion(0.7, 0.13)}>
+            <motion.div className={ styles.swiperWrapper__navigation } {...fadeInMotion(0.6, 0)}>
                 <p>En total hay 300 usuarios</p>
                 <div>
                     <motion.button

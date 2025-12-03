@@ -1,5 +1,5 @@
 .button{
-    @apply w-fit h-[2.5vw] px-5 min-h-[40px] max-h-[50px] min-w-[150px] flex justify-center items-center gap-[15px] relative overflow-hidden; 
+    @apply w-fit px-5 min-h-[45px] max-h-[50px] min-w-[150px] flex justify-center items-center gap-[15px] relative overflow-hidden; 
 }
 
 .button__icon{

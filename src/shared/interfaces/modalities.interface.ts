@@ -1,6 +1,6 @@
 export type ModalitiesVariants = 'purple' | 'pink' | 'blue';
-export type ModalitieImage = 'sword.webp' | 'netherite.webp' | 'crystal.webp';
-export type Modalitie = 'Netherite pot' | 'Crystal' | 'Sword';
+export type ModalitieImage = 'sword.webp' | 'netherite.webp' | 'crystal.webp' | 'award.svg';
+export type Modalitie = 'Netherite pot' | 'Crystal' | 'Sword' | 'Overall';
 
 export type ModalitieItem = {
     variant: ModalitiesVariants;
