@@ -1,6 +1,5 @@
 import { HomeView } from "@/features";
 import { PageTransition } from "@/shared/layouts";
-import Link from "next/link";
 import Layout from "./Layout";
 
 const HomePage = () => {
@@ -9,7 +8,7 @@ const HomePage = () => {
             title={'Navy'}
             description={'Navy'}
             textPage={''}
-            linkPage={'/ffa-diamond'}
+            linkPage={'/'}
         >
             <PageTransition>
                 <HomeView />

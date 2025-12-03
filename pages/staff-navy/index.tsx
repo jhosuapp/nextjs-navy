@@ -7,10 +7,10 @@ const StaffPage = () => {
 
     return (
         <Layout 
-            title={'hola'}
-            description={'hola'}
-            textPage={'hola'}
-            linkPage={'/ffa-diamond'}
+            title={'Staff | Navy'}
+            description={'Staff navy'}
+            textPage={'Staff navy'}
+            linkPage={'/staff'}
         >
             <PageTransition>
                 <Container className="!mt-10" isFirst>

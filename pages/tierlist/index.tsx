@@ -8,8 +8,8 @@ const TierlistPage = () => {
         <Layout 
             title={'Tierlist | Navy'}
             description={'Tierlist Navy'}
-            textPage={'hola'}
-            linkPage={'/ffa-diamond'}
+            textPage={'Tierlist'}
+            linkPage={'/tierlist'}
         >
             <PageTransition>
                 <TierlistView />

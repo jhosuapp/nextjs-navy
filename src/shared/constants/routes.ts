@@ -1,12 +1,12 @@
 export const routes = {
     "/": "Inicio",
-    "/staff": "Staff",
+    "/staff-navy": "Staff",
     "/tierlist": "Tierlist"
 }
 
 export const paths = {
     home: '/',
-    staff: '/staff',
+    staff: '/staff-navy',
     tierlist: '/tierlist',
     bans: '/bans',
     partners: '/partners'
