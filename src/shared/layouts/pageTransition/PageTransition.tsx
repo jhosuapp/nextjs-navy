@@ -1,11 +1,12 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 import { anim, text, } from './pageTransition.motion';
 import { routes } from '@/shared/constants';
 import { SVG } from './PageTransitionSVG';
-import { useLoaderStore } from '@/shared/stores';
+import { useLoaderStore, useModalStore } from '@/shared/stores';
+import { ModalUser } from '@/shared/components';
 
 import styles from './pageTransition.module.css';
 
@@ -16,6 +17,7 @@ type Props = {
 const PageTransition = ({ children }:Props):JSX.Element => {
     const router = useRouter();
     const isLoadingDelay = useLoaderStore( state => state.isLoadingDelay );
+    const showModal = useModalStore( state => state.showModal );
     const [dimensions, setDimensions] = useState({
         width: null,
         height: null
@@ -39,6 +41,9 @@ const PageTransition = ({ children }:Props):JSX.Element => {
         <div 
             className={ styles.curve }
         >
+            <AnimatePresence mode="wait">
+                {showModal && <ModalUser />}
+            </AnimatePresence>
             <div style={{opacity: dimensions.width == null ? 1 : 0}} className={ styles.curve__bg } />
             {isLoadingDelay ? (
                 <motion.p 

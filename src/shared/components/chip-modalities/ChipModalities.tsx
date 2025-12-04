@@ -1,4 +1,4 @@
-import { Modalitie, ModalitieImage, ModalitiesVariants } from "@/shared/interfaces";
+import { Modalitie, ModalitieImage, ModalitiesVariants, Tiers } from "@/shared/interfaces";
 import { useModalitieStore } from "@/shared/stores";
 import { motion } from 'framer-motion';
 
@@ -10,9 +10,10 @@ export type PropsChipModalities = {
     modalitieImage: ModalitieImage;
     isButton?: boolean;
     showModalitie?: boolean;
+    tier?: Tiers;
 }
 
-const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, showModalitie = false }:PropsChipModalities):JSX.Element => {
+const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, showModalitie = false, tier = null }:PropsChipModalities):JSX.Element => {
     const setCurrentModalitie = useModalitieStore( state => state.setCurrentModalitie );
 
     const handleClickModalitie = () => {
@@ -21,7 +22,7 @@ const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, 
 
     return (
         <motion.div 
-            className={ `${styles.chipModalities} ${styles[`chipModalities${variant}`]} ${isButton && styles.chipModalitiesButton} ${showModalitie && styles.chipModalitiesDesc}` }
+            className={ `${styles.chipModalities} ${styles[`chipModalities${variant}`]} ${isButton && styles.chipModalitiesButton} ${showModalitie && styles.chipModalitiesDesc} ${tier && styles.chipModalitiesTier} ${showModalitie && tier && styles.chipModalites__enable}` }
             onClick={ ()=> isButton && handleClickModalitie() }
             whileTap={{ scale: 0.95 }} 
             whileHover={{ scale: 1.05 }}
@@ -29,9 +30,14 @@ const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, 
             <div className={ styles.chipModalities__image }>
                 <img src={`/images/${modalitieImage}`} alt="icono navy" />
             </div>
-            {showModalitie && (
-                <p>{ modalitie }</p>
-            )}
+            <div>
+                {showModalitie && (
+                    <p>{ modalitie }</p>
+                )}
+                {tier && (
+                    <span>{ tier }</span>
+                )}
+            </div>
         </motion.div>
     )
 }

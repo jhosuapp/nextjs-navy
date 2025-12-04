@@ -1,4 +1,4 @@
-import { useSkinStore } from '@/shared/stores';
+import { useModalStore, useSkinStore } from '@/shared/stores';
 import { ChipModalities, PropsChipModalities, ChipRegions, PropsChipRegions } from '../';
 
 import styles from './cardSkin.module.css';
@@ -24,20 +24,27 @@ const CardSkin = ({
     modalitieImage,
     variantRegions,
     continent,
+    tier,
     showUsername = false,
     showRegions = false,
     showModalities = true,
+    showModalitie = false,
     direction = null,
 }:Props):JSX.Element => {
     const setSkin = useSkinStore(state => state.setSkin);
     const skin = useSkinStore(state => state.skin);
+    const setShowModal = useModalStore(state => state.setShowModal);
 
     const handleMouseEnter = () => {
         if(skin !== username) setSkin(username);
     };
 
+    const hanldeOnClick = () => {
+        setShowModal(true);
+    };
+
     return (
-        <div className={ `${styles.cardSkin} ${className} ${direction && styles.cardSkin__row}` } onMouseEnter={ handleMouseEnter }>
+        <div className={ `${styles.cardSkin} ${className} ${direction && styles.cardSkin__row}` } onMouseEnter={ handleMouseEnter } onClick={ hanldeOnClick }>
             <div className={ styles.cardSkin__block }>
                 <div className={ styles.cardSkin__skin }>
                     <img src={ `https://minotar.net/body/${username}` } alt={ username } width={ width } height={ height } />
@@ -50,7 +57,7 @@ const CardSkin = ({
                 <ChipRegions variantRegions={ variantRegions } continent={ continent } />
             )}
             {showModalities && (
-                <ChipModalities modalitie={ modalitie } variant={ variant } modalitieImage={ modalitieImage } />
+                <ChipModalities modalitie={ modalitie } variant={ variant } modalitieImage={ modalitieImage } tier={ tier } showModalitie={ showModalitie } />
             )}
         </div>
     )

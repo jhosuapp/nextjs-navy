@@ -11,3 +11,5 @@ export * from './chip-regions/ChipRegions';
 export * from './card-skin/CardSkin';
 export * from './chip-modalities/ChipModalities';
 export * from './swiper-wrapper/SwiperWrapper';
+export * from './modal-wrapper/ModalWrapper';
+export * from './modal-user/ModalUser';

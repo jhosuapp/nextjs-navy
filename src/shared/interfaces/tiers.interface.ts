@@ -1,0 +1,1 @@
+export type Tiers = 'lt1' | 'ht1' | 'lt2' | 'ht2' | 'lt3' | 'ht3' | 'lt4' | 'ht4' | 'lt5' | 'ht5' | null

@@ -1,11 +1,10 @@
 // next.config.js
 /** @type {import('next').NextConfig} */
 module.exports = {
-    reactStrictMode: false, // Temporalmente false para debugging
+    reactStrictMode: false,
     
     webpack: (config, { isServer }) => {
       if (!isServer) {
-        // Fuerza TODOS los CSS al bundle principal
         config.optimization.splitChunks = {
           ...config.optimization.splitChunks,
           cacheGroups: {

@@ -28,6 +28,8 @@ const Results = ():JSX.Element => {
                         direction='row'
                         showUsername
                         showRegions
+                        showModalitie
+                        tier={ data.tier }
                         key={`${data.username}-${index}`}
                     />
                 ))}
@@ -52,6 +54,8 @@ const Results = ():JSX.Element => {
                         direction='row'
                         showUsername
                         showRegions
+                        showModalitie
+                        tier={ data.tier }
                         key={`${data.username}-${index}-${data.continent}`}
                     />
                 ))}
@@ -67,7 +71,8 @@ export const dummyDataTwo = [
         variant: 'blue',
         modalitieImage: 'sword.webp',
         continent: 'EU',
-        variantRegions: 'green'
+        variantRegions: 'green',
+        tier: 'lt1',
     },
     {
         username: 'ichigo',
@@ -75,7 +80,8 @@ export const dummyDataTwo = [
         variant: 'purple',
         modalitieImage: 'netherite.webp',
         continent: 'SA',
-        variantRegions: 'orange'
+        variantRegions: 'orange',
+        tier: 'lt1',
     },
     {
         username: 'kaneki',
@@ -83,7 +89,8 @@ export const dummyDataTwo = [
         variant: 'blue',
         modalitieImage: 'sword.webp',
         continent: 'NA',
-        variantRegions: 'blue'
+        variantRegions: 'blue',
+        tier: 'lt1',
     },
     {
         username: 'kakashi',
@@ -91,7 +98,8 @@ export const dummyDataTwo = [
         variant: 'purple',
         modalitieImage: 'netherite.webp',
         continent: 'AS',
-        variantRegions: 'purple'
+        variantRegions: 'purple',
+        tier: 'lt1',
     },
 ] as any;
 

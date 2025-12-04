@@ -1,0 +1,60 @@
+/* Tab modal */
+
+.modalUser__card{
+    @apply flex gap-[100px];
+}
+
+.modalUser__medal{
+    @apply w-[20px];
+}
+
+.modalUser__crown{
+    @apply w-[30px] absolute top-0;
+}
+
+.modalUser__3d{
+    @apply relative pt-[20px] flex flex-col justify-center items-center w-[50%];
+}
+
+.modalUser__name{
+    @apply absolute flex items-center gap-[5px] bg-seventh border-2 border-purple-300 border-opacity-50 bottom-[20px] px-[10px] py-[5px] text-white rounded-[5px] overflow-hidden;
+}
+
+.modalUser__info{
+    @apply w-[50%];
+}
+
+.modalUser__info::before{
+    @apply absolute w-[50%] h-full right-0 top-0 bg-[#1E1825] content-[""] z-[-1];
+}
+
+.modalUser__info__stats{
+    @apply text-white font-medium text-lg uppercase text-left mb-2;
+}
+
+.modalUser__info p{
+    @apply text-white bg-seventh border-2 border-purple-300 border-opacity-50 mb-[10px] flex justify-between px-[10px] py-[5px] rounded-[5px] relative overflow-hidden;
+}
+
+.modalUser__info p img{
+    @apply max-w-[20px] w-full absolute top-[-3px] opacity-40;
+}
+
+.modalUser__tier{
+    @apply flex gap-2;
+}
+
+@media (max-width: 568px){
+    .modalUser__card{
+        @apply flex-col items-center gap-[20px];
+    }
+    .modalUser__info{
+        @apply w-full;
+    }
+    .modalUser__info::before{
+        @apply h-[200px] w-full bg-seventh;
+    }
+    .modalUser__info__stats{
+        @apply hidden;
+    }
+}

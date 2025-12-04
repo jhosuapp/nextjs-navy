@@ -45,7 +45,7 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
             <meta name="theme-color" content="#1e1e1e" />
         </Head>
 
-        
+
         <main className={`relative ${aeonik.variable} ${minecraft.variable} ${roboto.variable} ${blockletter.variable} bg-tertiary min-h-svh pt-10 w-full block`}>
             <FloatingDots />
             <div className="relative z-10 w-full block">

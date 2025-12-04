@@ -1,5 +1,5 @@
 .cardWrapper{
-    @apply border-2 border-purple-300 w-full p-5 rounded-md border-opacity-50 bg-tertiary bg-opacity-10 backdrop-blur-sm;
+    @apply border-2 border-purple-300 w-full p-5 rounded-md border-opacity-50 bg-tertiary bg-opacity-10 backdrop-blur-sm relative overflow-hidden;
 }
 
 .cardWrapper__title{
