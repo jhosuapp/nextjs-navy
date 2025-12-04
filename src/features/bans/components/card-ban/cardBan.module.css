@@ -1,7 +1,3 @@
-.cardBan{
-    @apply !bg-seventh;
-}
-
 .cardBan__content{
     @apply mt-10;
 }
