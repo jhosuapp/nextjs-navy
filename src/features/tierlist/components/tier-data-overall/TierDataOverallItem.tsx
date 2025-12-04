@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChipModalities, ChipRegions, PropsChipRegions } from "@/shared/components";
+import { CardBody, ChipModalities, ChipRegions, PropsChipRegions } from "@/shared/components";
 import { Tiers } from "@/shared/interfaces";
 import { useModalStore, useSkinStore } from "@/shared/stores";
 
@@ -44,15 +44,9 @@ const TierDataOverallItem = ({
             <div className={ styles.tierDataOverallItem__position }>
                 <p>{ position }</p>
             </div>
-            <div className={ styles.tierDataOverallItem__skin }>
-                <div className={ styles.tierDataOverallItem__skin__item }>
-                    <img src={ `https://minotar.net/body/${username}` } alt={ username } />
-                </div>
-                <div>
-                    <p>{ username }</p>
-                    <p>Combat ace 130 points</p>
-                </div>
-            </div>
+            <CardBody username={ username }>
+                <p>Combat ace 130 points</p>
+            </CardBody>
             <div className={ styles.tierDataOverallItem__region }>
                 <ChipRegions variantRegions={ variantRegions }  continent={ continent } />
             </div>

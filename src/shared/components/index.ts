@@ -13,3 +13,4 @@ export * from './chip-modalities/ChipModalities';
 export * from './swiper-wrapper/SwiperWrapper';
 export * from './modal-wrapper/ModalWrapper';
 export * from './modal-user/ModalUser';
+export * from './card-body/CardBody';

@@ -1,0 +1,23 @@
+import { ReactNode } from 'react';
+import styles from './cardBody.module.css';
+
+type Props = {
+    username: string;
+    children?: ReactNode;
+}
+
+const CardBody = ({ username, children }:Props):JSX.Element => {
+    return (
+        <div className={ styles.tierDataOverallItem__skin }>
+            <div className={ styles.tierDataOverallItem__skin__item }>
+                <img src={ `https://minotar.net/body/${username}` } alt={ username } />
+            </div>
+            <div>
+                <p>{ username }</p>
+                { children }
+            </div>
+        </div>
+    )
+}
+
+export { CardBody }
