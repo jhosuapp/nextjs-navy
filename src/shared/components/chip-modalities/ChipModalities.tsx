@@ -15,6 +15,7 @@ export type PropsChipModalities = {
 
 const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, showModalitie = false, tier = null }:PropsChipModalities):JSX.Element => {
     const setCurrentModalitie = useModalitieStore( state => state.setCurrentModalitie );
+    const currentModalitie = useModalitieStore( state => state.currentModalitie );
 
     const handleClickModalitie = () => {
         setCurrentModalitie(modalitie)
@@ -22,7 +23,15 @@ const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, 
 
     return (
         <motion.div 
-            className={ `${styles.chipModalities} ${styles[`chipModalities${variant}`]} ${isButton && styles.chipModalitiesButton} ${showModalitie && styles.chipModalitiesDesc} ${tier && styles.chipModalitiesTier} ${showModalitie && tier && styles.chipModalites__enable}` }
+            className={ `
+                ${styles.chipModalities} 
+                ${styles[`chipModalities${variant}`]} 
+                ${isButton && styles.chipModalitiesButton} 
+                ${showModalitie && styles.chipModalitiesDesc} 
+                ${tier && styles.chipModalitiesTier} 
+                ${showModalitie && tier && styles.chipModalites__enable}
+                ${currentModalitie === modalitie && isButton && styles.chipModalitiesActive}` 
+            }
             onClick={ ()=> isButton && handleClickModalitie() }
             whileTap={{ scale: 0.95 }} 
             whileHover={{ scale: 1.05 }}

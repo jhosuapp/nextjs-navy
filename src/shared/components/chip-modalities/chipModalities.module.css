@@ -44,3 +44,11 @@
 .chipModalites__enable .chipModalities__image{
     @apply relative -left-2.5;
 }
+
+.chipModalitiesActive{
+    @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500;
+}
+
+.chipModalitiesActive p{
+    @apply text-white;
+}

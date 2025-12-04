@@ -1,27 +1,27 @@
-.card{
+.cardBan{
     @apply !bg-seventh;
 }
 
-.card__content{
+.cardBan__content{
     @apply mt-10;
 }
 
-.card__item{
+.cardBan__item{
     @apply flex justify-between mb-3 pb-3 border-b border-purple-300 border-opacity-50 last:border-0;
 }
 
-.card__item p{
+.cardBan__item p{
     @apply  text-white text-sm first:font-medium;
 }
 
-.card__status{
+.cardBan__status{
     @apply text-sm py-0.5 px-3 text-white rounded-full block mt-1 w-fit mx-auto md:mx-0;
 }
 
-.card__status__active{
+.cardBan__status__active{
     @apply bg-gradient-to-r from-red-900 via-red-700 to-red-500;
 }
 
-.card__status__inactive{
+.cardBan__status__inactive{
     @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 opacity-25;
 }

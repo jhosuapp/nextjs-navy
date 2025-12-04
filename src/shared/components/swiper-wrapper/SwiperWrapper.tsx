@@ -19,7 +19,7 @@ const SwiperWrapper = ({ children }:Props):JSX.Element => {
     return (
         <>
             <Swiper
-                spaceBetween={20}
+                spaceBetween={30}
                 slidesPerView={1.2}
                 pagination={{ clickable: true }}
                 modules={[Navigation]}

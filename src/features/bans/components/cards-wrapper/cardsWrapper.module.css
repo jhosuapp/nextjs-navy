@@ -3,7 +3,7 @@
 }
 
 .cardsWrapper__content {
-    @apply grid gap-10;
+    @apply grid gap-5 lg:gap-10;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 

@@ -1,4 +1,4 @@
-import { Button, ChipModalities } from "@/shared/components";
+import { Button, ChipModalities, InputField } from "@/shared/components";
 
 import styles from './navBar.module.css';
 
@@ -32,9 +32,14 @@ const NavBar = ():JSX.Element => {
                     isButton
                 />
             </div>
-            <Button 
-                text="Información" style={'secondary'} 
-            />
+            <div className={ styles.navBar__search }>
+                <Button 
+                    text="Información" style={'secondary'} 
+                />
+                <InputField  
+                    placeholder="Buscar"
+                />
+            </div>
         </article>
     )
 }

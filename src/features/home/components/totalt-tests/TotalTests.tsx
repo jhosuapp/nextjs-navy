@@ -1,5 +1,4 @@
-import { Divider } from '@/shared/components';
-import { CardWrapper } from '../card-wrapper/CardWrapper';
+import { CardWrapper, Divider } from '@/shared/components';
 import { Title } from '../title/Title';
 
 import styles from './totalTests.module.css';

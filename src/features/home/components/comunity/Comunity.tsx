@@ -1,9 +1,8 @@
-import { Button, CardSkin, Divider } from "@/shared/components";
-import { CardWrapper } from "../card-wrapper/CardWrapper";
+import { Button, CardSkin, CardWrapper, Divider } from "@/shared/components";
+import { Title } from "../title/Title";
 
 import icon from '@/config/assets/svg/icon-discord.svg';
 import styles from './comunity.module.css';
-import { Title } from "../title/Title";
 
 const Comunity = ():JSX.Element => {
     return (

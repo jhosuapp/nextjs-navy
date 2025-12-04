@@ -10,3 +10,29 @@
 .navBar__btn{
     @apply w-full;
 }
+
+.navBar__search{
+    @apply flex gap-4;
+}
+
+@media(max-width: 1024px){
+    .navBar__search {
+        @apply justify-between w-full;
+    }
+    .navBar__search input,
+    .navBar__search button,
+    .navBar__search div{
+        @apply max-w-40 w-full;
+    }
+}
+
+@media(max-width: 576px){
+    .navBar__search {
+        @apply flex-col;
+    }
+    .navBar__search input,
+    .navBar__search button,
+    .navBar__search div{
+        @apply max-w-full;
+    }
+}

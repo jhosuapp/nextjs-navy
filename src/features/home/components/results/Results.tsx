@@ -1,5 +1,4 @@
-import { CardSkin } from "@/shared/components";
-import { CardWrapper } from "../card-wrapper/CardWrapper";
+import { CardSkin, CardWrapper } from "@/shared/components";
 
 import iconSecondary from '@/config/assets/svg/icon-angle-up-solid-full.svg';
 import icon from '@/config/assets/svg/icon-angles-up-solid-full.svg';
@@ -8,7 +7,7 @@ import { Chip } from "../chip/Chip";
 const Results = ():JSX.Element => {
     return (
         <>
-            <CardWrapper 
+            <CardWrapper
                 title="HIGH RESULTS" 
                 icon={ icon }
                 animation={{ delayInit: 0.65, delayEnd: 0.13 }}
