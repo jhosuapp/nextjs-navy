@@ -1,10 +1,10 @@
-import { Container } from "@/shared/components"
-import { CardBan, CardsWrapper } from "../components"
+import { Container, CardWrappersecondary } from "@/shared/components"
+import { CardBan  } from "../components"
 
 const BansView = ():JSX.Element => {
     return (
         <Container className="!mt-5 lg:!mt-10" isFirst>
-            <CardsWrapper title={ `Castigos activos (${4})` }>
+            <CardWrappersecondary title={ `Castigos activos (${4})` } text={`${3} Usuarios`}>
                 <CardBan 
                     username="danjoh_0409"
                 />
@@ -17,12 +17,8 @@ const BansView = ():JSX.Element => {
                 <CardBan 
                     username="danjoh_0409"
                 />
-            </CardsWrapper>
-            <CardsWrapper title={ `Castigos inactivos (${4})` }>
-                <CardBan 
-                    username="danjoh_0409"
-                    variantStatus="inactive"
-                />
+            </CardWrappersecondary>
+            <CardWrappersecondary title={ `Castigos inactivos (${4})` } text={`${3} Usuarios`}>
                 <CardBan 
                     username="danjoh_0409"
                     variantStatus="inactive"
@@ -35,7 +31,11 @@ const BansView = ():JSX.Element => {
                     username="danjoh_0409"
                     variantStatus="inactive"
                 />
-            </CardsWrapper>
+                <CardBan 
+                    username="danjoh_0409"
+                    variantStatus="inactive"
+                />
+            </CardWrappersecondary>
         </Container>
     )
 }

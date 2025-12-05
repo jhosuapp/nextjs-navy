@@ -1,0 +1,24 @@
+.cardWrappersecondary{
+    @apply mb-12 lg:mb-16;
+}
+
+.cardWrappersecondary__content {
+    @apply grid gap-5 mt-8;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.cardWrappersecondary__title{
+    @apply text-purple-300 text-opacity-50 font-medium text-2xl lg:text-3xl;
+}
+
+.cardWrappersecondary__top{
+    @apply flex justify-between items-center mb-2;
+}
+
+.cardWrappersecondary__chip{
+    @apply  w-fit min-h-8 flex items-center justify-center px-4 bg-seventh border-2 border-purple-300 border-opacity-50 rounded-md;
+}
+
+.cardWrappersecondary__chip p{
+    @apply  text-base lg:text-lg text-purple-300 text-opacity-50 font-medium;
+}

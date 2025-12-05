@@ -1,29 +1,27 @@
-import { Container } from "@/shared/components"
+import { CardWrappersecondary, Container } from "@/shared/components"
 import { CardStaff } from "../components"
-import { CardStaffWrapper } from "../components/card-staff-wrapper/CardStaffWrapper"
 
 const StaffView = ():JSX.Element => {
     return (
         <Container className="!mt-5 lg:!mt-10" isFirst isLast>
-            <CardStaffWrapper>
+            <CardWrappersecondary text="6 miembros" title="Owners">
                 <CardStaff />
                 <CardStaff />
                 <CardStaff />
                 <CardStaff />
                 <CardStaff />
                 <CardStaff />
+            </CardWrappersecondary>
+            <CardWrappersecondary text="3 miembros" title="Mods">
                 <CardStaff />
                 <CardStaff />
                 <CardStaff />
+            </CardWrappersecondary>
+            <CardWrappersecondary text="3 miembros" title="Owners">
                 <CardStaff />
                 <CardStaff />
                 <CardStaff />
-                <CardStaff />
-                <CardStaff />
-                <CardStaff />
-                <CardStaff />
-                <CardStaff />
-            </CardStaffWrapper>
+            </CardWrappersecondary>
         </Container>
     )
 }

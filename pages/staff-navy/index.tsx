@@ -1,4 +1,5 @@
 import { StaffView } from "@/features";
+import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";
 
@@ -8,8 +9,8 @@ const StaffPage = () => {
         <Layout 
             title={'Staff | Navy'}
             description={'Staff navy'}
-            textPage={'Staff navy'}
-            linkPage={'/staff'}
+            textPage={'Bans'}
+            linkPage={ paths.bans }
         >
             <PageTransition>
                 <StaffView />

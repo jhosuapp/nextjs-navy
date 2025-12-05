@@ -1,4 +1,5 @@
 import { TierlistView } from "@/features";
+import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";
 
@@ -8,8 +9,8 @@ const TierlistPage = () => {
         <Layout 
             title={'Tierlist | Navy'}
             description={'Tierlist Navy'}
-            textPage={'Tierlist'}
-            linkPage={'/tierlist'}
+            textPage={'Staff'}
+            linkPage={ paths.staff }
         >
             <PageTransition>
                 <TierlistView />

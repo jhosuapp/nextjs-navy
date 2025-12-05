@@ -2,7 +2,7 @@ import { minecraft, roboto, blockletter, aeonik } from "@/config/typography";
 import Head from "next/head";
 import React, { ReactNode } from "react";
 import { Cursor, FloatingDots } from "@/shared/components";
-import { Header } from "@/shared/layouts";
+import { Footer, Header } from "@/shared/layouts";
 
 type Props = {
   children?: ReactNode;
@@ -57,6 +57,7 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
             </div>
         </main>
 
+        <Footer textPage={ textPage } linkPage={ linkPage } />
     </>
 );
 

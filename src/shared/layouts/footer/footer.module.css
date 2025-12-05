@@ -1,0 +1,114 @@
+.footer{
+    @apply relative z-20;
+}
+/* Footer top */
+.footerTop{
+    @apply px-[5%] py-5 bg-seventh bg-opacity-80 backdrop-blur-sm;
+}
+
+.footerTop ul{
+    font-size: clamp(15px, 2vw, 20px);
+    @apply flex justify-between;
+}
+
+.footerTop ul{
+    @apply text-purple-300 text-opacity-50;
+}
+
+.footerTop a{
+    @apply underline;
+}
+
+@media(max-width: 768px){
+    .footerTop ul{
+        @apply flex-col items-center gap-2.5 text-center;
+    }
+}
+
+/* Footer content */
+
+.footerContent{
+    @apply bg-tertiary bg-opacity-80 backdrop-blur-sm px-[5%] py-14;
+}
+
+.footerContent__disclaimer{
+    font-size: clamp(16px, 2vw, 22px);
+    @apply text-purple-300 text-opacity-50 leading-none mb-14;
+}
+
+.footerContent__preview{
+    font-size: clamp(30px, 3vw, 45px);
+    @apply flex justify-between items-center text-purple-300 text-opacity-50 font-medium;
+}
+
+.footerContent__nextPage {
+    font-size: clamp(18px, 2vw, 20px);
+    @apply font-normal flex justify-between items-center gap-4 w-full max-w-[350px] cursor-pointer;
+}
+
+.footerContent__nextPage p{
+    @apply text-nowrap;
+}
+
+.footerContent__nextPage img{
+    transition: .5s ease all;
+    transition-delay: .25s;
+    @apply min-w-6 max-w-6 relative right-0;
+}
+
+.footerContent__nextPage div{
+    @apply h-[2px] bg-purple-300 bg-opacity-50 w-full relative;
+}
+
+.footerContent__nextPage div::before{
+    transition: .5s ease all;
+    content: "";
+    @apply w-0 bg-secondary h-[2px] absolute right-0;
+}
+
+.footerContent__nextPage:hover div::before{
+    @apply w-full left-0;
+}
+
+.footerContent__nextPage:hover img{
+    @apply -right-3;
+}
+
+@media(max-width: 768px){
+    .footerContent__preview {
+        @apply flex-col items-start;
+    }
+    .footerContent__nextPage{
+        @apply max-w-full mt-14
+    }
+}
+
+/* Footer stars */
+
+.footerStars{
+    @apply px-[5%] pt-8 pb-14 bg-tertiary bg-opacity-80 backdrop-blur-sm flex justify-between;
+}
+
+.footerStars span{
+    @apply w-5 h-5 relative flex items-center justify-center;
+}
+
+.footerStars span::before,
+.footerStars span::after{
+    content: "";
+    @apply bg-purple-300 bg-opacity-50 absolute;
+}
+
+.footerStars span::before{
+    @apply w-full h-[1.5px];
+}
+
+.footerStars span::after{
+    @apply h-full w-[1.5px];
+}
+
+@media(max-width: 768px){
+    .footerStars{
+        @apply hidden;
+    }
+}

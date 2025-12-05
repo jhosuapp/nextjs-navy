@@ -1,4 +1,5 @@
 import { BansView } from "@/features";
+import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";
 
@@ -8,8 +9,8 @@ const BansPage = () => {
         <Layout 
             title={'Bans | Navy'}
             description={'Bans navy'}
-            textPage={'Bans navy'}
-            linkPage={'/bans'}
+            textPage={'Partners'}
+            linkPage={ paths.partners }
         >
             <PageTransition>
                 <BansView />
