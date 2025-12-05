@@ -1,5 +1,5 @@
 .footer{
-    @apply relative z-20;
+    @apply relative;
 }
 /* Footer top */
 .footerTop{
