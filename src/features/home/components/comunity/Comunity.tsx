@@ -12,6 +12,7 @@ const Comunity = ():JSX.Element => {
             <div className={ styles.comunity__cta }>
                 <Title text='¿Quieres ser testeado?' className={ styles.comunity__title } />
                 <Button 
+                    onClick={ ()=> window.open('https://discord.gg/navyy') }
                     icon={ icon }
                     text="Unirse a Discord" style={'secondary'} 
                 />
