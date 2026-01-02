@@ -9,7 +9,7 @@ type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 type CustomProps = {
     text?: string;
-    style?: 'primary' | 'secondary';
+    style?: 'primary' | 'secondary' | 'fit';
     isLight?: boolean;
     className?: string;
     icon?: string;

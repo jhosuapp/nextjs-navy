@@ -3,7 +3,7 @@ import { Continents, REGION_VARIANT_BY_CONTINENT } from "@/shared/interfaces";
 import styles from './chipRegions.module.css';
 
 export type PropsChipRegions = {
-    continent: Continents
+    continent?: Continents
 }
 
 const ChipRegions = ({ continent }:PropsChipRegions):JSX.Element => {

@@ -100,3 +100,27 @@ button:hover .button__iconSecondary{
 .button--white:hover span{
     @apply text-white;
 }
+
+/* Fit */
+
+.button--fit{
+    transition: .5s ease background-color;
+    @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 rounded-md !w-fit !max-w-fit px-4 min-w-[auto] gap-1;
+}
+
+.button--fit .button__icon{
+    @apply hidden;
+}
+
+.button--fit span{
+    @apply text-white;
+}
+
+.button--fit .button__iconSecondary{
+    @apply min-w-4;
+}
+
+
+.button--fit:hover .button__iconSecondary{
+    @apply right-0;
+}

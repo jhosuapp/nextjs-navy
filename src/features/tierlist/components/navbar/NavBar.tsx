@@ -1,6 +1,7 @@
 import { Button, ChipModalities, InputField } from "@/shared/components";
 
 import styles from './navBar.module.css';
+import icon from '@/config/assets/svg/icon-search.svg';
 
 const NavBar = ():JSX.Element => {
     return (
@@ -37,7 +38,11 @@ const NavBar = ():JSX.Element => {
                     text="Información" style={'secondary'} 
                 />
                 <InputField  
-                    placeholder="Buscar"
+                    placeholder="Search by username"
+                />
+                <Button 
+                    style={'fit'} 
+                    iconRight={ icon }
                 />
             </div>
         </article>

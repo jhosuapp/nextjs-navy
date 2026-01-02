@@ -36,6 +36,7 @@ const TierDataOverall = ():JSX.Element => {
                     continent={ item.region }
                     points={ item.points }
                     delay={ { enter: (index % 10) * 0.1, exit: (index % 10) * 0.1} }
+                    key={ `${item.nick}-${index}-${item.points}` }
                 />
             ))}
             <div className={ styles.tierDataOverallInfoButton }>

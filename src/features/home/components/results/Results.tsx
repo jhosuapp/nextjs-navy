@@ -23,7 +23,6 @@ const Results = ():JSX.Element => {
                         variant={ data.variant } 
                         modalitieImage={ data.modalitieImage } 
                         continent={ data.continent }
-                        variantRegions={ data.variantRegions }
                         direction='row'
                         showUsername
                         showRegions
@@ -49,7 +48,6 @@ const Results = ():JSX.Element => {
                         variant={ data.variant } 
                         modalitieImage={ data.modalitieImage } 
                         continent={ data.continent }
-                        variantRegions={ data.variantRegions }
                         direction='row'
                         showUsername
                         showRegions

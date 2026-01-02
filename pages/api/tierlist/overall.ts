@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next"
-import { PrismaClient } from "../../../prisma/generated/prisma"
-
-const prisma = new PrismaClient()
+import { prisma } from "@/config/lib/prisma"
 
 const TIER_POINTS: Record<string, number> = {
   H1: 60,
@@ -40,6 +38,12 @@ export default async function handler(
   const limit = 10
   const offset = (page - 1) * limit
 
+  const searchNick =
+    typeof req.query.nick === "string"
+      ? req.query.nick.trim()
+      : null
+
+  // ✅ SIEMPRE traer todos (la posición depende del ranking completo)
   const rows = await prisma.tiers.findMany({
     select: {
       nick: true,
@@ -54,6 +58,7 @@ export default async function handler(
   for (const row of rows) {
     if (!row.nick || !row.tier || !row.game || !row.region) continue
 
+    // Normalizar tier → "1H" => "H1"
     const tierKey = row.tier
       .toUpperCase()
       .replace(/^(\d)([HL])$/, "$2$1")
@@ -71,7 +76,6 @@ export default async function handler(
 
     rankingMap[row.nick].points += points
 
-    // 🧠 Usar game como key
     if (!rankingMap[row.nick].games[row.game]) {
       rankingMap[row.nick].games[row.game] = {
         name: row.game,
@@ -80,10 +84,28 @@ export default async function handler(
     }
   }
 
+  // 🏆 Ordenar ranking por puntos
   const ranking = Object.values(rankingMap).sort(
     (a, b) => b.points - a.points
   )
 
+  // 🔍 BÚSQUEDA EXACTA → devuelve usuario + posición REAL
+  if (searchNick) {
+    const index = ranking.findIndex(
+      user => user.nick.toLowerCase() === searchNick.toLowerCase()
+    )
+
+    const user =
+      index !== -1
+        ? { ...ranking[index], position: index + 1 }
+        : null
+
+    return res.status(200).json({
+      data: user,
+    })
+  }
+
+  // 📄 RANKING NORMAL → paginado
   const total = ranking.length
   const data = ranking.slice(offset, offset + limit)
 

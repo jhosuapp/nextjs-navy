@@ -5,12 +5,13 @@ type GameTier = {
     tier: Tiers
   }
   
-type GamesMap = Record<string, GameTier>
+type GamesMap = Record<'sword'|'netherite'|'crystal', GameTier>
   
 export type TierlistUser = {
     nick: string
     region: Continents
     points: number
+    position?: number
     games: GamesMap
 }
   

@@ -1,5 +1,5 @@
 export const routes = {
-    "/": "Inicio",
+    "/": "Home",
     "/staff-navy": "Staff",
     "/tierlist": "Tierlist",
     "/bans": "Bans"

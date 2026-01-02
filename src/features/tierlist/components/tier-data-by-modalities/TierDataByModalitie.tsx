@@ -24,7 +24,6 @@ const TierDataByModalitie = ():JSX.Element => {
                             variant={ data.variant } 
                             modalitieImage={ data.modalitieImage } 
                             continent={ data.continent }
-                            variantRegions={ data.variantRegions }
                             direction='row'
                             showRegions
                             showUsername
@@ -51,7 +50,6 @@ const TierDataByModalitie = ():JSX.Element => {
                             variant={ data.variant } 
                             modalitieImage={ data.modalitieImage } 
                             continent={ data.continent }
-                            variantRegions={ data.variantRegions }
                             direction='row'
                             showRegions
                             showUsername
@@ -78,7 +76,6 @@ const TierDataByModalitie = ():JSX.Element => {
                             variant={ data.variant } 
                             modalitieImage={ data.modalitieImage } 
                             continent={ data.continent }
-                            variantRegions={ data.variantRegions }
                             direction='row'
                             showRegions
                             showUsername
@@ -105,7 +102,6 @@ const TierDataByModalitie = ():JSX.Element => {
                             variant={ data.variant } 
                             modalitieImage={ data.modalitieImage } 
                             continent={ data.continent }
-                            variantRegions={ data.variantRegions }
                             direction='row'
                             showRegions
                             showUsername
@@ -132,7 +128,6 @@ const TierDataByModalitie = ():JSX.Element => {
                             variant={ data.variant } 
                             modalitieImage={ data.modalitieImage } 
                             continent={ data.continent }
-                            variantRegions={ data.variantRegions }
                             direction='row'
                             showRegions
                             showUsername
