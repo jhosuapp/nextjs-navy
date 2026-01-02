@@ -1,71 +1,184 @@
-# TypeScript Next.js example
+# Navy tierlist
 
-This is a really simple project that shows the usage of Next.js with TypeScript.
+Tierlist de minecraft
 
-## Deploy your own
+## 🚀 Tecnologías Principales
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-typescript&project-name=with-typescript&repository-name=with-typescript)
+- **Next.js**: 15.5.7
+- **Node.js**: >= 20.x
+- **Base de datos**: Prisma ORM
+- **Gestión de estado**: Zustand
+- **Fetching de datos**: TanStack Query + Axios
+- **Estilos**: Tailwind CSS
+- **Animaciones**: Framer Motion
+- **Formularios**: React Hook Form + Yup
 
-## How to use it?
+## 📋 Requisitos Previos
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+- Node.js >= 20.x
+- npm >= 10.x
+- Base de datos configurada (especificar cuál: PostgreSQL, MySQL, etc.)
 
+## 🛠️ Instalación
+
+1. **Clonar el repositorio**
 ```bash
-npx create-next-app --example with-typescript with-typescript-app
+git clone <https://github.com/jhosuapp/nextjs-navy>
+cd <nextjs-navy>
 ```
 
+2. **Instalar dependencias**
 ```bash
-yarn create next-app --example with-typescript with-typescript-app
-```
-
-```bash
-pnpm create next-app --example with-typescript with-typescript-app
-```
-
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
-
-## Notes
-
-This example shows how to integrate the TypeScript type system into Next.js. Since TypeScript is supported out of the box with Next.js, all we have to do is to install TypeScript.
-
-```shell
-npm install --save-dev typescript
-```
-
-```shell
-yarn install --save-dev typescript
-```
-
-```shell
-pnpm install --save-dev typescript
-```
-
-To enable TypeScript's features, we install the type declarations for React and Node.
-
-```shell
-npm install --save-dev @types/react @types/react-dom @types/node
-```
-
-```shell
-yarn install --save-dev @types/react @types/react-dom @types/node
-```
-
-```shell
-pnpm install --save-dev @types/react @types/react-dom @types/node
-```
-
-When we run `next dev` the next time, Next.js will start looking for any `.ts` or `.tsx` files in our project and builds it. It even automatically creates a `tsconfig.json` file for our project with the recommended settings.
-
-Next.js has built-in TypeScript declarations, so we'll get autocompletion for Next.js' modules straight away.
-
-A `type-check` script is also added to `package.json`, which runs TypeScript's `tsc` CLI in `noEmit` mode to run type-checking separately. You can then include this, for example, in your `test` scripts.
-
-rm -rf node_modules/.prisma
-rm -rf node_modules/@prisma
 npm install
+```
+
+3. **Configurar variables de entorno**
+
+Crear un archivo `.env` en la raíz del proyecto:
+```env
+DATABASE_URL="tu-conexion-de-base-de-datos"
+# Ejemplo PostgreSQL:
+# DATABASE_URL="postgresql://usuario:contraseña@localhost:5432/nombre_bd"
+```
+
+4. **Configurar Prisma**
+
+Inicializar Prisma (si es un proyecto nuevo):
+```bash
+npx prisma init
+```
+
+Sincronizar el esquema desde la base de datos existente:
+```bash
+npx prisma db pull
+```
+
+Generar el cliente de Prisma:
+```bash
 npx prisma generate
+```
 
-npx prisma studio 
+## 🚦 Comandos de Desarrollo
 
-npx prisma db pull --schema=prisma/netherite/schema.prisma
-npx prisma db pull --schema=prisma/diamond/schema.prisma
+```bash
+# Modo desarrollo
+npm run dev
+
+# Build de producción
+npm run build
+
+# Iniciar en producción
+npm start
+
+# Linter
+npm run lint
+```
+
+## 🗂️ Estructura del Proyecto
+
+```
+├── src/
+│   ├── features/              # Features modulares
+│   │   ├── feature-name/
+│   │   │   ├── components/    # Componentes específicos del feature
+│   │   │   ├── hooks/         # Hooks específicos del feature
+│   │   │   ├── actions/       # Server actions del feature
+│   │   │   ├── views/         # Vistas/páginas del feature
+│   │   │   ├── interfaces/    # Tipos e interfaces
+│   │   │   └── schemas/       # Schemas de validación (Yup)
+│   │   └── ...
+│   │
+│   ├── shared/                # Recursos compartidos globalmente
+│   │   ├── components/        # Componentes reutilizables
+│   │   ├── hooks/             # Hooks globales
+│   │   ├── actions/           # Server actions globales
+│   │   ├── interfaces/        # Tipos globales
+│   │   └── utils/             # Utilidades
+│   │
+│   ├── app/                   # App Router de Next.js
+│   │   ├── api/               # API Routes y endpoints
+│   │   └── ...                # Sin lógica de negocio
+│   │
+│   └── prisma/
+│       └── schema.prisma      # Esquema de base de datos
+```
+
+## 📐 Arquitectura y Convenciones
+
+### Principios de Organización
+
+- **Feature-Based**: Cada funcionalidad principal vive en su propio módulo dentro de `/features`
+- **Separation of Concerns**: La lógica de negocio está separada de las rutas (`/app` solo maneja routing)
+- **Shared Resources**: Componentes, hooks y actions compartidos viven en `/shared`
+- **Colocation**: Cada feature contiene todo lo necesario (componentes, hooks, schemas, etc.)
+
+### Gestión de Estado
+
+- **Zustand**: Para estado global de la aplicación
+- **TanStack Query**: Para server state y cache de peticiones
+- **React Hook Form**: Para estado de formularios
+
+### Validación
+
+Todos los formularios utilizan **Yup** para definir schemas de validación:
+```typescript
+// features/auth/schemas/loginSchema.ts
+import * as yup from 'yup';
+
+export const loginSchema = yup.object({
+  email: yup.string().email().required(),
+  password: yup.string().min(6).required()
+});
+```
+
+### Estilos
+
+- **Tailwind CSS**: Utility-first para estilos
+- **Framer Motion**: Para animaciones y transiciones
+
+## 🔌 API y Endpoints
+
+Los endpoints se crean usando Prisma ORM. Ejemplo básico:
+
+```typescript
+// app/api/users/route.ts
+import { prisma } from '@/lib/prisma';
+import { NextResponse } from 'next/server';
+
+export async function GET() {
+  const users = await prisma.user.findMany();
+  return NextResponse.json(users);
+}
+```
+
+## 🗃️ Base de Datos
+
+### Comandos útiles de Prisma
+
+```bash
+# Visualizar base de datos en navegador
+npx prisma studio
+
+# Aplicar migraciones
+npx prisma migrate dev
+
+# Sincronizar desde BD existente
+npx prisma db pull
+
+# Regenerar cliente
+npx prisma generate
+```
+
+## 📝 Notas Adicionales
+
+- La carpeta `/app` se utiliza únicamente para routing y no debe contener lógica de negocio
+- Cada feature es autocontenido y puede incluir sus propios componentes, hooks, actions, etc.
+- Los recursos compartidos entre features van en `/shared`
+
+## 🤝 Contribución
+
+jhosuapp
+
+---
+
+**Desarrollado con ❤️ usando Next.js 15**

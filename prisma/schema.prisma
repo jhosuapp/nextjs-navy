@@ -1,0 +1,72 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model blacklists {
+  discord_id String @unique(map: "discord_id") @db.VarChar(32)
+}
+
+model cooldowns {
+  id         Int      @id @default(autoincrement())
+  discord_id String   @db.VarChar(32)
+  timestamp  DateTime @db.DateTime(0)
+  game       String   @db.VarChar(64)
+}
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
+model online_staff {
+  discord_id String @db.VarChar(32)
+  staff      staff  @relation(fields: [discord_id], references: [discord_id], onDelete: Cascade, map: "tester_FK")
+
+  @@index([discord_id], map: "tester_FK")
+  @@ignore
+}
+
+model punishments {
+  id          Int       @id @default(autoincrement())
+  discord_id  String    @db.VarChar(32)
+  uuid        String?   @db.VarChar(64)
+  nick        String?   @db.VarChar(16)
+  is_premium  Boolean
+  punisher_id String    @db.VarChar(32)
+  applied     DateTime  @db.DateTime(0)
+  expiration  DateTime? @db.DateTime(0)
+  reason      String    @db.Text
+  is_cheater  Boolean
+}
+
+model staff {
+  discord_id        String         @unique(map: "discord_id") @db.VarChar(32)
+  uuid              String?        @db.VarChar(64)
+  nick              String?        @db.VarChar(16)
+  is_premium        Boolean?
+  staff_role_id     String         @db.VarChar(32)
+  staff_role_name   String         @db.VarChar(64)
+  staff_role_colour String         @db.VarChar(7)
+  online_staff      online_staff[] @ignore
+}
+
+model tier_testers {
+  discord_id String @unique(map: "discord_id") @db.VarChar(32)
+  count      Int
+}
+
+model tiers {
+  id         Int      @id @default(autoincrement())
+  uuid       String?  @db.VarChar(64)
+  nick       String?  @db.VarChar(32)
+  is_premium Boolean
+  discord_id String   @db.VarChar(32)
+  tester_id  String   @db.VarChar(32)
+  game       String   @db.VarChar(32)
+  region     String   @db.VarChar(32)
+  tier       String   @db.VarChar(16)
+  is_high    Boolean
+  date       DateTime @db.DateTime(0)
+}
