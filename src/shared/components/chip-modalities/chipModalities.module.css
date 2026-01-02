@@ -21,6 +21,10 @@
     @apply text-purple-300 text-opacity-50 text-lg font-medium leading-none;
 }
 
+.chipModalitiesTierDisabled{
+    @apply opacity-50 border-dashed;
+}
+
 .chipModalitiesTier{
     @apply relative h-10 w-10;
 }

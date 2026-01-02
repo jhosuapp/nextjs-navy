@@ -27,8 +27,8 @@ const FooterContent = ({ textPage, linkPage }:Props):JSX.Element => {
     return (
         <section className={ styles.footerContent }>
             <article className={ styles.footerContent__disclaimer }>
-                <p>Da click en siguiente</p>
-                <p>Para obtener más información sobre:</p>
+                <p>Click on next</p>
+                <p>For more information on:</p>
             </article>
             <article className={ styles.footerContent__preview }>
                 <p>{ textPage }</p>
@@ -36,9 +36,9 @@ const FooterContent = ({ textPage, linkPage }:Props):JSX.Element => {
                     onClick={ ()=> handleDelay(linkPage) }
                     className={ styles.footerContent__nextPage }
                 >
-                    <p>Siguiente</p>
+                    <p>Next</p>
                     <div></div>
-                    <Image src={ icon } alt='siguiente Navy' />
+                    <Image src={ icon } alt='next Navy' />
                 </div>
             </article>
         </section>

@@ -22,7 +22,6 @@ const CardSkin = ({
     modalitie, 
     variant, 
     modalitieImage,
-    variantRegions,
     continent,
     tier,
     showUsername = false,
@@ -47,14 +46,14 @@ const CardSkin = ({
         <div className={ `${styles.cardSkin} ${className} ${direction && styles.cardSkin__row}` } onMouseEnter={ handleMouseEnter } onClick={ hanldeOnClick }>
             <div className={ styles.cardSkin__block }>
                 <div className={ styles.cardSkin__skin }>
-                    <img src={ `https://minotar.net/body/${username}` } alt={ username } width={ width } height={ height } />
+                    <img src={ `https://render.crafty.gg/3d/bust/${username}` } alt={ username } width={ width } height={ height } />
                 </div>
                 {showUsername && (
                     <p className={ styles.cardSkin__username }>{ username }</p>
                 )}
             </div>
             {showRegions && (
-                <ChipRegions variantRegions={ variantRegions } continent={ continent } />
+                <ChipRegions continent={ continent } />
             )}
             {showModalities && (
                 <ChipModalities modalitie={ modalitie } variant={ variant } modalitieImage={ modalitieImage } tier={ tier } showModalitie={ showModalitie } />

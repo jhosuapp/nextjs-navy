@@ -28,6 +28,10 @@
     @apply flex items-center gap-2;
 }
 
+.tierDataOverallInfoButton{
+    @apply flex items-center justify-center w-full pt-5;
+}
+
 .tierDataOverallInfo{
     @apply hidden md:flex bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 cursor-default;
 }

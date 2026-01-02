@@ -10,10 +10,11 @@ export type PropsChipModalities = {
     modalitieImage: ModalitieImage;
     isButton?: boolean;
     showModalitie?: boolean;
+    disabled?: boolean;
     tier?: Tiers;
 }
 
-const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, showModalitie = false, tier = null }:PropsChipModalities):JSX.Element => {
+const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, showModalitie = false, disabled = false, tier = null }:PropsChipModalities):JSX.Element => {
     const setCurrentModalitie = useModalitieStore( state => state.setCurrentModalitie );
     const currentModalitie = useModalitieStore( state => state.currentModalitie );
 
@@ -30,6 +31,7 @@ const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, 
                 ${showModalitie && styles.chipModalitiesDesc} 
                 ${tier && styles.chipModalitiesTier} 
                 ${showModalitie && tier && styles.chipModalites__enable}
+                ${tier === null && disabled && `${styles.chipModalitiesTier} ${styles.chipModalitiesTierDisabled}`}
                 ${currentModalitie === modalitie && isButton && styles.chipModalitiesActive}` 
             }
             onClick={ ()=> isButton && handleClickModalitie() }

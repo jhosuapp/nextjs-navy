@@ -10,7 +10,7 @@ const CardBody = ({ username, children }:Props):JSX.Element => {
     return (
         <div className={ styles.tierDataOverallItem__skin }>
             <div className={ styles.tierDataOverallItem__skin__item }>
-                <img src={ `https://minotar.net/body/${username}` } alt={ username } />
+                <img src={ `https://render.crafty.gg/3d/bust/${username}` } alt={ username } />
             </div>
             <div>
                 <p>{ username }</p>

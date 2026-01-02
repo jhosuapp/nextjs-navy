@@ -1,7 +1,10 @@
-export type RegionsVariants = 'green' | 'orange' | 'blue' | 'purple';
-export type Continents = 'EU' | 'SA' | 'NA' | 'AS';
+export const REGION_VARIANT_BY_CONTINENT = {
+    EU: "green",
+    SA: "orange",
+    AS: "blue",
+    NA: "purple",
+} as const  
 
-export type RegionItem = {
-    variant: RegionsVariants;
-    continent: Continents;
-}
+export type Continents = keyof typeof REGION_VARIANT_BY_CONTINENT
+export type RegionsVariants =
+  (typeof REGION_VARIANT_BY_CONTINENT)[Continents]

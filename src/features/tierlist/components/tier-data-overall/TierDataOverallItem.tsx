@@ -9,6 +9,7 @@ import { fadeInMotion } from '@/shared/motion';
 type Props = {
     username: string;
     position: number;
+    points: number;
     tierSword: Tiers;
     tierNetherite: Tiers;
     tierCrystal: Tiers;
@@ -21,8 +22,8 @@ const TierDataOverallItem = ({
     tierSword,
     tierNetherite,
     tierCrystal,
-    variantRegions,
     continent,
+    points,
     delay = { enter: 0, exit: 0 }
 }:Props):JSX.Element => {
     const setSkin = useSkinStore(state => state.setSkin);
@@ -45,10 +46,10 @@ const TierDataOverallItem = ({
                 <p>{ position }</p>
             </div>
             <CardBody username={ username }>
-                <p>Combat ace 130 points</p>
+                <p>Combat ace { points } points</p>
             </CardBody>
             <div className={ styles.tierDataOverallItem__region }>
-                <ChipRegions variantRegions={ variantRegions }  continent={ continent } />
+                <ChipRegions continent={ continent } />
             </div>
             <div className={ styles.tierDataOverallItem__tiers }>
                 <ChipModalities 
@@ -56,18 +57,21 @@ const TierDataOverallItem = ({
                     variant="blue" 
                     modalitieImage="sword.webp" 
                     tier={ tierSword }
+                    disabled={ !tierSword }
                 />
                 <ChipModalities 
                     modalitie="Netherite pot" 
                     variant="purple" 
                     modalitieImage="netherite.webp" 
                     tier={ tierNetherite }
+                    disabled={ !tierNetherite }
                 />
                 <ChipModalities 
                     modalitie="Crystal" 
                     variant="pink" 
                     modalitieImage="crystal.webp" 
                     tier={ tierCrystal }
+                    disabled={ !tierCrystal }
                 />
             </div>
         </motion.div>
