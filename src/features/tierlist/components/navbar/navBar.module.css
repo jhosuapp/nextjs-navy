@@ -11,8 +11,13 @@
     @apply w-full;
 }
 
-.navBar__search{
+.navBar__search,
+.navBar__search__block{
     @apply flex gap-4;
+}
+
+.navBar__search__btn{
+    @apply !w-fit;
 }
 
 @media(max-width: 1024px){

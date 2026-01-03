@@ -1,8 +1,9 @@
-import { minecraft, roboto, blockletter, aeonik } from "@/config/typography";
-import Head from "next/head";
 import React, { ReactNode } from "react";
+import Head from "next/head";
+import { minecraft, roboto, blockletter, aeonik } from "@/config/typography";
 import { Cursor, FloatingDots } from "@/shared/components";
 import { Footer, Header } from "@/shared/layouts";
+import { ToastContainer } from 'react-toastify';
 
 type Props = {
   children?: ReactNode;
@@ -53,6 +54,7 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
                 <div className="relative z-20 w-full block">
                     <Header />
                     {children}
+                    <ToastContainer />
                 </div>
             </div>
         </main>

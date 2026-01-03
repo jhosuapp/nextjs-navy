@@ -1,9 +1,14 @@
+import { motion } from 'framer-motion';
 import { Button, ChipModalities, InputField } from "@/shared/components";
+import { userNavBar } from "../../hooks";
+import { zoomInMotion } from '@/shared/motion';
 
 import styles from './navBar.module.css';
 import icon from '@/config/assets/svg/icon-search.svg';
 
 const NavBar = ():JSX.Element => {
+    const { setValue, value, onSubmit } = userNavBar();
+
     return (
         <article className={ styles.navBar }>
             <div className={ styles.navBar__btn }>
@@ -33,18 +38,29 @@ const NavBar = ():JSX.Element => {
                     isButton
                 />
             </div>
-            <div className={ styles.navBar__search }>
+            <form className={ styles.navBar__search } onSubmit={ onSubmit }>
                 <Button 
-                    text="Información" style={'secondary'} 
+                    text="Information" style={'secondary'} 
+                    type='button'
                 />
-                <InputField  
-                    placeholder="Search by username"
-                />
-                <Button 
-                    style={'fit'} 
-                    iconRight={ icon }
-                />
-            </div>
+                <div className={ styles.navBar__search__block }>
+                    <InputField  
+                        placeholder="Search by username"
+                        value={ value }
+                        type='search'
+                        onChange={ (e)=> { setValue(e.target.value) } }
+                    />
+                    {value && (
+                        <motion.div className={ styles.navBar__search__btn } key={`${value.length > 0}-button`} {...zoomInMotion(0,0)}>
+                            <Button 
+                                style={'fit'} 
+                                iconRight={ icon }
+                                type='submit'
+                            />
+                        </motion.div>
+                    )}
+                </div>
+            </form>
         </article>
     )
 }

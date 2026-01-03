@@ -24,7 +24,7 @@
 
 .button b{
     transition: .3s ease transform;
-    @apply flex items-center justify-center w-[5px] h-[10px] relative overflow-hidden;
+    @apply flex items-center justify-center min-w-[5px] h-[10px] relative overflow-hidden;
 }
 
 .button b::before{
@@ -123,4 +123,25 @@ button:hover .button__iconSecondary{
 
 .button--fit:hover .button__iconSecondary{
     @apply right-0;
+}
+
+/* loader button */
+
+.button__iconLoader{
+    animation: loader infinite linear 1s;
+    @apply w-7 max-w-7 min-w-7;
+}
+
+.button__loader{
+    @apply !opacity-40 pointer-events-none;
+}
+
+
+@keyframes loader {
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }

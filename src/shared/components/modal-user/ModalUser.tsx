@@ -1,27 +1,28 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { useModalStore, useSkinStore } from '@/shared/stores';
 import { ChipModalities, ModalWrapper, Skin3d } from '@/shared/components';
 
 import styles from './modalUser.module.css';
 import iconMedal from '@/config/assets/svg/icon-medal.svg';
 import iconCrown from '@/config/assets/svg/icon-crown.svg';
-import { useUserByNameQuery } from '@/shared/hooks';
+import { useModalUser } from '@/shared/hooks';
 
 const ModalUser = ():JSX.Element => {
-    const setShowModal = useModalStore(state => state.setShowModal);
-    const username = useSkinStore(state => state.skin);
-    const user = useUserByNameQuery({ username });
 
-    if(user.isLoading){
+    const { 
+        setShowModal,
+        username,
+        user,
+        info,
+        games
+    } = useModalUser();
+
+    if(user.isLoading || user?.data?.data == null){
         return (
             <>
             </>
         )
     }
-
-    const info = user?.data?.data;
-    const games = info?.games;
 
     return (
         <ModalWrapper
@@ -57,21 +58,21 @@ const ModalUser = ():JSX.Element => {
                             variant="blue" 
                             modalitieImage="sword.webp" 
                             tier={ games?.sword?.tier }
-                            disabled={ !games.sword }
+                            disabled={ !games?.sword }
                         />
                         <ChipModalities 
                             modalitie="Netherite pot" 
                             variant="purple" 
                             modalitieImage="netherite.webp" 
                             tier={ games?.netherite?.tier }
-                            disabled={ !games.netherite }
+                            disabled={ !games?.netherite }
                         />
                         <ChipModalities 
                             modalitie="Crystal" 
                             variant="pink" 
                             modalitieImage="crystal.webp" 
                             tier={ games?.crystal?.tier }
-                            disabled={ !games.crystal }
+                            disabled={ !games?.crystal }
                         />
                     </div>
                 </div>
