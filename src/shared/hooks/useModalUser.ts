@@ -25,7 +25,7 @@ const useModalUser = () => {
 
     useEffect(()=>{
         if(user?.data?.data === null){
-            toast.error('Error retrieving user');
+            toast.error('Error, player not found');
         }
     },[user.data]);
 

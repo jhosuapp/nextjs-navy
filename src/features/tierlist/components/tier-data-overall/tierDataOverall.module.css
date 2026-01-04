@@ -36,6 +36,14 @@
     @apply hidden md:flex bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 cursor-default;
 }
 
+.tierDataOverallItem__combatInfo{
+    @apply flex gap-2;
+}
+
+.tierDataOverallItem__combatInfo img{
+    @apply max-w-5 min-w-5;
+}
+
 .tierDataOverallInfo p{
     @apply text-white  font-medium;
 }
@@ -51,7 +59,7 @@
 .tierDataOverallInfo > div:nth-child(2),
 .tierDataOverallInfo > div:nth-child(3),
 .tierDataOverallInfo > div:nth-child(4){
-    @apply md:w-full md:max-w-60 md:flex-1 relative overflow-hidden;
+    @apply md:w-full md:max-w-72 md:flex-1 relative overflow-hidden;
 }
 
 .tierDataOverallItem > div:nth-child(3),

@@ -1,6 +1,6 @@
 .navBar{
     /* @apply py-2 lg:py-3 px-3 lg:px-5 border-2 border-purple-300 rounded-md border-opacity-50 bg-tertiary bg-opacity-10 mb-5 flex justify-between items-center; */
-    @apply  mb-5 flex justify-between items-start lg:items-center flex-col lg:flex-row gap-5;
+    @apply  mb-5 flex justify-between items-start lg:items-center flex-col lg:flex-row gap-5 lg:sticky lg:top-32 lg:z-10;
 }
 
 .navBar__btn{
@@ -39,5 +39,49 @@
     .navBar__search button,
     .navBar__search div{
         @apply max-w-full;
+    }
+}
+
+.navBarInformation{
+    @apply relative flex justify-center items-start;
+}
+
+.navBarInformation__list{
+    @apply absolute z-50 min-w-80 top-14;
+}
+
+.navBarInformation__title{
+    @apply flex items-center gap-2;
+}
+
+.navBarInformation__title img{
+    @apply min-w-5 max-w-5;
+}
+
+.navBarInformation__title h3{
+    @apply text-base font-medium;
+}
+
+.navBarInformation__wrapper{
+    @apply bg-opacity-90;
+}
+
+.navBarInformation__item{
+    @apply pb-4 last:pb-0 flex flex-col gap-1;
+}
+
+.navBarInformation__item p{
+    @apply text-white text-sm;
+}
+
+@media(max-width: 1024px){
+    .navBarInformation__list{
+        @apply left-0 min-w-80;
+    }
+}
+
+@media(max-width: 576px){
+    .navBarInformation__list{
+        @apply left-0 min-w-full;
     }
 }

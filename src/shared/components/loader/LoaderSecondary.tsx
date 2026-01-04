@@ -1,5 +1,4 @@
 import { HTMLAttributes } from 'react';
-import { useTranslation } from 'react-i18next';
 import { motion, MotionProps } from "framer-motion";
 import { fadeInMotion } from '@/shared/motion';
 
@@ -15,7 +14,6 @@ type CustomProps = {
  type Props = NativeProps & CustomProps & MotionProps;
 
 const LoaderSecondary = ({ textLoader, className, ...props }:Props):JSX.Element => {
-    const { t } = useTranslation('translation');
 
     return (
         <motion.section 
@@ -35,7 +33,7 @@ const LoaderSecondary = ({ textLoader, className, ...props }:Props):JSX.Element 
                 <span className={`${styles.loaderSeconaryInner} ${styles.loaderInner4}`}></span>
             </motion.article>
             <article className={ styles.loaderSecondaryText}>
-                <p>{textLoader ?? t('loader.textDefault')}</p>
+                <p>{textLoader ?? 'loading'}</p>
             </article>
         </motion.section>
     )

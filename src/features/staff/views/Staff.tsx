@@ -1,20 +1,31 @@
-import { CardWrappersecondary, Container } from "@/shared/components"
+import { AnimatePresence, motion } from "framer-motion";
+import { CardWrappersecondary, Container, LoaderSecondary } from "@/shared/components"
 import { CardStaff } from "../components"
 import { useStaff } from "../hooks";
+import { fadeInMotion } from "@/shared/motion";
 
 const StaffView = ():JSX.Element => {
-
     const response = useStaff();
+
+    if(response.isLoading){
+        return (
+            <Container className="!mt-5 lg:!mt-10" isFirst isLast>
+                <LoaderSecondary textLoader="Loading staff team"/>
+            </Container>
+        )
+    }
 
     return (
         <Container className="!mt-5 lg:!mt-10" isFirst isLast>
-            {response.data?.map((group)=>(
-                <CardWrappersecondary text={`${group.members.length} members`} title={ group.role_name } key={`group-${group.role_id}`}>
-                    {group.members?.map((data)=>(
-                        <CardStaff data={ data } />
-                    ))}
-                </CardWrappersecondary>
-            ))}
+            <motion.div {...fadeInMotion(0.5, 1)}>
+                {response.data?.map((group)=>(
+                    <CardWrappersecondary text={`${group.members.length} members`} title={ group.role_name } key={`group-${group.role_id}-${response.isLoading}`}>
+                        {group.members?.map((data)=>(
+                            <CardStaff data={ data } />
+                        ))}
+                    </CardWrappersecondary>
+                ))}
+            </motion.div>
         </Container>
     )
 }

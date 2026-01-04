@@ -5,6 +5,7 @@ import { zoomInMotion } from '@/shared/motion';
 
 import styles from './navBar.module.css';
 import icon from '@/config/assets/svg/icon-search.svg';
+import { NavBarInformation } from './NavBarInformation';
 
 const NavBar = ():JSX.Element => {
     const { setValue, value, onSubmit } = userNavBar();
@@ -39,10 +40,7 @@ const NavBar = ():JSX.Element => {
                 />
             </div>
             <form className={ styles.navBar__search } onSubmit={ onSubmit }>
-                <Button 
-                    text="Information" style={'secondary'} 
-                    type='button'
-                />
+                <NavBarInformation />
                 <div className={ styles.navBar__search__block }>
                     <InputField  
                         placeholder="Search by username"
