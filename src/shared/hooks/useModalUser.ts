@@ -26,6 +26,7 @@ const useModalUser = () => {
     useEffect(()=>{
         if(user?.data?.data === null){
             toast.error('Error, player not found');
+            setShowModal(false);
         }
     },[user.data]);
 
