@@ -21,19 +21,19 @@ const NavBar = ():JSX.Element => {
                     showModalitie
                 />
                 <ChipModalities 
-                    modalitie="Sword" 
+                    modalitie="sword" 
                     variant="blue" 
                     modalitieImage="sword.webp" 
                     isButton
                 />
                 <ChipModalities 
-                    modalitie="Netherite pot" 
+                    modalitie="netherite" 
                     variant="purple" 
                     modalitieImage="netherite.webp" 
                     isButton
                 />
                 <ChipModalities 
-                    modalitie="Crystal" 
+                    modalitie="crystal" 
                     variant="pink" 
                     modalitieImage="crystal.webp" 
                     isButton

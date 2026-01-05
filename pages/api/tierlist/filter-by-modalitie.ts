@@ -24,11 +24,11 @@ export default async function handler(
     const gameFilter = typeof req.query.game === "string" ? req.query.game : null
     const tierFilter = typeof req.query.tier === "string" ? req.query.tier : null
     const page = Number(req.query.page || 1)
-    const limit = Number(req.query.limit || 50)
+    const limit = Number(req.query.limit || 8)
     const offset = (page - 1) * limit
     
     // 🚀 Límite para vista general (sin filtros)
-    const overviewLimit = 10
+    const overviewLimit = 4
 
     // 🧠 PAGINACIÓN CON FILTROS ESPECÍFICOS
     if (gameFilter && tierFilter) {

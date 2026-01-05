@@ -11,9 +11,10 @@ import { fadeInMotion } from '@/shared/motion';
 
 type Props = {
     children: ReactNode;
+    usersNumber: number
 }
 
-const SwiperWrapper = ({ children }:Props):JSX.Element => {
+const SwiperWrapper = ({ children, usersNumber }:Props):JSX.Element => {
     const swiperRef = useRef<any>(null);
 
     return (
@@ -44,7 +45,7 @@ const SwiperWrapper = ({ children }:Props):JSX.Element => {
                 { children }
             </Swiper>
             <motion.div className={ styles.swiperWrapper__navigation } {...fadeInMotion(0.6, 0)}>
-                <p>En total hay 300 usuarios</p>
+                <p>There are { usersNumber } users in total</p>
                 <div>
                     <motion.button
                         whileTap={{ scale: 0.95 }} 

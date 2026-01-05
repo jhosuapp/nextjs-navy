@@ -12,7 +12,7 @@ const TierDataOverall = ():JSX.Element => {
     const data = tierlist.data?.pages.flatMap(page => page.data) ?? []
 
     return (
-        <motion.article {...fadeInMotion(0, 0.4)}>
+        <motion.article {...fadeInMotion(0, 0)}>
             <div className={ styles.tierDataOverallInfo }>
                 <div>
                     <p>#</p>

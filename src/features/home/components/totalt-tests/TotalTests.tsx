@@ -16,9 +16,9 @@ const TotalTests = ():JSX.Element => {
                 </div>
                 <Divider />
                 <div className={ styles.totalTests__items }>
-                    <TotalTestsItem modalitie='Netherite pot' modalitieImage='netherite.webp' variant='purple' count={ 1230 } />
-                    <TotalTestsItem modalitie='Crystal' modalitieImage='crystal.webp' variant='pink' count={ 1230 } />
-                    <TotalTestsItem modalitie='Sword' modalitieImage='sword.webp' variant='blue' count={ 1230 } />
+                    <TotalTestsItem modalitie='netherite' modalitieImage='netherite.webp' variant='purple' count={ 1230 } />
+                    <TotalTestsItem modalitie='crystal' modalitieImage='crystal.webp' variant='pink' count={ 1230 } />
+                    <TotalTestsItem modalitie='sword' modalitieImage='sword.webp' variant='blue' count={ 1230 } />
                 </div>
             </article>
         </CardWrapper>

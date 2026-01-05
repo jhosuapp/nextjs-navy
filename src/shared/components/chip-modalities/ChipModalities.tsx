@@ -5,9 +5,9 @@ import { motion } from 'framer-motion';
 import styles from './chipModalities.module.css';
 
 export type PropsChipModalities = {
-    variant: ModalitiesVariants;
-    modalitie: Modalitie;
-    modalitieImage: ModalitieImage;
+    variant?: ModalitiesVariants;
+    modalitie?: Modalitie;
+    modalitieImage?: ModalitieImage;
     isButton?: boolean;
     showModalitie?: boolean;
     disabled?: boolean;

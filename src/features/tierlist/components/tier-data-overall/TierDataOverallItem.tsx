@@ -58,21 +58,21 @@ const TierDataOverallItem = ({
             </div>
             <div className={ styles.tierDataOverallItem__tiers }>
                 <ChipModalities 
-                    modalitie="Sword" 
+                    modalitie="sword" 
                     variant="blue" 
                     modalitieImage="sword.webp" 
                     tier={ tierSword }
                     disabled={ !tierSword }
                 />
                 <ChipModalities 
-                    modalitie="Netherite pot" 
+                    modalitie="netherite" 
                     variant="purple" 
                     modalitieImage="netherite.webp" 
                     tier={ tierNetherite }
                     disabled={ !tierNetherite }
                 />
                 <ChipModalities 
-                    modalitie="Crystal" 
+                    modalitie="crystal" 
                     variant="pink" 
                     modalitieImage="crystal.webp" 
                     tier={ tierCrystal }

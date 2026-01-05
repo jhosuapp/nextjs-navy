@@ -54,21 +54,21 @@ const ModalUser = ():JSX.Element => {
                     <h3 className={ styles.modalUser__info__stats }>Tiers</h3>
                     <div className={ styles.modalUser__tier }>
                         <ChipModalities 
-                            modalitie="Sword" 
+                            modalitie="sword" 
                             variant="blue" 
                             modalitieImage="sword.webp" 
                             tier={ games?.sword?.tier }
                             disabled={ !games?.sword }
                         />
                         <ChipModalities 
-                            modalitie="Netherite pot" 
+                            modalitie="netherite" 
                             variant="purple" 
                             modalitieImage="netherite.webp" 
                             tier={ games?.netherite?.tier }
                             disabled={ !games?.netherite }
                         />
                         <ChipModalities 
-                            modalitie="Crystal" 
+                            modalitie="crystal" 
                             variant="pink" 
                             modalitieImage="crystal.webp" 
                             tier={ games?.crystal?.tier }
