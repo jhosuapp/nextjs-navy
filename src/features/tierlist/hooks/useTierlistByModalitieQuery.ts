@@ -1,6 +1,6 @@
-import { useQuery } from "@tanstack/react-query"
+import { useInfiniteQuery, useQuery } from "@tanstack/react-query"
 import { TierlistByModalitieArgs } from "../interfaces";
-import { getTierlistByModalitieAction } from "../actions/get-tierlistByModalitie.action";
+import { getTierlistByModalitieAction, getTierlistByModalitieAndTierAction } from "../actions/get-tierlistByModalitie.action";
 
 const useTierlistByModalitie = () => {
     const tierlistByModalitie = useQuery({
@@ -11,9 +11,31 @@ const useTierlistByModalitie = () => {
         retry: false,
     });
 
-    return {
-        tierlistByModalitie
-    }
+    return tierlistByModalitie
 }
 
-export { useTierlistByModalitie }
+const useTierlistByModalitieAndTier = ({ game, tier, enabled }: TierlistByModalitieArgs & { enabled: boolean }) => {
+    const tierlistByModalitieAndTier = useInfiniteQuery({
+        queryKey: ['tierlistByModalitieAndTier', game, tier],
+        queryFn: ({ pageParam = 1 }) => {
+            return getTierlistByModalitieAndTierAction({ 
+                game, 
+                tier, 
+                page: pageParam 
+            });
+        },
+        staleTime: 60 * 1000,
+        refetchOnWindowFocus: false,
+        retry: false,
+        initialPageParam: 1,
+        enabled: !!game && !!tier && !!enabled,
+        getNextPageParam: (lastPage) => {
+            if (lastPage.page >= lastPage.totalPages) return undefined;
+            return lastPage.page + 1;
+        },
+    });
+
+    return tierlistByModalitieAndTier
+}
+
+export { useTierlistByModalitie, useTierlistByModalitieAndTier }

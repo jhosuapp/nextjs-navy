@@ -35,7 +35,7 @@ export type TierKey = "t1" | "t2" | "t3" | "t4" | "t5"
 
 export type TierlistByModalitieArgs = {
     game?: Modalitie | null;
-    tier?: Tiers | null;
+    tier?: TierKey | null;
     page?: number | null;
 }
 
@@ -58,7 +58,3 @@ export type TierlistByGameSummary = {
 export type TierlistByGameSummaryResponse = {
     data: TierlistByGameSummary[]
 }
-
-export type TierlistByModalitieResponse =
-  | TierlistByGamePaginatedResponse
-  | TierlistByGameSummaryResponse

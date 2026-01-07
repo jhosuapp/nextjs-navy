@@ -22,6 +22,10 @@
     @apply text-black uppercase font-medium text-xl;
 }
 
+.tierWrapper__content{
+    @apply relative max-h-[590px] overflow-auto;
+}
+
 /* Variants */
 
 .tierWrapper__primary{

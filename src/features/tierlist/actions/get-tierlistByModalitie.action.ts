@@ -1,8 +1,14 @@
 import { navyApi } from "@/shared/api";
-import { TierlistByModalitieArgs, TierlistByModalitieResponse } from "../interfaces";
+import { TierlistByGamePaginatedResponse, TierlistByGameSummaryResponse, TierlistByModalitieArgs } from "../interfaces";
 
-const getTierlistByModalitieAction = async ({ game, tier, page }:TierlistByModalitieArgs = {}):Promise<TierlistByModalitieResponse> => {
-    const { data } = await navyApi.get<TierlistByModalitieResponse>(`/tierlist/filter-by-modalitie`, {
+const getTierlistByModalitieAction = async ():Promise<TierlistByGameSummaryResponse> => {
+    const { data } = await navyApi.get<TierlistByGameSummaryResponse>('/tierlist/filter-by-modalitie');
+
+    return data;
+}
+
+const getTierlistByModalitieAndTierAction = async ({ game, tier, page }:TierlistByModalitieArgs = {}):Promise<TierlistByGamePaginatedResponse> => {
+    const { data } = await navyApi.get<TierlistByGamePaginatedResponse>(`/tierlist/filter-by-modalitie`, {
         params: {
             game,
             tier,
@@ -13,4 +19,4 @@ const getTierlistByModalitieAction = async ({ game, tier, page }:TierlistByModal
     return data;
 }
 
-export { getTierlistByModalitieAction }
+export { getTierlistByModalitieAction, getTierlistByModalitieAndTierAction }

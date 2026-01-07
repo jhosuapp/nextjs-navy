@@ -1,29 +1,19 @@
-import { SwiperSlide } from 'swiper/react';
-
-import { CardSkin, LoaderSecondary, SwiperWrapper } from "@/shared/components";
-import { TierWrapper } from "../tier-wrapper/TierWrapper";
+import { LoaderSecondary, SwiperWrapper } from "@/shared/components";
 import { useTierlistByModalitie } from '../../hooks/useTierlistByModalitieQuery';
 import { useModalitieStore } from '@/shared/stores';
-import { isSummaryResponse } from '../../helpers';
-import { TIERS_CONFIG } from '../../constants';
+import { TierDataByModalitieItem } from "./TierDataByModalitieItem";
+import { SwiperSlide } from "swiper/react";
 
 const TierDataByModalitie = ():JSX.Element => {
-    const { tierlistByModalitie } = useTierlistByModalitie();
     const currentModalitie = useModalitieStore(state => state.currentModalitie);
+    const tierlistByModalitie = useTierlistByModalitie();
 
     if (tierlistByModalitie.isLoading) {
         return <LoaderSecondary textLoader="Loading players" />
     }
     
-    const response = tierlistByModalitie.data
-    
-    if (!response) return null
-    
-    if (!isSummaryResponse(response)) {
-        return null
-    }
-    
-    const filterByModalitie = response.data
+    const response = tierlistByModalitie.data;
+    const filterByModalitie = response.data;
     const data = filterByModalitie.find(item => item.game === currentModalitie)
 
     if(!data){
@@ -32,32 +22,56 @@ const TierDataByModalitie = ():JSX.Element => {
 
     return (
         <SwiperWrapper usersNumber={ data.total_users } key={`${currentModalitie}-wrapper`}>
-            {TIERS_CONFIG.map(({ key, tier, variant, delay }) => (
-                <SwiperSlide key={key}>
-                    <TierWrapper
-                        count={data?.tiers?.[key]?.length ?? 0}
-                        tier={tier}
-                        variants={variant}
-                        delay={delay}
-                        key={`${currentModalitie}-tier-wrapper`}
-                    >
-                        {data?.tiers?.[key]?.map((item, index) => (
-                            <CardSkin
-                                key={`${item.nick}-${index}`}
-                                className="!justify-between w-full !px-4 !py-3"
-                                username={item.nick}
-                                width={50}
-                                height={150}
-                                continent={item.region}
-                                direction="row"
-                                showRegions
-                                showUsername
-                                showModalities={false}
-                            />
-                        ))}
-                    </TierWrapper>
-                </SwiperSlide>
-            ))}
+            <SwiperSlide key={'t1'}>
+                <TierDataByModalitieItem
+                    data={ data }
+                    currentModalitie={ currentModalitie }
+                    tier='t1'
+                    tierNumber={ 1 }
+                    delay={{ enter:0, exit:0.6 }}
+                    variants="primary"
+                />
+            </SwiperSlide>
+            <SwiperSlide key={'t2'}>
+                <TierDataByModalitieItem
+                    data={ data }
+                    currentModalitie={ currentModalitie }
+                    tier='t2'
+                    tierNumber={ 2 }
+                    delay={{ enter:0.1, exit:0.5 }}
+                    variants="secondary"
+                />
+            </SwiperSlide>
+            <SwiperSlide key={'t3'}>
+                <TierDataByModalitieItem
+                    data={ data }
+                    currentModalitie={ currentModalitie }
+                    tier='t3'
+                    tierNumber={ 3 }
+                    delay={{ enter:0.2, exit:0.4 }}
+                    variants="tertiary"
+                />
+            </SwiperSlide>
+            <SwiperSlide key={'t4'}>
+                <TierDataByModalitieItem
+                    data={ data }
+                    currentModalitie={ currentModalitie }
+                    tier='t4'
+                    tierNumber={ 4 }
+                    delay={{ enter:0.3, exit:0.3 }}
+                    variants="fourth"
+                />
+            </SwiperSlide>
+            <SwiperSlide key={'t5'}>
+                <TierDataByModalitieItem
+                    data={ data }
+                    currentModalitie={ currentModalitie }
+                    tier='t5'
+                    tierNumber={ 5 }
+                    delay={{ enter:0.4, exit:0.2 }}
+                    variants="fifth"
+                />
+            </SwiperSlide>
         </SwiperWrapper>    
     )
 }
