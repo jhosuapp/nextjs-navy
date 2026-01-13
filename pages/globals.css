@@ -30,6 +30,30 @@ body::-webkit-scrollbar-thumb {
     @apply bg-tertiary border-tertiary;
 }
 
+.global-scroll::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.global-scroll::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.global-scroll::-webkit-scrollbar-button:increment {
+    display: none;
+} 
+
+.global-scroll::-webkit-scrollbar-track {
+    border-radius: 10px; 
+}  
+
+.global-scroll::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.global-scroll::-webkit-scrollbar-thumb {
+    @apply bg-primary;
+}
+
 @keyframes text-reveal {
     from{
         opacity: .5;

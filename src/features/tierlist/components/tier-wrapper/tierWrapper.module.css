@@ -23,7 +23,7 @@
 }
 
 .tierWrapper__content{
-    @apply relative max-h-[590px] overflow-auto;
+    @apply relative max-h-[500px] overflow-auto;
 }
 
 /* Variants */

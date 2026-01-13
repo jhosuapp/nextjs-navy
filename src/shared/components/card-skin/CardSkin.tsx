@@ -12,6 +12,8 @@ type Props = {
     showRegions?: boolean; 
     showModalities?: boolean;
     direction?: 'row' | null;
+    isHight?: boolean;
+    hasTierIndicator?: boolean
 } & PropsChipModalities & PropsChipRegions;
 
 const CardSkin = ({ 
@@ -28,6 +30,8 @@ const CardSkin = ({
     showRegions = false,
     showModalities = true,
     showModalitie = false,
+    isHight = false,
+    hasTierIndicator = false,
     direction = null,
 }:Props):JSX.Element => {
     const setSkin = useSkinStore(state => state.setSkin);
@@ -53,7 +57,12 @@ const CardSkin = ({
                 )}
             </div>
             {showRegions && (
-                <ChipRegions continent={ continent } />
+                <div className={ styles.cardSkin__flex }>
+                    <ChipRegions continent={ continent } />
+                    {hasTierIndicator && (
+                        <img className={styles.cardSkin__tierIndicator} src={`/images/${isHight ? 'angles' : 'angle'}-up-solid-full.svg`} alt="Tier Navy" />
+                    )}
+                </div>
             )}
             {showModalities && (
                 <ChipModalities modalitie={ modalitie } variant={ variant } modalitieImage={ modalitieImage } tier={ tier } showModalitie={ showModalitie } />

@@ -24,7 +24,7 @@ const TierWrapper = ({ children, variants, tier, count, delay = { enter: 0, exit
                 </div>
                 <p>{ count }</p>
             </div>
-            <div className={ styles.tierWrapper__content } data-lenis-prevent>
+            <div className={ `global-scroll ${styles.tierWrapper__content}` } data-lenis-prevent>
                 { children }
             </div>
         </motion.article>

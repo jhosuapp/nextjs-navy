@@ -54,7 +54,9 @@ const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, del
                     direction="row"
                     showRegions
                     showUsername
+                    hasTierIndicator
                     showModalities={false}
+                    isHight={ item.is_h }
                 />
             ))}
             {!players.length && (
@@ -63,7 +65,7 @@ const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, del
                 </div>
             )}
             {shouldShowLoadMore && (
-                <div className="flex justify-center px-5 py-4 sticky bottom-0">
+                <div className="flex justify-center px-5 py-4 sticky bottom-0 bg-tertiary bg-opacity-80 backdrop-blur-sm border-t-2 border-black">
                     <Button
                         onClick={ ()=> tierRequest.fetchNextPage() }
                         disabled={ tierRequest.isFetchingNextPage }

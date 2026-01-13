@@ -18,6 +18,14 @@
     @apply flex items-center gap-2;
 }
 
+.cardSkin__tierIndicator{
+    @apply w-5;
+}
+
+.cardSkin__flex{
+    @apply flex items-center gap-5;
+}
+
 /* Row direct */
 
 .cardSkin__row{
