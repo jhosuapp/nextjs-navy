@@ -28,6 +28,11 @@ const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, del
     const players = paginatedPlayers.length > 0
         ? [...initialPlayers, ...paginatedPlayers]
         : initialPlayers;
+    const hasInitialMore = (data?.tiers?.[tier]?.length ?? 0) >= 8;
+    const hasPaginatedData = tierRequest.data?.pages?.length > 0;
+    const shouldShowLoadMore =
+        (!hasPaginatedData && hasInitialMore) ||
+        (hasPaginatedData && tierRequest.hasNextPage);
 
     return (
         <TierWrapper
@@ -57,7 +62,7 @@ const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, del
                     <p className="text-base text-white text-center">There are no players at this level yet.</p>
                 </div>
             )}
-            {data?.tiers?.[tier]?.length >= 8 && (
+            {shouldShowLoadMore && (
                 <div className="flex justify-center px-5 py-4 sticky bottom-0">
                     <Button
                         onClick={ ()=> tierRequest.fetchNextPage() }

@@ -48,6 +48,7 @@ model staff {
   staff_role_id     String         @db.VarChar(32)
   staff_role_name   String         @db.VarChar(64)
   staff_role_colour String         @db.VarChar(7)
+  staff_role_weight Int
   online_staff      online_staff[] @ignore
 }
 

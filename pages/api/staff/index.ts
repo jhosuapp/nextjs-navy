@@ -10,7 +10,11 @@ export default async function handler(
     }
 
     try {
-        const staff = await prisma.staff.findMany();
+        const staff = await prisma.staff.findMany({
+            orderBy: {
+              staff_role_weight: 'desc',
+            },
+        });
         
         // Agrupar por staff_role_name
         const groupedStaff = staff.reduce((acc, member) => {
@@ -21,6 +25,7 @@ export default async function handler(
                 role_name: roleName,
                 role_colour: member.staff_role_colour,
                 role_id: member.staff_role_id,
+                role_weight: member.staff_role_weight,
                 members: []
             };
         }

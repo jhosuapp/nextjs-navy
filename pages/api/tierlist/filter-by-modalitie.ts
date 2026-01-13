@@ -28,7 +28,7 @@ export default async function handler(
     const offset = (page - 1) * limit
     
     // 🚀 Límite para vista general (sin filtros)
-    const overviewLimit = 4
+    const overviewLimit = 8
 
     // 🧠 PAGINACIÓN CON FILTROS ESPECÍFICOS
     if (gameFilter && tierFilter) {
