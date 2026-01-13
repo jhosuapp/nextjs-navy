@@ -1,40 +1,44 @@
 import { CardBody, CardWrapper } from "@/shared/components";
+import { Punishment } from "../../interfaces";
 
 import styles from './cardBan.module.css';
+import { formatDate, getDaysBetweenDates } from "../../helpers";
 
 type Props = {
-    username: string;
+    data: Punishment;
     variantStatus?: 'active' | 'inactive'
 }
 
-const CardBan = ({ username, variantStatus = 'active' }:Props):JSX.Element => {
+const CardBan = ({ data, variantStatus = 'active' }:Props):JSX.Element => {
+    console.log(data);
+
     return (
         <CardWrapper classNameParent={ styles.cardBan }>
-            <CardBody username={ username }>
+            <CardBody username={ data.nick ?? 'User eliminated' }>
                 <span className={ `${styles.cardBan__status} ${variantStatus == 'active' ? styles.cardBan__status__active : styles.cardBan__status__inactive}` }>
                     { variantStatus === 'active' ? 'Activo' : 'Expirado' }
                 </span>
             </CardBody>
             <div className={ styles.cardBan__content }>
                 <div className={ styles.cardBan__item }>
-                    <p>📝 Razón:</p>
-                    <p>Refuse ss</p>
+                    <p>📝 Reason:</p>
+                    <p>{ data.reason }</p>
+                </div>
+                {/* <div className={ styles.cardBan__item }>
+                    <p>👮 Banned for:</p>
+                    <p>{ data.nick }</p>
+                </div> */}
+                <div className={ styles.cardBan__item }>
+                    <p>⏱️ Duration:</p>
+                    <p>{ data.permanent ? 'Permanent' : `${getDaysBetweenDates(data.applied ?? '', data.expiration ?? '')} days` }</p>
                 </div>
                 <div className={ styles.cardBan__item }>
-                    <p>👮 Castigado por:</p>
-                    <p>Jhosuapp</p>
+                    <p>📅 Date:</p>
+                    <p>{ `${formatDate(data.applied)}` }</p>
                 </div>
                 <div className={ styles.cardBan__item }>
-                    <p>⏱️ Duración:</p>
-                    <p>90d</p>
-                </div>
-                <div className={ styles.cardBan__item }>
-                    <p>📅 Fecha:</p>
-                    <p>22 oct 2025, 20:25</p>
-                </div>
-                <div className={ styles.cardBan__item }>
-                    <p>⏰ Cuando expira:</p>
-                    <p>20 ene 2026, 20:55</p>
+                    <p>⏰ When it expires:</p>
+                    <p>{ data.permanent ? 'Never' : `${formatDate(data.expiration)}` }</p>
                 </div>
             </div>
         </CardWrapper>

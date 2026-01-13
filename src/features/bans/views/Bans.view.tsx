@@ -1,41 +1,42 @@
-import { Container, CardWrappersecondary } from "@/shared/components"
+import { Container, CardWrappersecondary, LoaderSecondary } from "@/shared/components"
 import { CardBan  } from "../components"
+import { useBans } from "../hooks";
 
 const BansView = ():JSX.Element => {
+    const response = useBans();
+
+    if(response.isLoading){
+        return (
+            <Container className="!mt-5 lg:!mt-10" isFirst isLast>
+                <LoaderSecondary textLoader="Loading staff team"/>
+            </Container>
+        )
+    }
+
+    const activeBans = response?.data?.active ?? [];
+    const inactiveBans = response?.data?.inactive ?? [];
+
     return (
         <Container className="!mt-5 lg:!mt-10" isFirst isLast>
-            <CardWrappersecondary title={ `Castigos activos (${4})` } text={`${3} Usuarios`}>
-                <CardBan 
-                    username="danjoh_0409"
-                />
-                <CardBan 
-                    username="danjoh_0409"
-                />
-                <CardBan 
-                    username="danjoh_0409"
-                />
-                <CardBan 
-                    username="danjoh_0409"
-                />
+            <CardWrappersecondary title={ `Active bans` } text={`${activeBans.length} Users`}>
+                {activeBans.map((data, index)=>(
+                    <CardBan 
+                        key={ `${data.nick}-${index}` }
+                        data={ data }
+                        />
+                    ))}
             </CardWrappersecondary>
-            <CardWrappersecondary title={ `Castigos inactivos (${4})` } text={`${3} Usuarios`}>
-                <CardBan 
-                    username="danjoh_0409"
-                    variantStatus="inactive"
-                />
-                <CardBan 
-                    username="danjoh_0409"
-                    variantStatus="inactive"
-                />
-                <CardBan 
-                    username="danjoh_0409"
-                    variantStatus="inactive"
-                />
-                <CardBan 
-                    username="danjoh_0409"
-                    variantStatus="inactive"
-                />
-            </CardWrappersecondary>
+            {inactiveBans.length && (
+                <CardWrappersecondary title={ `Inactive bans` } text={`${inactiveBans.length} Users`}>
+                    <>
+                    </>
+                    {/* <CardBan 
+                        key={ `${data.nick}-${index}` }
+                        data={ data }
+                        variantStatus="inactive"
+                    /> */}
+                </CardWrappersecondary>
+            )}
         </Container>
     )
 }

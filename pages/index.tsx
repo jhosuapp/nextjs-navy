@@ -6,8 +6,8 @@ import { paths } from "@/shared/constants";
 const HomePage = () => {
     return (
         <Layout
-            title={'Navy'}
-            description={'Navy'}
+            title={'Navy | Servidor de Discord para tests de nivel en Minecraft'}
+            description={'Navy es un servidor de Discord donde evaluamos el nivel de jugadores de Minecraft en distintas modalidades, tanto premium como no premium, mediante pruebas justas y estructuradas.'}
             textPage={'Tierlist'}
             linkPage={paths.tierlist}
         >
