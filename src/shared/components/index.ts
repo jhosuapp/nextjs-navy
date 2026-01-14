@@ -18,3 +18,4 @@ export * from './input-field/InputField';
 export * from './card-wrapper/CardWrapper';
 export * from './card-wrapper-secondary/CardWrapperSecondary'
 export * from './settings/Settings'
+export * from './switch/Switch'

@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { variantsSettingsContent, variantsSettingsBg, variantsSettingsContentMobile } from './variants';
+import { variantsSettingsContent, variantsSettingsBg, variantsSettingsContentMobile } from './settings.variants';
 import { useMediaQuery } from '@/shared/hooks';
 import { fadeInMotion } from '@/shared/motion';
 
 import icon from '@/config/assets/svg/icon-settings.svg';
 import styles from './settings.module.css';
+import { Switch } from '../switch/Switch';
 
 const Settings = ():JSX.Element => {
     const isDesk = useMediaQuery({breakpoint: 991 });
@@ -29,10 +30,10 @@ const Settings = ():JSX.Element => {
                     variants={ isDesk ? variantsSettingsContent : variantsSettingsContentMobile }
                 >
                     <div className={ styles.settings__content__block }>
-                        {/* <Switch 
+                        <Switch 
                             text='Dark mode'
                             id='dark_mode'
-                        /> */}
+                        />
                     </div>
                 </motion.article>
                 {/* Settings */}

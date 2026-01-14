@@ -13,7 +13,7 @@
 }
   
 .settings__content__block {
-    @apply w-full flex flex-col gap-2.5 absolute z-[1];
+    @apply w-full flex flex-col gap-2.5 absolute z-[1] py-5;
 }
   
 .settings__handler {

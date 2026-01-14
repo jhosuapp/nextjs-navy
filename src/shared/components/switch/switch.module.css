@@ -1,0 +1,22 @@
+.switch {
+    @apply flex justify-between items-center w-[90%] m-auto
+}
+  
+.switchItem {
+    @apply flex justify-start items-center w-[50%] max-w-16 h-8 bg-purple-300 bg-opacity-30 px-1 cursor-pointer;
+    border-radius: 5rem; /* 7rem - 2rem */
+    transition: background-color 0.3s ease, justify-content 0.3s ease;
+}
+  
+.switchItem[data-isOn="true"] {
+    @apply justify-end bg-primary;
+}
+  
+.switchItemHandler {
+    @apply w-6 h-6 bg-white rounded-full;
+}
+  
+.switch p {
+    @apply text-lg text-white;
+    white-space: nowrap;
+}
