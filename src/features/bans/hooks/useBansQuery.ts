@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import { getBansAction } from "../actions";
 
-const useBans = () => {
+const useBansQuery = () => {
     const bansQuery = useQuery({
         queryKey: ['bans'],
         queryFn:  ()=> getBansAction(),
@@ -13,4 +13,4 @@ const useBans = () => {
     return bansQuery
 }
 
-export { useBans }
+export { useBansQuery }

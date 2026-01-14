@@ -3,12 +3,15 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { TierDataOverallItem } from './TierDataOverallItem';
 import { useTierlistOverall } from '../../hooks';
 import { Button, LoaderSecondary } from '@/shared/components';
+import { getCombatTitleByPoints } from '../../helpers/getCombatTitlePointsHelper';
+import { anchorScroll } from '@/shared/helpers';
+import { useLenisStore } from '@/shared/stores';
 
 import styles from './tierDataOverall.module.css';
-import { getCombatTitleByPoints } from '../../helpers/getCombatTitlePointsHelper';
 
 const TierDataOverall = ():JSX.Element => {
     const tierlist = useTierlistOverall();
+    const lenis = useLenisStore(state => state.lenis);    
     const data = tierlist.data?.pages.flatMap(page => page.data) ?? []
 
     return (
@@ -52,7 +55,7 @@ const TierDataOverall = ():JSX.Element => {
                         })}
                         <div className={ styles.tierDataOverallInfoButton }>
                             <Button 
-                                onClick={ ()=> tierlist.fetchNextPage() }
+                                onClick={ ()=> { tierlist.fetchNextPage(), anchorScroll(lenis) } }
                                 disabled={ tierlist.isFetchingNextPage }
                                 text={ tierlist.isFetchingNextPage ? 'Loading...' : 'Load more players'} style={'secondary' } 
                             />

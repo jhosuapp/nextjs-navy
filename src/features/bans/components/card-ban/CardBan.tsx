@@ -6,14 +6,15 @@ import { formatDate, getDaysBetweenDates } from "../../helpers";
 
 type Props = {
     data: Punishment;
-    variantStatus?: 'active' | 'inactive'
+    variantStatus?: 'active' | 'inactive';
+    isFadeUp?: boolean;
 }
 
-const CardBan = ({ data, variantStatus = 'active' }:Props):JSX.Element => {
+const CardBan = ({ data, isFadeUp = true, variantStatus = 'active' }:Props):JSX.Element => {
     console.log(data);
 
     return (
-        <CardWrapper classNameParent={ styles.cardBan }>
+        <CardWrapper classNameParent={ styles.cardBan } isFadeUp={ isFadeUp }>
             <CardBody username={ data.nick ?? 'User eliminated' }>
                 <span className={ `${styles.cardBan__status} ${variantStatus == 'active' ? styles.cardBan__status__active : styles.cardBan__status__inactive}` }>
                     { variantStatus === 'active' ? 'Activo' : 'Expirado' }
