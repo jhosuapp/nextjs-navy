@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
 import { minecraft, roboto, blockletter, aeonik } from "@/config/typography";
-import { Cursor, FloatingDots } from "@/shared/components";
+import { Cursor, FloatingDots, Settings } from "@/shared/components";
 import { Footer, Header } from "@/shared/layouts";
 import { ToastContainer } from 'react-toastify';
 
@@ -58,6 +58,8 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
                 </div>
             </div>
         </main>
+
+        <Settings />
 
         <Footer textPage={ textPage } linkPage={ linkPage } />
     </>

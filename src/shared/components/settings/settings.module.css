@@ -1,0 +1,88 @@
+.settings {
+    @apply flex items-center fixed left-0 z-[10] h-svh top-0;
+}
+  
+.settings__content,
+.settings__handler {
+    @apply relative z-[1] max-h-[50vh]
+}
+  
+.settings__content {
+    transition: width 1s ease;
+    @apply w-0 overflow-hidden bg-tertiary flex !min-h-14 px-0 relative border-purple-300 border-2 border-opacity-50 border-r-0 border-l-0;
+}
+  
+.settings__content__block {
+    @apply w-full flex flex-col gap-2.5 absolute z-[1];
+}
+  
+.settings__handler {
+    @apply flex items-start w-14 h-14 min-h-14 lg:min-h-['auto'] p-3 border-opacity-50 bg-tertiary bg-opacity-50 backdrop-blur-sm border-purple-300 border-2 border-l-0;
+    border-radius: 0 8px 8px 0;
+}
+  
+.settings__handler img {
+    @apply w-full;
+    animation: loop-rotate 1s linear infinite;
+}
+  
+.settings__bg {
+    @apply absolute bg-black bg-opacity-55 w-[100vw] h-svh left-0 top-0;
+}
+  
+  /* ---------- OPEN ---------- */
+.settings.open .settings__handler,
+.settings.open .settings__content {
+    animation: open-content 0.5s ease forwards;
+    animation-delay: 1.25s;
+}
+  
+.settings.open .settings__content {
+    max-height: 50vh;
+}
+
+.settings.open .settings__content .content-items {
+    @apply opacity-100;
+    transition-delay: 1.5s;
+}
+
+/* ---------- CLOSED ---------- */
+.settings.closed .settings__handler,
+.settings.closed .settings__content {
+    animation: close-content 0.5s ease forwards;
+}
+
+.settings.closed .settings__bg {
+    @apply pointer-events-none;
+}
+
+.settings.closed .content-items {
+    @apply opacity-0;
+}
+
+@keyframes loop-rotate{
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes open-content{
+    from{
+        height: 3vw;
+    }
+    to{
+        height: 100vh;
+    }
+}
+
+@keyframes close-content{
+    from{
+        height: 100vh;
+    }
+    to{
+        height: 3vw;
+    }
+}
