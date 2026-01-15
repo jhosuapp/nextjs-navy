@@ -31,8 +31,12 @@ const Settings = ():JSX.Element => {
                 >
                     <div className={ styles.settings__content__block }>
                         <Switch 
-                            text='Dark mode'
-                            id='dark_mode'
+                            text='Light mode'
+                            id='light_mode'
+                        />
+                        <Switch 
+                            text='Disable particles'
+                            id='disable_particles'
                         />
                     </div>
                 </motion.article>

@@ -13,8 +13,8 @@ interface Actions {
 
 const storeAPI: StateCreator<SwitchState & Actions, [["zustand/devtools", never]]> = (set) => ({
     switches: {
-        dark_mode: false,
-        other_mode: false,
+        light_mode: false,
+        disable_particles: false,
     },
 
     setSwitch: (key, value) => set((state) => ({

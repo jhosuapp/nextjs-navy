@@ -15,8 +15,16 @@ const Switch = React.memo(({ text, id }:Props):JSX.Element => {
     const switches = useSwitchStore(state => state.switches);
     const setSwitch = useSwitchStore(state => state.setSwitch);
 
+    useEffect(()=>{
+        const body = document.body;
+        if(body){
+            switches[id] ? body.classList.add(id) : body.classList.remove(id);
+        }
+    },[switches]);
+
     const handleSetSwitch = () => {
-        setSwitch('dark_mode', !switches[id])
+        setSwitch(id, !switches[id]);
+        new Audio(switches[id] ? '/mp3/switch-on.mp3' : '/mp3/switch-off.mp3').play();
     }
 
     return (

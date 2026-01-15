@@ -6,6 +6,10 @@
     @apply max-w-limit w-[90%] border-2 border-purple-300 border-opacity-50 flex items-center rounded-md relative bg-tertiary bg-opacity-40 backdrop-blur-md;
 }
 
+:global(.light_mode) .header__content{
+    @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500;
+}
+
 .header__nav{
     transition: 0.5s ease all;
     @apply flex justify-between items-center w-full;
@@ -16,7 +20,7 @@
         @apply bg-tertiary bg-opacity-40 backdrop-blur-md border-b-2 border-purple-300 border-opacity-50 my-0;
     }
     .header__content{
-        @apply border-none justify-between py-2 w-full;
+        @apply border-none justify-between py-2 w-full rounded-none;
     }
     .header__nav{
         @apply !absolute h-full top-0 left-0 min-h-svh flex-col justify-start bg-tertiary w-full pt-24 opacity-0 pointer-events-none;

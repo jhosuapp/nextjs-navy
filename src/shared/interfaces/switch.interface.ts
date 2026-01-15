@@ -1,3 +1,3 @@
 export type SwitchKey =
-  | "dark_mode"
-  | "other_mode";
+  | "light_mode"
+  | "disable_particles";

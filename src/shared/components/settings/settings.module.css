@@ -27,7 +27,7 @@
 }
   
 .settings__bg {
-    @apply absolute bg-black bg-opacity-55 w-[100vw] h-svh left-0 top-0;
+    @apply absolute bg-black bg-opacity-25 w-[100vw] h-svh left-0 top-0;
 }
   
   /* ---------- OPEN ---------- */

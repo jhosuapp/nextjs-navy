@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+    darkMode: 'class',
     content: [
         "./src/**/*.{js,ts,jsx,tsx}",
         "./pages/**/*.{js,ts,jsx,tsx}"
     ],
-    darkMode: 'class',
     theme: {
         extend: {
             fontFamily: {
@@ -25,6 +25,17 @@ module.exports = {
                     black: '#202020',
                     white: '#FAFAFA',
                 },
+                // primary: "var(--color-primary)",
+                // secondary: "var(--color-secondary)",
+                // tertiary: "var(--color-tertiary)",
+                // cuartary: "var(--color-cuartary)",
+                // fifth: "var(--color-fifth)",
+                // sixth: "var(--color-sixth)",
+                // seventh: "var(--color-seventh)",
+                // black: "var(--color-black)",
+                // white: "var(--color-white)",
+                // neutral: {
+                // },
                 feedback: {
                     error: {
                         'dark-01': '#C9201D',

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useMotionValue, useSpring } from 'framer-motion';
-
 import { Particle } from './Particle';
+import { useSwitchStore } from '@/shared/stores';
+
 import styles from './particles.module.css';
 
 const Particles = () => {
@@ -9,7 +10,7 @@ const Particles = () => {
 
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
-
+    
     const smoothX = useSpring(mouseX, { stiffness: 100, damping: 30 });
     const smoothY = useSpring(mouseY, { stiffness: 100, damping: 30 });
 

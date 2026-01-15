@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --color-primary: #4B0082;
+    --color-secondary: #4E324C;
+    --color-tertiary: #1a151a;
+    --color-cuartary: #F0F1FA;
+    --color-fifth: #2E0854;
+    --color-sixth: #F50F0E;
+    --color-seventh: #2C1E30;
+    --color-black: #000;
+    --color-white: #fff;
+}
+
+.light_mode {
+    --color-primary: blue;
+    --color-secondary: red;
+    --color-tertiary: white;
+    --color-cuartary: #F0F1FA;
+    --color-fifth: #2E0854;
+    --color-sixth: #F50F0E;
+    --color-seventh: #2C1E30;
+    --color-primary: #60a5fa;
+    --color-secondary: #94a3b8;
+    --color-black: #fff;
+    --color-white: #000;
+}
+
 body {
     font-family: var(--font-roboto);
 }

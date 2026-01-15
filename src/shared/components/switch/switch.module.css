@@ -1,5 +1,5 @@
 .switch {
-    @apply flex justify-between items-center w-[90%] m-auto
+    @apply flex justify-between items-center w-[90%] m-auto mb-5;
 }
   
 .switchItem {
