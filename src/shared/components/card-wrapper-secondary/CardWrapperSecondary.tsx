@@ -9,11 +9,12 @@ type Props = {
     children: ReactNode;
     title: string;
     text: string;
+    isSmallGrid?: boolean;
 }
 
-const CardWrappersecondary = ({ children, title, text }:Props):JSX.Element => {
+const CardWrappersecondary = ({ children, title, text, isSmallGrid = false }:Props):JSX.Element => {
     return (
-        <section className={ styles.cardWrappersecondary }>
+        <section className={ `${styles.cardWrappersecondary} ${isSmallGrid && styles.cardWrappersecondarySmall}` }>
             <motion.div {...fadeUpMotion(0.7, 0.13)}>
                 <article className={ styles.cardWrappersecondary__top }>
                     <h2 className={ styles.cardWrappersecondary__title }>{ title }</h2>

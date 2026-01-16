@@ -15,6 +15,8 @@ const storeAPI: StateCreator<SwitchState & Actions, [["zustand/devtools", never]
     switches: {
         light_mode: false,
         disable_particles: false,
+        gray_contrast: false,
+        invert_colors: false,
     },
 
     setSwitch: (key, value) => set((state) => ({

@@ -1,0 +1,39 @@
+.cardPartners__content{
+    @apply flex flex-col justify-center items-center py-5;
+}
+
+.cardPartners__image{
+    @apply w-full max-w-24 min-h-24 max-h-24 flex items-center justify-center rounded-full bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500;
+}
+
+.cardPartners__image picture{
+    @apply relative overflow-hidden w-16 h-16 rounded-full bg-tertiary bg-opacity-50;
+}
+
+.cardPartners__image img{
+    @apply w-full h-full object-cover;
+}
+
+.cardPartners__info {
+    @apply text-center my-5;
+}
+
+.cardPartners__info h3{
+    @apply bg-gradient-to-r from-purple-500 to-white bg-clip-text text-transparent font-medium text-lg;
+}
+
+.cardPartners__info p{
+    @apply text-white;
+}
+
+.cardPartners__networks{
+    @apply flex gap-4;
+}
+
+.cardPartners__networks a{
+    @apply flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500;
+}
+
+.cardPartners__networks a img{
+    @apply w-5;
+}

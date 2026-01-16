@@ -38,6 +38,14 @@ const Settings = ():JSX.Element => {
                             text='Disable particles'
                             id='disable_particles'
                         />
+                        <Switch 
+                            text='Invert colors'
+                            id='invert_colors'
+                        />
+                        <Switch 
+                            text='Gray contrast'
+                            id='gray_contrast'
+                        />
                     </div>
                 </motion.article>
                 {/* Settings */}

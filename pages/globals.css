@@ -28,6 +28,14 @@
     --color-white: #000;
 }
 
+html.invert_colors{
+    filter: invert(1);
+}
+
+html.gray_contrast{
+    filter: grayscale(1);
+}
+
 body {
     font-family: var(--font-roboto);
 }

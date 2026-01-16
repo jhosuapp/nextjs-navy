@@ -16,9 +16,9 @@ const Switch = React.memo(({ text, id }:Props):JSX.Element => {
     const setSwitch = useSwitchStore(state => state.setSwitch);
 
     useEffect(()=>{
-        const body = document.body;
-        if(body){
-            switches[id] ? body.classList.add(id) : body.classList.remove(id);
+        const documentElement = document.documentElement;
+        if(documentElement){
+            switches[id] ? documentElement.classList.add(id) : documentElement.classList.remove(id);
         }
     },[switches]);
 

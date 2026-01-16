@@ -2,7 +2,8 @@ export const routes = {
     "/": "Home",
     "/staff-navy": "Staff",
     "/tierlist": "Tierlist",
-    "/bans": "Bans"
+    "/bans": "Bans",
+    "/partners": "Partners",
 }
 
 export const paths = {

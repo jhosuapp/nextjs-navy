@@ -7,6 +7,10 @@
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 
+.cardWrappersecondarySmall .cardWrappersecondary__content{
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
 .cardWrappersecondary__title{
     @apply text-purple-300 text-opacity-50 font-medium text-2xl lg:text-3xl;
 }

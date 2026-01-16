@@ -15,7 +15,7 @@ const variantsSettings = {
 
 const variantsSettingsContent = {
     open: {
-        width: '20vw',
+        width: '300px',
         transition: {
             y: { stiffness: 1000, velocity: -100 },
         }
