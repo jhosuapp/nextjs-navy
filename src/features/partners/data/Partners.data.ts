@@ -4,30 +4,25 @@ import iconTiktok from '@/config/assets/svg/icon-tiktok.svg';
 import iconDiscord from '@/config/assets/svg/icon-discord.svg';
 import iconInstagram from '@/config/assets/svg/icon-instagram.svg';
 
-export const dataDummy:PartnersItem[] = [
+export const serversData:PartnersItem[] = [
     {
         name: 'Nzcraft',
         description: 'Servidor pvp 1.9',
         img: '/images/nzcraft.png',
         networks: [
             {
-                href: 'youtube.com',
+                href: 'https://www.youtube.com/@nzcraftnetwork3605',
                 src: iconYoutube,
                 alt: 'Nzcraft'
             },
             {
-                href: 'tiktok.com',
+                href: 'https://www.tiktok.com/@nzcraftserver',
                 src: iconTiktok,
                 alt: 'Nzcraft'
             },
             {
-                href: 'discord.com',
+                href: 'https://discord.gg/nzcraft',
                 src: iconDiscord,
-                alt: 'Nzcraft'
-            },
-            {
-                href: 'discord.com',
-                src: iconInstagram,
                 alt: 'Nzcraft'
             },
         ]
@@ -35,115 +30,74 @@ export const dataDummy:PartnersItem[] = [
     {
         name: 'Zenith',
         description: 'Servidor pvp 1.9',
-        img: '/images/nzcraft.png',
+        img: '/images/zenith.webp',
         networks: [
             {
-                href: 'youtube.com',
+                href: 'https://www.youtube.com/@ElysiumSN',
                 src: iconYoutube,
-                alt: 'Nzcraft'
+                alt: 'Zenith'
             },
             {
-                href: 'tiktok.com',
+                href: 'https://www.tiktok.com/@elysiumsn',
                 src: iconTiktok,
-                alt: 'Nzcraft'
+                alt: 'Zenith'
             },
             {
-                href: 'discord.com',
+                href: 'https://discord.gg/HAyCwqzRn5',
                 src: iconDiscord,
-                alt: 'Nzcraft'
+                alt: 'Zenith'
             },
+        ]
+    },
+]
+
+export const streamersData:PartnersItem[] = [
+  
+    {
+        name: 'YunaEz',
+        description: 'Streamer',
+        img: '/images/yunaez.webp',
+        networks: [
             {
-                href: 'discord.com',
-                src: iconInstagram,
-                alt: 'Nzcraft'
+                href: 'https://www.tiktok.com/@yunaez0',
+                src: iconTiktok,
+                alt: 'YunaEz'
             },
         ]
     },
     {
-        name: 'YunaEz',
+        name: 'ValeriaEz',
         description: 'Streamer',
-        img: '/images/nzcraft.png',
+        img: '/images/valeriaez.webp',
         networks: [
             {
-                href: 'youtube.com',
-                src: iconYoutube,
-                alt: 'Nzcraft'
-            },
-            {
-                href: 'tiktok.com',
+                href: 'https://www.tiktok.com/@.valeria.ez',
                 src: iconTiktok,
-                alt: 'Nzcraft'
-            },
-            {
-                href: 'discord.com',
-                src: iconDiscord,
-                alt: 'Nzcraft'
+                alt: 'ValeriaEz'
             },
         ]
     },
     {
-        name: 'YunaEz',
+        name: 'Toallero',
         description: 'Streamer',
-        img: '/images/nzcraft.png',
+        img: '/images/toallero.webp',
         networks: [
             {
-                href: 'youtube.com',
-                src: iconYoutube,
-                alt: 'Nzcraft'
-            },
-            {
-                href: 'tiktok.com',
+                href: 'https://www.tiktok.com/@to4llero',
                 src: iconTiktok,
-                alt: 'Nzcraft'
-            },
-            {
-                href: 'discord.com',
-                src: iconDiscord,
-                alt: 'Nzcraft'
+                alt: 'Toallero'
             },
         ]
     },
     {
-        name: 'YunaEz',
+        name: 'Fabe09_',
         description: 'Streamer',
-        img: '/images/nzcraft.png',
+        img: '/images/fabe.webp',
         networks: [
             {
-                href: 'youtube.com',
-                src: iconYoutube,
-                alt: 'Nzcraft'
-            },
-            {
-                href: 'tiktok.com',
+                href: 'https://www.tiktok.com/@fabe09_',
                 src: iconTiktok,
-                alt: 'Nzcraft'
-            },
-            {
-                href: 'discord.com',
-                src: iconDiscord,
-                alt: 'Nzcraft'
-            },
-        ]
-    },
-    {
-        name: 'YunaEz',
-        description: 'Streamer',
-        img: '/images/nzcraft.png',
-        networks: [
-            {
-                href: 'youtube.com',
-                src: iconYoutube,
-                alt: 'Nzcraft'
-            },
-            {
-                href: 'tiktok.com',
-                src: iconTiktok,
-                alt: 'Nzcraft'
-            },
-            {
-                href: 'discord.com',
-                src: iconDiscord,
-                alt: 'Nzcraft'
+                alt: 'Fabe09_'
             },
         ]
     },
