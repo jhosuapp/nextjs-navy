@@ -2,7 +2,8 @@ import { PartnersItem } from "../interface";
 import iconYoutube from '@/config/assets/svg/icon-youtube.svg';
 import iconTiktok from '@/config/assets/svg/icon-tiktok.svg';
 import iconDiscord from '@/config/assets/svg/icon-discord.svg';
-import iconInstagram from '@/config/assets/svg/icon-instagram.svg';
+import iconCube from '@/config/assets/svg/icon-cube.svg';
+import iconNc from '@/config/assets/svg/icon-nmc.svg';
 
 export const serversData:PartnersItem[] = [
     {
@@ -24,6 +25,12 @@ export const serversData:PartnersItem[] = [
                 href: 'https://discord.gg/nzcraft',
                 src: iconDiscord,
                 alt: 'Nzcraft'
+            },
+            {
+                href: 'https://discord.gg/nzcraft',
+                src: iconCube,
+                alt: 'Nzcraft',
+                hasTooltip: true
             },
         ]
     },
@@ -47,6 +54,12 @@ export const serversData:PartnersItem[] = [
                 src: iconDiscord,
                 alt: 'Zenith'
             },
+            {
+                href: 'https://discord.gg/nzcraft',
+                src: iconCube,
+                alt: 'Zenith',
+                hasTooltip: true
+            },
         ]
     },
 ]
@@ -63,6 +76,11 @@ export const streamersData:PartnersItem[] = [
                 src: iconTiktok,
                 alt: 'YunaEz'
             },
+            {
+                href: 'https://es.namemc.com/profile/06ec3577-3299-45fa-bbdf-613b1f86c8ab',
+                src: iconNc,
+                alt: 'YunaEz'
+            },
         ]
     },
     {
@@ -74,6 +92,11 @@ export const streamersData:PartnersItem[] = [
                 href: 'https://www.tiktok.com/@.valeria.ez',
                 src: iconTiktok,
                 alt: 'ValeriaEz'
+            },
+            {
+                href: 'https://es.namemc.com/profile/06ec3577-3299-45fa-bbdf-613b1f86c8ab',
+                src: iconNc,
+                alt: 'YunaEz'
             },
         ]
     },
@@ -87,6 +110,11 @@ export const streamersData:PartnersItem[] = [
                 src: iconTiktok,
                 alt: 'Toallero'
             },
+            {
+                href: 'https://es.namemc.com/profile/06ec3577-3299-45fa-bbdf-613b1f86c8ab',
+                src: iconNc,
+                alt: 'YunaEz'
+            },
         ]
     },
     {
@@ -98,6 +126,11 @@ export const streamersData:PartnersItem[] = [
                 href: 'https://www.tiktok.com/@fabe09_',
                 src: iconTiktok,
                 alt: 'Fabe09_'
+            },
+            {
+                href: 'https://es.namemc.com/profile/06ec3577-3299-45fa-bbdf-613b1f86c8ab',
+                src: iconNc,
+                alt: 'YunaEz'
             },
         ]
     },

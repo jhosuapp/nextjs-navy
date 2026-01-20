@@ -31,9 +31,17 @@
 }
 
 .cardPartners__networks a{
-    @apply flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500;
+    @apply flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 relative;
 }
 
 .cardPartners__networks a img{
     @apply w-5;
+}
+
+.cardPartners__tooltip{
+    @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 text-sm absolute bottom-full mb-1.5 rounded-sm text-white px-2 min-w-20 text-center opacity-0 transition-all;
+}
+
+.cardPartners__networks a:hover .cardPartners__tooltip{
+    @apply opacity-100;
 }

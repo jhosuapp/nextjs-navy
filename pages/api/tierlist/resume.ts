@@ -25,12 +25,19 @@ export default async function handler(
   }
 
   try {
-    // Obtener últimos 5 tests con tiers H (H1, H2, H3, H4, H5)
+    // Obtener últimos 5 tests con tiers H (H1, H2, H3, H4, H5) y is_high = true
     const latestHTests = await prisma.tiers.findMany({
       where: {
-        tier: {
-          in: ["H1", "1H", "H2", "2H", "H3", "3H", "H4", "4H", "H5", "5H"],
-        },
+        AND: [
+          {
+            tier: {
+              in: ["H1", "1H", "H2", "2H", "H3", "3H", "H4", "4H", "H5", "5H"],
+            },
+          },
+          {
+            is_high: true,
+          },
+        ],
       },
       select: {
         id: true,
@@ -46,12 +53,19 @@ export default async function handler(
       take: 5,
     })
 
-    // Obtener últimos 5 tests con tiers L (L1, L2, L3, L4, L5)
+    // Obtener últimos 5 tests con tiers L (L1, L2, L3, L4, L5) y is_high = false
     const latestLTests = await prisma.tiers.findMany({
       where: {
-        tier: {
-          in: ["L1", "1L", "L2", "2L", "L3", "3L", "L4", "4L", "L5", "5L"],
-        },
+        AND: [
+          {
+            tier: {
+              in: ["L1", "1L", "L2", "2L", "L3", "3L", "L4", "4L", "L5", "5L"],
+            },
+          },
+          {
+            is_high: false,
+          },
+        ],
       },
       select: {
         id: true,

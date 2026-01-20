@@ -50,32 +50,32 @@ const Comunity = ():JSX.Element => {
 
 export const dummyData = [
     {
-        username: 'makima',
+        username: 'YunaEz',
         modalitie: 'Sword',
         variant: 'blue',
         modalitieImage: 'sword.webp'
     },
     {
-        username: 'reze',
+        username: 'ValeriaEz',
         modalitie: 'Netherite poth',
         variant: 'purple',
         modalitieImage: 'netherite.webp'
     },
     {
-        username: 'yunaez',
+        username: 'jhosuapp',
         modalitie: 'Sword',
         variant: 'blue',
         modalitieImage: 'sword.webp'
     },
     {
-        username: 'naruto',
-        modalitie: 'Netherite poth',
-        variant: 'purple',
-        modalitieImage: 'netherite.webp'
+        username: 'toallero',
+        modalitie: 'Sword',
+        variant: 'blue',
+        modalitieImage: 'sword.webp'
     },
     {
-        username: 'sasuke',
-        modalitie: 'Sword',
+        username: 'DarkD3ad',
+        modalitie: 'Crystal',
         variant: 'blue',
         modalitieImage: 'sword.webp'
     },
