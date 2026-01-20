@@ -21,6 +21,13 @@
     @apply w-[20px] h-[20px] rounded-[20px] absolute right-0;
 }
 
+.loaderSecondarySmall {
+    transform: scale(0.7);
+    @apply min-h-max;
+}
+.loaderSecondarySmall .loaderSecondaryText{
+    @apply !text-xl;
+} 
 
 .loaderInner1{
     @apply top-0 left-0 rotate-[70deg];

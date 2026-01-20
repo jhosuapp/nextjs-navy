@@ -10,32 +10,32 @@ const Comunity = ():JSX.Element => {
 
             {/* Comunity discord */}
             <div className={ styles.comunity__cta }>
-                <Title text='¿Quieres ser testeado?' className={ styles.comunity__title } />
+                <Title text='Do you want to take the test?' className={ styles.comunity__title } />
                 <Button 
                     onClick={ ()=> window.open('https://discord.gg/navyy') }
                     icon={ icon }
-                    text="Unirse a Discord" style={'secondary'} 
+                    text="Join Discord" style={'secondary'} 
                 />
             </div>
 
             {/* Comunity members */}
             <div className={ styles.comunity__content }>
                 <Divider />
-                <Title text='Comunidad' />
+                <Title text='Community' />
                 <Divider />
                 <div className={ styles.comunity__item }>
-                    <p>Miembros totales</p>
-                    <p>5500</p>
+                    <p>Total Members</p>
+                    <p>+5500</p>
                 </div>
-                <div className={ styles.comunity__item }>
+                {/* <div className={ styles.comunity__item }>
                     <p>Miembros conectados</p>
                     <p>500 <span></span></p>
-                </div>
+                </div> */}
             </div>
 
             <div className={ styles.comunity__tests }>
                 <Divider />
-                <Title text='Testers activos' />
+                <Title text='Active testers' />
                 <Divider />
                 <div className={ styles.comunity__tests__flex }>
                     {dummyData.map((data:any, index)=>(

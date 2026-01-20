@@ -9,15 +9,16 @@ type NativeProps = HTMLAttributes<HTMLElement>;
 type CustomProps = {
     className?: string;
     textLoader?: string; 
+    isSmall?: boolean; 
 }
 
  type Props = NativeProps & CustomProps & MotionProps;
 
-const LoaderSecondary = ({ textLoader, className, ...props }:Props):JSX.Element => {
+const LoaderSecondary = ({ textLoader, className, isSmall = false, ...props }:Props):JSX.Element => {
 
     return (
         <motion.section 
-            className={`${styles.loaderSecondary} ${className ?? ''}`}
+            className={`${styles.loaderSecondary} ${className ?? ''} ${isSmall && styles.loaderSecondarySmall}`}
             {...fadeInMotion()}
             {...props}
         >
