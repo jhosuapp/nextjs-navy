@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from "@/config/lib/prisma"
+import { Prisma } from "@prisma/client"
 
 type TierItem = {
     nick: string
@@ -32,28 +33,38 @@ export default async function handler(
 
     // 🧠 PAGINACIÓN CON FILTROS ESPECÍFICOS
     if (gameFilter && tierFilter) {
-        const rows = await prisma.tiers.findMany({
-            where: { 
-                game: gameFilter,
-                tier: {
-                    contains: tierFilter.replace('t', ''),
-                }
-            },
-            select: {
-                nick: true,
-                region: true,
-                tier: true,
-                game: true,
-            },
-            skip: offset,
-            take: limit,
-        })
+        const rows = await prisma.$queryRaw<Array<{
+            nick: string
+            region: string
+            tier: string
+            game: string
+        }>>`
+            WITH latest_tiers AS (
+                SELECT nick, region, tier, game,
+                    ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+                FROM tiers
+                WHERE game = ${gameFilter}
+                AND LOWER(tier) LIKE ${`%${tierFilter.replace('t', '').toLowerCase()}%`}
+            )
+            SELECT nick, region, tier, game
+            FROM latest_tiers
+            WHERE rn = 1
+            ORDER BY nick
+            LIMIT ${limit}
+            OFFSET ${offset}
+        `
 
         const [totalCount] = await prisma.$queryRaw<[{ count: bigint }]>`
+            WITH latest_tiers AS (
+                SELECT nick, game,
+                    ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+                FROM tiers
+                WHERE game = ${gameFilter}
+                AND LOWER(tier) LIKE ${`%${tierFilter.replace('t', '').toLowerCase()}%`}
+            )
             SELECT COUNT(*) as count 
-            FROM tiers 
-            WHERE game = ${gameFilter} 
-            AND LOWER(tier) LIKE ${`%${tierFilter.replace('t', '')}%`}
+            FROM latest_tiers
+            WHERE rn = 1
         `
 
         const items = rows.map(row => {
@@ -79,41 +90,57 @@ export default async function handler(
         })
     }
 
-    // 🔁 VISTA GENERAL: Limitar en la query
+    // 🔁 VISTA GENERAL: Solo tiers más recientes
     const rows = await prisma.$queryRaw<Array<{
         game: string
         tier: string
         nick: string
         region: string
         row_num: bigint
-    }> >`
-        WITH ranked_tiers AS (
+    }>>`
+        WITH latest_tiers AS (
+            SELECT 
+                game,
+                tier,
+                nick,
+                region,
+                ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+            FROM tiers
+            WHERE nick IS NOT NULL 
+            AND region IS NOT NULL 
+            AND tier IS NOT NULL 
+            AND game IS NOT NULL
+        ),
+        ranked_latest AS (
             SELECT 
                 game,
                 tier,
                 nick,
                 region,
                 ROW_NUMBER() OVER (PARTITION BY game, tier ORDER BY nick) as row_num
-            FROM tiers
-            WHERE nick IS NOT NULL 
-            AND region IS NOT NULL 
-            AND tier IS NOT NULL 
-            AND game IS NOT NULL
+            FROM latest_tiers
+            WHERE rn = 1
         )
         SELECT game, tier, nick, region, row_num
-        FROM ranked_tiers
+        FROM ranked_latest
         WHERE row_num <= ${overviewLimit}
         ORDER BY game, tier, nick
     `
 
-    // Contar totales por juego
+    // Contar totales por juego (solo usuarios únicos con su tier más reciente)
     const totals = await prisma.$queryRaw<Array<{
         game: string
         total_users: bigint
     }>>`
+        WITH latest_tiers AS (
+            SELECT game, nick,
+                ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+            FROM tiers
+            WHERE game IS NOT NULL AND nick IS NOT NULL
+        )
         SELECT game, COUNT(DISTINCT nick) as total_users
-        FROM tiers
-        WHERE game IS NOT NULL AND nick IS NOT NULL
+        FROM latest_tiers
+        WHERE rn = 1
         GROUP BY game
     `
 

@@ -25,7 +25,7 @@ const Comunity = ():JSX.Element => {
                 <Divider />
                 <div className={ styles.comunity__item }>
                     <p>Total Members</p>
-                    <p>+5500</p>
+                    <p>+6500</p>
                 </div>
                 {/* <div className={ styles.comunity__item }>
                     <p>Miembros conectados</p>

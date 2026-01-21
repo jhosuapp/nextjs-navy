@@ -25,63 +25,65 @@ export default async function handler(
   }
 
   try {
-    // Obtener últimos 5 tests con tiers H (H1, H2, H3, H4, H5) y is_high = true
-    const latestHTests = await prisma.tiers.findMany({
-      where: {
-        AND: [
-          {
-            tier: {
-              in: ["H1", "1H", "H2", "2H", "H3", "3H", "H4", "4H", "H5", "5H"],
-            },
-          },
-          {
-            is_high: true,
-          },
-        ],
-      },
-      select: {
-        id: true,
-        nick: true,
-        region: true,
-        tier: true,
-        game: true,
-        date: true,
-      },
-      orderBy: {
-        date: "desc",
-      },
-      take: 5,
-    })
+    // Obtener últimos 5 tests con is_high = true (solo el más reciente por nick+game)
+    const latestHTests = await prisma.$queryRaw<Array<{
+      id: number
+      nick: string
+      region: string
+      tier: string
+      game: string
+      date: Date
+    }>>`
+      WITH latest_per_user_game AS (
+        SELECT 
+          id,
+          nick,
+          region,
+          tier,
+          game,
+          date,
+          ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+        FROM tiers
+        WHERE is_high = true
+        AND tier IN ('H1', '1H', 'H2', '2H', 'H3', '3H', 'H4', '4H', 'H5', '5H', 'L1', '1L', 'L2', '2L', 'L3', '3L', 'L4', '4L', 'L5', '5L')
+      )
+      SELECT id, nick, region, tier, game, date
+      FROM latest_per_user_game
+      WHERE rn = 1
+      ORDER BY date DESC
+      LIMIT 5
+    `
 
-    // Obtener últimos 5 tests con tiers L (L1, L2, L3, L4, L5) y is_high = false
-    const latestLTests = await prisma.tiers.findMany({
-      where: {
-        AND: [
-          {
-            tier: {
-              in: ["L1", "1L", "L2", "2L", "L3", "3L", "L4", "4L", "L5", "5L"],
-            },
-          },
-          {
-            is_high: false,
-          },
-        ],
-      },
-      select: {
-        id: true,
-        nick: true,
-        region: true,
-        tier: true,
-        game: true,
-        date: true,
-      },
-      orderBy: {
-        date: "desc",
-      },
-      take: 5,
-    })
+    // Obtener últimos 5 tests con is_high = false (solo el más reciente por nick+game)
+    const latestLTests = await prisma.$queryRaw<Array<{
+      id: number
+      nick: string
+      region: string
+      tier: string
+      game: string
+      date: Date
+    }>>`
+      WITH latest_per_user_game AS (
+        SELECT 
+          id,
+          nick,
+          region,
+          tier,
+          game,
+          date,
+          ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+        FROM tiers
+        WHERE is_high = false
+        AND tier IN ('L1', '1L', 'L2', '2L', 'L3', '3L', 'L4', '4L', 'L5', '5L')
+      )
+      SELECT id, nick, region, tier, game, date
+      FROM latest_per_user_game
+      WHERE rn = 1
+      ORDER BY date DESC
+      LIMIT 5
+    `
 
-    // Obtener conteo de tests por juego
+    // Obtener conteo de tests por juego (conteo total original)
     const testsByGame = await prisma.tiers.groupBy({
       by: ["game"],
       _count: {

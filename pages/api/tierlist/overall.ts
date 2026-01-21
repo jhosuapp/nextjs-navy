@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from "@/config/lib/prisma"
+import { Prisma } from "@prisma/client"
 
 const TIER_POINTS: Record<string, number> = {
   H1: 60,
@@ -51,9 +52,15 @@ export default async function handler(
       tier: string
       game: string
     }>>`
+      WITH latest_tiers AS (
+        SELECT nick, region, tier, game,
+          ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+        FROM tiers
+        WHERE LOWER(nick) = ${searchNick}
+      )
       SELECT nick, region, tier, game
-      FROM tiers
-      WHERE LOWER(nick) = ${searchNick}
+      FROM latest_tiers
+      WHERE rn = 1
     `
 
     if (userRows.length === 0) {
@@ -74,7 +81,13 @@ export default async function handler(
 
     // Calcular posición
     const [positionData] = await prisma.$queryRaw<[{ position: bigint }]>`
-      WITH user_points AS (
+      WITH latest_tiers AS (
+        SELECT nick, tier, game,
+          ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+        FROM tiers
+        WHERE nick IS NOT NULL AND tier IS NOT NULL
+      ),
+      user_points AS (
         SELECT 
           nick,
           SUM(
@@ -92,8 +105,8 @@ export default async function handler(
               ELSE 0 
             END
           ) as points
-        FROM tiers
-        WHERE nick IS NOT NULL AND tier IS NOT NULL
+        FROM latest_tiers
+        WHERE rn = 1
         GROUP BY nick
       )
       SELECT COUNT(*) + 1 as position
@@ -119,7 +132,13 @@ export default async function handler(
     points: number
     row_num: bigint
   }>>`
-    WITH user_points AS (
+    WITH latest_tiers AS (
+      SELECT nick, region, tier, game,
+        ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+      FROM tiers
+      WHERE nick IS NOT NULL AND tier IS NOT NULL AND region IS NOT NULL
+    ),
+    user_points AS (
       SELECT 
         nick,
         MAX(region) as region,
@@ -138,8 +157,8 @@ export default async function handler(
             ELSE 0 
           END
         ) as points
-      FROM tiers
-      WHERE nick IS NOT NULL AND tier IS NOT NULL AND region IS NOT NULL
+      FROM latest_tiers
+      WHERE rn = 1
       GROUP BY nick
     ),
     ranked AS (
@@ -158,24 +177,35 @@ export default async function handler(
 
   // Obtener total
   const [totalData] = await prisma.$queryRaw<[{ total: bigint }]>`
+    WITH latest_tiers AS (
+      SELECT nick,
+        ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+      FROM tiers
+      WHERE nick IS NOT NULL
+    )
     SELECT COUNT(DISTINCT nick) as total
-    FROM tiers
-    WHERE nick IS NOT NULL
+    FROM latest_tiers
+    WHERE rn = 1
   `
 
-  // Obtener juegos
+  // Obtener juegos (solo los más recientes)
   const nicks = rankingRows.map(r => r.nick)
   
-  const gamesRows = nicks.length > 0 ? await prisma.tiers.findMany({
-    where: {
-      nick: { in: nicks },
-    },
-    select: {
-      nick: true,
-      tier: true,
-      game: true,
-    },
-  }) : []
+  const gamesRows = nicks.length > 0 ? await prisma.$queryRaw<Array<{
+    nick: string
+    tier: string
+    game: string
+  }>>`
+    WITH latest_tiers AS (
+      SELECT nick, tier, game,
+        ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+      FROM tiers
+      WHERE nick IN (${Prisma.join(nicks)})
+    )
+    SELECT nick, tier, game
+    FROM latest_tiers
+    WHERE rn = 1
+  ` : []
 
   // Mapear juegos
   const gamesMap: Record<string, Record<string, GameTier>> = {}
