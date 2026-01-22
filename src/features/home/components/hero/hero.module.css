@@ -1,5 +1,5 @@
 .hero{
-    @apply w-full min-h-svh flex flex-col pointer-events-none py-0 gap-[1.5vh];
+    @apply w-full flex flex-col pointer-events-none py-0 gap-[1.5vh];
 }
 
 @media(max-width: 768px){
@@ -68,8 +68,7 @@
 }
 
 .heroVideo__content p{
-    font-size: clamp(20px, 15vh, 110px);
-    @apply font-medium text-purple-300 text-opacity-50;
+    @apply font-medium text-purple-300 text-opacity-50 text-2xl lg:text-8xl;
 }
 
 @media(max-width: 768px){
@@ -77,13 +76,10 @@
         @apply gap-[4vw]
     }
     .heroVideo__content button{
-        @apply min-w-[120px] max-w-[120px] min-h-[50px] max-h-[50px] rounded-[100px];
+        @apply min-w-32 max-w-32 min-h-14 max-h-14 rounded-[100px];
     }
     .heroVideo__content button img{
-        @apply max-w-[15px];
-    }
-    .heroVideo__content p{
-        font-size: clamp(20px, 10vw, 40px);
+        @apply max-w-4;
     }
 }
 

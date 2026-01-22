@@ -12,8 +12,7 @@
     @apply bg-cuartary z-[102];
 }
 .curve .curve__route{
-    font-size: clamp(25px, 6vw, 70px);
-    @apply fixed text-fifth text-center z-[103] left-[50%] top-[40vh] translate-x-[-50%] font-medium uppercase pointer-events-none;
+    @apply fixed text-fifth text-center z-[103] left-[50%] top-[40vh] translate-x-[-50%] font-medium uppercase pointer-events-none text-xl lg:text-5xl;
 }
 
 .curve .curve__route__transition{

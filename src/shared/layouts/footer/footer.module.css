@@ -7,8 +7,7 @@
 }
 
 .footerTop ul{
-    font-size: clamp(15px, 2vw, 20px);
-    @apply flex justify-between;
+    @apply flex justify-between text-base lg:text-lg;
 }
 
 .footerTop ul{
@@ -32,18 +31,15 @@
 }
 
 .footerContent__disclaimer{
-    font-size: clamp(16px, 2vw, 22px);
-    @apply text-purple-300 text-opacity-50 leading-none mb-14;
+    @apply text-purple-300 text-opacity-50 leading-none mb-14 text-base lg:text-xl;
 }
 
 .footerContent__preview{
-    font-size: clamp(30px, 3vw, 45px);
-    @apply flex justify-between items-center text-purple-300 text-opacity-50 font-medium;
+    @apply flex justify-between items-center text-purple-300 text-opacity-50 font-medium text-xl lg:text-3xl;
 }
 
 .footerContent__nextPage {
-    font-size: clamp(18px, 2vw, 20px);
-    @apply font-normal flex justify-between items-center gap-4 w-full max-w-[350px] cursor-pointer;
+    @apply font-normal flex justify-between items-center gap-4 w-full max-w-[350px] cursor-pointer text-base lg:text-lg;
 }
 
 .footerContent__nextPage p{

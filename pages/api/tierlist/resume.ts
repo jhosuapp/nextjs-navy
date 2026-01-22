@@ -51,7 +51,7 @@ export default async function handler(
       FROM latest_per_user_game
       WHERE rn = 1
       ORDER BY date DESC
-      LIMIT 5
+      LIMIT 7
     `
 
     // Obtener últimos 5 tests con is_high = false (solo el más reciente por nick+game)
@@ -80,7 +80,7 @@ export default async function handler(
       FROM latest_per_user_game
       WHERE rn = 1
       ORDER BY date DESC
-      LIMIT 5
+      LIMIT 7
     `
 
     // Obtener conteo de tests por juego (conteo total original)

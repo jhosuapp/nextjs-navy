@@ -3,22 +3,21 @@
 }
 
 .loaderSecondaryContent { 
-    @apply w-[100px] h-[100px] relative;
+    @apply w-24 h-24 relative;
 }
 
 .loaderSecondaryText{
-    font-size: clamp(20px, 2vw, 30px);
-    @apply mt-[30px] text-white uppercase;
+    @apply mt-8 text-white uppercase text-xl lg:text-2xl;
 }
 
 .loaderSeconaryInner{
-    @apply block w-[20px] h-[20px] rounded-[20px] absolute;
+    @apply block w-5 h-5 rounded-[20px] absolute;
 }
 
 .loaderSeconaryInner::before{
     content:"";
     animation: loadingSecondary infinite normal 2s;
-    @apply w-[20px] h-[20px] rounded-[20px] absolute right-0;
+    @apply w-5 h-5 rounded-[20px] absolute right-0;
 }
 
 .loaderSecondarySmall {

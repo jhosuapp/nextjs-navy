@@ -1,0 +1,25 @@
+.cardResults{
+    @apply border-2 border-purple-300 p-5 rounded-md border-opacity-50 bg-tertiary bg-opacity-10 backdrop-blur-sm relative overflow-hidden px-3 py-3 hover:scale-[1.05] w-52 lg:w-72 shrink-0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.cardResults::before{
+    @apply content-[""] absolute w-[50%] h-full bg-fifth top-0 left-0;
+}
+
+.cardResults__content{
+    @apply flex flex-col justify-center items-center relative;
+}
+
+.cardResults__player{
+    @apply text-transparent text-lg lg:text-xl font-bold inline-block bg-clip-text max-w-[125px] text-ellipsis whitespace-nowrap;
+}
+
+.cardResults__info{
+    @apply flex justify-between;
+}
+
+.cardResults__skin{
+    @apply w-full max-w-32 lg:max-w-44;
+}

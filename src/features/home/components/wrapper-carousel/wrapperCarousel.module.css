@@ -1,0 +1,8 @@
+.carousel {
+    @apply overflow-hidden w-full py-5;
+}
+  
+.carousel__track {
+    @apply flex gap-4;
+    will-change: transform;
+}

@@ -61,7 +61,7 @@ const Hero = ():JSX.Element => {
             >
                 <span></span>
                 <span></span>
-                <p>Scroll</p>
+                <p>Scroll down</p>
                 <span></span>
                 <span></span>
             </motion.article>
