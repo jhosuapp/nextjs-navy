@@ -28,6 +28,10 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
             <meta name="keywords" content="minecraft pvp, servidor minecraft, navy, minecraft en español, kitpvp, practice, combate minecraft" />
             <meta name="author" content="Navy" />
             <link rel="canonical" href={url} />
+            <link rel="preconnect" href="https://www.youtube.com" />
+            <link rel="preconnect" href="https://www.google.com" />
+            <link rel="dns-prefetch" href="https://www.youtube.com" />
+            <link rel="dns-prefetch" href="https://i.ytimg.com" />
             
             {/* Open Graph */}
             <meta property="og:title" content={title} />

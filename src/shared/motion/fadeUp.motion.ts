@@ -28,10 +28,35 @@ export const fadeUpMotion = (delayAnimate: number, delayExit: number):PartialMot
         }
     }
 }
+
 export const fadeUpSecondaryMotion = ():PartialMotionVariants => {
     return {
         initial:{ opacity: 0, y: 10 },
         animate:{ opacity: 1, y: 0 },
         exit:{ opacity: 0, y: -10 }
+    }
+}
+
+export const fadeUpTertiaryMotion = (delayAnimate: number, delayExit: number, top: string):PartialMotionVariants => {
+    return {
+        initial:{ top: 0 },
+        animate:{ 
+            opacity: 1,
+            top: top,
+            transition: {
+                duration: 5,
+                type: "spring",
+                stiffness: 10,
+                damping: 20,
+                delay:  delayAnimate
+            }
+        },
+        exit: {
+            opacity: 0,
+            transition: {
+                duration: 8,
+                delay: delayExit
+            },
+        },
     }
 }

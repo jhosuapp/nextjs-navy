@@ -4,3 +4,5 @@ export * from './totalt-tests/TotalTests';
 export * from './results/Results';
 export * from './title/Title';
 export * from './chip/Chip';
+export * from './hero/Hero';
+export * from './parallax/Parallax';
