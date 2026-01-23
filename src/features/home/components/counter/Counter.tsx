@@ -58,8 +58,6 @@ const AnimatedCounter = ({ value, label, suffix = '', index, modalitie, modaliti
             className={ styles.counter }
         >
             <motion.div
-                initial={{ scale: 0 }}
-                animate={isInView ? { scale: 1 } : {}}
                 transition={{ 
                     delay: 0.2 + (index * 0.15),
                     type: "spring",
