@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { minecraft, roboto, blockletter, aeonik } from "@/config/typography";
 import { Cursor, FloatingDots, Settings } from "@/shared/components";
 import { Footer, Header } from "@/shared/layouts";
@@ -62,6 +63,8 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
                 </div>
             </div>
         </main>
+
+        <SpeedInsights/>
 
         <Settings />
 
