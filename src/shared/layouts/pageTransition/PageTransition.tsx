@@ -50,7 +50,7 @@ const PageTransition = ({ children }:Props):JSX.Element => {
                     className={ `${styles.curve__route} ${styles.curve__route__transition}` } 
                     {...anim(text)}
                 >
-                    {routes[router.route] ?? '404'}
+                    Loading
                 </motion.p>
             ) : (
                 <motion.p className={ styles.curve__route } {...anim(text)}>
