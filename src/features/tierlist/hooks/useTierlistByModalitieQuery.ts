@@ -17,7 +17,7 @@ const useTierlistByModalitie = () => {
 const useTierlistByModalitieAndTier = ({ game, tier, enabled }: TierlistByModalitieArgs & { enabled: boolean }) => {
     const tierlistByModalitieAndTier = useInfiniteQuery({
         queryKey: ['tierlistByModalitieAndTier', game, tier],
-        queryFn: ({ pageParam = 1 }) => {
+        queryFn: ({ pageParam = 2 }) => {
             return getTierlistByModalitieAndTierAction({ 
                 game, 
                 tier, 
@@ -27,7 +27,7 @@ const useTierlistByModalitieAndTier = ({ game, tier, enabled }: TierlistByModali
         staleTime: 60 * 1000,
         refetchOnWindowFocus: false,
         retry: false,
-        initialPageParam: 1,
+        initialPageParam: 2,
         enabled: !!game && !!tier && !!enabled,
         getNextPageParam: (lastPage) => {
             if (lastPage.page >= lastPage.totalPages) return undefined;

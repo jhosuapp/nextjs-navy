@@ -18,14 +18,22 @@ const storeAPI: StateCreator<LoaderState & Actions, [["zustand/devtools", never]
     
     setIsLoading: () => {
         const delay = get().delayLoading;
-
-        setTimeout(() => {
-          set({ isLoading: false }, false, 'setIsLoading');
-        }, delay); 
-
-        setTimeout(() => {
-          set({ isLoadingDelay: false }, false, 'setIsLoading');
-        }, delay + 1500); 
+    
+        const runTimeouts = () => {
+            setTimeout(() => {
+              set({ isLoading: false }, false, 'setIsLoading');
+            }, delay); 
+    
+            setTimeout(() => {
+              set({ isLoadingDelay: false }, false, 'setIsLoading');
+            }, delay + 1500); 
+        };
+    
+        if (document.readyState === 'complete') {
+            runTimeouts();
+        } else {
+            window.addEventListener('load', runTimeouts);
+        }
     }
 });
 
