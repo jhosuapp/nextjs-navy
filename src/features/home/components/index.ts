@@ -8,3 +8,4 @@ export * from './hero/Hero';
 export * from './parallax/Parallax';
 export * from './card-results/CardResults';
 export * from './wrapper-carousel/WrapperCarousel';
+export * from './counter/Counter';

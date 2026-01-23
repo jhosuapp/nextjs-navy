@@ -1,0 +1,23 @@
+.counter:nth-child(2){
+    @apply flex justify-center;
+}
+
+.counter:nth-child(3){
+    @apply flex justify-end;
+}
+
+.counter__block{
+    @apply text-center border border-purple-300 w-full rounded-md border-opacity-50 bg-tertiary bg-opacity-10 backdrop-blur-sm relative overflow-hidden p-5 lg:py-10 lg:max-w-[80%];
+}
+
+.counter__text{
+    @apply text-5xl lg:text-[5vw] font-bold text-purple-300 text-opacity-50 mb-2 leading-none;
+}
+
+.counter__label{
+    @apply text-lg lg:text-[1.5vw] text-purple-300 text-opacity-50 font-medium leading-none;
+}
+
+.counter__modalities{
+    @apply absolute top-1 lg:top-3 left-1 lg:left-3 scale-75 lg:scale-100;
+}

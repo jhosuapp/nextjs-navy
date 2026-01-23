@@ -1,5 +1,5 @@
 import { Container } from "@/shared/components";
-import { FlowersFirstScreen, Hero, Results } from "../components";
+import { AnimatedCounter, FlowersFirstScreen, Hero, Results, TotalTests } from "../components";
 
 import styles from './home.module.css';
 import { useResumeQuery } from '../hooks';
@@ -7,6 +7,13 @@ import { useResumeQuery } from '../hooks';
 
 const HomeView = ():JSX.Element => {
     const data = useResumeQuery();
+    const counters = [
+        { value: 150, label: 'Proyectos', suffix: '+' },
+        { value: 98, label: 'Clientes Felices', suffix: '%' },
+        { value: 24, label: 'Premios', suffix: '' }
+    ];
+      
+
 
     return (
         <>
@@ -20,6 +27,15 @@ const HomeView = ():JSX.Element => {
                     hTests={ data?.data?.latest_h_tests } 
                     isLoad={ data.isLoading } 
                 />
+            </Container>
+            <Container className="!mt-32 lg:!mt-52">
+                <TotalTests
+                    totalTests={ data?.data?.total_tests } 
+                    isLoad={ data.isLoading } 
+                />
+            </Container>
+            <Container className="!mt-32 lg:!mt-52">
+                <p></p>
             </Container>
             {/* <Container className="!mt-5 lg:!mt-10" isFirst isLast>
                 <motion.div className={ styles.homeView__content } {...fadeUpMotion(0,0)}>
