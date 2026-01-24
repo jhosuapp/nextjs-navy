@@ -7,6 +7,14 @@ type InformationItem = {
     color: string
 }
 
+type InformationsPointsItem = {
+    img?: boolean;
+    title: string;
+    high_value: number;
+    low_value: number;
+    color: string;
+}
+
 export const information: Record<string, InformationItem> = {
     combat_grandmaster: {
         min_points: 400,
@@ -65,3 +73,20 @@ export const information: Record<string, InformationItem> = {
         color: 'rgb(209, 213, 219)'
     },
 }
+
+export const informationPoints: InformationsPointsItem[] = [
+    {
+        img: true,
+        title: 'Tier 1',
+        high_value: 60,
+        low_value: 45,
+        color: '#f0b857'
+    },
+    {
+        img: true,
+        title: 'Tier 2',
+        high_value: 30,
+        low_value: 20,
+        color: '#a9b1b9'
+    },
+]

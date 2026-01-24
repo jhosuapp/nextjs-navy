@@ -40,15 +40,33 @@ export default async function handler(
             game: string
         }>>`
             WITH latest_tiers AS (
-                SELECT nick, region, tier, game,
-                    ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+                SELECT 
+                    COALESCE(uuid, CONCAT('nick_', nick)) as user_id,
+                    nick, 
+                    region, 
+                    tier, 
+                    game,
+                    date,
+                    ROW_NUMBER() OVER (
+                        PARTITION BY COALESCE(uuid, CONCAT('nick_', nick)), game 
+                        ORDER BY date DESC
+                    ) as rn
                 FROM tiers
                 WHERE game = ${gameFilter}
                 AND LOWER(tier) LIKE ${`%${tierFilter.replace('t', '').toLowerCase()}%`}
+            ),
+            latest_user_info AS (
+                SELECT 
+                    user_id,
+                    nick,
+                    region,
+                    tier,
+                    game
+                FROM latest_tiers
+                WHERE rn = 1
             )
             SELECT nick, region, tier, game
-            FROM latest_tiers
-            WHERE rn = 1
+            FROM latest_user_info
             ORDER BY nick
             LIMIT ${limit}
             OFFSET ${offset}
@@ -56,13 +74,18 @@ export default async function handler(
 
         const [totalCount] = await prisma.$queryRaw<[{ count: bigint }]>`
             WITH latest_tiers AS (
-                SELECT nick, game,
-                    ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+                SELECT 
+                    COALESCE(uuid, CONCAT('nick_', nick)) as user_id,
+                    game,
+                    ROW_NUMBER() OVER (
+                        PARTITION BY COALESCE(uuid, CONCAT('nick_', nick)), game 
+                        ORDER BY date DESC
+                    ) as rn
                 FROM tiers
                 WHERE game = ${gameFilter}
                 AND LOWER(tier) LIKE ${`%${tierFilter.replace('t', '').toLowerCase()}%`}
             )
-            SELECT COUNT(*) as count 
+            SELECT COUNT(DISTINCT user_id) as count 
             FROM latest_tiers
             WHERE rn = 1
         `
@@ -90,7 +113,7 @@ export default async function handler(
         })
     }
 
-    // 🔁 VISTA GENERAL: Solo tiers más recientes
+    // 🔁 VISTA GENERAL: Solo tiers más recientes por UUID
     const rows = await prisma.$queryRaw<Array<{
         game: string
         tier: string
@@ -100,16 +123,45 @@ export default async function handler(
     }>>`
         WITH latest_tiers AS (
             SELECT 
+                COALESCE(uuid, CONCAT('nick_', nick)) as user_id,
                 game,
                 tier,
-                nick,
-                region,
-                ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+                date,
+                ROW_NUMBER() OVER (
+                    PARTITION BY COALESCE(uuid, CONCAT('nick_', nick)), game 
+                    ORDER BY date DESC
+                ) as rn
             FROM tiers
             WHERE nick IS NOT NULL 
             AND region IS NOT NULL 
             AND tier IS NOT NULL 
             AND game IS NOT NULL
+        ),
+        latest_user_data AS (
+            SELECT 
+                lt.user_id,
+                lt.game,
+                lt.tier,
+                t.nick,
+                t.region,
+                ROW_NUMBER() OVER (
+                    PARTITION BY lt.user_id
+                    ORDER BY t.date DESC
+                ) as user_rn
+            FROM latest_tiers lt
+            INNER JOIN tiers t 
+                ON COALESCE(t.uuid, CONCAT('nick_', t.nick)) = lt.user_id
+            WHERE lt.rn = 1
+        ),
+        final_user_data AS (
+            SELECT 
+                user_id,
+                game,
+                tier,
+                nick,
+                region
+            FROM latest_user_data
+            WHERE user_rn = 1
         ),
         ranked_latest AS (
             SELECT 
@@ -118,8 +170,7 @@ export default async function handler(
                 nick,
                 region,
                 ROW_NUMBER() OVER (PARTITION BY game, tier ORDER BY nick) as row_num
-            FROM latest_tiers
-            WHERE rn = 1
+            FROM final_user_data
         )
         SELECT game, tier, nick, region, row_num
         FROM ranked_latest
@@ -127,18 +178,23 @@ export default async function handler(
         ORDER BY game, tier, nick
     `
 
-    // Contar totales por juego (solo usuarios únicos con su tier más reciente)
+    // Contar totales por juego (solo usuarios únicos por UUID con su tier más reciente)
     const totals = await prisma.$queryRaw<Array<{
         game: string
         total_users: bigint
     }>>`
         WITH latest_tiers AS (
-            SELECT game, nick,
-                ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC) as rn
+            SELECT 
+                COALESCE(uuid, CONCAT('nick_', nick)) as user_id,
+                game,
+                ROW_NUMBER() OVER (
+                    PARTITION BY COALESCE(uuid, CONCAT('nick_', nick)), game 
+                    ORDER BY date DESC
+                ) as rn
             FROM tiers
-            WHERE game IS NOT NULL AND nick IS NOT NULL
+            WHERE game IS NOT NULL
         )
-        SELECT game, COUNT(DISTINCT nick) as total_users
+        SELECT game, COUNT(DISTINCT user_id) as total_users
         FROM latest_tiers
         WHERE rn = 1
         GROUP BY game

@@ -27,7 +27,7 @@ export const serversData:PartnersItem[] = [
                 alt: 'Nzcraft'
             },
             {
-                href: 'https://discord.gg/nzcraft',
+                href: 'play.nzcraft.net',
                 src: iconCube,
                 alt: 'Nzcraft',
                 hasTooltip: true
@@ -55,7 +55,7 @@ export const serversData:PartnersItem[] = [
                 alt: 'Zenith'
             },
             {
-                href: 'https://discord.gg/nzcraft',
+                href: 'zenithmc.net',
                 src: iconCube,
                 alt: 'Zenith',
                 hasTooltip: true
@@ -77,7 +77,7 @@ export const streamersData:PartnersItem[] = [
                 alt: 'YunaEz'
             },
             {
-                href: 'https://es.namemc.com/profile/06ec3577-3299-45fa-bbdf-613b1f86c8ab',
+                href: 'https://es.namemc.com/profile/8dc9a594-df3e-4898-820b-207052faa9b6',
                 src: iconNc,
                 alt: 'YunaEz'
             },
@@ -94,7 +94,7 @@ export const streamersData:PartnersItem[] = [
                 alt: 'ValeriaEz'
             },
             {
-                href: 'https://es.namemc.com/profile/06ec3577-3299-45fa-bbdf-613b1f86c8ab',
+                href: 'https://es.namemc.com/profile/d7568b38-ffec-4cc6-a455-c8992cff2ef6',
                 src: iconNc,
                 alt: 'YunaEz'
             },
@@ -111,9 +111,9 @@ export const streamersData:PartnersItem[] = [
                 alt: 'Toallero'
             },
             {
-                href: 'https://es.namemc.com/profile/06ec3577-3299-45fa-bbdf-613b1f86c8ab',
+                href: 'https://es.namemc.com/profile/ab2addce-20a0-4ced-9e2c-906c37f40872',
                 src: iconNc,
-                alt: 'YunaEz'
+                alt: 'Toallero'
             },
         ]
     },
@@ -128,9 +128,9 @@ export const streamersData:PartnersItem[] = [
                 alt: 'Fabe09_'
             },
             {
-                href: 'https://es.namemc.com/profile/06ec3577-3299-45fa-bbdf-613b1f86c8ab',
+                href: 'https://es.namemc.com/profile/40c751f6-7e77-4548-b1cf-5ea770b16554',
                 src: iconNc,
-                alt: 'YunaEz'
+                alt: 'Fabe09_'
             },
         ]
     },

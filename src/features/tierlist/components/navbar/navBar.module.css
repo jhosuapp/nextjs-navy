@@ -74,6 +74,7 @@
     @apply text-white text-sm;
 }
 
+
 @media(max-width: 1024px){
     .navBarInformation__list{
         @apply left-0 min-w-80;
@@ -84,4 +85,38 @@
     .navBarInformation__list{
         @apply left-0 min-w-full;
     }
+}
+
+
+.navBarInformationPoints__item{
+    @apply mb-5 last:mb-0;
+}
+
+.navBarInformationPoints__block{
+    @apply flex gap-2 items-center;
+}
+
+.navBarInformationPoints__flex {
+    @apply border-l mt-2 flex;
+}
+
+.navBarInformationPoints__points{
+    @apply flex px-1.5 py-1 rounded-full gap-2 items-center border-[1.5px] ml-2 relative overflow-hidden;
+}
+
+
+.navBarInformationPoints__points p{
+    @apply leading-none text-xs font-medium z-10 text-nowrap;
+}
+
+.navBarInformationPoints__points svg{
+    @apply w-4 z-10;
+}
+
+.navBarInformationPoints__points div{
+    @apply absolute left-0 top-0 opacity-50 w-full h-full;
+}
+
+.navBarInformationPoints__points:last-child div{
+    @apply opacity-30;
 }
