@@ -8,7 +8,7 @@ const getCombatTitleByPoints = (points: number) => {
     )
 
     return {
-        title: tier?.title ?? 'Rookie',
+        title: tier?.title ?? 'Novice',
         img: tier?.img ?? 'rookie.svg'
     }
 }

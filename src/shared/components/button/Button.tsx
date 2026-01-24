@@ -11,19 +11,19 @@ type NativeProps = ButtonHTMLAttributes<HTMLButtonElement>;
 type CustomProps = {
     text?: string;
     style?: 'primary' | 'secondary' | 'fit';
-    isLight?: boolean;
     className?: string;
     icon?: string;
     iconRight?: string;
     isLoad?: boolean;
+    isSmall?: boolean;
 } & MotionProps;
 
 type Props = CustomProps & NativeProps;
 
-const Button = ({ text, style, isLight, className, icon, iconRight, isLoad = false, ...props }:Props):JSX.Element => {
+const Button = ({ text, style, className, icon, iconRight, isLoad = false, isSmall = false, ...props }:Props):JSX.Element => {
     return (
         <motion.button 
-            className={ `${styles.button} ${styles[`button--${style}`]} ${className ?? ''} ${isLoad && styles.button__loader}` }
+            className={ `${styles.button} ${styles[`button--${style}`]} ${className ?? ''} ${isLoad && styles.button__loader} ${isSmall && styles.button__small}` }
             whileTap={{ scale: 0.95 }} 
             whileHover={{ scale: 1.05 }}
             {...props}

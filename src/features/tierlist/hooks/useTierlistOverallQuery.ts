@@ -7,8 +7,8 @@ const useTierlistOverall = () => {
         queryFn: ({ pageParam = 1, queryKey })=> {
             return getTierlistOverallAction(pageParam as number);
         },
-        staleTime: 60 * 1000,
-        refetchOnWindowFocus: true,
+        staleTime: Infinity,
+        refetchOnWindowFocus: false,
         retry: false,
         initialPageParam: 1,
         getNextPageParam: (lastPage) => {

@@ -5,7 +5,7 @@ const useBansQuery = () => {
     const bansQuery = useQuery({
         queryKey: ['bans'],
         queryFn:  ()=> getBansAction(),
-        staleTime: 60 * 1000 * 1000,
+        staleTime: Infinity,
         refetchOnWindowFocus: false,
         retry: false,
     });

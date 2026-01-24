@@ -12,7 +12,7 @@ const useUserByNameQuery = ({ username }:Props) => {
     const userByNameQuery = useQuery({
         queryKey: ['userByName', username],
         queryFn:  ()=> getUserByNameAction(username),
-        staleTime: 60 * 1000 * 1000 * 1000,
+        staleTime: Infinity,
         refetchOnWindowFocus: false,
         retry: false,
         enabled: showModal

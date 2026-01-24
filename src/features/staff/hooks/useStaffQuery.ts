@@ -5,7 +5,7 @@ const useStaff = () => {
     const staffQuery = useQuery({
         queryKey: ['staff'],
         queryFn:  ()=> getStaffAction(),
-        staleTime: 60 * 1000 * 1000,
+        staleTime: Infinity,
         refetchOnWindowFocus: false,
         retry: false,
     });

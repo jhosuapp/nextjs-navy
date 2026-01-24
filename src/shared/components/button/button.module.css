@@ -136,6 +136,11 @@ button:hover .button__iconSecondary{
     @apply !opacity-40 pointer-events-none;
 }
 
+/* small */
+
+.button__small{
+    @apply min-h-9 max-h-9 min-w-32 text-sm;
+}
 
 @keyframes loader {
     from{
