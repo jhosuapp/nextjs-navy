@@ -22,7 +22,7 @@ export const information: Record<string, InformationItem> = {
         description: 'Obtained 140+ total points.',
         title: 'Legend',
         img: 'Icono_Leyenda.png',
-        color: 'rgb(253, 224, 71)'
+        color: '#6BCB8D'
     },
     combat_master: {
         min_points: 100,
@@ -30,7 +30,7 @@ export const information: Record<string, InformationItem> = {
         description: 'Obtained 100+ total points.',
         title: 'Master',
         img: 'Icono_Maestro.webp',
-        color: 'rgb(253, 224, 71)'
+        color: '#45C5D9'
     },
     combat_ace: {
         min_points: 50,
@@ -38,7 +38,7 @@ export const information: Record<string, InformationItem> = {
         description: 'Obtained 50+ total points.',
         title: 'Expert',
         img: 'Icono_Experto.webp',
-        color: 'rgb(253, 164, 175)'
+        color: '#DFA5F3'
     },
     combat_specialist: {
         min_points: 25,
@@ -46,7 +46,7 @@ export const information: Record<string, InformationItem> = {
         description: 'Obtained 25+ total points.',
         title: 'Veteran',
         img: 'Icono_Veterano.webp',
-        color: 'rgb(216, 180, 254)'
+        color: '#D6D2E0'
     },
     combat_novice: {
         min_points: 10,
@@ -54,7 +54,7 @@ export const information: Record<string, InformationItem> = {
         description: 'Obtained 10+ total points.',
         title: 'Apprentice',
         img: 'Icono_Aprendiz.webp',
-        color: 'rgb(196, 181, 253)'
+        color: '#F8AE3E'
     },
     rookie: {
         min_points: 0,
@@ -62,7 +62,7 @@ export const information: Record<string, InformationItem> = {
         description: 'Starting rank for players with less than 10 points.',
         title: 'Novice',
         img: 'Icono_Novato.webp',
-        color: 'rgb(209, 213, 219)'
+        color: '#F8B07E'
     },
 }
 

@@ -67,7 +67,9 @@ export default async function handler(
             )
             SELECT nick, region, tier, game
             FROM latest_user_info
-            ORDER BY nick
+            ORDER BY 
+                CASE WHEN UPPER(tier) LIKE 'H%' OR UPPER(tier) LIKE '%H' THEN 0 ELSE 1 END,
+                nick
             LIMIT ${limit}
             OFFSET ${offset}
         `
@@ -169,13 +171,20 @@ export default async function handler(
                 tier,
                 nick,
                 region,
-                ROW_NUMBER() OVER (PARTITION BY game, tier ORDER BY nick) as row_num
+                ROW_NUMBER() OVER (
+                    PARTITION BY game, tier
+                    ORDER BY 
+                        CASE WHEN UPPER(tier) LIKE 'H%' OR UPPER(tier) LIKE '%H' THEN 0 ELSE 1 END,
+                        nick
+                ) as row_num
             FROM final_user_data
         )
         SELECT game, tier, nick, region, row_num
         FROM ranked_latest
         WHERE row_num <= ${overviewLimit}
-        ORDER BY game, tier, nick
+        ORDER BY game, tier, 
+            CASE WHEN UPPER(tier) LIKE 'H%' OR UPPER(tier) LIKE '%H' THEN 0 ELSE 1 END,
+            nick
     `
 
     // Contar totales por juego (solo usuarios únicos por UUID con su tier más reciente)

@@ -24,8 +24,12 @@ const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, del
     });
 
     const initialPlayers = data?.tiers?.[tier] ?? [];
+    const highPlayers = initialPlayers.filter(player => player.is_h);
+    const filteredInitialPlayers = highPlayers.length > 8 
+        ? highPlayers.slice(0, 8)  
+        : initialPlayers.slice(0, 8);  
     const paginatedPlayers = tierRequest.data?.pages.flatMap(page => page.data) ?? [];
-    const players = paginatedPlayers.length > 0 ? [...initialPlayers, ...paginatedPlayers] : initialPlayers;
+    const players = paginatedPlayers.length > 0 ? [...filteredInitialPlayers, ...paginatedPlayers] : filteredInitialPlayers;
     const hasInitialMore = (data?.tiers?.[tier]?.length ?? 0) >= 8;
     const hasPaginatedData = tierRequest.data?.pages?.length > 0;
     const shouldShowLoadMore = (!hasPaginatedData && hasInitialMore) || (hasPaginatedData && tierRequest.hasNextPage);
