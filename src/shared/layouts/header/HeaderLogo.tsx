@@ -15,7 +15,13 @@ const HeaderLogo = ():JSX.Element => {
     
     return (
         <Link href={ paths.home } onClick={ onClickHamburger } className={ styles.headerLogo }>
-            <Image src={ logo } alt='Logo navy' />
+            <Image 
+                src={ logo } 
+                alt='Logo navy' 
+                priority 
+                width={128}
+                height={128}
+            />
         </Link>
     )
 }

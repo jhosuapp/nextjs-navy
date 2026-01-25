@@ -39,7 +39,7 @@ const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, 
             whileHover={{ scale: 1.05 }}
         >
             <div className={ styles.chipModalities__image }>
-                <img src={`/images/${modalitieImage}`} alt="icono navy" />
+                <img src={`/images/${modalitieImage}`} alt="icono navy" width={32} loading="lazy" />
             </div>
             <div>
                 {showModalitie && (

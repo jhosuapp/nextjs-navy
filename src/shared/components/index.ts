@@ -19,6 +19,5 @@ export * from './card-wrapper/CardWrapper';
 export * from './card-wrapper-secondary/CardWrapperSecondary'
 export * from './settings/Settings'
 export * from './switch/Switch'
-export * from './petal/Petal'
 export * from './flower/Flower'
-export * from './parallax-article/ParallaxArticle'
+// export * from './petal/Petal'
