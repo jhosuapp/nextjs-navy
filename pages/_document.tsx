@@ -9,6 +9,7 @@ class MyDocument extends Document {
     return (
       <Html 
         className={`${minecraft.variable} ${roboto.variable} ${blockletter.variable} ${aeonik.variable} bg-tertiary`}
+        lang='en'
       >
         <Head>
           {/* Google Analytics */}

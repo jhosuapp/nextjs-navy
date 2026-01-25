@@ -31,6 +31,7 @@ const Hero = ():JSX.Element => {
                     loading="eager"
                     allow="autoplay; encrypted-media" 
                     src="https://www.youtube.com/embed/Lnezno0aG74?autoplay=1&loop=1&playlist=Lnezno0aG74&mute=1"
+                    title="Navy"
                 />
                 <div className={ styles.heroVideo__bg }></div>
                 <div className={ styles.heroVideo__content }>
