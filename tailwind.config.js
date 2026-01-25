@@ -10,8 +10,6 @@ module.exports = {
             fontFamily: {
                 roboto: "var(--font-roboto)",
                 minecraft: "var(--font-minecraft)",
-                block: "var(--font-block)",
-                aeonik: "var(--font-aeonik)",
             },
             colors: {
                 primary: '#4B0082',

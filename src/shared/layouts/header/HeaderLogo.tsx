@@ -16,7 +16,7 @@ const HeaderLogo = ():JSX.Element => {
     return (
         <Link href={ paths.home } onClick={ onClickHamburger } className={ styles.headerLogo }>
             <img
-                src="/images/logo.webp"
+                src="/images/logo.png"
                 alt="Logo navy"
                 width="128"
                 height="128"

@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
-import { minecraft, roboto, blockletter, aeonik } from "@/config/typography";
+import { minecraft, roboto,  } from "@/config/typography";
 import { Cursor, FloatingDots, Settings } from "@/shared/components";
 import { Footer, Header } from "@/shared/layouts";
 import { ToastContainer } from 'react-toastify';
@@ -51,7 +51,7 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
         </Head>
 
 
-        <main className={`relative ${aeonik.variable} ${minecraft.variable} ${roboto.variable} ${blockletter.variable} bg-tertiary min-h-svh pt-10 w-full block`}>
+        <main className={`relative ${roboto.variable} ${minecraft.variable} bg-tertiary min-h-svh pt-10 w-full block`}>
             <FloatingDots />
             <div className="relative z-10 w-full block">
                 <Cursor />

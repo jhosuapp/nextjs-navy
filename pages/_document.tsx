@@ -1,14 +1,14 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next"
-import { minecraft, roboto, blockletter, aeonik } from '@/config/typography';
+import { minecraft, roboto } from '@/config/typography';
 
 class MyDocument extends Document {
   render() {
 
     return (
       <Html 
-        className={`${minecraft.variable} ${roboto.variable} ${blockletter.variable} ${aeonik.variable} bg-tertiary`}
+        className={`${minecraft.variable} ${roboto.variable} bg-tertiary`}
         lang='en'
       >
         <Head>

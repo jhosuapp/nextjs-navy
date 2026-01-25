@@ -16,6 +16,8 @@ export const roboto = localFont({
         },
     ],
     variable: '--font-roboto',
+    display: 'swap',
+    preload: true
 });
 
 export const minecraft = localFont({
@@ -26,28 +28,5 @@ export const minecraft = localFont({
         },
     ],
     variable: '--font-minecraft',
-});
-
-export const blockletter = localFont({
-    src: [
-        {
-            path: './fonts/Blockletter.otf',
-            weight: '400',
-        },
-    ],
-    variable: '--font-block',
-});
-
-export const aeonik = localFont({
-    src: [
-        {
-            path: './fonts/Aeonik-Regular.woff2',
-            weight: '400',
-        },
-        {
-            path: './fonts/Aeonik-Medium.woff2',
-            weight: '500',
-        },
-    ],
-    variable: '--font-aeonik',
+    display: 'optional',
 });

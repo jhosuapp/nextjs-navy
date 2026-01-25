@@ -8,7 +8,7 @@
 
 .button span{
     transition: .3s ease left;
-    @apply font-aeonik uppercase relative left-0;
+    @apply font-roboto leading-none font-medium uppercase relative left-0;
 }
 
 .button__icon {
