@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import styles from './loader.module.css';
+import { motion } from 'framer-motion';
+import { fadeInMotion } from "@/shared/motion";
 
 const Loader = ():JSX.Element => {
     const node = useRef<HTMLElement | null>(null);
@@ -9,7 +11,7 @@ const Loader = ():JSX.Element => {
     },1500);
 
     return (
-        <section className={styles.loader} ref={ node }>
+        <motion.section className={styles.loader} ref={ node } {...fadeInMotion(0.1, 0)}>
             <article className={styles.loader__bg}></article>
             <article className={`${styles.loader__bg} ${styles.loader__bg__secondary}`}></article>
             <article className={styles.loader__content}>
@@ -24,7 +26,7 @@ const Loader = ():JSX.Element => {
                     <p style={{ animationDelay: '0.250s' }} className={`text-primary ${styles.craft}`}>P</p>
                 </div>
             </article>
-        </section>
+        </motion.section>
     )
 }
 

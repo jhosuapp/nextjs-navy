@@ -36,7 +36,7 @@
 }
 
 .loader.animateLoader .loader__bg__secondary{
-    @apply scale-150;
+    @apply scale-[2];
 }
 
 .loader.animateLoader{

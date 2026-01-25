@@ -39,16 +39,18 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
 
     return (
         <>
-            {isLoading ? (
-                <Loader />
-            ) : (
-                <QueryClientProvider client={queryClient}>
-                    <AnimatePresence mode='wait'>
-                        <Component key={router.route} {...pageProps} />
-                    </AnimatePresence>
-                    {process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
-                </QueryClientProvider>
-            )}
+            <AnimatePresence>
+                {isLoading ? (
+                    <Loader key={`loader-${isLoading}`} />
+                ) : (
+                    <QueryClientProvider client={queryClient}>
+                        <AnimatePresence mode='wait'>
+                            <Component key={router.route} {...pageProps} />
+                        </AnimatePresence>
+                        {process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
+                    </QueryClientProvider>
+                )}
+            </AnimatePresence>
         </>
     )
 }
