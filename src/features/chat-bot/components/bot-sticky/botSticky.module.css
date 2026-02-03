@@ -1,0 +1,40 @@
+.botSticky{
+    @apply w-16 h-16 fixed right-5 bottom-5 z-10 flex items-center justify-center;
+}
+
+.botSticky button{
+    @apply w-full h-full p-2 bg-tertiary bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 rounded-full;
+    box-shadow: 0 4px 12px #7f8d9e;
+}
+
+.botSticky img{
+    @apply w-full;
+}
+
+.botSticky span{
+    @apply w-3.5 h-3.5 absolute bottom-0.5 right-0.5 rounded-full bg-green-500 flex items-center justify-center text-white text-xs last:bg-red-600 last:top-0.5;
+}
+
+.botSticky span:last-child{
+    @apply bg-red-600 top-0.5;
+}
+
+.botSticky__message{
+    @apply absolute right-full text-nowrap bg-tertiary bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 text-white text-sm py-1 px-3 rounded-sm mr-3 opacity-100 scale-100;
+    box-shadow: 0 4px 12px #7f8d9e;
+}
+
+.botSticky__message__disabled{
+    animation: .5s ease forwards hiddeMessage;
+}
+
+@keyframes hiddeMessage {
+    from{
+        transform: scale(1);
+        opacity: 1;
+    }
+    to{
+        transform: scale(0.7);
+        opacity: 0;
+    }
+}

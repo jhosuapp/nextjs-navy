@@ -4,6 +4,7 @@ import { minecraft, roboto,  } from "@/config/typography";
 import { Cursor, FloatingDots, Settings } from "@/shared/components";
 import { Footer, Header } from "@/shared/layouts";
 import { ToastContainer } from 'react-toastify';
+import { ChatBotView } from "@/features";
 
 type Props = {
   children?: ReactNode;
@@ -63,6 +64,7 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
             </div>
         </main>
 
+        <ChatBotView />
 
         <Settings />
 

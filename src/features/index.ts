@@ -3,3 +3,4 @@ export * from './tierlist/views/Tierlist.view';
 export * from './bans/views/Bans.view';
 export * from './staff/views/Staff';
 export * from './partners/views/Partners.view';
+export * from './chat-bot/views/ChatBot.view';

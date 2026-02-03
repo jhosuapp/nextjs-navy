@@ -1,0 +1,27 @@
+.botWrapper{
+    @apply fixed right-5 bottom-5 w-full max-w-[375px] h-56 bg-tertiary z-20 rounded-lg overflow-hidden shadow-purple-300 border-2 border-purple-300 border-opacity-50;
+}
+
+.botWrapperNav{
+    @apply bg-tertiary bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 py-2 px-4 flex items-center justify-between border-b-2 border-purple-300 border-opacity-50;
+}
+
+.botWrapperNav__name{
+    @apply flex items-center gap-2;
+}
+
+.botWrapperNav__name img{
+    @apply max-w-10 bg-tertiary rounded-md p-1.5 bg-gradient-to-l from-purple-900 via-purple-700 to-purple-500;
+}
+
+.botWrapperNav__name p{
+    @apply text-white text-sm font-medium;
+}
+
+.botWrapperNav__action{
+    @apply w-6 h-6 flex items-center justify-center;
+}
+
+.botWrapperNav__action span{
+    @apply w-full h-0.5 bg-white;
+}
