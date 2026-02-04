@@ -1,0 +1,19 @@
+.BotSendMessage{
+    @apply relative border-t-2 border-purple-300 border-opacity-50 flex items-center;
+}
+
+.BotSendMessage input{
+    @apply w-full h-20 text-white placeholder:text-white bg-tertiary py-3 pl-4 pr-10 outline-none border-none;
+}
+
+.BotSendMessage button{
+    @apply absolute z-10 right-2;
+}
+
+.BotSendMessage button{
+    @apply absolute z-10 right-2;
+}
+
+.BotSendMessage button img{
+    @apply filter hue-rotate-[50deg] saturate-[1] brightness-100;
+}

@@ -1,5 +1,5 @@
 .botWrapper{
-    @apply fixed right-5 bottom-5 w-full max-w-[375px] h-56 bg-tertiary z-20 rounded-lg overflow-hidden shadow-purple-300 border-2 border-purple-300 border-opacity-50;
+    @apply fixed right-5 bottom-5 w-full max-w-[375px] bg-tertiary z-20 rounded-lg overflow-hidden shadow-purple-300 border-2 border-purple-300 border-opacity-50;
 }
 
 .botWrapperNav{
@@ -15,7 +15,7 @@
 }
 
 .botWrapperNav__name p{
-    @apply text-white text-sm font-medium;
+    @apply text-white text-base font-medium;
 }
 
 .botWrapperNav__action{
@@ -24,4 +24,25 @@
 
 .botWrapperNav__action span{
     @apply w-full h-0.5 bg-white;
+}
+
+.botWrapper__content{
+    @apply relative bg-red-50 h-72 w-full;
+}
+
+.botWrapper__bg{
+    @apply absolute w-full h-full object-cover bg-tertiary;
+}
+
+.botWrapper__content__block{
+    @apply relative z-10 p-5 max-h-72 overflow-auto;
+}
+
+.botWrapper__content__block::-webkit-scrollbar-thumb {
+    background: rgba(124, 126, 124, .35);
+    @apply mr-0.5 hover:bg-primary;
+}
+
+.botWrapper__content__block::-webkit-scrollbar {
+    @apply w-2 h-1.5;
 }

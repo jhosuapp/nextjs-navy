@@ -1,0 +1,24 @@
+.botMessage{ 
+    @apply w-full flex items-center mb-4;
+}
+
+.botMessage__content{
+    @apply w-fit block bg-white px-3.5 py-2.5 rounded-md;
+    box-shadow: 0 4px 12px #7f8d9e;
+}
+
+.botMessage__content p{
+    @apply font-medium text-black text-base;
+}
+
+.botMessageResponse{
+    @apply justify-end;
+}
+
+.botMessageResponse .botMessage__content{
+    @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500;
+}
+
+.botMessageResponse .botMessage__content p{
+    @apply text-white;
+}
