@@ -15,10 +15,28 @@
     @apply justify-end;
 }
 
-.botMessageResponse .botMessage__content{
+.botMessageResponse .botMessage__content, 
+.botMessage__contentPurple{
     @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500;
 }
 
-.botMessageResponse .botMessage__content p{
+.botMessageResponse .botMessage__content p,
+.botMessage__contentPurple p{
     @apply text-white;
+}
+
+.botMessageTyping{
+    @apply flex items-center gap-1 w-fit p-1.5;
+}
+
+.botMessageTyping span{
+    @apply w-2 h-2 bg-white rounded-full animate-bounce;
+}
+
+.botMessageTyping span:first-child{
+    @apply [animation-delay:-0.3s];
+}
+
+.botMessageTyping span:nth-child(2){
+    @apply [animation-delay:-0.15s];
 }

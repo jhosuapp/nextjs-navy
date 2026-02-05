@@ -1,17 +1,30 @@
+import { motion } from 'framer-motion';
+import { ItemBotMessage } from '../../interfaces/chatBot.interface';
+import { fadeInNoneMotion } from '@/shared/motion';
+import { BotMessageWrapper } from './BotMessageWrapper';
+
 import styles from './botMessage.module.css';
 
-type Props = {
-    text: string;
-    userResponse?: boolean;
-}
+type Props = ItemBotMessage & {
+    isLast?: boolean;
+    onAnimationComplete?: () => void;
+};
 
-const BotMessage = ({ text, userResponse = false }:Props):JSX.Element => {
+const BotMessage = ({ text, userResponse = false, delayMessage = 0, isLast = false, onAnimationComplete }: Props): JSX.Element => {
     return (
-        <div className={ `${styles.botMessage} ${userResponse && styles.botMessageResponse}` }>
-            <div className={ styles.botMessage__content }>
+        <motion.div 
+            {...fadeInNoneMotion(delayMessage, 0)}
+            className={ `${styles.botMessage} ${userResponse && styles.botMessageResponse}` }
+            onAnimationComplete={() => {
+                if (isLast && onAnimationComplete) {
+                    onAnimationComplete();
+                }
+            }}
+        >
+            <BotMessageWrapper>
                 <p>{ text }</p>
-            </div>
-        </div>
+            </BotMessageWrapper>
+        </motion.div>
     )
 }
 

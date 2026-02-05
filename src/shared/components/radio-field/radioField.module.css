@@ -1,0 +1,23 @@
+.radioField label{
+    @apply relative z-10 pointer-events-none py-2 cursor-pointer;
+}
+
+.radioField label p{
+    @apply transition-all text-black font-bold;
+}
+
+.radioField input{
+    @apply appearance-none absolute w-full h-full top-0 left-0 transition-all !rounded-none;
+}
+
+.radioField input:checked{
+    @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500;
+}
+
+.radioFieldContent{
+    @apply relative flex flex-col items-center justify-center border-2 border-purple-500 cursor-pointer bg-white rounded-md px-2;
+}
+
+.radioField__checked label p{
+    @apply  !text-white;
+}

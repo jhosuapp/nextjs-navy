@@ -24,9 +24,9 @@ const BotSticky = ():JSX.Element => {
             >
                 <Image src={ iconBot } alt='Bot' />
                 <span></span>
-                <motion.span {...fadeInMotion(6,0)}>1</motion.span>
+                <motion.span {...fadeInMotion(1,0)}>1</motion.span>
             </motion.button>
-            <motion.div {...zoomInMotion(4,0)} className={ `${styles.botSticky__message} ${!showMessage && styles.botSticky__message__disabled}` }>
+            <motion.div {...zoomInMotion(2,0)} className={ `${styles.botSticky__message} ${!showMessage && styles.botSticky__message__disabled}` }>
                 <p>Hi! How can I help you?</p>
             </motion.div>
         </motion.div>
