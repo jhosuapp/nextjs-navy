@@ -1,11 +1,7 @@
 import { ItemBotMessage } from "../interfaces/chatBot.interface";
 import { useChatBotStore } from "../stores/chatBot.store";
 
-type Props = {
-    messages: ItemBotMessage[];
-}
-
-const useRadioStepController = ({ messages }:Props) => {
+const useRadioStepController = () => {
     const setMessage = useChatBotStore( state => state.setMessage );
     const currentStep = useChatBotStore( state => state.currentStep );
     const setCurrentStep = useChatBotStore( state => state.setCurrentStep );
@@ -18,7 +14,7 @@ const useRadioStepController = ({ messages }:Props) => {
         });
     }
 
-    const handleSetAnswer = (text:string, enableNextStep:number) => {
+    const handleSetAnswer = (text:string, enableNextStep:number, messages:ItemBotMessage[]) => {
         setCurrentStep(enableNextStep);
         setMessage({
             text: text,

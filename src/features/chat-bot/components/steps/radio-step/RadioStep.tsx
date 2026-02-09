@@ -1,6 +1,7 @@
+// RadioStep.tsx
 import { RadioField } from "@/shared/components"
 import { BotMessageWrapper } from "../../bot-message/BotMessageWrapper"
-import { useRadioStepController } from "@/features/chat-bot/hooks/useInitialOptions.controller";
+import { useRadioStepController } from "@/features/chat-bot/hooks/useRadioStep.controller";
 import { ItemBotMessage } from "@/features/chat-bot/interfaces/chatBot.interface";
 
 type Props = {
@@ -8,16 +9,26 @@ type Props = {
         name: string;
         value: string;
     }[];
-    messages: ItemBotMessage[];
+    messages?: ItemBotMessage[] | null;
     enableAtStep: number;
     enableNextStep: number;
+    callBackHandleClick?: (value:string)=> ItemBotMessage[];
 }
 
-const RadioStep = ({ options, enableAtStep, enableNextStep, messages }:Props):JSX.Element => {
-    const { handleSetAnswer, currentStep } = useRadioStepController({ messages });
+const RadioStep = ({ options, enableAtStep, enableNextStep, messages, callBackHandleClick }:Props):JSX.Element => {
+    const { handleSetAnswer, currentStep } = useRadioStepController();
 
     if(currentStep !== enableAtStep){
         return <></>
+    }
+
+    const handleClick = (value:string)=> {
+        if(callBackHandleClick){
+            const messagesCallback = callBackHandleClick(value);
+            handleSetAnswer(value, enableNextStep, messagesCallback);
+        }else{
+            handleSetAnswer(value, enableNextStep, messages);
+        }
     }
     
     return (
@@ -27,7 +38,7 @@ const RadioStep = ({ options, enableAtStep, enableNextStep, messages }:Props):JS
                     name={ radio.name }
                     id={ radio.name }
                     value={radio.value}
-                    onClick={ ()=> handleSetAnswer(radio.value, enableNextStep) }
+                    onClick={ ()=> handleClick(radio.value) }
                     key={ radio.name }
                 >
                     { radio.value }

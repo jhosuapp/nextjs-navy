@@ -3,7 +3,7 @@
 }
 
 .botMessage__content{
-    @apply w-fit block bg-white px-3.5 py-2.5 rounded-md;
+    @apply w-fit flex flex-col gap-2 bg-white px-3.5 py-2.5 rounded-md;
     box-shadow: 0 4px 12px #7f8d9e;
 }
 
