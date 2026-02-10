@@ -14,7 +14,7 @@ import bg from '@/config/assets/svg/bg-chat.svg';
 
 const BotWrapper = ():JSX.Element => {
     const { 
-        setEnableBot, 
+        handleCloseBot,
         containerRef, 
         messages,
         isTyping, 
@@ -28,7 +28,7 @@ const BotWrapper = ():JSX.Element => {
                     <Image src={ iconBot } alt='icon bot navy' />
                     <p>Navy bot</p>
                 </div>
-                <button className={ styles.botWrapperNav__action } onClick={ ()=> setEnableBot(false) }>
+                <button className={ styles.botWrapperNav__action } onClick={ handleCloseBot }>
                     <span></span>
                 </button>
             </article>

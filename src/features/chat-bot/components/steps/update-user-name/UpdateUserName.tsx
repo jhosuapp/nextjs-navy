@@ -14,13 +14,13 @@ const premiumOptions = [
 const UpdateUserName = ():JSX.Element => {
     const setUpdateUserNameData = useChatBotStore(state => state.setUpdateUserNameData);
     const setIsChatEnabled = useChatBotStore(state => state.setIsChatEnabled);
-    const setPlaceholder = useChatBotStore(state => state.setPlaceholder);
+    const setAtrFieldAnswer = useChatBotStore(state => state.setAtrFieldAnswer);
 
     const handleClickStepPremium = (value: string) => {
         setUpdateUserNameData({ isPremium: value });
         if(value === 'Im premium'){
             setIsChatEnabled(true);
-            setPlaceholder('Write your uuid here');
+            setAtrFieldAnswer({ name: 'uuid', placeholder: 'Write your uuid here'});
             return premiumMessages;
         }else{
             return noPremiumMessages;

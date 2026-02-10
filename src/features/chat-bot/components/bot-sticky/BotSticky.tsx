@@ -10,6 +10,7 @@ import iconBot from '@/config/assets/png/icon-bot.webp';
 const BotSticky = ():JSX.Element => {
     const [showMessage, setShowMessage] = useState<boolean>(true);
     const setEnableBot = useChatBotStore( state => state.setEnableBot );
+    const setIsTyping = useChatBotStore( state => state.setIsTyping );
 
     setTimeout(()=>{
         setShowMessage(false);
@@ -20,7 +21,7 @@ const BotSticky = ():JSX.Element => {
             <motion.button 
                 whileTap={{ scale: 0.95 }} 
                 whileHover={{ scale: 1.05 }}
-                onClick={ ()=> setEnableBot(true) }
+                onClick={ ()=> { setEnableBot(true), setIsTyping(true) } }
             >
                 <Image src={ iconBot } alt='Bot' />
                 <span></span>

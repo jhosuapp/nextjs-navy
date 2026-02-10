@@ -2,27 +2,33 @@ import { useEffect, useRef } from 'react';
 import { useChatBotStore } from '../stores/chatBot.store';
 
 const useBotWrapperController = () => {
-    const setEnableBot = useChatBotStore( state => state.setEnableBot );
     const messages = useChatBotStore( state => state.messages );
     const isTyping = useChatBotStore( state => state.isTyping );
     const setIsTyping = useChatBotStore( state => state.setIsTyping );
+    const setResetBot = useChatBotStore( state => state.setResetBot );
     const containerRef = useRef<HTMLDivElement>(null);
 
     const scrollToBottom = () => {
         if (containerRef.current) {
-            containerRef.current.scrollTo({
-                top: containerRef.current.scrollHeight,
-                behavior: 'smooth'
-            });
+            setTimeout(()=>{
+                containerRef?.current?.scrollTo({
+                    top: containerRef?.current?.scrollHeight,
+                    behavior: 'smooth'
+                });
+            },100);
         }
     };
+
+    const handleCloseBot = () => {
+        setResetBot();
+    }
 
     useEffect(() => {
         scrollToBottom();
     }, [messages, isTyping]);
 
     return {
-        setEnableBot,
+        handleCloseBot,
         setIsTyping, 
         containerRef,
         messages, 
