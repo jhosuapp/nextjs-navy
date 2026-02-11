@@ -12,12 +12,14 @@ interface IUpdateUserNameData {
 interface SkinState {
     enableBot: boolean;
     currentStep: number;
-    isTyping: boolean,
+    isTyping: boolean;
+    isLoad: boolean;
     messages: ItemBotMessage[];
     // Field to write
     isChatEnabled: boolean;
     atrFieldAnswer: { name: ImessagesSave; placeholder: string; };
     messagesSaved: Record<ImessagesSave, string> | {};
+    errorInMessage: string;
     // Custom steps
     updateUserNameData: IUpdateUserNameData;
 }
@@ -26,11 +28,13 @@ interface Actions {
     setEnableBot: (value: boolean) => void;
     setCurrentStep: (value: number) => void;
     setIsTyping: (value: boolean) => void;
+    setIsLoad: (value: boolean) => void;
     setMessage: (value: ItemBotMessage) => void;
     // Field to write
     setAtrFieldAnswer: (value: { name: ImessagesSave, placeholder: string }) => void;
     setIsChatEnabled: (value: boolean) => void;
-    setMessagesSaved: (value: Record<ImessagesSave, string>) => void;
+    setMessagesSaved: (value: Partial<Record<ImessagesSave, string>>) => void;
+    setErrorInMessage: (value: string) => void;
     // Custom steps
     setUpdateUserNameData: (data: Partial<IUpdateUserNameData>) => void;
     // Reset bot
@@ -40,9 +44,11 @@ interface Actions {
 const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]> = (set) =>({
     atrFieldAnswer: { name: '', placeholder: '' },
     enableBot: false,
+    isLoad: false,
     currentStep: 1,
     isTyping: true,
     isChatEnabled: false,
+    errorInMessage: '',
     messages: [{ text: "Hi, im navy bot", delayMessage: 1.5 }, { text: "What do you want?", delayMessage: 3 }],
     messagesSaved: { },
     updateUserNameData: {
@@ -56,6 +62,9 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
     setIsTyping: (value) => set(({
         isTyping: value
     }), false, 'setIsTyping' ),
+    setIsLoad: (value) => set(({
+        isLoad: value
+    }), false, 'setIsLoad' ),
     setIsChatEnabled: (value) => set(({
         isChatEnabled: value
     }), false, 'setIsChatEnabled' ),
@@ -68,6 +77,9 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
     }), false, 'setEnableBot' ),
     setAtrFieldAnswer: (value) => set(({
         atrFieldAnswer: { name: value.name, placeholder: value.placeholder }
+    }), false, 'setAtrFieldAnswer' ),
+    setErrorInMessage: (value) => set(({
+        errorInMessage: value
     }), false, 'setAtrFieldAnswer' ),
     setMessagesSaved: (data) => set(
         (state) => ({
@@ -92,6 +104,7 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
         enableBot: false,
         currentStep: 1,
         isTyping: true,
+        isLoad: false,
         isChatEnabled: false,
         messages: [{ text: "Hi, im navy bot", delayMessage: 1.5 }, { text: "What do you want?", delayMessage: 3 }],
         updateUserNameData: {

@@ -46,3 +46,7 @@
 .botWrapper__content__block::-webkit-scrollbar {
     @apply w-2 h-1.5;
 }
+
+.botWrapper__error{
+    @apply bg-red-500 rounded-sm py-0.5 px-1 text-white text-sm bottom-0 z-10 w-full;
+}

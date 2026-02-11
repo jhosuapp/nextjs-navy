@@ -1,0 +1,17 @@
+.spinner{
+    @apply w-5 h-5 block;
+}
+
+.spinner img{
+    @apply w-full block;
+    animation: rotateLoop 1s linear infinite;
+}
+
+@keyframes rotateLoop {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
