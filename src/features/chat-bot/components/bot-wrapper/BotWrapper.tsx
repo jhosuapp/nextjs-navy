@@ -7,13 +7,14 @@ import { BotMessageTyping } from '../bot-message/BotMessageTyping';
 import { RadioStep } from '../steps/radio-step/RadioStep';
 import { UpdateUserName } from '../steps/update-user-name/UpdateUserName';
 import { useBotWrapperController } from '../../hooks/useBotWrapper.controller';
+import { BotMessageLoad } from '../bot-message/BotMessageLoad';
 
 import styles from './botWrapper.module.css';
 import iconBot from '@/config/assets/png/icon-bot.webp';
 import bg from '@/config/assets/svg/bg-chat.svg';
-import { BotMessageLoad } from '../bot-message/BotMessageLoad';
 
 const BotWrapper = ():JSX.Element => {
+
     const { 
         handleCloseBot,
         containerRef, 

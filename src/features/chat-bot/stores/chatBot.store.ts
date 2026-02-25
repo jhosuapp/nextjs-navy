@@ -18,7 +18,7 @@ interface SkinState {
     // Field to write
     isChatEnabled: boolean;
     atrFieldAnswer: { name: ImessagesSave; placeholder: string; };
-    messagesSaved: Record<ImessagesSave, string> | {};
+    messagesSaved: Record<ImessagesSave, string>;
     errorInMessage: string;
     // Custom steps
     updateUserNameData: IUpdateUserNameData;
@@ -50,7 +50,7 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
     isChatEnabled: false,
     errorInMessage: '',
     messages: [{ text: "Hi, im navy bot", delayMessage: 1.5 }, { text: "What do you want?", delayMessage: 3 }],
-    messagesSaved: { },
+    messagesSaved: { uuid: '', '': '' },
     updateUserNameData: {
         isPremium: '',
         isUpdated: false,

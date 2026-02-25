@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useChatBotStore } from '../stores/chatBot.store';
+import { useUserNameController } from './useUserName.controller';
 
 const useBotWrapperController = () => {
     const messages = useChatBotStore( state => state.messages );
@@ -37,6 +38,8 @@ const useBotWrapperController = () => {
     useEffect(() => {
         scrollToBottom();
     }, [messages, isTyping, isLoad]);
+
+    const { messagesSaved } = useUserNameController();
 
     return {
         handleCloseBot,
