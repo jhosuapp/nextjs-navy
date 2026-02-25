@@ -1,7 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "@/config/lib/prisma";
+import { withRateLimit } from "@/config/lib/rateLimit";
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -51,3 +52,5 @@ export default async function handler(
         res.status(500).json({ message: "Error obteniendo punishments" });
     }
 }
+
+export default withRateLimit(handler)

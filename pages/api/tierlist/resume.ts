@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from "@/config/lib/prisma"
+import { withRateLimit } from "@/config/lib/rateLimit"
 
 type TestEntry = {
   id: number
@@ -16,7 +17,7 @@ type ResponseData = {
   total_tests: Record<string, number>
 }
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -126,3 +127,5 @@ export default async function handler(
     return res.status(500).json({ message: "Internal Server Error" })
   }
 }
+
+export default withRateLimit(handler)

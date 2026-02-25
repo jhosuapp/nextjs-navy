@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from "@/config/lib/prisma"
 import { Prisma } from "@prisma/client"
+import { withRateLimit } from "@/config/lib/rateLimit"
 
 const TIER_POINTS: Record<string, number> = {
   H1: 70,
@@ -27,7 +28,7 @@ type RankingEntry = {
   games: Record<string, GameTier>
 }
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -332,3 +333,5 @@ export default async function handler(
     data,
   })
 }
+
+export default withRateLimit(handler)
