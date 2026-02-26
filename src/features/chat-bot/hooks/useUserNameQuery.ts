@@ -1,5 +1,7 @@
-import { useQuery } from "@tanstack/react-query"
+import { useMutation, useQuery } from "@tanstack/react-query"
 import { getUserNameAction } from "../actions/get-username.action";
+import { UsernameBody } from "../interfaces/userName.interface";
+import { postUpdateUsernameAction } from "../actions/post-updateUsername.action";
 
 const useUserNameQuery = (uuid:string) => {
     const userNameQuery = useQuery({
@@ -14,4 +16,12 @@ const useUserNameQuery = (uuid:string) => {
     return userNameQuery
 }
 
-export { useUserNameQuery }
+const useUpdateUsernameMutation = () => {
+    const usageMutation = useMutation({
+        mutationFn: (body: UsernameBody) => postUpdateUsernameAction(body),
+    });
+
+    return usageMutation;
+};
+
+export { useUserNameQuery, useUpdateUsernameMutation }

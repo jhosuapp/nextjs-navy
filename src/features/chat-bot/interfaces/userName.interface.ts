@@ -1,4 +1,9 @@
 export interface UserNameResponse {
-    id: string;
-    name: string;
+    username: string | undefined;
+    uuid: string | undefined;
+}
+
+export interface UsernameBody {
+    uuid: string;
+    nick: string;
 }
