@@ -2,7 +2,7 @@ import { TierlistUser } from "@/features/tierlist/interfaces";
 import { navyApi } from "@/shared/api";
 
 const getUserByNameAction = async (username: string):Promise<{data: TierlistUser}> => {
-    const { data } = await navyApi.get<{data: TierlistUser}>(`/tierlist/overall?nick=${username}`);
+    const { data } = await navyApi.get<{data: TierlistUser}>(`/tierlist/overall-upd?nick=${username}`);
 
     return data;
 }
