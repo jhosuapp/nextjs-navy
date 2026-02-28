@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "@/config/lib/prisma";
 import { withRateLimit } from "@/config/lib/rateLimit";
+import { invalidateCacheByPrefix } from "@/config/lib/cache";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
@@ -37,6 +38,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
                 data: { nick },
             }),
         ]);
+
+        await invalidateCacheByPrefix("profile:");
 
         return res.status(200).json({ message: "Nick actualizado correctamente" });
     } catch (error) {
