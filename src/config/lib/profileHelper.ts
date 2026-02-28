@@ -82,8 +82,8 @@ export async function buildProfileData(
 
   // Staff check — prefer UUID match, fall back to nick
   const staffWhere: Prisma.staffWhereInput = uuid
-    ? { uuid }
-    : { nick: { equals: nick, mode: "insensitive" } }
+  ? { uuid }
+  : { nick: { equals: nick } }
 
   const staffRecord = await prisma.staff.findFirst({ where: staffWhere })
 
