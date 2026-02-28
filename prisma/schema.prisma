@@ -52,6 +52,15 @@ model staff {
   online_staff      online_staff[] @ignore
 }
 
+model api_cache {
+  cache_key  String   @id @db.VarChar(255)
+  data       String   @db.LongText
+  created_at DateTime @db.DateTime(0)
+  expires_at DateTime @db.DateTime(0)
+
+  @@map("api_cache")
+}
+
 model tier_testers {
   discord_id String @unique(map: "discord_id") @db.VarChar(32)
   count      Int
