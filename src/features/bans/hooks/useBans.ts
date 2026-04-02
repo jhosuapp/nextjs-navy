@@ -1,14 +1,28 @@
 import { useLoadMore } from "./useLoadMore";
 import { useBansQuery } from "./useBansQuery";
 import { anchorScroll } from "@/shared/helpers";
-import { useLenisStore } from "@/shared/stores";
+import { useLenisStore, useSearchStore } from "@/shared/stores";
 
 const useBansController = () => {
     const response = useBansQuery();
+    const value = useSearchStore(state => state.value);
+
     const activeBans = response?.data?.active ?? [];
     const inactiveBans = response?.data?.inactive ?? [];
-    const activeBansPaginated = useLoadMore(activeBans, 6);
-    const inactiveBansPaginated = useLoadMore(inactiveBans, 6);
+
+    const filterBySearch = (items: any[]) => {
+        if (!value.trim()) return items;
+        const search = value.toLowerCase();
+        return items.filter(item =>
+            item.nick?.toLowerCase().includes(search)
+        );
+    };
+
+    const filteredActiveBans = filterBySearch(activeBans);
+    const filteredInactiveBans = filterBySearch(inactiveBans);
+
+    const activeBansPaginated = useLoadMore(filteredActiveBans, 6);
+    const inactiveBansPaginated = useLoadMore(filteredInactiveBans, 6);
     const lenis = useLenisStore(state => state.lenis);
 
     const getDuration = (index: number) => {
@@ -23,19 +37,20 @@ const useBansController = () => {
     };
 
     const handleLoadMoreInactive = () => {
-        activeBansPaginated.loadMore();
+        inactiveBansPaginated.loadMore(); // 👈 Fix: era activeBansPaginated por error
         anchorScroll(lenis);
     };
 
     return {
         response, 
-        inactiveBans,
-        activeBans,
+        inactiveBans: filteredInactiveBans,
+        activeBans: filteredActiveBans,
         getDuration,
         handleLoadMoreActive,
         handleLoadMoreInactive,
         activeBansPaginated,
-        inactiveBansPaginated
+        inactiveBansPaginated, 
+        value
     }
 }
 

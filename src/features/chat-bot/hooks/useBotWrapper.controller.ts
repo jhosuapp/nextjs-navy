@@ -46,7 +46,7 @@ const useBotWrapperController = () => {
     }, [messages, isTyping, isLoad]);
 
     useEffect(()=>{
-        setResetBot();
+        !isTyping && setResetBot();
     },[router.route]);
 
     return {

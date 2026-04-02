@@ -16,12 +16,16 @@ const BotSticky = ():JSX.Element => {
         setShowMessage(false);
     },5500);
 
+    const handleEnableBot = () => {
+        setEnableBot(true); 
+        setIsTyping(true);
+    }
+
     return (
-        <motion.div className={ styles.botSticky } {...zoomInMotion(3,0)}>
+        <motion.div className={ styles.botSticky } {...zoomInMotion(3,0)} onClick={ handleEnableBot }>
             <motion.button 
                 whileTap={{ scale: 0.95 }} 
                 whileHover={{ scale: 1.05 }}
-                onClick={ ()=> { setEnableBot(true), setIsTyping(true) } }
             >
                 <Image src={ iconBot } alt='Bot' />
                 <span></span>

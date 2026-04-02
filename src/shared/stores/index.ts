@@ -6,3 +6,4 @@ export * from './skin.store';
 export * from './modalities.store';
 export * from './modal.store';
 export * from './switch.store';
+export * from './search.store';

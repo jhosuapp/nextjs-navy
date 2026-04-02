@@ -11,7 +11,6 @@ type Props = {
 }
 
 const CardBan = ({ data, isFadeUp = true, variantStatus = 'active' }:Props):JSX.Element => {
-    console.log(data);
 
     return (
         <CardWrapper classNameParent={ styles.cardBan } isFadeUp={ isFadeUp }>
