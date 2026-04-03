@@ -1,0 +1,15 @@
+.feedback{
+    @apply flex col-span-full flex-col gap-2 w-full justify-center items-center min-h-[500px] animate-fadeIn;
+}
+
+.feedbackSvg{
+    @apply max-w-32 lg:max-w-52 block w-full;
+}
+
+.feedbackPath{
+    @apply stroke-secondary;
+}
+
+.feedbackText{
+    @apply text-purple-300 text-opacity-50 text-center text-xl lg:text-3xl font-medium;
+}

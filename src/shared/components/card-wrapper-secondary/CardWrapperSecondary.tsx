@@ -12,9 +12,10 @@ type Props = {
     text: string;
     isSmallGrid?: boolean;
     hasSearch?: boolean;
+    hasAnimation?: boolean;
 }
 
-const CardWrappersecondary = ({ children, title, text, isSmallGrid = false, hasSearch = false }:Props):JSX.Element => {
+const CardWrappersecondary = ({ children, title, text, isSmallGrid = false, hasSearch = false, hasAnimation = false }:Props):JSX.Element => {
     return (
         <section className={ `${styles.cardWrappersecondary} ${isSmallGrid && styles.cardWrappersecondarySmall}` }>
             <motion.div {...fadeUpMotion(0.7, 0.13)}>
@@ -28,9 +29,15 @@ const CardWrappersecondary = ({ children, title, text, isSmallGrid = false, hasS
                 </article>
                 <Divider />
             </motion.div>
-            <article className={ styles.cardWrappersecondary__content }>
-                { children }
-            </article>
+            {hasAnimation ? (
+                <motion.article className={ styles.cardWrappersecondary__content } {...fadeUpMotion(0.7, 0.13)}>
+                    { children }
+                </motion.article>
+            ) : (
+                <article className={ styles.cardWrappersecondary__content }>
+                    { children }
+                </article>
+            )}
         </section>
     )
 }

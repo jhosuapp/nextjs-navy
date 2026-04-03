@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { useSearchStore } from '@/shared/stores';
 import { InputField } from '../input-field/InputField';
 import { Button } from '../button/Button';
-import { zoomInMotion } from '@/shared/motion';
 
 import icon from '@/config/assets/svg/icon-search.svg';
 import styles from './search.module.css';
@@ -17,8 +16,13 @@ const Search = ():JSX.Element => {
         setValue('');
     },[]);
 
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        setValue(prevValue);
+    }
+
     return (
-        <form className={ styles.search }>
+        <form className={ styles.search } onSubmit={ (e)=> handleSubmit(e) }>
             <InputField
                 placeholder="Search by username"
                 type='text'
@@ -30,8 +34,7 @@ const Search = ():JSX.Element => {
                 <Button 
                     style={'fit'} 
                     iconRight={ icon }
-                    type='button'
-                    onClick={ () => setValue(prevValue) }
+                    type='submit'
                 />
             </motion.div>
         </form>

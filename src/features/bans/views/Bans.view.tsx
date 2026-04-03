@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import { Container, CardWrappersecondary, LoaderSecondary, Button } from "@/shared/components"
+import { Container, CardWrappersecondary, LoaderSecondary, Button, NotFound, Feedback } from "@/shared/components"
 import { CardBan  } from "../components"
 import { fadeInMotion } from "@/shared/motion";
 import { useBansController } from '../hooks';
-import { CardWrapperSecondaryChip } from '@/shared/components/card-wrapper-secondary/CardWrapperSecondaryChip';
 
 const BansView = ():JSX.Element => {
     const { 
@@ -25,15 +24,18 @@ const BansView = ():JSX.Element => {
 
     return (
         <Container className="!mt-5 lg:!mt-10" isFirst isLast>
-            <CardWrappersecondary title={ `Active` } text={``} hasSearch>
+            <CardWrappersecondary title={ `Active` } text={``} hasSearch hasAnimation>
                 {value && (
-                    <motion.div className='col-span-full text-center flex justify-between' {...fadeInMotion(0,0)}>
-                        <p className='text-xl font-medium text-purple-300 text-opacity-50'>We found {activeBans.length} results for the search "{value}"</p>
-                        <CardWrapperSecondaryChip text={`${activeBans.length} Users`} />
-                    </motion.div>
+                    <NotFound 
+                        text={`${activeBans.length} Users`}
+                        description={`We found ${activeBans.length} results for the search "${value}"`}
+                    />
+                )}
+                {value && !activeBans.length && (
+                    <Feedback texFeedback='We did not find results' />
                 )}
                 {activeBansPaginated.visibleItems.map((data, index)=>(
-                    <motion.div {...fadeInMotion(index <= 5 ? 0.5 : getDuration(index), 1)}>
+                    <motion.div {...fadeInMotion(getDuration(index), 1)}>
                         <CardBan 
                             key={ `${data.nick}-${index}` }
                             data={ data }

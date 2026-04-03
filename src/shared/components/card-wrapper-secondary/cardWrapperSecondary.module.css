@@ -3,7 +3,7 @@
 }
 
 .cardWrappersecondary__content {
-    @apply flex flex-col lg:grid gap-5 mt-8;
+    @apply flex flex-col lg:grid gap-5 mt-8 relative overflow-hidden;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 }
 

@@ -1,0 +1,8 @@
+.notFound{
+    @apply col-span-full text-center flex justify-between;
+}
+
+.notFoundText{
+    @apply text-xl font-medium text-purple-300 text-opacity-50 text-left;
+}
+
