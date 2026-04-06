@@ -1,0 +1,19 @@
+.langSwitch{
+    @apply relative block;
+}
+
+.langSwitch__current{
+    @apply flex items-center gap-1 px-3 py-1.5 text-base font-medium text-white;
+}
+
+.langSwitch__wrapper{
+    @apply absolute right-0 mt-4 w-full min-w-20 shadow-sm border-2 border-purple-300 border-opacity-50 bg-tertiary rounded-md h-auto text-white overflow-hidden;
+}
+
+.langSwitch__wrapper button{
+    @apply flex justify-center gap-2 w-full px-3 py-2 text-base text-left hover:opacity-60;
+}
+
+.langSwitch__wrapper button img{
+    @apply block max-w-6;
+}

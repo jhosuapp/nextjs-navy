@@ -1,4 +1,7 @@
+import { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+
+import styles from './languageSwitcher.module.css';
 
 const LANGUAGES = [
     { code: "es", label: "ES" },
@@ -6,22 +9,69 @@ const LANGUAGES = [
     { code: "pt", label: "PT" },
 ];
 
-const LanguageSwitcher = ():JSX.Element => {
+const LanguageSwitcher = (): JSX.Element => {
     const { i18n } = useTranslation();
+    const [open, setOpen] = useState(false);
+    const ref = useRef<HTMLDivElement>(null);
+
+    const current = LANGUAGES.find((l) => l.code === i18n.language) ?? LANGUAGES[0];
+    const options = LANGUAGES.filter((l) => l.code !== current.code);
+
+    useEffect(() => {
+        const handleClickOutside = (e: MouseEvent) => {
+            if (ref.current && !ref.current.contains(e.target as Node)) {
+                setOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+    }, []);
+
+    const handleSelect = (code: string) => {
+        i18n.changeLanguage(code);
+        setOpen(false);
+    };
+
+    const handlePrefetch = (code: string) => {
+        if (!i18n.hasResourceBundle(code, "translation")) {
+            i18n.loadLanguages(code);
+        }
+    };
 
     return (
-        <div className="flex gap-2">
-            {LANGUAGES.map(({ code, label }) => (
-                <button
-                    key={code}
-                    onClick={() => i18n.changeLanguage(code)}
-                    className={i18n.language === code ? "active" : ""}
+        <div ref={ref} className={styles.langSwitch}>
+            <button
+                onClick={() => setOpen((prev) => !prev)}
+                className={styles.langSwitch__current}
+            >
+                {current.label}
+                <svg
+                    className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`}
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
                 >
-                    {label}
-                </button>
-            ))}
+                    <path d="M2 4l4 4 4-4" />
+                </svg>
+            </button>
+
+            {open && (
+                <div className={styles.langSwitch__wrapper}>
+                    {options.map(({ code, label }) => (
+                        <button
+                            key={code}
+                            onClick={() => handleSelect(code)}
+                            onMouseEnter={() => handlePrefetch(code)}
+                        >
+                            <img src={ `/images/icon-${label}.svg?v=1` } alt="" />
+                            {label}
+                        </button>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
 
-export { LanguageSwitcher }
+export { LanguageSwitcher };

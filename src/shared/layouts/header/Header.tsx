@@ -8,6 +8,7 @@ import { useMenuStore } from '@/shared/stores';
 
 import styles from './header.module.css';
 import { LanguageSwitcher } from '@/shared/components';
+import { useEffect, useRef } from 'react';
 
 
 const Header = ():JSX.Element => {
@@ -17,16 +18,22 @@ const Header = ():JSX.Element => {
 
     return (
         <header className={ `${styles.header} ${hamburger && styles.headerMenuOpen}` }>
-            <div className={ styles.header__content }>
-                {!isDesktop && ( <HeaderLogoText /> )}
-                <nav className={ `${styles.header__nav} ${hamburger && styles.header__navActive}` }>
-                    <HeaderList items={[{ text: t('nav.tierlist'), path: paths.tierlist }, { text: t('nav.staff'), path: paths.staff }]} />
-                    {isDesktop && <HeaderLogo />}
-                    <HeaderList items={[{ text: t('nav.bans'), path: paths.bans }, { text: t('nav.partners'), path: paths.partners }]} />
-                </nav>
-                {!isDesktop && ( <HeaderHamburger /> )}
+            <div className={ styles.header__wrapper }>
+                <div  className={ styles.header__content }>
+                    {!isDesktop && ( <HeaderLogoText /> )}
+                    <nav className={ `${styles.header__nav} ${hamburger && styles.header__navActive}` }>
+                        <HeaderList items={[{ text: t('nav.tierlist'), path: paths.tierlist }, { text: t('nav.staff'), path: paths.staff }]} />
+                        {isDesktop && <HeaderLogo />}
+                        <HeaderList items={[{ text: t('nav.bans'), path: paths.bans }, { text: t('nav.partners'), path: paths.partners }]} />
+                    </nav>
+                    {!isDesktop && ( <HeaderHamburger /> )}
+                </div>
+                {isDesktop && (
+                    <div className={ styles.header__lang }>
+                        <LanguageSwitcher />
+                    </div>
+                )}
             </div>
-            <LanguageSwitcher />
         </header>
     )
 }

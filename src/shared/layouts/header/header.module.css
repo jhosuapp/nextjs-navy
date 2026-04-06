@@ -1,9 +1,13 @@
 .header{
-    @apply fixed top-0 left-0 w-full z-30 flex items-center justify-center my-10;
+    @apply fixed top-0 left-0 w-full z-30 flex justify-center my-10;
 }
 
 .header__content{
-    @apply max-w-limit w-[90%] border-2 border-purple-300 border-opacity-50 flex items-center rounded-md relative bg-tertiary bg-opacity-40 backdrop-blur-md;
+    @apply w-full border-2 border-purple-300 border-opacity-50 flex items-center rounded-md relative bg-tertiary bg-opacity-40 backdrop-blur-md;
+}
+
+.header__wrapper{
+    @apply max-w-limit w-[90%] flex gap-2;
 }
 
 :global(.light_mode) .header__content{
@@ -20,7 +24,10 @@
         @apply bg-tertiary bg-opacity-40 backdrop-blur-md border-b-2 border-purple-300 border-opacity-50 my-0;
     }
     .header__content{
-        @apply border-none justify-between py-2 w-full rounded-none;
+        @apply border-none justify-between py-2 rounded-none;
+    }
+    .header__wrapper{
+        @apply w-full;
     }
     .header__nav{
         @apply !absolute h-full top-0 left-0 min-h-svh flex-col justify-start bg-tertiary w-full pt-24 opacity-0 pointer-events-none;
@@ -168,4 +175,10 @@
 
 .headerMenuOpen .HeaderListItem p{
     @apply opacity-0 animate-textReveal odd:z-20;
+}
+
+/* Header lang */
+
+.header__lang{
+    @apply border-2 border-purple-300 border-opacity-50 bg-tertiary bg-opacity-40 backdrop-blur-md rounded-md flex items-center h-auto;
 }
