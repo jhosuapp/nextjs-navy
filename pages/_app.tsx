@@ -1,3 +1,4 @@
+import { appWithTranslation } from "next-i18next";
 import type { AppProps } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -10,8 +11,9 @@ import { Loader } from '@/shared/components';
 import { useLenisStore, useLoaderStore } from '@/shared/stores';
 
 import './globals.css';
+import '@/config/lib/i18n';
 
-export default function MyApp({ Component, pageProps, router }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
     const isLoading = useLoaderStore( state => state.isLoading );
     const setIsLoading = useLoaderStore( state => state.setIsLoading );
     const [queryClient] = useState(() => new QueryClient());
@@ -54,3 +56,5 @@ export default function MyApp({ Component, pageProps, router }: AppProps) {
         </>
     )
 }
+
+export default MyApp;

@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  
+  i18n: {
+    locales: ['es', 'en'],
+    defaultLocale: 'es',
+  },
+  images: {
+      domains: ['mc-heads.net'],
+  },
   // Optimización de imágenes
   images: {
     formats: ['image/avif', 'image/webp'],
