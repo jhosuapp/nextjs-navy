@@ -12,34 +12,35 @@ type Props = {
   description: string;
   url?: string;
   image?: string;
-  isDark?: boolean;
-  isDarkBg?: boolean;
   textPage: string;
   linkPage: string;
 };
 
 
-const Layout = ({ children, title, description, image = '', url = "https://www.navy.com", isDark, isDarkBg, textPage, linkPage }: Props) => (
+const Layout = ({ children, title, description, image = '', url = "https://navytiers.com/images/og-image.png", textPage, linkPage }: Props) => (
     <>
         <Head>
             <title>{title}</title>
             <meta charSet="utf-8" />
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
             <meta name="description" content={description} />
-            <meta name="keywords" content="minecraft pvp, servidor minecraft, navy, minecraft en español, kitpvp, practice, combate minecraft" />
+            <meta name="keywords" content="minecraft pvp tier list, minecraft practice server, navy minecraft, minecraft rankings, kitpvp tierlist" />
             <meta name="author" content="Navy" />
-            <link rel="canonical" href={url} />
+            <link rel="canonical" href={`https://navytiers.com${url}`} />
             <link rel="preconnect" href="https://www.youtube.com" />
             <link rel="preconnect" href="https://www.google.com" />
             <link rel="dns-prefetch" href="https://www.youtube.com" />
             <link rel="dns-prefetch" href="https://i.ytimg.com" />
             
             {/* Open Graph */}
+            <meta property="og:locale" content="es_ES" />
+            <meta property="og:site_name" content="Navy" />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta property="og:type" content="website" />
-            <meta property="og:url" content={url} />
+            <meta property="og:url" content={`https://navytiers.com${url}`} />
             <meta property="og:image" content={image} />
+            <meta property="og:image:alt" content="Navy Minecraft PvP Tier List" />
 
             {/* Twitter Card */}
             <meta name="twitter:card" content="summary_large_image" />
@@ -49,6 +50,14 @@ const Layout = ({ children, title, description, image = '', url = "https://www.n
 
             <meta name="robots" content="index, follow" />
             <meta name="theme-color" content="#1e1e1e" />
+            <script type="application/ld+json">
+            {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "Navy",
+                "url": `https://navytiers.com${url}`
+            })}
+            </script>
         </Head>
 
 

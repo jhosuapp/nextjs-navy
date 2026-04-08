@@ -1,4 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useRouter } from 'next/router';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -16,6 +17,7 @@ type Props = {
 
 const PageTransition = ({ children }:Props):JSX.Element => {
     const router = useRouter();
+    const { t } = useTranslation("common");
     const isLoadingDelay = useLoaderStore( state => state.isLoadingDelay );
     const showModal = useModalStore( state => state.showModal );
     const [dimensions, setDimensions] = useState({
@@ -37,6 +39,8 @@ const PageTransition = ({ children }:Props):JSX.Element => {
         }
     }, []);
 
+    console.log(routes[router.route]);
+
     return (
         <div 
             className={ styles.curve }
@@ -50,11 +54,11 @@ const PageTransition = ({ children }:Props):JSX.Element => {
                     className={ `${styles.curve__route} ${styles.curve__route__transition}` } 
                     {...anim(text)}
                 >
-                    Loading
+                    {t('loader.loading')}
                 </motion.p>
             ) : (
                 <motion.p className={ styles.curve__route } {...anim(text)}>
-                    {routes[router.route] ?? '404'}
+                    {t(`nav.${routes[router.route]}`) ?? '404'}
                 </motion.p>
             )}
             {dimensions.width != null && (

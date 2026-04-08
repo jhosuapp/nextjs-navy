@@ -1,0 +1,18 @@
+{
+    "hero": {
+        "scrollDown": "Haz scroll"
+    },
+    "results": {
+        "latestHigh": "ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ",
+        "latestLow": "ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * "
+    },
+    "resume": {
+        "crystalTests": "Pruebas en Crystal",
+        "swordTests": "Pruebas en Sword",
+        "netheriteTests": "Pruebas en Netherite"
+    },
+    "feedback": {
+        "latestHighLoader": "Cargando resultados altos",
+        "latestLowLoader": "Cargando resultados bajos"
+    }
+}

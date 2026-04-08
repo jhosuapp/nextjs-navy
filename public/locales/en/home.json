@@ -1,0 +1,18 @@
+{
+    "hero": {
+        "scrollDown": "Scroll down"
+    },
+    "results": {
+        "latestHigh": "LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS",
+        "latestLow": "LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS"
+    },
+    "resume": {
+        "crystalTests": "Crystal Tests",
+        "swordTests": "Sword Tests",
+        "netheriteTests": "Netherite Tests"
+    },
+    "feedback": {
+        "latestHighLoader": "Loading High Results",
+        "latestLowLoader": "Loading Low Results"
+    }
+}

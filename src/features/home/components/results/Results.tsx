@@ -8,27 +8,29 @@ import icon from '@/config/assets/svg/icon-angles-up-solid-full.svg';
 import { fadeInMotion } from '@/shared/motion';
 import { CardResults } from '../card-results/CardResults';
 import { WrapperCarousel } from '../wrapper-carousel/WrapperCarousel';
+import { ITranslations } from '@/shared/interfaces';
 
 type Props = {
     hTests: TestEntry[]
     lTests: TestEntry[]
     isLoad: boolean;
+    t: ITranslations;
 }
 
-const Results = ({ hTests, lTests, isLoad }:Props):JSX.Element => {
+const Results = ({ hTests, lTests, isLoad, t }:Props):JSX.Element => {
 
     return (
         <>
             {isLoad ? (
                 <LoaderSecondary 
-                    textLoader="Loading High Results" 
+                    textLoader={ t('feedback.latestHighLoader') }
                     isSmall
                     className="py-5"
                 />
             ) : (
                 <>
                     <WrapperCarousel reverse>
-                        <p className='text-purple-300 text-opacity-50 font-medium text-2xl lg:text-5xl text-nowrap'>LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS</p>
+                        <p className='text-purple-300 text-opacity-50 font-medium text-2xl lg:text-5xl text-nowrap'>{t('results.latestHigh')}</p>
                     </WrapperCarousel>
                     <WrapperCarousel>
                         {hTests?.length && hTests.map((data, index)=>(
@@ -46,14 +48,14 @@ const Results = ({ hTests, lTests, isLoad }:Props):JSX.Element => {
             )}
             {isLoad ? (
                 <LoaderSecondary 
-                    textLoader="Loading High Results" 
+                    textLoader={ t('feedback.latestLowLoader') }
                     isSmall
                     className="py-5"
                 />
             ) : (
                 <>
                     <WrapperCarousel>
-                        <p className='text-purple-300 text-opacity-50 font-medium text-2xl lg:text-5xl text-nowrap'>LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS</p>
+                        <p className='text-purple-300 text-opacity-50 font-medium text-2xl lg:text-5xl text-nowrap'>{t('results.latestLow')}</p>
                     </WrapperCarousel>
                     <WrapperCarousel reverse>
                         {lTests?.length && lTests.map((data, index)=>(

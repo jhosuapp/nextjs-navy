@@ -3,6 +3,28 @@
         "tierlist": "Tierlist",
         "staff": "Staff",
         "bans": "Baneos",
-        "partners": "Patrocinadores"
+        "partners": "Patrocinadores",
+        "home": "Inicio"
+    },
+    "footer":{
+        "developedBy": "Desarrollado por",
+        "text1": "Haz click en seguiente",
+        "text2": "Para más información sobre:",
+        "text3": "Siguiente"
+    },
+    "seo":{
+        "bansMetaTitle": "Tier List PvP Minecraft Navy | Rankings, Rendimiento y Baneos",
+        "bansMetaDescription": "Descubre la tier list de PvP de Minecraft Navy. Analiza el rendimiento de los jugadores, sus rankings y revisa quiénes fueron baneados por trampas en pruebas de habilidad.",
+        "partnersMetaTitle": "Partners de Navy | Streamers y Servidores PvP",
+        "partnersMetaDescription": "Conoce a los partners oficiales de Navy, incluyendo streamers y servidores de PvP que apoyan y colaboran con la comunidad.",
+        "staffMetaTitle":"Staff de Navy | Dueños, Admins y Desarrolladores",
+        "staffMetaDescription":"Conoce al equipo de trabajo de Navy, desde los dueños y administradores hasta los desarrolladores. Descubre quiénes están detrás del servidor y su comunidad.",
+        "tierlistMetaTitle":"Tier List PvP Navy | Rankings, Puntos y Mejores Jugadores",
+        "tierlistMetaDescription":"Explora la tier list de PvP de Navy, con los mejores jugadores, el sistema de rankings y una explicación detallada de cómo se obtienen y calculan los puntos.",
+        "homeMetaTitle":"Navy | Servidor de Discord para tests de nivel en Minecraft",
+        "homeMetaDescription":"Navy es un servidor de Discord donde evaluamos el nivel de jugadores de Minecraft en distintas modalidades, tanto premium como no premium, mediante pruebas justas y estructuradas."
+    },
+    "loader": {
+        "loading": "Cargando"
     }
 }

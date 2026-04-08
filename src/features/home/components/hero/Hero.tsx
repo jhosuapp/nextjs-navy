@@ -3,12 +3,17 @@ import { motion } from 'framer-motion';
 
 import { Container } from "@/shared/components";
 import { fadeUpMotion } from "@/shared/motion";
+import { HeroText } from "./HeroText";
+import { ITranslations } from "@/shared/interfaces";
 
 import iconPlay from '@/config/assets/svg/icon-play.svg';
 import styles from './hero.module.css';
-import { HeroText } from "./HeroText";
 
-const Hero = ():JSX.Element => {
+type Props = {
+    t: ITranslations;
+}
+
+const Hero = ({ t }:Props):JSX.Element => {
     return (
         <Container className={ styles.hero }>
             {/* Stars */}
@@ -62,7 +67,7 @@ const Hero = ():JSX.Element => {
             >
                 <span></span>
                 <span></span>
-                <p>Scroll down</p>
+                <p>{t('hero.scrollDown')}</p>
                 <span></span>
                 <span></span>
             </motion.article>

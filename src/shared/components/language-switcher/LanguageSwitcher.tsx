@@ -6,7 +6,7 @@ import styles from './languageSwitcher.module.css';
 const LANGUAGES = [
     { code: "es", label: "ES" },
     { code: "en", label: "EN" },
-    { code: "pt", label: "PT" },
+    // { code: "pt", label: "PT" },
 ];
 
 const LanguageSwitcher = (): JSX.Element => {
