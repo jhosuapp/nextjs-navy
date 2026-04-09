@@ -1,0 +1,13 @@
+{
+    "streamers": "Streamers",
+    "servers": "Servidores",
+    "partners": "Patrocinadores",
+    "card": {
+        "copyIp": "Copiar ip",
+        "ipCopied": "Copiada ✓"
+    },
+    "serversList": {
+        "nzcraft": { "description": "Servidor pvp 1.9" },
+        "zenith":  { "description": "Servidor pvp 1.9" }
+    }
+}

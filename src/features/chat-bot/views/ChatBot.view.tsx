@@ -8,8 +8,8 @@ const ChatBotView = ():JSX.Element => {
 
     return (
         <>
-            <AnimatePresence>
-                {enableBot && <BotWrapper key={`bot-wrapper-${enableBot}`} />}            
+            <AnimatePresence mode="wait">
+                {enableBot && <BotWrapper key={`bot-wrapper`} />}            
             </AnimatePresence>
             <BotSticky />
         </>

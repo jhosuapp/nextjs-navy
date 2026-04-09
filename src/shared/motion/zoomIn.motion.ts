@@ -16,6 +16,7 @@ export const zoomInMotion = (delayAnimate: number, delayExit: number): PartialMo
         exit: {
             scale: 0.8,
             opacity: 0,
+            pointerEvents: 'none',
             transition: {
                 duration: 0.3,
                 delay: delayExit

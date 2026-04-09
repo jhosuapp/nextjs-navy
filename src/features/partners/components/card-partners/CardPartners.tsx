@@ -4,50 +4,60 @@ import { CardWrapper } from "@/shared/components";
 import styles from './cardPartners.module.css';
 import { PartnersItem } from "../../interface";
 import { useState } from "react";
+import { ITranslations } from "@/shared/interfaces";
 
 type Props = {
-    data: PartnersItem
+    data: PartnersItem;
+    t: ITranslations;
 }
 
-const CardPartners = ({ data }:Props):JSX.Element => {
-    const [copyText, setCopyText] = useState<string>('Copy ip');
+const CardPartners = ({ data, t }: Props): JSX.Element => {
+    const [copiedHref, setCopiedHref] = useState<string | null>(null);
 
-    const handlerCopy = (e: React.MouseEvent<HTMLAnchorElement>, href:string)=> {
+    const handlerCopy = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
         e.preventDefault();
         navigator.clipboard.writeText(href);
-        setCopyText('Copied ✓');
+        setCopiedHref(href);
         setTimeout(() => {
-            setCopyText('Copy ip');
+            setCopiedHref(null);
         }, 3000);
-    }
+    };
 
     return (
-        <CardWrapper classNameParent={ styles.cardPartners }>
-            <div className={ styles.cardPartners__content }>
-                <div className={ styles.cardPartners__image }>
+        <CardWrapper classNameParent={styles.cardPartners}>
+            <div className={styles.cardPartners__content}>
+                <div className={styles.cardPartners__image}>
                     <picture>
-                        <img src={ data.img } alt={ 'yuna' } />
+                        <img src={data.img} alt={'yuna'} />
                     </picture>
                 </div>
-                <div className={ styles.cardPartners__info }>
-                    <h3>{ data.name }</h3>
-                    <p>{ data.description }</p>
+                <div className={styles.cardPartners__info}>
+                    <h3>{data.name}</h3>
+                    <p>{t(data.description)}</p>
                 </div>
-                <div className={ styles.cardPartners__networks }>
-                    {data.networks.map((network)=>(
-                        <a href={ network.href } target="_blank" onClick={ (e)=> network.hasTooltip && handlerCopy(e, network.href) } rel="noopener noreferrer">
+                <div className={styles.cardPartners__networks}>
+                    {data.networks.map((network) => (
+                        <a
+                            key={network.href}
+                            href={network.href}
+                            target="_blank"
+                            onClick={(e) => network.hasTooltip && handlerCopy(e, network.href)}
+                            rel="noopener noreferrer"
+                        >
                             {network.hasTooltip && (
-                                <div className={ styles.cardPartners__tooltip }>
-                                    { copyText }
+                                <div className={styles.cardPartners__tooltip}>
+                                    {copiedHref === network.href
+                                        ? t('card.ipCopied')
+                                        : t('card.copyIp')
+                                    }
                                 </div>
                             )}
-                            <Image src={ network.src } alt={ network.alt } />
+                            <Image src={network.src} alt={network.alt} />
                         </a>
                     ))}
                 </div>
             </div>
         </CardWrapper>
-    )
-}
-
+    );
+};
 export { CardPartners }

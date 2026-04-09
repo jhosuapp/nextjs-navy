@@ -8,7 +8,7 @@ import iconNc from '@/config/assets/svg/icon-nmc.svg';
 export const serversData:PartnersItem[] = [
     {
         name: 'Nzcraft',
-        description: 'Servidor pvp 1.9',
+        description: 'serversList.nzcraft.description',
         img: '/images/nzcraft.png',
         networks: [
             {
@@ -36,7 +36,7 @@ export const serversData:PartnersItem[] = [
     },
     {
         name: 'Zenith',
-        description: 'Servidor pvp 1.9',
+        description: 'serversList.zenith.description',
         img: '/images/zenith.webp',
         networks: [
             {
