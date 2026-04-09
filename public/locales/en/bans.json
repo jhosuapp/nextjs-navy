@@ -1,0 +1,25 @@
+{
+    "loading": "Loading staff team",
+    "cta": "Load more players",
+    "hero": {
+        "active": "Actives",
+        "search": "Search by username"
+    },
+    "card": {
+        "reason": "Reason",
+        "bannedFor": "Banned for",
+        "duration": "Duration",
+        "date": "Date",
+        "whenExpires": "When it expires",
+        "permanent": "Permanent",
+        "never": "Never",
+        "days": "Days",
+        "active": "Active",
+        "expired": "Expired"
+    },
+    "search": {
+        "users": "Users",
+        "resultsFound": "We found {{count}} results for the search \"{{value}}\"",
+        "resultsNotFound": "We did not find results"
+    }
+}

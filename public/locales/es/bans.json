@@ -1,0 +1,25 @@
+{
+    "loading": "Cargando el staff",
+    "cta": "Cargar más jugadores",
+    "hero": {
+        "active": "Activos",
+        "search": "Buscar por nombre de usuario"
+    },
+    "card": {
+        "reason": "Razón",
+        "bannedFor": "Baneado por",
+        "duration": "Duración",
+        "date": "Fecha de baneo",
+        "whenExpires": "Cuando expira",
+        "permanent": "Permanente",
+        "never": "Nunca",
+        "days": "Días",
+        "active": "Activo",
+        "expired": "Expirado"
+    },
+    "search": {
+        "users": "Usuarios",
+        "resultsFound": "Hemos encotrado {{count}} resultados para la búsqueda \"{{value}}\"",
+        "resultsNotFound": "No hemos econtrado resultados"
+    }
+}

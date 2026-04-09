@@ -7,10 +7,13 @@ import { Button } from '../button/Button';
 import icon from '@/config/assets/svg/icon-search.svg';
 import styles from './search.module.css';
 
-const Search = ():JSX.Element => {
+type Props = {
+    placeholder?: string;
+}
+
+const Search = ({ placeholder = '' }:Props):JSX.Element => {
     const [prevValue, setPrevValue] = useState<string>('');
     const setValue = useSearchStore( state => state.setValue );
-    const value = useSearchStore( state => state.value );
 
     useEffect(()=>{
         setValue('');
@@ -24,7 +27,7 @@ const Search = ():JSX.Element => {
     return (
         <form className={ styles.search } onSubmit={ (e)=> handleSubmit(e) }>
             <InputField
-                placeholder="Search by username"
+                placeholder={placeholder ?? "Search by username"}
                 type='text'
                 name='search-bans'
                 id='search-bans'

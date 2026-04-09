@@ -11,28 +11,35 @@ const BansView = ():JSX.Element => {
         activeBans, 
         getDuration,
         handleLoadMoreActive,
-        value
+        value,
+        t
     } = useBansController();
 
     if(response.isLoading){
         return (
             <Container className="!mt-5 lg:!mt-10" isFirst isLast>
-                <LoaderSecondary textLoader="Loading staff team"/>
+                <LoaderSecondary textLoader={ t('loading') }/>
             </Container>
         )
     }
 
     return (
         <Container className="!mt-5 lg:!mt-10" isFirst isLast>
-            <CardWrappersecondary title={ `Active` } text={``} hasSearch hasAnimation>
+            <CardWrappersecondary 
+                title={ t('hero.active') } 
+                placeholder={ t('hero.search') }
+                text={``} 
+                hasSearch 
+                hasAnimation
+            >
                 {value && (
                     <NotFound 
-                        text={`${activeBans.length} Users`}
-                        description={`We found ${activeBans.length} results for the search "${value}"`}
+                        text={`${activeBans.length} ${t('search.users')}`}
+                        description={t('search.resultsFound', { count: activeBans.length, value })}
                     />
                 )}
                 {value && !activeBans.length && (
-                    <Feedback texFeedback='We did not find results' />
+                    <Feedback texFeedback={ t('search.resultsNotFound') } />
                 )}
                 {activeBansPaginated.visibleItems.map((data, index)=>(
                     <motion.div {...fadeInMotion(getDuration(index), 1)}>
@@ -40,6 +47,7 @@ const BansView = ():JSX.Element => {
                             key={ `${data.nick}-${index}` }
                             data={ data }
                             isFadeUp={ !value && index <= 5 }
+                            t={ t }
                         />
                     </motion.div>
                 ))}
@@ -48,7 +56,7 @@ const BansView = ():JSX.Element => {
                 <motion.div className='flex justify-center w-full mt-10' {...fadeInMotion(0,0)}>
                     <Button
                         onClick={ handleLoadMoreActive }
-                        text={'Load more players'} 
+                        text={t('cta')} 
                         style={'secondary' } 
                     />
                 </motion.div>

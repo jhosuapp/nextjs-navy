@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { useLoadMore } from "./useLoadMore";
 import { useBansQuery } from "./useBansQuery";
 import { anchorScroll } from "@/shared/helpers";
@@ -5,6 +6,7 @@ import { useLenisStore, useSearchStore } from "@/shared/stores";
 
 const useBansController = () => {
     const response = useBansQuery();
+    const { t } = useTranslation("bans");
     const value = useSearchStore(state => state.value);
 
     const activeBans = response?.data?.active ?? [];
@@ -43,6 +45,7 @@ const useBansController = () => {
 
     return {
         response, 
+        t,
         inactiveBans: filteredInactiveBans,
         activeBans: filteredActiveBans,
         getDuration,
