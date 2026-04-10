@@ -1,10 +1,9 @@
-import { SwiperSlide } from "swiper/react"
+import { useState } from "react";
 import { TierWrapper } from "../tier-wrapper/TierWrapper"
 import { Button, CardSkin } from "@/shared/components"
 import { useTierlistByModalitieAndTier } from "../../hooks/useTierlistByModalitieQuery";
-import { Modalitie } from "@/shared/interfaces";
+import { ITranslations, Modalitie } from "@/shared/interfaces";
 import { TierKey, TierlistByGameSummary } from "../../interfaces";
-import { useState } from "react";
 
 type Props = {
     currentModalitie: Modalitie;
@@ -13,9 +12,10 @@ type Props = {
     tierNumber: 1 | 2 | 3 | 4 | 5;
     delay: { enter: number, exit: number };
     variants: 'primary' | 'secondary' | 'tertiary' | 'fourth' | 'fifth';
+    t: ITranslations;
 }
 
-const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, delay, variants }:Props):JSX.Element => {
+const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, delay, variants, t }:Props):JSX.Element => {
     const [enabled, setEnabled] = useState<boolean>(false);
     const tierRequest = useTierlistByModalitieAndTier({
         game: currentModalitie,
@@ -62,7 +62,7 @@ const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, del
             ))}
             {!players.length && (
                 <div className="px-5 py-10">
-                    <p className="text-base text-white text-center">There are no players at this level yet.</p>
+                    <p className="text-base text-white text-center">{ t('feedback.notFoundPlayersByModalitie') }</p>
                 </div>
             )}
             {shouldShowLoadMore && (
@@ -70,7 +70,7 @@ const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, del
                     <Button
                         onClick={ ()=> tierRequest.fetchNextPage() }
                         disabled={ tierRequest.isFetchingNextPage }
-                        text={ tierRequest.isFetchingNextPage ? 'Loading...' : 'Load more players'} style={'secondary' } 
+                        text={ tierRequest.isFetchingNextPage ? t('feedback.ctaLoader') : t('cta')} style={'secondary' } 
                     />
                 </div>
             )}

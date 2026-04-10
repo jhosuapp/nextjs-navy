@@ -3,13 +3,18 @@ import { useTierlistByModalitie } from '../../hooks/useTierlistByModalitieQuery'
 import { useModalitieStore } from '@/shared/stores';
 import { TierDataByModalitieItem } from "./TierDataByModalitieItem";
 import { SwiperSlide } from "swiper/react";
+import { ITranslations } from "@/shared/interfaces";
 
-const TierDataByModalitie = ():JSX.Element => {
+type Props = {
+    t: ITranslations;
+}
+
+const TierDataByModalitie = ({ t }:Props):JSX.Element => {
     const currentModalitie = useModalitieStore(state => state.currentModalitie);
     const tierlistByModalitie = useTierlistByModalitie();
 
     if (tierlistByModalitie.isLoading) {
-        return <LoaderSecondary textLoader="Loading players" />
+        return <LoaderSecondary textLoader={ t('feedback.modalitieLoader') } />
     }
     
     const response = tierlistByModalitie.data;
@@ -21,10 +26,15 @@ const TierDataByModalitie = ():JSX.Element => {
     }
 
     return (
-        <SwiperWrapper usersNumber={ data.total_users } key={`${currentModalitie}-wrapper`}>
+        <SwiperWrapper 
+            usersNumber={ data.total_users } 
+            t={ t }
+            key={`${currentModalitie}-wrapper`}
+        >
             <SwiperSlide key={'t1'}>
                 <TierDataByModalitieItem
                     data={ data }
+                    t={t}
                     currentModalitie={ currentModalitie }
                     tier='t1'
                     tierNumber={ 1 }
@@ -35,6 +45,7 @@ const TierDataByModalitie = ():JSX.Element => {
             <SwiperSlide key={'t2'}>
                 <TierDataByModalitieItem
                     data={ data }
+                    t={t}
                     currentModalitie={ currentModalitie }
                     tier='t2'
                     tierNumber={ 2 }
@@ -45,6 +56,7 @@ const TierDataByModalitie = ():JSX.Element => {
             <SwiperSlide key={'t3'}>
                 <TierDataByModalitieItem
                     data={ data }
+                    t={t}
                     currentModalitie={ currentModalitie }
                     tier='t3'
                     tierNumber={ 3 }
@@ -55,6 +67,7 @@ const TierDataByModalitie = ():JSX.Element => {
             <SwiperSlide key={'t4'}>
                 <TierDataByModalitieItem
                     data={ data }
+                    t={t}
                     currentModalitie={ currentModalitie }
                     tier='t4'
                     tierNumber={ 4 }
@@ -65,6 +78,7 @@ const TierDataByModalitie = ():JSX.Element => {
             <SwiperSlide key={'t5'}>
                 <TierDataByModalitieItem
                     data={ data }
+                    t={t}
                     currentModalitie={ currentModalitie }
                     tier='t5'
                     tierNumber={ 5 }

@@ -6,10 +6,15 @@ import { Button, LoaderSecondary } from '@/shared/components';
 import { getCombatTitleByPoints } from '../../helpers/getCombatTitlePointsHelper';
 import { anchorScroll } from '@/shared/helpers';
 import { useLenisStore } from '@/shared/stores';
+import { ITranslations } from '@/shared/interfaces';
 
 import styles from './tierDataOverall.module.css';
 
-const TierDataOverall = ():JSX.Element => {
+type Props = {
+    t: ITranslations;
+}
+
+const TierDataOverall = ({ t }:Props):JSX.Element => {
     const tierlist = useTierlistOverall();
     const lenis = useLenisStore(state => state.lenis);    
     const data = tierlist.data?.pages.flatMap(page => page.data) ?? []
@@ -21,22 +26,23 @@ const TierDataOverall = ():JSX.Element => {
                     <p>#</p>
                 </div>
                 <div>
-                    <p>player</p>
+                    <p>{ t('tableHead.player') }</p>
                 </div>
                 <div>
-                    <p>Region</p>
+                    <p>{ t('tableHead.region') }</p>
                 </div>
                 <div>
-                    <p>Tiers</p>
+                    <p>{ t('tableHead.tiers') }</p>
                 </div>
             </div>
             <AnimatePresence mode='wait'>   
                 {tierlist.isLoading ? (
-                    <LoaderSecondary textLoader='Loading players' key={`${tierlist.isLoading}-loader`} />
+                    <LoaderSecondary textLoader={ t('feedback.overallLoader') } key={`${tierlist.isLoading}-loader`} />
                 ) : (
                     <>
                         {data.map((item, index)=>{
                             const combatData = getCombatTitleByPoints(item.points);
+                            const combatTitleLower = combatData.title.toLowerCase();
 
                             return (
                                 <TierDataOverallItem 
@@ -46,7 +52,7 @@ const TierDataOverall = ():JSX.Element => {
                                     tierCrystal={ item?.games?.crystal?.tier }
                                     position={ index + 1 }
                                     continent={ item.region }
-                                    combat_title={ `${combatData.title} (${item.points} points)` }
+                                    combat_title={ `${t(`information.${combatTitleLower}.title`)} (${item.points} ${t('information.points')})` }
                                     combat_img={ combatData.img }
                                     delay={ { enter: (index % 10) * 0.1, exit: (index % 10) * 0.1} }
                                     key={ `${item.nick}-${index}-${item.points}` }
@@ -57,7 +63,7 @@ const TierDataOverall = ():JSX.Element => {
                             <Button 
                                 onClick={ ()=> { tierlist.fetchNextPage(), anchorScroll(lenis) } }
                                 disabled={ tierlist.isFetchingNextPage }
-                                text={ tierlist.isFetchingNextPage ? 'Loading...' : 'Load more players'} style={'secondary' } 
+                                text={ tierlist.isFetchingNextPage ? t('feedback.ctaLoader') : t('cta')} style={'secondary' } 
                             />
                         </div>
                     </>

@@ -2,12 +2,17 @@ import { motion } from 'framer-motion';
 import { Button, ChipModalities, InputField } from "@/shared/components";
 import { userNavBar } from "../../hooks";
 import { zoomInMotion } from '@/shared/motion';
+import { NavBarInformation } from './NavBarInformation';
 
 import styles from './navBar.module.css';
 import icon from '@/config/assets/svg/icon-search.svg';
-import { NavBarInformation } from './NavBarInformation';
+import { ITranslations } from '@/shared/interfaces';
 
-const NavBar = ():JSX.Element => {
+type Props = {
+    t: ITranslations;
+}
+
+const NavBar = ({ t }:Props):JSX.Element => {
     const { setValue, value, onSubmit } = userNavBar();
 
     return (
@@ -15,6 +20,7 @@ const NavBar = ():JSX.Element => {
             <div className={ styles.navBar__btn }>
                 <ChipModalities 
                     modalitie="Overall" 
+                    modalitieText={ t('overall') }
                     variant="pink" 
                     modalitieImage="award.svg" 
                     isButton
@@ -40,10 +46,10 @@ const NavBar = ():JSX.Element => {
                 />
             </div>
             <form className={ styles.navBar__search } onSubmit={ onSubmit }>
-                <NavBarInformation />
+                <NavBarInformation t={ t } />
                 <div className={ styles.navBar__search__block }>
                     <InputField  
-                        placeholder="Search by username"
+                        placeholder={ t('search') }
                         value={ value }
                         type='search'
                         onChange={ (e)=> { setValue(e.target.value) } }

@@ -7,6 +7,7 @@ import styles from './chipModalities.module.css';
 export type PropsChipModalities = {
     variant?: ModalitiesVariants;
     modalitie?: Modalitie;
+    modalitieText?: string;
     modalitieImage?: ModalitieImage;
     isButton?: boolean;
     showModalitie?: boolean;
@@ -14,7 +15,7 @@ export type PropsChipModalities = {
     tier?: Tiers;
 }
 
-const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, showModalitie = false, disabled = false, tier = null }:PropsChipModalities):JSX.Element => {
+const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, showModalitie = false, disabled = false, tier = null, modalitieText = '' }:PropsChipModalities):JSX.Element => {
     const setCurrentModalitie = useModalitieStore( state => state.setCurrentModalitie );
     const currentModalitie = useModalitieStore( state => state.currentModalitie );
 
@@ -43,7 +44,7 @@ const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, 
             </div>
             <div>
                 {showModalitie && (
-                    <p>{ modalitie }</p>
+                    <p>{ modalitieText ?? modalitie }</p>
                 )}
                 {tier && (
                     <span>{ tier }</span>

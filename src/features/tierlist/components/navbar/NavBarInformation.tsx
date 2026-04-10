@@ -2,12 +2,17 @@ import { useState } from "react";
 import { AnimatePresence, motion } from 'framer-motion';
 import { Button, CardWrapper } from "@/shared/components"
 import { information, informationPoints } from "@/shared/constants";
-
-import styles from './navBar.module.css';
 import { fadeInMotion } from "@/shared/motion";
 import { AnglesIcon, AnglesIconSecondary, TrophyIcon } from "@/config/assets/icon";
+import { ITranslations } from "@/shared/interfaces";
 
-const NavBarInformation = ():JSX.Element => {
+import styles from './navBar.module.css';
+
+type Props = {
+    t: ITranslations;
+}
+
+const NavBarInformation = ({ t }:Props):JSX.Element => {
     const [showInfo, setShowInfo] = useState<boolean>(false);
     const [showPoints, setShowPoints] = useState<boolean>(false);
 
@@ -22,7 +27,7 @@ const NavBarInformation = ():JSX.Element => {
     return (
         <div className={styles.navBarInformation}>
             <Button 
-                text={`${showInfo ? 'Close' : 'Information'} `}
+                text={`${showInfo ? t('information.ctaClose') : t('information.cta')} `}
                 style="secondary"
                 type="button"
                 onClick={ handleClick }
@@ -34,7 +39,7 @@ const NavBarInformation = ():JSX.Element => {
                         <CardWrapper classNameParent={styles.navBarInformation__wrapper} isFadeUp={ false } animation={{ delayInit: 0, delayEnd: 0.6 }} key={`${showInfo}-info`}>
                             <div className="flex gap-2 rounded-full p-2 border-purple-300 border-2 border-opacity-30 mb-4">
                                 <Button 
-                                    text={'Titles'}
+                                    text={t('information.titles')}
                                     style="primary"
                                     type="button"
                                     onClick={ ()=> handleClickPoints(false) }
@@ -42,7 +47,7 @@ const NavBarInformation = ():JSX.Element => {
                                     className={ `${!showPoints && '!bg-secondary pointer-events-none'}` }
                                 />
                                 <Button 
-                                    text={'Points'}
+                                    text={t('information.points')}
                                     style="primary"
                                     type="button"
                                     onClick={ ()=> handleClickPoints(true) }
@@ -76,7 +81,7 @@ const NavBarInformation = ():JSX.Element => {
                                                 >
                                                     <div style={{ backgroundColor: data.color }}></div>
                                                     <AnglesIcon fill={ data.color } />
-                                                    <p style={{ color: data.color }}>{data.high_value} Points</p>
+                                                    <p style={{ color: data.color }}>{data.high_value} {t('information.points')}</p>
                                                 </div>
                                                 <div 
                                                     style={{ borderColor: data.color }}
@@ -84,7 +89,7 @@ const NavBarInformation = ():JSX.Element => {
                                                 >
                                                     <div style={{ backgroundColor: data.color }}></div>
                                                     <AnglesIconSecondary fill={ data.color } />
-                                                    <p style={{ color: data.color }}>{data.low_value} Points</p>
+                                                    <p style={{ color: data.color }}>{data.low_value} {t('information.points')}</p>
                                                 </div>
                                             </div>
                                         </motion.div>
@@ -107,11 +112,11 @@ const NavBarInformation = ():JSX.Element => {
                                                 />
         
                                                 <h3 style={{ color: item.color }}>
-                                                    {item.title}
+                                                    {t(`information.${item.title_key}.title`)}
                                                 </h3>
                                             </div>
         
-                                            <p>{item.description}</p>
+                                            <p>{t(`information.${item.title_key}.description`)}</p>
                                         </motion.div>
                                     ))}
                                 </>

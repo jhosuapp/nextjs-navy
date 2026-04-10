@@ -1,0 +1,47 @@
+{
+    "overall": "General",
+    "search": "Buscar por nombre de usuario",
+    "cta": "Cargar más jugadores",
+    "information": {
+        "cta": "Información",
+        "ctaClose": "Cerrar",
+        "titles": "Títulos",
+        "points": "Puntos",
+        "legend": {
+            "title": "Leyenda",
+            "description": "Obteniendo 140+ puntos totales."
+        },
+        "master": {
+            "title": "Maestro",
+            "description": "Obteniendo 100+ puntos totales."
+        },
+        "expert": {
+            "title": "Experto",
+            "description": "Obteniendo 50+ puntos totales."
+        },
+        "veteran": {
+            "title": "Veterano",
+            "description": "Obteniendo 25+ puntos totales."
+        },
+        "apprentice": {
+            "title": "Aprendiz",
+            "description": "Obteniendo 10+ puntos totales."
+        },
+        "novice": {
+            "title": "Novato",
+            "description": "Rango inicial para jugadores con menos de 10 puntos."
+        }
+    },
+    "tableHead": {
+        "player": "Jugador",
+        "region": "Región",
+        "tiers": "Tiers"
+    },
+    "feedback": {
+        "overallLoader": "Cargando jugadores",
+        "modalitieLoader": "Cargando jugadores",
+        "ctaLoader": "Cargando...",
+        "notFoundPlayersByModalitie": "Todavía no hay jugadores de esta tier.",
+        "totalUsers": "Hay {{ usersNumber }} usuarios en total"
+    }
+}

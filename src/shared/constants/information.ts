@@ -3,6 +3,7 @@ type InformationItem = {
     max_points: number
     description: string
     title: string
+    title_key: string
     img: string
     color: string
 }
@@ -16,51 +17,57 @@ type InformationsPointsItem = {
 }
 
 export const information: Record<string, InformationItem> = {
-    combat_grandmaster: {
+    legend: {
         min_points: 140,
         max_points: 1000,
         description: 'Obtained 140+ total points.',
         title: 'Legend',
+        title_key: 'legend',
         img: 'Icono_Leyenda.png',
         color: '#6BCB8D'
     },
-    combat_master: {
+    master: {
         min_points: 100,
         max_points: 139,
         description: 'Obtained 100+ total points.',
         title: 'Master',
+        title_key: 'master',
         img: 'Icono_Maestro.webp',
         color: '#45C5D9'
     },
-    combat_ace: {
+    expert: {
         min_points: 50,
         max_points: 99,
         description: 'Obtained 50+ total points.',
         title: 'Expert',
+        title_key: 'expert',
         img: 'Icono_Experto.webp',
         color: '#DFA5F3'
     },
-    combat_specialist: {
+    veteran: {
         min_points: 25,
         max_points: 49,
         description: 'Obtained 25+ total points.',
         title: 'Veteran',
+        title_key: 'veteran',
         img: 'Icono_Veterano.webp',
         color: '#D6D2E0'
     },
-    combat_novice: {
+    apprentice: {
         min_points: 10,
         max_points: 24,
         description: 'Obtained 10+ total points.',
         title: 'Apprentice',
+        title_key: 'apprentice',
         img: 'Icono_Aprendiz.webp',
         color: '#F8AE3E'
     },
-    rookie: {
+    novice: {
         min_points: 0,
         max_points: 9,
         description: 'Starting rank for players with less than 10 points.',
         title: 'Novice',
+        title_key: 'novice',
         img: 'Icono_Novato.webp',
         color: '#F8B07E'
     },

@@ -1,0 +1,47 @@
+{
+    "overall": "Overall",
+    "search": "Search by username",
+    "cta": "Load more players",
+    "information": {
+        "cta": "Information",
+        "ctaClose": "Close",
+        "titles": "Titles",
+        "points": "Points",
+        "legend": {
+            "title": "Legend",
+            "description": "Obtained 140+ total points."
+        },
+        "master": {
+            "title": "Master",
+            "description": "Obtained 100+ total points."
+        },
+        "expert": {
+            "title": "Expert",
+            "description": "Obtained 50+ total points."
+        },
+        "veteran": {
+            "title": "Veteran",
+            "description": "Obtained 25+ total points."
+        },
+        "apprentice": {
+            "title": "Apprentice",
+            "description": "Obtained 10+ total points."
+        },
+        "novice": {
+            "title": "Novice",
+            "description": "Starting rank for players with less than 10 points."
+        }
+    },
+    "tableHead": {
+        "player": "Player",
+        "region": "Region",
+        "tiers": "Tiers"
+    },
+    "feedback": {
+        "overallLoader": "Loading players",
+        "modalitieLoader": "Loading players",
+        "ctaLoader": "Loading...",
+        "notFoundPlayersByModalitie": "There are no players at this level yet.",
+        "totalUsers": "There are {{ usersNumber }} users in total"
+    }
+}

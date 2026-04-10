@@ -2,19 +2,21 @@ import { ReactNode, useRef } from 'react';
 import { Swiper } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { motion } from 'framer-motion';
+import { fadeInMotion } from '@/shared/motion';
+import { ITranslations } from '@/shared/interfaces';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 import styles from './swiperWrapper.module.css';
-import { fadeInMotion } from '@/shared/motion';
 
 type Props = {
     children: ReactNode;
-    usersNumber: number
+    usersNumber: number;
+    t: ITranslations;
 }
 
-const SwiperWrapper = ({ children, usersNumber }:Props):JSX.Element => {
+const SwiperWrapper = ({ children, usersNumber, t }:Props):JSX.Element => {
     const swiperRef = useRef<any>(null);
 
     return (
@@ -45,7 +47,7 @@ const SwiperWrapper = ({ children, usersNumber }:Props):JSX.Element => {
                 { children }
             </Swiper>
             <motion.div className={ styles.swiperWrapper__navigation } {...fadeInMotion(0.6, 0)}>
-                <p>There are { usersNumber } users in total</p>
+                <p>{t('feedback.totalUsers', { usersNumber })}</p>
                 <div>
                     <motion.button
                         whileTap={{ scale: 0.95 }} 
