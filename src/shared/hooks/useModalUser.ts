@@ -2,8 +2,10 @@ import { useEffect, useRef } from "react";
 import { useModalStore, useSkinStore } from "../stores";
 import { useUserByNameQuery } from "./useUserByNameQuery";
 import { Id, toast } from "react-toastify";
+import { useTranslation } from "react-i18next";
 
 const useModalUser = () => {
+    const { t } = useTranslation("common");
     const setShowModal = useModalStore(state => state.setShowModal);
     const username = useSkinStore(state => state.skin);
     const user = useUserByNameQuery({ username });
@@ -14,7 +16,7 @@ const useModalUser = () => {
 
     useEffect(() => {
         if (user.isLoading && !toastId.current) {
-            toastId.current = toast.loading('Searching user...');
+            toastId.current = toast.loading(t('modal.searching'));
         }
         
         if (!user.isLoading && toastId.current) {
@@ -25,7 +27,7 @@ const useModalUser = () => {
 
     useEffect(()=>{
         if(user?.data?.data === null){
-            toast.error('Error, player not found');
+            toast.error(t('modal.error'));
             setShowModal(false);
         }
     },[user.data]);
@@ -35,7 +37,8 @@ const useModalUser = () => {
         username,
         user,
         info,
-        games
+        games,
+        t
     }
 }
 

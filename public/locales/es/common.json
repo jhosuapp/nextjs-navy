@@ -26,5 +26,19 @@
     },
     "loader": {
         "loading": "Cargando"
+    },
+    "modal": {
+        "stats": "Estadísticas",
+        "position": "Posición",
+        "points": "Puntos",
+        "region": "Región",
+        "searching": "Buscando usuario...",
+        "error": "Error, el jugador no se ha encontrado"
+    },
+    "switchs":{
+        "lightMode": "Modo claro",
+        "disableParticles": "Ocultar partículas",
+        "invertColors": "Invertir colores",
+        "grayContrast": "Contraste gris"
     }
 }

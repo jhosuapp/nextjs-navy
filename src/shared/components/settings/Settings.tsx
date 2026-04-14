@@ -4,14 +4,16 @@ import { motion } from 'framer-motion';
 import { variantsSettingsContent, variantsSettingsBg, variantsSettingsContentMobile } from './settings.variants';
 import { useMediaQuery } from '@/shared/hooks';
 import { fadeInMotion } from '@/shared/motion';
+import { Switch } from '../switch/Switch';
+import { useTranslation } from 'react-i18next';
 
 import icon from '@/config/assets/svg/icon-settings.svg';
 import styles from './settings.module.css';
-import { Switch } from '../switch/Switch';
 
 const Settings = ():JSX.Element => {
     const isDesk = useMediaQuery({breakpoint: 991 });
     const [ settings, setSettings ] = useState<boolean>(false);
+    const { t } = useTranslation('common');
 
     const handleClick = ()=>{
         setSettings(!settings);
@@ -31,19 +33,19 @@ const Settings = ():JSX.Element => {
                 >
                     <div className={ styles.settings__content__block }>
                         <Switch 
-                            text='Light mode'
+                            text={ t('switchs.lightMode') }
                             id='light_mode'
                         />
                         <Switch 
-                            text='Disable particles'
+                            text={ t('switchs.disableParticles') }
                             id='disable_particles'
                         />
                         <Switch 
-                            text='Invert colors'
+                            text={ t('switchs.invertColors') }
                             id='invert_colors'
                         />
                         <Switch 
-                            text='Gray contrast'
+                            text={ t('switchs.grayContrast') }
                             id='gray_contrast'
                         />
                     </div>

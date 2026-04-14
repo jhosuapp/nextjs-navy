@@ -26,5 +26,19 @@
     },
     "loader": {
         "loading": "Loading"
+    },
+    "modal": {
+        "stats": "Stats",
+        "position": "Position",
+        "points": "Points",
+        "region": "Region",
+        "searching": "Searching user...",
+        "error": "Error, player not found"
+    },
+    "switchs":{
+        "lightMode": "Light mode",
+        "disableParticles": "Disable particles",
+        "invertColors": "Invert colors",
+        "grayContrast": "Gray contrast"
     }
 }
