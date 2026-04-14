@@ -11,7 +11,8 @@ i18n
     supportedLngs: ['es', 'en'],
     fallbackLng: 'es',
     detection: {
-      order: ['path', 'cookie', 'navigator'],
+      order: ['path', 'cookie', 'navigator'], 
+      lookupFromPathIndex: 0, 
       caches: ['cookie'],
     },
     backend: {
@@ -22,7 +23,7 @@ i18n
     },
     react: {
       useSuspense: false,
-    }
+    },
   });
 
 export { i18n };

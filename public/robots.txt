@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Bloquear rutas internas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /locales/
+
+# Sitemap
+Sitemap: https://navytiers.com/sitemap.xml

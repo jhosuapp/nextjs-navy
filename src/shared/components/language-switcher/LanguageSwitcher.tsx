@@ -1,16 +1,16 @@
-import { useState, useRef, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
-
 import styles from './languageSwitcher.module.css';
 
 const LANGUAGES = [
-    { code: "es", label: "ES" },
-    { code: "en", label: "EN" },
-    // { code: "pt", label: "PT" },
+  { code: "es", label: "ES" },
+  { code: "en", label: "EN" },
 ];
 
 const LanguageSwitcher = (): JSX.Element => {
     const { i18n } = useTranslation();
+    const router = useRouter();
     const [open, setOpen] = useState(false);
     const ref = useRef<HTMLDivElement>(null);
 
@@ -19,9 +19,9 @@ const LanguageSwitcher = (): JSX.Element => {
 
     useEffect(() => {
         const handleClickOutside = (e: MouseEvent) => {
-            if (ref.current && !ref.current.contains(e.target as Node)) {
-                setOpen(false);
-            }
+        if (ref.current && !ref.current.contains(e.target as Node)) {
+            setOpen(false);
+        }
         };
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -29,6 +29,7 @@ const LanguageSwitcher = (): JSX.Element => {
 
     const handleSelect = (code: string) => {
         i18n.changeLanguage(code);
+        router.push(router.asPath, router.asPath, { locale: code });
         setOpen(false);
     };
 
@@ -47,10 +48,7 @@ const LanguageSwitcher = (): JSX.Element => {
                 {current.label}
                 <svg
                     className={`w-3 h-3 transition-transform ${open ? "rotate-180" : ""}`}
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
+                    viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2"
                 >
                     <path d="M2 4l4 4 4-4" />
                 </svg>
@@ -64,7 +62,7 @@ const LanguageSwitcher = (): JSX.Element => {
                             onClick={() => handleSelect(code)}
                             onMouseEnter={() => handlePrefetch(code)}
                         >
-                            <img src={ `/images/icon-${label}.svg?v=1` } alt="" />
+                            <img src={`/images/icon-${label}.svg?v=1`} alt="" />
                             {label}
                         </button>
                     ))}

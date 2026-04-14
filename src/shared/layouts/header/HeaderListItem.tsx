@@ -23,6 +23,7 @@ const HeaderListItem = ({ text, path }:Props):JSX.Element => {
             <Link 
                 onClick={ onClickHamburger } 
                 href={ path } 
+                locale={router.locale}
             >
                 {text.split('').map((char, index) => (
                     <p

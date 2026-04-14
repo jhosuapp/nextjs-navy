@@ -57,4 +57,4 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     )
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

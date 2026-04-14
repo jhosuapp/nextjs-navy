@@ -1,6 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import Script from "next/script";
-import { SpeedInsights } from "@vercel/speed-insights/next"
 import { minecraft, roboto } from '@/config/typography';
 
 class MyDocument extends Document {
@@ -9,7 +8,7 @@ class MyDocument extends Document {
     return (
       <Html 
         className={`${minecraft.variable} ${roboto.variable} bg-tertiary`}
-        lang='en'
+        lang='es'
       >
         <Head>
           {/* Google Analytics */}
@@ -29,7 +28,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <div id="portal-modal" />
-          <SpeedInsights/>
           <NextScript />
         </body>
       </Html>

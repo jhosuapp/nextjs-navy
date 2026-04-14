@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://navytiers.com/</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/" />
+
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/en</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/" />
+
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/staff-navy</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/staff-navy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/staff-navy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/staff-navy" />
+
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/en/staff-navy</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/staff-navy" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/staff-navy" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/staff-navy" />
+
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/tierlist</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/tierlist" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/tierlist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/tierlist" />
+
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/en/tierlist</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/tierlist" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/tierlist" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/tierlist" />
+
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/bans</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/bans" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/bans" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/bans" />
+
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/en/bans</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/bans" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/bans" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/bans" />
+
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/partners</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/partners" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/partners" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/partners" />
+
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/en/partners</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/partners" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/partners" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/partners" />
+
+    <priority>0.7</priority>
+  </url>
+
+</urlset>
