@@ -37,9 +37,11 @@ const HeaderLogo = ():JSX.Element => {
             <Image
                 src="/images/logo.png"
                 alt="Logo navy"
-                width="128"
-                height="128"
+                width={128}
+                height={128}
                 priority
+                fetchPriority="high"
+                sizes="128px"
             />
         </Link>
     )

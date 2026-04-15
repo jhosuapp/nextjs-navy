@@ -1,4 +1,4 @@
-import { useState, type JSX } from "react";
+import { memo, useState, type JSX } from "react";
 import Image from "next/image";
 import { CardWrapper } from "@/shared/components";
 
@@ -11,7 +11,7 @@ type Props = {
     t: ITranslations;
 }
 
-const CardPartners = ({ data, t }: Props): JSX.Element => {
+const CardPartners = memo(({ data, t }: Props): JSX.Element => {
     const [copiedHref, setCopiedHref] = useState<string | null>(null);
 
     const handlerCopy = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -28,7 +28,14 @@ const CardPartners = ({ data, t }: Props): JSX.Element => {
             <div className={styles.cardPartners__content}>
                 <div className={styles.cardPartners__image}>
                     <picture>
-                        <img src={data.img} alt={'yuna'} />
+                        <Image 
+                            src={data.img} 
+                            alt={data.name} 
+                            width={96}
+                            height={96}
+                            sizes="96px"
+                            loading="lazy"
+                        />
                     </picture>
                 </div>
                 <div className={styles.cardPartners__info}>
@@ -52,12 +59,18 @@ const CardPartners = ({ data, t }: Props): JSX.Element => {
                                     }
                                 </div>
                             )}
-                            <Image src={network.src} alt={network.alt} />
+                            <Image 
+                                src={network.src} 
+                                alt={network.alt} 
+                                width={20} 
+                                loading="lazy" 
+                            />
                         </a>
                     ))}
                 </div>
             </div>
         </CardWrapper>
     );
-};
+});
+
 export { CardPartners }

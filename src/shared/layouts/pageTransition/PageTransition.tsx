@@ -20,7 +20,7 @@ const PageTransition = ({ children }:Props):JSX.Element => {
     const { t } = useTranslation("common");
     const isLoadingDelay = useLoaderStore( state => state.isLoadingDelay );
     const showModal = useModalStore( state => state.showModal );
-    const [dimensions, setDimensions] = useState({
+    const [dimensions, setDimensions] = useState<{width: number | null, height: number | null }>({
         width: null,
         height: null
     });
@@ -60,9 +60,9 @@ const PageTransition = ({ children }:Props):JSX.Element => {
                     {t(`nav.${routes[router.route]}`) ?? '404'}
                 </motion.p>
             )}
-            {dimensions.width != null && (
+            {dimensions.width != null && dimensions.height != null && (
                 <div className={ styles.curve__svg }>
-                    <SVG {...dimensions}/>
+                    <SVG width={dimensions.width} height={ dimensions.height } />
                 </div>
             )}
             { children }

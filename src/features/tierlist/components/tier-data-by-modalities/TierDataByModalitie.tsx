@@ -10,7 +10,7 @@ type Props = {
     t: ITranslations;
 }
 
-const TierDataByModalitie = ({ t }:Props):JSX.Element => {
+const TierDataByModalitie = ({ t }:Props):JSX.Element | null => {
     const currentModalitie = useModalitieStore(state => state.currentModalitie);
     const tierlistByModalitie = useTierlistByModalitie();
 
@@ -19,8 +19,8 @@ const TierDataByModalitie = ({ t }:Props):JSX.Element => {
     }
     
     const response = tierlistByModalitie.data;
-    const filterByModalitie = response.data;
-    const data = filterByModalitie.find(item => item.game === currentModalitie)
+    const filterByModalitie = response?.data;
+    const data = filterByModalitie?.find(item => item.game === currentModalitie)
 
     if(!data){
         return null

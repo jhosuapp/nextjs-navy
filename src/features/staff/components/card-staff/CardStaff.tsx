@@ -13,7 +13,7 @@ const CardStaff = ({ data }:Props):JSX.Element => {
         <CardWrapper classNameParent={ styles.cardStaff }>
             <div className={ styles.cardStaff__content }>
                 <picture className={ styles.cardStaff__image }>
-                    <img src={ `https://minotar.net/body/${data.nick}` } alt={ data.nick } />
+                    <img src={ `https://minotar.net/body/${data.nick}` } alt={ data.nick ?? 'staff' } />
                 </picture>
                 <div className={ styles.cardStaff__info }>
                     <p

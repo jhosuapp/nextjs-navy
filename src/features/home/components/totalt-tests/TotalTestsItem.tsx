@@ -10,7 +10,7 @@ type Props = {
 const TotalTestsItem = ({ modalitie, variant, modalitieImage, count }:Props):JSX.Element => {
     return (
         <div className={ styles.totalTestsItem }>
-            <p className={ `${styles.totalTestsItem__modalitie} ${styles[variant]}` }>{ modalitie }</p>
+            <p className={ `${styles.totalTestsItem__modalitie} ${styles[variant ? variant : '']}` }>{ modalitie }</p>
             <div className={ styles.totalTestsItem__block }>
                 <p>{ count }</p>
                 <ChipModalities modalitie={ modalitie } variant={ variant } modalitieImage={ modalitieImage } />

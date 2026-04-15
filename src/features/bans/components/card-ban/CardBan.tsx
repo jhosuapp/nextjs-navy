@@ -41,7 +41,7 @@ const CardBan = ({ data, t, isFadeUp = true, variantStatus = 'active' }:Props):J
                 </div>
                 <div className={ styles.cardBan__item }>
                     <p>⏰ {t('card.whenExpires')}:</p>
-                    <p>{ data.permanent ? t('card.never') : `${formatDate(data.expiration)}` }</p>
+                    <p>{ data.permanent ? t('card.never') : `${formatDate(data.expiration ?? '')}` }</p>
                 </div>
             </div>
         </CardWrapper>

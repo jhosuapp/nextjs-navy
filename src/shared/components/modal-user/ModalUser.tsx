@@ -8,6 +8,7 @@ import iconMedal from '@/config/assets/svg/icon-medal.svg';
 import iconCrown from '@/config/assets/svg/icon-crown.svg';
 import { useModalUser } from '@/shared/hooks';
 import { CrownIcon, MedalIcon } from '@/config/assets/icon';
+import { TierlistUser } from "@/features/tierlist/interfaces";
 
 
 const ModalUser = ():JSX.Element => {
@@ -28,7 +29,7 @@ const ModalUser = ():JSX.Element => {
         )
     }
 
-    const { position, points, region } = info;
+    const { position, points, region } = info as TierlistUser;
     const isTop = position <= 3;
     const colorsPositions = ['#facc15', '#9ca3af', '#fb923c'];
 

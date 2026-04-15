@@ -27,7 +27,7 @@ const RadioStep = ({ options, enableAtStep, enableNextStep, messages, callBackHa
             const messagesCallback = callBackHandleClick(value);
             handleSetAnswer(value, enableNextStep, messagesCallback);
         }else{
-            handleSetAnswer(value, enableNextStep, messages);
+            handleSetAnswer(value, enableNextStep, messages as ItemBotMessage[]);
         }
     }
     

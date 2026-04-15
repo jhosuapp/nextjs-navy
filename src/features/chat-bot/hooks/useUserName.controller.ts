@@ -26,7 +26,7 @@ const useUserNameController = ({ setMessage, setIsLoad, scrollToBottom }:GlobalF
             });
             setIsLoad(true);
             setTimeout(async()=>{
-                scrollToBottom();
+                scrollToBottom && scrollToBottom();
                 try{
                     await mutation.mutateAsync({ nick: username, uuid });
                     setMessage({
@@ -43,7 +43,7 @@ const useUserNameController = ({ setMessage, setIsLoad, scrollToBottom }:GlobalF
                 }finally{
                     setIsLoad(false);
                     setTimeout(()=>{
-                        scrollToBottom();
+                        scrollToBottom && scrollToBottom();
                     },500);
                 }
             },500);

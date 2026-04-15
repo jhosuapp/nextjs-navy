@@ -1,4 +1,4 @@
-export const routes = {
+export const routes:any = {
     "/": "home",
     "/staff-navy": "staff",
     "/tierlist": "tierlist",

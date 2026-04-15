@@ -11,8 +11,7 @@ class MyDocument extends Document {
         lang='es'
       >
         <Head>
-          {/* Google Analytics */}
-          <Script
+          {/* <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-32SX28Q9K2"
             strategy="lazyOnload"
           />
@@ -23,7 +22,7 @@ class MyDocument extends Document {
               gtag('js', new Date());
               gtag('config', 'G-32SX28Q9K2');
             `}
-          </Script>
+          </Script> */}
         </Head>
         <body>
           <Main />

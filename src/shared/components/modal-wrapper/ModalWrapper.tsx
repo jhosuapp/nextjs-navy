@@ -12,7 +12,7 @@ type Props = {
     callBackClose: ()=> void;
 }
 
-const ModalWrapper = ({ children, callBackClose }:Props):JSX.Element => {
+const ModalWrapper = ({ children, callBackClose }:Props):JSX.Element | null => {
     const [mounted, setMounted] = useState(false);
     const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
 

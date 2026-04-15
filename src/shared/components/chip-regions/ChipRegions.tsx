@@ -9,7 +9,7 @@ export type PropsChipRegions = {
 }
 
 const ChipRegions = ({ continent }:PropsChipRegions):JSX.Element => {
-    const variant = REGION_VARIANT_BY_CONTINENT[continent]
+    const variant = REGION_VARIANT_BY_CONTINENT[continent ?? 'AS'];
 
     return (
         <div className={ `${styles.chipRegions} ${styles[`chipRegions${variant}`]}` }>

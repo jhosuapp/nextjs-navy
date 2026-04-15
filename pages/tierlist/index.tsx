@@ -1,8 +1,11 @@
+import dynamic from "next/dynamic";
 import { TierlistView } from "@/features";
 import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";
 import { useTranslation } from "react-i18next";
+
+const ToastContainer = dynamic(() => import('react-toastify').then(mod => mod.ToastContainer), { ssr: false });
 
 const TierlistPage = () => {
     const { t } = useTranslation("common");
@@ -15,6 +18,7 @@ const TierlistPage = () => {
             linkPage={ paths.staff }
             url={ paths.staff }
         >
+            <ToastContainer />
             <PageTransition>
                 <TierlistView />
             </PageTransition>

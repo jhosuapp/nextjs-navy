@@ -24,15 +24,15 @@ const HomeView = ():JSX.Element => {
             </Container>
             <Container className="!mt-10 lg:!mt-32">
                 <Results 
-                    lTests={ data?.data?.latest_l_tests }
-                    hTests={ data?.data?.latest_h_tests } 
+                    lTests={ data?.data?.latest_l_tests ?? [] }
+                    hTests={ data?.data?.latest_h_tests ?? [] } 
                     isLoad={ data.isLoading } 
                     t={ t }
                 />
             </Container>
             <Container className="!mt-32 lg:!mt-52">
                 <TotalTests
-                    totalTests={ data?.data?.total_tests } 
+                    totalTests={ data?.data?.total_tests as any  } 
                     isLoad={ data.isLoading } 
                     t={ t }
                 />

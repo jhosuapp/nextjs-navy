@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { roboto,  } from "@/config/typography";
@@ -8,7 +8,6 @@ const ChatBotView = dynamic(() => import('@/features/chat-bot/views/ChatBot.view
 const FloatingDots = dynamic(() => import('@/shared/components/floating-dots/FloatingDots').then(mod => mod.FloatingDots), { ssr: false });
 const Settings = dynamic(() => import('@/shared/components/settings/Settings').then(mod => mod.Settings), { ssr: false });
 const Cursor = dynamic(() => import('@/shared/components/cursor/Cursor').then(mod => mod.Cursor), { ssr: false });
-const ToastContainer = dynamic(() => import('react-toastify').then(mod => mod.ToastContainer), { ssr: false });
 
 type Props = {
   children?: ReactNode;
@@ -72,7 +71,6 @@ const Layout = ({ children, title, description, image = '', url = "https://navyt
                 <div className="relative z-20 w-full block">
                     <Header />
                     {children}
-                    <ToastContainer />
                 </div>
             </div>
         </main>

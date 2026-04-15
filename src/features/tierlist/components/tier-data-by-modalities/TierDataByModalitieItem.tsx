@@ -31,7 +31,7 @@ const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, del
     const paginatedPlayers = tierRequest.data?.pages.flatMap(page => page.data) ?? [];
     const players = paginatedPlayers.length > 0 ? [...filteredInitialPlayers, ...paginatedPlayers] : filteredInitialPlayers;
     const hasInitialMore = (data?.tiers?.[tier]?.length ?? 0) >= 8;
-    const hasPaginatedData = tierRequest.data?.pages?.length > 0;
+    const hasPaginatedData = (tierRequest.data?.pages?.length ?? 0) > 0;
     const shouldShowLoadMore = (!hasPaginatedData && hasInitialMore) || (hasPaginatedData && tierRequest.hasNextPage);
     const uniquePlayers = Array.from(new Map(players.map(player => [player.nick, player])).values());
 

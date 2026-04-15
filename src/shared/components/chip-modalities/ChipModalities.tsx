@@ -22,7 +22,7 @@ const ChipModalities = ({ variant, modalitie, modalitieImage, isButton = false, 
     const currentModalitie = useModalitieStore( state => state.currentModalitie );
 
     const handleClickModalitie = () => {
-        setCurrentModalitie(modalitie)
+        setCurrentModalitie(modalitie ? modalitie : 'Overall');
     }
 
     return (

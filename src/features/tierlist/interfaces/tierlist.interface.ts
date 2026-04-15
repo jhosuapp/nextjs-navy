@@ -11,7 +11,7 @@ export type TierlistUser = {
     nick: string
     region: Continents
     points: number
-    position?: number
+    position: number
     games: GamesMap
 }
   
