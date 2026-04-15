@@ -14,9 +14,9 @@ class MyDocument extends Document {
           {/* Google Analytics */}
           <Script
             src="https://www.googletagmanager.com/gtag/js?id=G-32SX28Q9K2"
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
-          <Script id="google-analytics" strategy="afterInteractive">
+          <Script id="google-analytics" strategy="lazyOnload">
             {`
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}

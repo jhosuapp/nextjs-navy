@@ -82,12 +82,5 @@ module.exports = {
             }
         },
     },
-    safelist: [
-        { pattern: /^w-/ },
-        { pattern: /^h-/ },
-        { pattern: /^max-w-/ },
-        { pattern: /^max-h-/ },
-        { pattern: /^bg-/ },
-        { pattern: /^text-/ },
-    ],
+    safelist: [],
 }
