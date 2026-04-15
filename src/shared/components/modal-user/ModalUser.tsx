@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { ChipModalities, ModalWrapper, Skin3d } from '@/shared/components';
@@ -7,6 +8,7 @@ import iconMedal from '@/config/assets/svg/icon-medal.svg';
 import iconCrown from '@/config/assets/svg/icon-crown.svg';
 import { useModalUser } from '@/shared/hooks';
 import { CrownIcon, MedalIcon } from '@/config/assets/icon';
+
 
 const ModalUser = ():JSX.Element => {
 

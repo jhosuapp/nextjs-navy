@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { motion } from 'framer-motion';
 import { Container, CardWrappersecondary, LoaderSecondary, Button, NotFound, Feedback } from "@/shared/components"
 import { CardBan  } from "../components"
@@ -42,7 +43,7 @@ const BansView = ():JSX.Element => {
                     <Feedback texFeedback={ t('search.resultsNotFound') } />
                 )}
                 {activeBansPaginated.visibleItems.map((data, index)=>(
-                    <motion.div {...fadeInMotion(getDuration(index), 1)}>
+                    <motion.div {...fadeInMotion(getDuration(index), 1)} key={`${data.nick}-${index}-actives`}>
                         <CardBan 
                             key={ `${data.nick}-${index}` }
                             data={ data }

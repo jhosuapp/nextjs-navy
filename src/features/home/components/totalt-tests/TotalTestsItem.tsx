@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { ChipModalities, PropsChipModalities } from "@/shared/components";
 import styles from './totalTests.module.css';
 

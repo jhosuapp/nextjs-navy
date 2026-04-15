@@ -1,5 +1,5 @@
 import { motion, MotionProps } from 'framer-motion';
-import { forwardRef, InputHTMLAttributes } from "react";
+import { forwardRef, InputHTMLAttributes, type JSX } from "react";
 
 import styles from './inputField.module.css';
 import { fadeInMotion } from '@/shared/motion';
@@ -14,7 +14,7 @@ type CustomProps = {
 type Props = NativeProps & CustomProps & MotionProps;
 
 
-const InputField = forwardRef<HTMLInputElement, Props>(({ feedback, style, motionVariants, ...props }, ref) => {
+const InputField = forwardRef<HTMLInputElement, Props>(({ feedback, style, motionVariants, ...props }, ref):JSX.Element => {
         return (
             <motion.div 
                 className={ `global-field ${styles.inputField} ${feedback && 'global-error-field'}` }

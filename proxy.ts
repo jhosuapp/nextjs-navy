@@ -4,7 +4,7 @@ const LOCALES = ['en', 'es'];
 const DEFAULT_LOCALE = 'es';
 const COOKIE_NAME = 'i18next';
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
     const response = NextResponse.next();
 

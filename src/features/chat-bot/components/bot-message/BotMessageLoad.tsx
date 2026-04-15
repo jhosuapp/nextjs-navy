@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { Spinner } from "@/shared/components";
 import { BotMessageWrapper } from "./BotMessageWrapper";
 

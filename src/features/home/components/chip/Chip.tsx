@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import styles from './chip.module.css';
 
 type Props = {

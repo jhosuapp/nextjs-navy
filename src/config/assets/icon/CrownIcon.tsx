@@ -1,6 +1,7 @@
+import type { JSX } from "react";
 import { motion } from "framer-motion";
 
-const CrownIcon = () => {
+const CrownIcon = ():JSX.Element => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" width={30}>
             <defs>

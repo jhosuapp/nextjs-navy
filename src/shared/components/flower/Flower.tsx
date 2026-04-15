@@ -1,5 +1,5 @@
+import { useEffect, type JSX } from "react";
 import { motion, MotionProps, useMotionValue, useScroll, useSpring, useTransform } from "framer-motion";
-import { useEffect } from "react";
 
 type Props = {
     src: string;
@@ -10,7 +10,7 @@ type Props = {
     parallaxFactor?: number; 
 } & MotionProps;
 
-const Flower = ({ src, alt, className = '', factor = 1, parallaxFactor = 1, translateY = { initial: 700, end: -300 }, ...props }:Props) => {
+const Flower = ({ src, alt, className = '', factor = 1, parallaxFactor = 1, translateY = { initial: 700, end: -300 }, ...props }:Props):JSX.Element => {
     const { scrollY } = useScroll();
     const scroll = useTransform(scrollY, [0, translateY.initial], [0, translateY.end * (parallaxFactor)]);
 

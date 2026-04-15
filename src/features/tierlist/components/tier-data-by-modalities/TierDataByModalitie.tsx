@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { LoaderSecondary, SwiperWrapper } from "@/shared/components";
 import { useTierlistByModalitie } from '../../hooks/useTierlistByModalitieQuery';
 import { useModalitieStore } from '@/shared/stores';

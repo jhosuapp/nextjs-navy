@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type JSX } from "react";
 import { TierWrapper } from "../tier-wrapper/TierWrapper"
 import { Button, CardSkin } from "@/shared/components"
 import { useTierlistByModalitieAndTier } from "../../hooks/useTierlistByModalitieQuery";

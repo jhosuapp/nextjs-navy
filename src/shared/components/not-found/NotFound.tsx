@@ -1,7 +1,9 @@
+import type { JSX } from "react";
 import { motion } from 'framer-motion';
 import { CardWrapperSecondaryChip } from "../card-wrapper-secondary/CardWrapperSecondaryChip";
 import { fadeInMotion } from '@/shared/motion';
 import styles from './notFound.module.css';
+
 
 type Props = {
     description: string;

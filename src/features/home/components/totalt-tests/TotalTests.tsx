@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { motion } from 'framer-motion';
 import { LoaderSecondary } from '@/shared/components';
 import { Modalitie, ITranslations } from '@/shared/interfaces';

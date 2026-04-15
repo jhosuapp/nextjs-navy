@@ -1,4 +1,4 @@
-// RadioStep.tsx
+import type { JSX } from "react";
 import { RadioField } from "@/shared/components"
 import { BotMessageWrapper } from "../../bot-message/BotMessageWrapper"
 import { useRadioStepController } from "@/features/chat-bot/hooks/useRadioStep.controller";

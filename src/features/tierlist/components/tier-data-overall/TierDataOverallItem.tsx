@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { motion } from 'framer-motion';
 import { CardBody, ChipModalities, ChipRegions, PropsChipRegions } from "@/shared/components";
 import { Tiers } from "@/shared/interfaces";
@@ -5,6 +6,7 @@ import { useModalStore, useSkinStore } from "@/shared/stores";
 
 import styles from './tierDataOverall.module.css';
 import { fadeInMotion } from '@/shared/motion';
+
 
 type Props = {
     username: string;

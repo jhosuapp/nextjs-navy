@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, type JSX } from "react";
 import { AnimatePresence, motion } from 'framer-motion';
 import { Button, CardWrapper } from "@/shared/components"
 import { information, informationPoints } from "@/shared/constants";

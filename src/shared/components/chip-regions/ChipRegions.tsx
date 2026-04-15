@@ -1,6 +1,8 @@
+import type { JSX } from "react";
 import { Continents, REGION_VARIANT_BY_CONTINENT } from "@/shared/interfaces";
 
 import styles from './chipRegions.module.css';
+
 
 export type PropsChipRegions = {
     continent?: Continents

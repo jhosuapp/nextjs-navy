@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from "react"
+import { ReactNode, useRef, type JSX } from "react";
 import { motion, useScroll, useTransform } from "framer-motion"
 import styles from "./wrapperCarousel.module.css"
 

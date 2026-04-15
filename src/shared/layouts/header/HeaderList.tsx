@@ -1,5 +1,7 @@
+import type { JSX } from "react";
 import styles from './header.module.css';
 import { HeaderListItem } from './HeaderListItem';
+
 
 type Props = {
     items: { text: string; path: string; prefetchKey?: string[]; }[]

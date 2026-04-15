@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, ReactNode, useEffect, useState } from 'react';
+import { InputHTMLAttributes, ReactNode, useEffect, useState, type JSX } from 'react';
 import { motion } from 'framer-motion';
 
 import styles from './radioField.module.css';
@@ -15,7 +15,7 @@ type CustomProps = {
 type Props = NativeProps & CustomProps;
 
 
-const RadioField = ({ children, style, classNameParent = '', classNameWrapper = '', motionVariants, ...props }:Props) => {
+const RadioField = ({ children, style, classNameParent = '', classNameWrapper = '', motionVariants, ...props }:Props):JSX.Element => {
     const [isChecked, setIsChecked] = useState<boolean>(false);
 
     useEffect(() => {

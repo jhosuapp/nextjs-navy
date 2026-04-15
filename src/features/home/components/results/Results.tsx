@@ -1,11 +1,7 @@
-import { motion } from 'framer-motion';
-import { CardSkin, CardWrapper, LoaderSecondary } from "@/shared/components";
-import { Chip } from "../chip/Chip";
+import type { JSX } from "react";
+import { LoaderSecondary } from "@/shared/components";
 import { TestEntry } from "../../interfaces";
 
-import iconSecondary from '@/config/assets/svg/icon-angle-up-solid-full.svg';
-import icon from '@/config/assets/svg/icon-angles-up-solid-full.svg';
-import { fadeInMotion } from '@/shared/motion';
 import { CardResults } from '../card-results/CardResults';
 import { WrapperCarousel } from '../wrapper-carousel/WrapperCarousel';
 import { ITranslations } from '@/shared/interfaces';

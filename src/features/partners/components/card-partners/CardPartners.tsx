@@ -1,9 +1,9 @@
+import { useState, type JSX } from "react";
 import Image from "next/image";
 import { CardWrapper } from "@/shared/components";
 
 import styles from './cardPartners.module.css';
 import { PartnersItem } from "../../interface";
-import { useState } from "react";
 import { ITranslations } from "@/shared/interfaces";
 
 type Props = {

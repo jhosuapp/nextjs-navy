@@ -3,7 +3,6 @@ export * from './button/Button';
 export * from './container/Container';
 export * from './loader/LoaderSecondary';
 export * from './skin-3d/Skin3d';
-export * from './particles/Particles';
 export * from './floating-dots/FloatingDots';
 export * from './divider/Divider';
 export * from './chip-regions/ChipRegions';
@@ -25,4 +24,3 @@ export * from './search/Search'
 export * from './not-found/NotFound'
 export * from './feedback/Feedback'
 export * from './language-switcher/LanguageSwitcher'
-// export * from './petal/Petal'

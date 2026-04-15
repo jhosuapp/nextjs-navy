@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, type JSX } from "react";
 import { SkinViewer, WalkingAnimation } from "skinview3d";
 
 type Props = {

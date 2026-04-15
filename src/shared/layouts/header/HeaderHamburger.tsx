@@ -1,5 +1,7 @@
+import type { JSX } from "react";
 import styles from './header.module.css';
 import { useMenuStore } from '@/shared/stores';
+
 
 const HeaderHamburger = ():JSX.Element => {
     const hamburger = useMenuStore( state => state.hamburger );

@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, type JSX } from 'react';
 import { motion, MotionProps } from 'framer-motion';
 
 import styles from './feedback.module.css';

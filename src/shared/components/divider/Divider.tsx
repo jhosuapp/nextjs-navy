@@ -1,3 +1,5 @@
+import type { JSX } from "react";
+
 import styles from './divider.module.css';
 
 const Divider = ():JSX.Element => {

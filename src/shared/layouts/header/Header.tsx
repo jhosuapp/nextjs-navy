@@ -1,3 +1,4 @@
+import { useMemo, type JSX } from 'react';
 import { useTranslation } from 'react-i18next';
 import { HeaderLogo, HeaderLogoText } from './HeaderLogo';
 import { HeaderList } from './HeaderList';
@@ -10,7 +11,6 @@ import { getBansAction } from '@/features/bans/actions';
 
 import styles from './header.module.css';
 import { getStaffAction } from '@/features/staff/actions';
-import { useMemo } from 'react';
 import { getTierlistOverallAction } from '@/features/tierlist/actions/get-tierlistOverall.action';
 
 

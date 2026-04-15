@@ -1,5 +1,7 @@
+import type { JSX } from "react";
 import { useChatBotStore } from "@/features/chat-bot/stores/chatBot.store";
 import { RadioStep } from "../radio-step/RadioStep";
+
 
 const premiumMessages = [{ text: 'Now, enter your namemc uuid.', delayMessage: 1.5 }];
 const noPremiumMessages = [

@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { fadeInMotion } from '@/shared/motion';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TierDataOverallItem } from './TierDataOverallItem';
@@ -9,6 +10,7 @@ import { useLenisStore } from '@/shared/stores';
 import { ITranslations } from '@/shared/interfaces';
 
 import styles from './tierDataOverall.module.css';
+
 
 type Props = {
     t: ITranslations;

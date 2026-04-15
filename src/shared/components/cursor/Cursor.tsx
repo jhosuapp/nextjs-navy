@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, type JSX } from "react";
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 import styles from './cursor.module.css';
 import { useCursorStore } from "@/shared/stores";

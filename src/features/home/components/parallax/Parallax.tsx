@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { motion } from 'framer-motion';
 
 import { fadeInMotion, flowerMotion } from '@/shared/motion';
@@ -5,7 +6,7 @@ import { Flower } from '@/shared/components';
 
 import styles from './parallax.module.css';
 
-const FlowersFirstScreen = () => {
+const FlowersFirstScreen = ():JSX.Element => {
     const setTranslateY = (number: number) => {
         const translateY = { initial: (window.innerHeight * 1), end: ((-window.innerHeight * 1.5) - number) }
 

@@ -1,5 +1,6 @@
+import type { JSX } from "react";
 import { motion } from 'framer-motion';
-import { ChipModalities, PropsChipModalities, Skin3d } from '@/shared/components';
+import { ChipModalities, PropsChipModalities } from '@/shared/components';
 import { CrownIcon } from '@/config/assets/icon';
 
 import styles from './cardResults.module.css';

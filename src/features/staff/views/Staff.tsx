@@ -1,4 +1,5 @@
-import { AnimatePresence, motion } from "framer-motion";
+import type { JSX } from "react";
+import { motion } from "framer-motion";
 import { CardWrappersecondary, Container, LoaderSecondary } from "@/shared/components"
 import { CardStaff } from "../components"
 import { useStaff } from "../hooks";
@@ -20,8 +21,8 @@ const StaffView = ():JSX.Element => {
             <motion.div {...fadeInMotion(0.5, 1)}>
                 {response.data?.map((group)=>(
                     <CardWrappersecondary text={`${group.members.length} members`} title={ group.role_name } key={`group-${group.role_id}-${response.isLoading}`}>
-                        {group.members?.map((data)=>(
-                            <CardStaff data={ data } />
+                        {group.members?.map((data, index)=>(
+                            <CardStaff data={ data } key={`${data.discord_id}-${index}-staff`} />
                         ))}
                     </CardWrappersecondary>
                 ))}

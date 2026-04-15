@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode, useState } from "react";
+import { HTMLAttributes, ReactNode, useState, type JSX } from "react";
 import { motion, MotionProps } from "framer-motion";
 import styles from './container.module.css';
 

@@ -1,5 +1,7 @@
+import type { JSX } from "react";
 import { anim, curve, translate } from './pageTransition.motion';
 import { motion } from 'framer-motion';
+
 
 type Props = {
     height: number;

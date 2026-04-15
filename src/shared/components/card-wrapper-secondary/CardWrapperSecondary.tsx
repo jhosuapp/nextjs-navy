@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, type JSX } from "react";
 import { motion } from 'framer-motion';
 import { fadeUpMotion } from "@/shared/motion";
 import { Divider, Search } from "@/shared/components";

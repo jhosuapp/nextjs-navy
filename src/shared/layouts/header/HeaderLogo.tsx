@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,6 +8,7 @@ import { useQueryClient } from "@tanstack/react-query";
 import { getResumeAction } from "@/features/home/actions";
 
 import styles from './header.module.css';
+
 
 const HeaderLogo = ():JSX.Element => {
     const queryClient = useQueryClient();

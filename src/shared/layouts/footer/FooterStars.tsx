@@ -1,4 +1,6 @@
+import type { JSX } from "react";
 import styles from './footer.module.css';
+
 
 const FooterStars = ():JSX.Element => {
     return (

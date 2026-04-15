@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { fadeUpMotion } from '@/shared/motion';
 import { motion } from 'framer-motion';
 
@@ -7,7 +8,7 @@ type MotionTextProps = {
     motionConfig: ReturnType<typeof fadeUpMotion>;
 }
   
-const HeroText = ({ text, delays, motionConfig }: MotionTextProps) => {
+const HeroText = ({ text, delays, motionConfig }: MotionTextProps):JSX.Element => {
     return (
         <motion.p {...motionConfig}>
             {text.split('').map((char, i) => (

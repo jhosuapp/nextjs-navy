@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, type JSX } from 'react';
 import { motion } from 'framer-motion';
 import { variantsSettingsContent, variantsSettingsBg, variantsSettingsContentMobile } from './settings.variants';
 import { useMediaQuery } from '@/shared/hooks';

@@ -1,7 +1,9 @@
+import type { JSX } from "react";
 import { useModalStore, useSkinStore } from '@/shared/stores';
 import { ChipModalities, PropsChipModalities, ChipRegions, PropsChipRegions } from '../';
 
 import styles from './cardSkin.module.css';
+
 
 type Props = {
     username: string;

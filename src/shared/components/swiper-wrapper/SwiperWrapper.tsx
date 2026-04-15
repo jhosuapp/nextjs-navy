@@ -1,4 +1,4 @@
-import { ReactNode, useRef } from 'react';
+import { ReactNode, useRef, type JSX } from 'react';
 import { Swiper } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { motion } from 'framer-motion';

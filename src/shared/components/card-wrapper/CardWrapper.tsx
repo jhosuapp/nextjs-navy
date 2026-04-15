@@ -1,9 +1,11 @@
+import type { JSX } from "react";
 import Image from "next/image";
 import { motion } from 'framer-motion';
 
 import styles from './cardWrapper.module.css';
 import { fadeInMotion, fadeUpMotion } from "@/shared/motion";
 import { Divider } from "@/shared/components";
+
 
 type Props = {
     title?: string;

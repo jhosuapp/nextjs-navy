@@ -1,8 +1,10 @@
+import type { JSX } from "react";
 import { useTranslation } from "react-i18next";
 import { Container } from "@/shared/components";
 import { NavBar, TierDataByModalitie, TierDataOverall } from "../components";
 import { useModalitieStore } from "@/shared/stores";
 import { fadeUpMotion } from "@/shared/motion";
+
 
 const TierlistView = ():JSX.Element => {
     const currentModalitie = useModalitieStore( state => state.currentModalitie );

@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { AnimatePresence } from "framer-motion";
 import { BotSticky } from "../components/bot-sticky/BotSticky";
 import { BotWrapper } from "../components/bot-wrapper/BotWrapper";

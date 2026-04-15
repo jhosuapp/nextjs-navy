@@ -1,8 +1,10 @@
+import type { JSX } from "react";
 import { Modalitie, ModalitieImage, ModalitiesVariants, Tiers } from "@/shared/interfaces";
 import { useModalitieStore } from "@/shared/stores";
 import { motion } from 'framer-motion';
 
 import styles from './chipModalities.module.css';
+
 
 export type PropsChipModalities = {
     variant?: ModalitiesVariants;

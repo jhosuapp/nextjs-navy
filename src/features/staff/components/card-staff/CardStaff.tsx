@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { CardWrapper } from "@/shared/components";
 import { StaffMember } from "../../interfaces";
 

@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { CardBody, CardWrapper } from "@/shared/components";
 import { Punishment } from "../../interfaces";
 import { formatDate, getDaysBetweenDates } from "../../helpers";

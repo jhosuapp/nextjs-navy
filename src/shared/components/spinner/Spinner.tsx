@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { zoomInMotion } from '@/shared/motion';
@@ -9,7 +10,7 @@ type Props = {
     className?: string;
 }
 
-const Spinner = ({ className = '' }:Props) => {
+const Spinner = ({ className = '' }:Props):JSX.Element => {
     return (
         <motion.div 
             {...zoomInMotion(0,0)}

@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, useSpring, useTransform, useScroll } from 'framer-motion';
 import { ChipModalities, PropsChipModalities } from '@/shared/components';
@@ -11,7 +12,7 @@ type Props = {
     index: number;
 } & PropsChipModalities;
 
-const AnimatedCounter = ({ value, label, suffix = '', index, modalitie, modalitieImage }:Props) => {
+const AnimatedCounter = ({ value, label, suffix = '', index, modalitie, modalitieImage }:Props):JSX.Element => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
     const [hasAnimated, setHasAnimated] = useState(false);

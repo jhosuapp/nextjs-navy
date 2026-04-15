@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import styles from './cardWrapperSecondary.module.css';
 
 type Props = {

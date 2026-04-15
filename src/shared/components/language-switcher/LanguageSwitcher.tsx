@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, type JSX } from "react";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import styles from './languageSwitcher.module.css';

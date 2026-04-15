@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ButtonHTMLAttributes } from 'react';
+import { ButtonHTMLAttributes, type JSX } from 'react';
 import { motion, MotionProps } from 'framer-motion';
 
 import iconDefault from '@/config/assets/svg/icon-arrow.svg';

@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { ITranslations } from '@/shared/interfaces';
 import styles from './footer.module.css';
 

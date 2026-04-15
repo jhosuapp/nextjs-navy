@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, type JSX } from 'react';
 import { motion } from 'framer-motion';
 import { useSearchStore } from '@/shared/stores';
 import { InputField } from '../input-field/InputField';

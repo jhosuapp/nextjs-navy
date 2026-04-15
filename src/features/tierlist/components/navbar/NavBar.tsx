@@ -1,3 +1,4 @@
+import type { JSX } from "react";
 import { motion } from 'framer-motion';
 import { Button, ChipModalities, InputField } from "@/shared/components";
 import { userNavBar } from "../../hooks";
