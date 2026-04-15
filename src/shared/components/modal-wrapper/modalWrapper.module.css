@@ -8,11 +8,11 @@
 
 .modalContent{
     box-shadow: 0 0 1px hsl(0deg 0% 0% / 0.075), 0 0 2px hsl(0deg 0% 0% / 0.075), 0 0 4px hsl(0deg 0% 0% / 0.075), 0 0 8px hsl(0deg 0% 0% / 0.075), 0 0 16px hsl(0deg 0% 0% / 0.075);
-    @apply relative z-20 bg-tertiary w-[90%] max-w-[500px] max-h-[90vh] px-[50px] py-[30px] rounded-[20px] overflow-hidden border-2 border-purple-300 border-opacity-50;
+    @apply relative z-20 bg-tertiary w-[90%] max-w-[500px] max-h-[90vh] px-12 py-7 rounded-[20px] overflow-hidden border-2 border-purple-300 border-opacity-50;
 }
 
 .modalClose{
-    @apply absolute w-[40px] h-[40px] right-0 top-0 bg-purple-300 bg-opacity-50 rounded-l-[20px] rounded-t-none p-[5px];    
+    @apply absolute w-10 h-10 right-0 top-0 bg-purple-300 bg-opacity-50 rounded-l-[20px] rounded-t-none p-1.5;    
 }
 
 .modalClose img{

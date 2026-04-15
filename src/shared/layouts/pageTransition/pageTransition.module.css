@@ -1,12 +1,10 @@
-/* pageTransition.module.css - OPTIMIZADO */
 .curve{
     @apply relative;
 }
 
 .curve .curve__svg svg, .curve .curve__bg{
-    height: calc(100vh + 600px); /* De 600px a 300px */
+    height: calc(100vh + 600px);
     @apply fixed pointer-events-none left-0 top-0 z-[101] w-lvw;
-    /* Aceleración GPU sin scale detectado */
     transform: translateZ(0);
     will-change: transform;
 }
@@ -17,8 +15,7 @@
 }
 
 .curve .curve__route{
-    @apply fixed text-fifth text-center z-[103] left-[50%] top-[40vh] translate-x-[-50%] font-medium uppercase pointer-events-none text-xl lg:text-5xl;
-    /* GPU acceleration */
+    @apply fixed text-fifth text-center z-[103] left-[50%] top-[40vh] translate-x-[-50%] font-medium uppercase pointer-events-none text-xl lg:text-5xl 2xl:text-7xl;
     transform: translateX(-50%) translateZ(0);
     will-change: opacity, transform;
 }

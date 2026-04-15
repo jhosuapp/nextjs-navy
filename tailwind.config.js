@@ -9,7 +9,6 @@ module.exports = {
         extend: {
             fontFamily: {
                 roboto: "var(--font-roboto)",
-                minecraft: "var(--font-minecraft)",
             },
             colors: {
                 primary: '#4B0082',

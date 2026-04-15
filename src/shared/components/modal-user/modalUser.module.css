@@ -1,23 +1,23 @@
 /* Tab modal */
 
 .modalUser__card{
-    @apply flex gap-[100px];
+    @apply flex gap-24;
 }
 
 .modalUser__medal{
-    @apply w-[20px];
+    @apply w-5;
 }
 
 .modalUser__crown{
-    @apply w-[30px] absolute top-0;
+    @apply w-7 absolute top-0;
 }
 
 .modalUser__3d{
-    @apply relative pt-[20px] flex flex-col justify-center items-center w-[50%];
+    @apply relative pt-5 flex flex-col justify-center items-center w-[50%];
 }
 
 .modalUser__name{
-    @apply absolute flex items-center gap-[5px] bg-seventh border-2 border-purple-300 border-opacity-50 bottom-[20px] px-[10px] py-[5px] text-white rounded-[5px] overflow-hidden;
+    @apply absolute flex items-center gap-1.5 bg-seventh border-2 border-purple-300 border-opacity-50 bottom-5 px-2.5 py-1.5 text-white rounded-[5px] overflow-hidden;
 }
 
 .modalUser__info{
@@ -33,11 +33,11 @@
 }
 
 .modalUser__info p{
-    @apply text-white bg-seventh border-2 border-purple-300 border-opacity-50 mb-[10px] flex justify-between px-[10px] py-[5px] rounded-[5px] relative overflow-hidden;
+    @apply text-white bg-seventh border-2 border-purple-300 border-opacity-50 mb-2.5 flex justify-between px-2.5 py-1.5 rounded-[5px] relative overflow-hidden;
 }
 
 .modalUser__info p img{
-    @apply max-w-[20px] w-full absolute top-[-3px] opacity-40;
+    @apply max-w-5 w-full absolute top-[-3px] opacity-40;
 }
 
 .modalUser__tier{
@@ -46,13 +46,13 @@
 
 @media (max-width: 568px){
     .modalUser__card{
-        @apply flex-col items-center gap-[20px];
+        @apply flex-col items-center gap-5;
     }
     .modalUser__info{
         @apply w-full;
     }
     .modalUser__info::before{
-        @apply h-[200px] w-full bg-seventh;
+        @apply h-52 w-full bg-seventh;
     }
     .modalUser__info__stats{
         @apply hidden;

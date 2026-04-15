@@ -2,9 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { paths } from "@/shared/constants"
-import logo from '@/config/assets/png/logo.webp';
-import styles from './header.module.css';
 import { useMenuStore } from "@/shared/stores";
+
+import styles from './header.module.css';
 
 const HeaderLogo = ():JSX.Element => {
     const setHamburger = useMenuStore( state => state.setHamburger );
@@ -15,13 +15,12 @@ const HeaderLogo = ():JSX.Element => {
     
     return (
         <Link href={ paths.home } onClick={ onClickHamburger } className={ styles.headerLogo }>
-            <img
+            <Image
                 src="/images/logo.png"
                 alt="Logo navy"
                 width="128"
                 height="128"
-                fetchPriority="high"
-                decoding="sync"
+                priority
             />
         </Link>
     )

@@ -3,5 +3,5 @@
 }
 
 .inputField input{
-    @apply px-5 min-h-[45px] w-full max-h-[50px] min-w-[100px] lg:min-w-[150px] flex bg-tertiary border-2 rounded-md border-purple-300 border-opacity-50 backdrop-blur-sm bg-opacity-10 outline-none font-medium placeholder:text-purple-300 placeholder:text-opacity-50 leading-none text-white;
+    @apply px-5 min-h-12 w-full max-h-12 min-w-24 lg:min-w-40 flex bg-tertiary border-2 rounded-md border-purple-300 border-opacity-50 backdrop-blur-sm bg-opacity-10 outline-none font-medium placeholder:text-purple-300 placeholder:text-opacity-50 leading-none text-white;
 }

@@ -1,10 +1,14 @@
 import React, { ReactNode } from "react";
 import Head from "next/head";
-import { minecraft, roboto,  } from "@/config/typography";
-import { Cursor, FloatingDots, Settings } from "@/shared/components";
+import dynamic from "next/dynamic";
+import { roboto,  } from "@/config/typography";
 import { Footer, Header } from "@/shared/layouts";
-import { ToastContainer } from 'react-toastify';
-import { ChatBotView } from "@/features";
+
+const ChatBotView = dynamic(() => import('@/features/chat-bot/views/ChatBot.view').then(mod => mod.ChatBotView), { ssr: false });
+const FloatingDots = dynamic(() => import('@/shared/components/floating-dots/FloatingDots').then(mod => mod.FloatingDots), { ssr: false });
+const Settings = dynamic(() => import('@/shared/components/settings/Settings').then(mod => mod.Settings), { ssr: false });
+const Cursor = dynamic(() => import('@/shared/components/cursor/Cursor').then(mod => mod.Cursor), { ssr: false });
+const ToastContainer = dynamic(() => import('react-toastify').then(mod => mod.ToastContainer), { ssr: false });
 
 type Props = {
   children?: ReactNode;
@@ -61,7 +65,7 @@ const Layout = ({ children, title, description, image = '', url = "https://navyt
         </Head>
 
 
-        <main className={`relative ${roboto.variable} ${minecraft.variable} bg-tertiary min-h-svh pt-10 w-full block`}>
+        <main className={`relative ${roboto.variable} bg-tertiary pt-10 w-full block`}>
             <FloatingDots />
             <div className="relative z-10 w-full block">
                 <Cursor />

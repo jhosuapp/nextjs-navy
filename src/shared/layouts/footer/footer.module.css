@@ -39,7 +39,7 @@
 }
 
 .footerContent__nextPage {
-    @apply font-normal flex justify-between items-center gap-4 w-full max-w-[350px] cursor-pointer text-base lg:text-lg;
+    @apply font-normal flex justify-between items-center gap-4 w-full max-w-80 cursor-pointer text-base lg:text-lg;
 }
 
 .footerContent__nextPage p{
@@ -53,13 +53,13 @@
 }
 
 .footerContent__nextPage div{
-    @apply h-[2px] bg-purple-300 bg-opacity-50 w-full relative;
+    @apply h-0.5 bg-purple-300 bg-opacity-50 w-full relative;
 }
 
 .footerContent__nextPage div::before{
     transition: .5s ease all;
     content: "";
-    @apply w-0 bg-secondary h-[2px] absolute right-0;
+    @apply w-0 bg-secondary h-0.5 absolute right-0;
 }
 
 .footerContent__nextPage:hover div::before{

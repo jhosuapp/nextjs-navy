@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { appWithTranslation } from "next-i18next";
 import type { AppProps } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
@@ -5,16 +6,14 @@ import { useEffect, useState } from 'react';
 
 import Lenis from 'lenis';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-import { Loader } from '@/shared/components';
 import { useLenisStore, useLoaderStore } from '@/shared/stores';
+const ReactQueryDevtools = dynamic(() => import('@tanstack/react-query-devtools').then(mod => mod.ReactQueryDevtools),{ ssr: false });
 
 import './globals.css';
 import '@/config/lib/i18n';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
-    const isLoading = useLoaderStore( state => state.isLoading );
     const setIsLoading = useLoaderStore( state => state.setIsLoading );
     const [queryClient] = useState(() => new QueryClient());
     //Scroll smoth
@@ -40,20 +39,12 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     }, []);
 
     return (
-        <>
-            <AnimatePresence>
-                {isLoading ? (
-                    <Loader key={`loader-${isLoading}`} />
-                ) : (
-                    <QueryClientProvider client={queryClient}>
-                        <AnimatePresence mode='wait'>
-                            <Component key={router.route} {...pageProps} />
-                        </AnimatePresence>
-                        {process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
-                    </QueryClientProvider>
-                )}
+        <QueryClientProvider client={queryClient}>
+            <AnimatePresence mode='wait'>
+                <Component key={router.route} {...pageProps} />
             </AnimatePresence>
-        </>
+            {process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
+        </QueryClientProvider>
     )
 }
 

@@ -39,8 +39,6 @@ const PageTransition = ({ children }:Props):JSX.Element => {
         }
     }, []);
 
-    console.log(routes[router.route]);
-
     return (
         <div 
             className={ styles.curve }
@@ -54,7 +52,8 @@ const PageTransition = ({ children }:Props):JSX.Element => {
                     className={ `${styles.curve__route} ${styles.curve__route__transition}` } 
                     {...anim(text)}
                 >
-                    {t('loader.loading')}
+                    {/* {t('loader.loading')} */}
+                    Navy Tierlist
                 </motion.p>
             ) : (
                 <motion.p className={ styles.curve__route } {...anim(text)}>
