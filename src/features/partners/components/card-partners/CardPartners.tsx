@@ -34,7 +34,6 @@ const CardPartners = memo(({ data, t }: Props): JSX.Element => {
                             width={96}
                             height={96}
                             sizes="96px"
-                            loading="lazy"
                         />
                     </picture>
                 </div>
@@ -63,7 +62,6 @@ const CardPartners = memo(({ data, t }: Props): JSX.Element => {
                                 src={network.src} 
                                 alt={network.alt} 
                                 width={20} 
-                                loading="lazy" 
                             />
                         </a>
                     ))}

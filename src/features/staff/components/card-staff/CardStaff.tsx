@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import { memo, type JSX } from "react";
 import { CardWrapper } from "@/shared/components";
 import { StaffMember } from "../../interfaces";
 
@@ -8,7 +8,7 @@ type Props = {
     data: StaffMember;
 }
 
-const CardStaff = ({ data }:Props):JSX.Element => {
+const CardStaff = memo(({ data }:Props):JSX.Element => {
     return (
         <CardWrapper classNameParent={ styles.cardStaff }>
             <div className={ styles.cardStaff__content }>
@@ -29,6 +29,6 @@ const CardStaff = ({ data }:Props):JSX.Element => {
             </div>
         </CardWrapper>
     )
-}
+})
 
 export { CardStaff }

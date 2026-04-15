@@ -1,11 +1,9 @@
-import dynamic from "next/dynamic";
 import { appWithTranslation } from "next-i18next";
 import type { AppProps } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useLenisStore, useLoaderStore } from '@/shared/stores';
-const ReactQueryDevtools = dynamic(() => import('@tanstack/react-query-devtools').then(mod => mod.ReactQueryDevtools),{ ssr: false });
 
 import './globals.css';
 import '@/config/lib/i18n';
@@ -51,7 +49,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           <AnimatePresence mode='wait'>
               <Component key={router.route} {...pageProps} />
           </AnimatePresence>
-          {process.env.NODE_ENV === 'development' && <ReactQueryDevtools initialIsOpen={false} />}
       </QueryClientProvider>
     )
 }

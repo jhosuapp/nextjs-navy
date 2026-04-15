@@ -26,11 +26,6 @@ const CardResults = ({ nick, modalitie, modalitieImage, tier }:Props):JSX.Elemen
                 <CrownIcon />
             </div>
             <div className={ styles.cardResults__content }>
-                {/* <Skin3d 
-                    walk
-                    username={ nick }
-                    autoRotate={ false }
-                /> */}
                 <img loading='lazy' className={ styles.cardResults__skin } src={ `https://render.crafty.gg/3d/full/${nick}` } alt={ nick } />
                 <motion.span
                     className={ styles.cardResults__player }

@@ -1,44 +1,39 @@
 import { useEffect, type JSX } from "react";
 import { motion, useSpring, useMotionValue } from 'framer-motion';
+import { useMediaQuery } from "@/shared/hooks/useMediaquery";
+
 import styles from './cursor.module.css';
-import { useCursorStore } from "@/shared/stores";
-import { useMediaQuery } from "@/shared/hooks";
 
 const Cursor = (): JSX.Element => {
     const isDesktop = useMediaQuery({});
-    const coords = useCursorStore(state => state.coords);
-    const setCoords = useCursorStore(state => state.setCoords);
-    const initCoords = coords.clientX === 0 && coords.clientY === 0;
-    const motionX = useMotionValue(coords.clientX);
-    const motionY = useMotionValue(coords.clientY);
+
+    const motionX = useMotionValue(0);
+    const motionY = useMotionValue(0);
 
     const springConfig = { stiffness: 100, damping: 40, mass: 1.5 };
     const springX = useSpring(motionX, springConfig);
     const springY = useSpring(motionY, springConfig);
 
     useEffect(() => {
+        if (!isDesktop) return;
+
         const handleMousemove = (e: MouseEvent) => {
-            setCoords({ clientX: e.clientX, clientY: e.clientY });
+            motionX.set(e.clientX);
+            motionY.set(e.clientY);
         };
-        document.body.addEventListener('mousemove', handleMousemove);
-        return () => document.body.removeEventListener('mousemove', handleMousemove);
-    }, [setCoords]);
 
-    useEffect(() => {
-        motionX.set(coords.clientX);
-        motionY.set(coords.clientY);
-    }, [coords.clientX, coords.clientY, motionX, motionY]);
+        window.addEventListener('mousemove', handleMousemove);
 
-    if(!isDesktop){
-        return (
-            <>
-            </>
-        )
-    }
+        return () => {
+            window.removeEventListener('mousemove', handleMousemove);
+        };
+    }, [isDesktop, motionX, motionY]);
+
+    if (!isDesktop) return <></>;
 
     return (
         <motion.div
-            className={`${styles.cursor} ${initCoords ? 'opacity-0' : ''}`}
+            className={styles.cursor}
             style={{
                 left: springX,
                 top: springY,
@@ -46,11 +41,8 @@ const Cursor = (): JSX.Element => {
                 y: '-50%',
             }}
         >
-            {/* Glow exterior */}
             <div className={styles.glowOuter} />
-            {/* Glow medio */}
             <div className={styles.glowMid} />
-            {/* Núcleo brillante */}
             <div className={styles.glowCore} />
         </motion.div>
     );

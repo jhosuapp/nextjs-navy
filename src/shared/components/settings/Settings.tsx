@@ -1,16 +1,16 @@
 import Image from 'next/image';
-import { useState, type JSX } from 'react';
+import { memo, useState, type JSX } from 'react';
 import { motion } from 'framer-motion';
 import { variantsSettingsContent, variantsSettingsBg, variantsSettingsContentMobile } from './settings.variants';
-import { useMediaQuery } from '@/shared/hooks';
-import { fadeInMotion } from '@/shared/motion';
+import { useMediaQuery } from '@/shared/hooks/useMediaquery';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 import { Switch } from '../switch/Switch';
 import { useTranslation } from 'react-i18next';
 
 import icon from '@/config/assets/svg/icon-settings.svg';
 import styles from './settings.module.css';
 
-const Settings = ():JSX.Element => {
+const Settings = memo(():JSX.Element => {
     const isDesk = useMediaQuery({breakpoint: 991 });
     const [ settings, setSettings ] = useState<boolean>(false);
     const { t } = useTranslation('common');
@@ -67,6 +67,6 @@ const Settings = ():JSX.Element => {
             </motion.section>
         </motion.div>
     )
-}
+})
 
 export { Settings }

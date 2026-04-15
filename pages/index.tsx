@@ -16,6 +16,7 @@ const HomePage = () => {
             description={t('seo.homeMetaDescription')}
             textPage={t('nav.tierlist')}
             linkPage={paths.tierlist}
+            hasYoutube
         >
             <ToastContainer />
             <PageTransition>

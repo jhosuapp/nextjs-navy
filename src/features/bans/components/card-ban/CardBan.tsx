@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import { memo, type JSX } from "react";
 import { CardBody, CardWrapper } from "@/shared/components";
 import { Punishment } from "../../interfaces";
 import { formatDate, getDaysBetweenDates } from "../../helpers";
@@ -13,7 +13,7 @@ type Props = {
     isFadeUp?: boolean;
 }
 
-const CardBan = ({ data, t, isFadeUp = true, variantStatus = 'active' }:Props):JSX.Element => {
+const CardBan = memo(({ data, t, isFadeUp = true, variantStatus = 'active' }:Props):JSX.Element => {
 
     return (
         <CardWrapper classNameParent={ styles.cardBan } isFadeUp={ isFadeUp }>
@@ -46,6 +46,6 @@ const CardBan = ({ data, t, isFadeUp = true, variantStatus = 'active' }:Props):J
             </div>
         </CardWrapper>
     )
-}
+})
 
 export { CardBan }
