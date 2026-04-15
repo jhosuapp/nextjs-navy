@@ -5,16 +5,28 @@ import { paths } from '@/shared/constants';
 import { useMediaQuery } from '@/shared/hooks';
 import { HeaderHamburger } from './HeaderHamburger';
 import { useMenuStore } from '@/shared/stores';
+import { LanguageSwitcher } from '@/shared/components';
+import { getBansAction } from '@/features/bans/actions';
 
 import styles from './header.module.css';
-import { LanguageSwitcher } from '@/shared/components';
-import { useEffect, useRef } from 'react';
+import { getStaffAction } from '@/features/staff/actions';
+import { useMemo } from 'react';
+import { getTierlistOverallAction } from '@/features/tierlist/actions/get-tierlistOverall.action';
+
 
 
 const Header = ():JSX.Element => {
     const { t } = useTranslation("common");
     const hamburger = useMenuStore( state => state.hamburger );
     const isDesktop = useMediaQuery({ breakpoint: 1024 });
+    const firstListItems = useMemo(() => [
+        { text: t('nav.tierlist'), path: paths.tierlist, prefetchKey: ['tierlist', 'infinite'], action: ()=> getTierlistOverallAction(1) },
+        { text: t('nav.staff'),    path: paths.staff,    prefetchKey: ["staff"],                action: ()=> getStaffAction() }
+    ], [t]);
+    const secondaryListItems = useMemo(() => [
+        { text: t('nav.bans'), path: paths.bans, prefetchKey: ['bans'], action: ()=> getBansAction() },
+        { text: t('nav.partners'), path: paths.partners }
+    ], [t]);
 
     return (
         <header className={ `${styles.header} ${hamburger && styles.headerMenuOpen}` }>
@@ -22,9 +34,9 @@ const Header = ():JSX.Element => {
                 <div  className={ styles.header__content }>
                     {!isDesktop && ( <HeaderLogoText /> )}
                     <nav className={ `${styles.header__nav} ${hamburger && styles.header__navActive}` }>
-                        <HeaderList items={[{ text: t('nav.tierlist'), path: paths.tierlist }, { text: t('nav.staff'), path: paths.staff }]} />
+                        <HeaderList items={ firstListItems } />
                         {isDesktop && <HeaderLogo />}
-                        <HeaderList items={[{ text: t('nav.bans'), path: paths.bans }, { text: t('nav.partners'), path: paths.partners }]} />
+                        <HeaderList items={ secondaryListItems } />
                     </nav>
                     {!isDesktop && ( <HeaderHamburger /> )}
                 </div>
