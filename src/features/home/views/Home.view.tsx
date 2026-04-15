@@ -1,11 +1,10 @@
 import type { JSX } from "react";
 import dynamic from "next/dynamic";
 import { useTranslation } from "react-i18next";
-import { Container } from "@/shared/components";
-import { Results, TotalTests } from "../components";
+import { Container } from "@/shared/components/container/Container";
+import { Results, TotalTests, Hero } from "../components";
 
 const FlowersFirstScreen = dynamic(() => import("../components/parallax/Parallax").then(m => m.FlowersFirstScreen), { ssr: false });
-const Hero = dynamic(() => import("../components/hero/Hero").then(m => m.Hero), { ssr: false });
 
 import { useResumeQuery } from '../hooks';
 

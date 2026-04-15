@@ -2,8 +2,8 @@ import { ReactNode, useRef, type JSX } from 'react';
 import { Swiper } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import { motion } from 'framer-motion';
-import { fadeInMotion } from '@/shared/motion';
-import { ITranslations } from '@/shared/interfaces';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
+import { ITranslations } from '@/shared/interfaces/globals';
 
 import 'swiper/css';
 import 'swiper/css/navigation';

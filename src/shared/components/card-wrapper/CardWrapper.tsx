@@ -1,10 +1,11 @@
 import { memo, useMemo, type JSX } from "react";
 import Image from "next/image";
 import { motion } from 'framer-motion';
+import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
+import { fadeUpMotion } from "@/shared/motion/fadeUp.motion";
+import { Divider } from "@/shared/components/divider/Divider";
 
 import styles from './cardWrapper.module.css';
-import { fadeInMotion, fadeUpMotion } from "@/shared/motion";
-import { Divider } from "@/shared/components";
 
 
 type Props = {

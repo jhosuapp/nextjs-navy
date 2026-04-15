@@ -1,10 +1,10 @@
 import { memo, useState, type JSX } from "react";
 import Image from "next/image";
-import { CardWrapper } from "@/shared/components";
+import { CardWrapper } from "@/shared/components/card-wrapper/CardWrapper";
+import { PartnersItem } from "../../interface";
+import { ITranslations } from "@/shared/interfaces/globals";
 
 import styles from './cardPartners.module.css';
-import { PartnersItem } from "../../interface";
-import { ITranslations } from "@/shared/interfaces";
 
 type Props = {
     data: PartnersItem;

@@ -1,4 +1,6 @@
-import { Continents, Modalitie, Tiers } from "@/shared/interfaces"
+import { Continents } from "@/shared/interfaces/regions.interface"
+import { Tiers } from "@/shared/interfaces/tiers.interface"
+import { Modalitie } from "@/shared/interfaces/modalities.interface"
 
 export type TestEntry = {
     id: number

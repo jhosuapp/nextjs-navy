@@ -1,13 +1,14 @@
 import type { JSX } from "react";
-import { fadeInMotion } from '@/shared/motion';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TierDataOverallItem } from './TierDataOverallItem';
 import { useTierlistOverall } from '../../hooks';
-import { Button, LoaderSecondary } from '@/shared/components';
+import { Button } from '@/shared/components/button/Button';
+import { LoaderSecondary } from '@/shared/components/loader/LoaderSecondary';
 import { getCombatTitleByPoints } from '../../helpers/getCombatTitlePointsHelper';
 import { anchorScroll } from '@/shared/helpers';
-import { useLenisStore } from '@/shared/stores';
-import { ITranslations } from '@/shared/interfaces';
+import { useLenisStore } from '@/shared/stores/lenis.store';
+import { ITranslations } from '@/shared/interfaces/globals';
 
 import styles from './tierDataOverall.module.css';
 

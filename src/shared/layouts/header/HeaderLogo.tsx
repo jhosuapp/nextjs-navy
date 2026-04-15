@@ -3,9 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { paths } from "@/shared/constants"
-import { useMenuStore } from "@/shared/stores";
+import { useMenuStore } from "@/shared/stores/menu.store";
 import { useQueryClient } from "@tanstack/react-query";
-import { getResumeAction } from "@/features/home/actions";
+import { getResumeAction } from "@/features/home/actions/get-resume.action";
 
 import styles from './header.module.css';
 

@@ -2,10 +2,10 @@ import type { JSX } from "react";
 import Image from "next/image";
 import { motion } from 'framer-motion';
 
-import { Container } from "@/shared/components";
-import { fadeUpMotion } from "@/shared/motion";
+import { Container } from "@/shared/components/container/Container";
+import { fadeUpMotion } from "@/shared/motion/fadeUp.motion";
 import { HeroText } from "./HeroText";
-import { ITranslations } from "@/shared/interfaces";
+import { ITranslations } from "@/shared/interfaces/globals";
 
 import iconPlay from '@/config/assets/svg/icon-play.svg';
 import styles from './hero.module.css';

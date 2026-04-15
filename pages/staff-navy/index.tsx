@@ -1,4 +1,4 @@
-import { StaffView } from "@/features";
+import { StaffView } from "@/features/staff/views/Staff";
 import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";

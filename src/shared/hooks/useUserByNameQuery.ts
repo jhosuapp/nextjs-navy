@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query"
 import { getUserByNameAction } from "../actions";
-import { useModalStore } from "../stores";
+import { useModalStore } from "../stores/modal.store";
 
 type Props = {
     username: string;

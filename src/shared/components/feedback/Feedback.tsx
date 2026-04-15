@@ -3,7 +3,7 @@ import { motion, MotionProps } from 'framer-motion';
 
 import styles from './feedback.module.css';
 import { containerVariants, pathVariants } from './feedback.motion';
-import { fadeInMotion } from '@/shared/motion';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 
 type NativeProps = HTMLAttributes<HTMLElement>;
 

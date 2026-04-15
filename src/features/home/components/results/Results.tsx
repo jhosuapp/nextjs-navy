@@ -1,10 +1,10 @@
 import type { JSX } from "react";
-import { LoaderSecondary } from "@/shared/components";
+import { LoaderSecondary } from "@/shared/components/loader/LoaderSecondary";
 import { TestEntry } from "../../interfaces";
 
 import { CardResults } from '../card-results/CardResults';
 import { WrapperCarousel } from '../wrapper-carousel/WrapperCarousel';
-import { ITranslations } from '@/shared/interfaces';
+import { ITranslations } from '@/shared/interfaces/globals';
 
 type Props = {
     hTests: TestEntry[]

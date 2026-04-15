@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import { useModalStore, useSkinStore } from "../stores";
+import { useModalStore } from "../stores/modal.store";
+import { useSkinStore } from "../stores/skin.store";
 import { useUserByNameQuery } from "./useUserByNameQuery";
 import { Id, toast } from "react-toastify";
 import { useTranslation } from "react-i18next";

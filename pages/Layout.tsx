@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { roboto,  } from "@/config/typography";
+import { roboto } from "@/config/typography";
 import { Footer, Header } from "@/shared/layouts";
 import { useUserInteraction } from "@/shared/hooks/useUserInteraction";
 

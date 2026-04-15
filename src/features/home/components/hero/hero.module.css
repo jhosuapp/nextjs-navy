@@ -1,5 +1,5 @@
 .hero{
-    @apply w-full flex flex-col pointer-events-none py-0 gap-[1.5vh];
+    @apply !w-full flex flex-col pointer-events-none py-0 gap-[1.5vh];
 }
 
 @media(max-width: 768px){

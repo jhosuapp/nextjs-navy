@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { useModalStore, useSkinStore } from "@/shared/stores";
+import { useModalStore } from "@/shared/stores/modal.store";
+import { useSkinStore } from "@/shared/stores/skin.store";
 
 const userNavBar = () => {
     const formRef = useRef<HTMLFormElement>(null);

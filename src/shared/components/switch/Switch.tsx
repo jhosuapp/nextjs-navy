@@ -1,8 +1,8 @@
 import React, { useEffect, type JSX } from "react";
 import { motion } from "framer-motion";
 import { variantSwitch } from "./switch.variants";
-import { SwitchKey } from "@/shared/interfaces";
-import { useSwitchStore } from "@/shared/stores";
+import { SwitchKey } from "@/shared/interfaces/switch.interface";
+import { useSwitchStore } from "@/shared/stores/switch.store";
 
 import styles from './switch.module.css';
 

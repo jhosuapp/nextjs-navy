@@ -3,7 +3,8 @@ import type { AppProps } from 'next/app';
 import { AnimatePresence } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useLenisStore, useLoaderStore } from '@/shared/stores';
+import { useLoaderStore } from '@/shared/stores/loader.store';
+import { useLenisStore } from '@/shared/stores/lenis.store';
 
 import './globals.css';
 import '@/config/lib/i18n';

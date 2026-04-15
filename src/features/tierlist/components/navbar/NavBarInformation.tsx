@@ -1,10 +1,13 @@
 import { useState, type JSX } from "react";
 import { AnimatePresence, motion } from 'framer-motion';
-import { Button, CardWrapper } from "@/shared/components"
+import { Button } from "@/shared/components/button/Button"
+import { CardWrapper } from "@/shared/components/card-wrapper/CardWrapper"
 import { information, informationPoints } from "@/shared/constants";
-import { fadeInMotion } from "@/shared/motion";
-import { AnglesIcon, AnglesIconSecondary, TrophyIcon } from "@/config/assets/icon";
-import { ITranslations } from "@/shared/interfaces";
+import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
+import { AnglesIcon} from "@/config/assets/icon/AnglesIcon";
+import { AnglesIconSecondary } from "@/config/assets/icon/AnglesIcon";
+import { TrophyIcon } from "@/config/assets/icon/TrophyIcon";
+import { ITranslations } from "@/shared/interfaces/globals";
 
 import styles from './navBar.module.css';
 

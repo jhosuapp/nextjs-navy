@@ -2,7 +2,8 @@ import Image from 'next/image';
 import { ReactNode, useEffect, useState, type JSX } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
-import { fadeInMotion, fadeUpMotion } from '@/shared/motion';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
+import { fadeUpMotion } from '@/shared/motion/fadeUp.motion';
 
 import styles from './modalWrapper.module.css';
 import iconClose from '@/config/assets/svg/icon-close.svg';

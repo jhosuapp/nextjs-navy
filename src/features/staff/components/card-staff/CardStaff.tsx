@@ -1,5 +1,5 @@
 import { memo, type JSX } from "react";
-import { CardWrapper } from "@/shared/components";
+import { CardWrapper } from "@/shared/components/card-wrapper/CardWrapper";
 import { StaffMember } from "../../interfaces";
 
 import styles from './cardStaff.module.css';

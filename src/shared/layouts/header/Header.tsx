@@ -3,15 +3,15 @@ import { useTranslation } from 'react-i18next';
 import { HeaderLogo, HeaderLogoText } from './HeaderLogo';
 import { HeaderList } from './HeaderList';
 import { paths } from '@/shared/constants';
-import { useMediaQuery } from '@/shared/hooks';
+import { useMediaQuery } from '@/shared/hooks/useMediaquery';
 import { HeaderHamburger } from './HeaderHamburger';
-import { useMenuStore } from '@/shared/stores';
-import { LanguageSwitcher } from '@/shared/components';
-import { getBansAction } from '@/features/bans/actions';
+import { useMenuStore } from '@/shared/stores/menu.store';
+import { LanguageSwitcher } from '@/shared/components/language-switcher/LanguageSwitcher';
+import { getBansAction } from '@/features/bans/actions/get-bans.action';
+import { getStaffAction } from '@/features/staff/actions/get-staff.action';
+import { getTierlistOverallAction } from '@/features/tierlist/actions/get-tierlistOverall.action';
 
 import styles from './header.module.css';
-import { getStaffAction } from '@/features/staff/actions';
-import { getTierlistOverallAction } from '@/features/tierlist/actions/get-tierlistOverall.action';
 
 
 

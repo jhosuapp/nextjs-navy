@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { TierlistView } from "@/features";
+import { TierlistView } from "@/features/tierlist/views/Tierlist.view";
 import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";

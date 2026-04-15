@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { fadeUpMotion } from '@/shared/motion';
+import { fadeUpMotion } from '@/shared/motion/fadeUp.motion';
 import { motion } from 'framer-motion';
 
 type MotionTextProps = {

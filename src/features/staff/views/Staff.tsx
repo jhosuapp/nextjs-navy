@@ -1,9 +1,11 @@
 import type { JSX } from "react";
 import { motion } from "framer-motion";
-import { CardWrappersecondary, Container, LoaderSecondary } from "@/shared/components"
+import { LoaderSecondary } from "@/shared/components/loader/LoaderSecondary"
+import { CardWrappersecondary } from "@/shared/components/card-wrapper-secondary/CardWrapperSecondary"
+import { Container } from "@/shared/components/container/Container"
 import { CardStaff } from "../components"
 import { useStaff } from "../hooks";
-import { fadeInMotion } from "@/shared/motion";
+import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
 
 const StaffView = ():JSX.Element => {
     const response = useStaff();

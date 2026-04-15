@@ -1,8 +1,9 @@
 import { memo, type JSX } from "react";
-import { CardBody, CardWrapper } from "@/shared/components";
+import { CardWrapper } from "@/shared/components/card-wrapper/CardWrapper";
+import { CardBody } from "@/shared/components/card-body/CardBody";
 import { Punishment } from "../../interfaces";
 import { formatDate, getDaysBetweenDates } from "../../helpers";
-import { ITranslations } from "@/shared/interfaces";
+import { ITranslations } from "@/shared/interfaces/globals";
 
 import styles from './cardBan.module.css';
 

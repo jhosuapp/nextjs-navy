@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { ChipModalities, PropsChipModalities } from "@/shared/components";
+import { ChipModalities, PropsChipModalities } from "@/shared/components/chip-modalities/ChipModalities";
 import styles from './totalTests.module.css';
 
 type Props = {

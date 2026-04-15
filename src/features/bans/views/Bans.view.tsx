@@ -1,8 +1,13 @@
 import type { JSX } from "react";
 import { motion } from 'framer-motion';
-import { Container, CardWrappersecondary, LoaderSecondary, Button, NotFound, Feedback } from "@/shared/components"
+import { Container } from "@/shared/components/container/Container"
+import { CardWrappersecondary } from "@/shared/components/card-wrapper-secondary/CardWrapperSecondary"
+import { LoaderSecondary } from "@/shared/components/loader/LoaderSecondary"
+import { Button } from "@/shared/components/button/Button"
+import { NotFound } from "@/shared/components/not-found/NotFound"
+import { Feedback } from "@/shared/components/feedback/Feedback"
 import { CardBan  } from "../components"
-import { fadeInMotion } from "@/shared/motion";
+import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
 import { useBansController } from '../hooks';
 
 const BansView = ():JSX.Element => {

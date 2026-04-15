@@ -1,7 +1,8 @@
 import type { JSX } from "react";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { fadeInMotion, zoomInMotion } from '@/shared/motion';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
+import { zoomInMotion } from '@/shared/motion/zoomIn.motion';
 import { BotSendMessage } from '../bot-send-message/BotSendMessage';
 import { BotMessage } from '../bot-message/BotMessage';
 import { BotMessageTyping } from '../bot-message/BotMessageTyping';

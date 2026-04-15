@@ -1,8 +1,10 @@
 import { useState, type JSX } from "react";
-import { TierWrapper } from "../tier-wrapper/TierWrapper"
-import { Button, CardSkin } from "@/shared/components"
+import { TierWrapper } from "../tier-wrapper/TierWrapper";
+import { CardSkin } from "@/shared/components/card-skin/CardSkin";
+import { Button } from "@/shared/components/button/Button";
 import { useTierlistByModalitieAndTier } from "../../hooks/useTierlistByModalitieQuery";
-import { ITranslations, Modalitie } from "@/shared/interfaces";
+import { ITranslations } from "@/shared/interfaces/globals";
+import { Modalitie } from "@/shared/interfaces/modalities.interface";
 import { TierKey, TierlistByGameSummary } from "../../interfaces";
 
 type Props = {

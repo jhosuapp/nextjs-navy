@@ -1,7 +1,7 @@
 import type { JSX } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { zoomInMotion } from '@/shared/motion';
+import { zoomInMotion } from '@/shared/motion/zoomIn.motion';
 
 import icon from '@/config/assets/svg/icon-spinner.svg';
 import styles from './spinner.module.css';

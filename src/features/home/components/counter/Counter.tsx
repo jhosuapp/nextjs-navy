@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, useSpring, useTransform, useScroll } from 'framer-motion';
-import { ChipModalities, PropsChipModalities } from '@/shared/components';
+import { ChipModalities, PropsChipModalities } from '@/shared/components/chip-modalities/ChipModalities';
 
 import styles from './counter.module.css';
 

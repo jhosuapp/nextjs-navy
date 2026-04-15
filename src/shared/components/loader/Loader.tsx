@@ -1,7 +1,7 @@
 import { useRef, type JSX } from "react";
 import styles from './loader.module.css';
 import { motion } from 'framer-motion';
-import { fadeInMotion } from "@/shared/motion";
+import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
 
 const Loader = ():JSX.Element => {
     const node = useRef<HTMLElement | null>(null);

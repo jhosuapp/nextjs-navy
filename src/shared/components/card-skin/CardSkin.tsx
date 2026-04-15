@@ -1,6 +1,8 @@
 import type { JSX } from "react";
-import { useModalStore, useSkinStore } from '@/shared/stores';
-import { ChipModalities, PropsChipModalities, ChipRegions, PropsChipRegions } from '../';
+import { useModalStore } from '@/shared/stores/modal.store';
+import { useSkinStore } from '@/shared/stores/skin.store';
+import { ChipRegions, PropsChipRegions } from '../chip-regions/ChipRegions';
+import { ChipModalities, PropsChipModalities } from '../chip-modalities/ChipModalities';
 
 import styles from './cardSkin.module.css';
 

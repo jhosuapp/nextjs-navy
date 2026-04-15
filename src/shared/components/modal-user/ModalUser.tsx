@@ -1,14 +1,17 @@
 import type { JSX } from "react";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ChipModalities, ModalWrapper, Skin3d } from '@/shared/components';
+import { Skin3d } from '@/shared/components/skin-3d/Skin3d';
+import { ModalWrapper } from '@/shared/components/modal-wrapper/ModalWrapper';
+import { ChipModalities } from '@/shared/components/chip-modalities/ChipModalities';
 
 import styles from './modalUser.module.css';
 import iconMedal from '@/config/assets/svg/icon-medal.svg';
 import iconCrown from '@/config/assets/svg/icon-crown.svg';
-import { useModalUser } from '@/shared/hooks';
-import { CrownIcon, MedalIcon } from '@/config/assets/icon';
-import { TierlistUser } from "@/features/tierlist/interfaces";
+import { useModalUser } from '@/shared/hooks/useModalUser';
+import { CrownIcon} from '@/config/assets/icon/CrownIcon';
+import { MedalIcon } from '@/config/assets/icon/MedalIcon';
+import { TierlistUser } from "@/features/tierlist/interfaces/tierlist.interface";
 
 
 const ModalUser = ():JSX.Element => {

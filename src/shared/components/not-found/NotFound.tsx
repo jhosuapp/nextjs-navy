@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 import { motion } from 'framer-motion';
 import { CardWrapperSecondaryChip } from "../card-wrapper-secondary/CardWrapperSecondaryChip";
-import { fadeInMotion } from '@/shared/motion';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 import styles from './notFound.module.css';
 
 

@@ -1,4 +1,6 @@
-import { Continents, Modalitie, Tiers } from "@/shared/interfaces"
+import { Tiers } from "@/shared/interfaces/tiers.interface"
+import { Continents } from "@/shared/interfaces/regions.interface"
+import { Modalitie } from "@/shared/interfaces/modalities.interface"
 
 type GameTier = {
     name: string

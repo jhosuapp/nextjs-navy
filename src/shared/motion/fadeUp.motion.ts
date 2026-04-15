@@ -1,4 +1,4 @@
-import { PartialMotionVariants } from "@/shared/interfaces";
+import { PartialMotionVariants } from "@/shared/interfaces/globals";
 
 export const fadeUpMotion = (delayAnimate: number, delayExit: number):PartialMotionVariants => {
     return {

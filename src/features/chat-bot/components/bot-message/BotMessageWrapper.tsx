@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ReactNode, type JSX } from 'react';
-import { fadeInNoneMotion } from '@/shared/motion';
+import { fadeInNoneMotion } from '@/shared/motion/fadeIn.motion';
 
 import styles from './botMessage.module.css';
 

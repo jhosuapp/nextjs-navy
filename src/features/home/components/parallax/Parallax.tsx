@@ -1,8 +1,9 @@
 import type { JSX } from "react";
 import { motion } from 'framer-motion';
 
-import { fadeInMotion, flowerMotion } from '@/shared/motion';
-import { Flower } from '@/shared/components';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
+import { flowerMotion } from '@/shared/motion/flower.motion';
+import { Flower } from '@/shared/components/flower/Flower';
 
 import styles from './parallax.module.css';
 

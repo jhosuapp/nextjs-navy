@@ -1,4 +1,4 @@
-import { PartnersView } from "@/features";
+import { PartnersView } from "@/features/partners/views/Partners.view";
 import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";

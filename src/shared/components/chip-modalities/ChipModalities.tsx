@@ -1,6 +1,7 @@
 import type { JSX } from "react";
-import { Modalitie, ModalitieImage, ModalitiesVariants, Tiers } from "@/shared/interfaces";
-import { useModalitieStore } from "@/shared/stores";
+import { Modalitie, ModalitieImage, ModalitiesVariants } from "@/shared/interfaces/modalities.interface";
+import { Tiers } from "@/shared/interfaces/tiers.interface";
+import { useModalitieStore } from "@/shared/stores/modalities.store";
 import { motion } from 'framer-motion';
 
 import styles from './chipModalities.module.css';

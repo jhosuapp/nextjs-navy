@@ -1,10 +1,11 @@
 import type { JSX } from "react";
-import { LoaderSecondary, SwiperWrapper } from "@/shared/components";
+import { LoaderSecondary } from "@/shared/components/loader/LoaderSecondary";
+import { SwiperWrapper } from "@/shared/components/swiper-wrapper/SwiperWrapper";
 import { useTierlistByModalitie } from '../../hooks/useTierlistByModalitieQuery';
-import { useModalitieStore } from '@/shared/stores';
+import { useModalitieStore } from '@/shared/stores/modalities.store';
 import { TierDataByModalitieItem } from "./TierDataByModalitieItem";
 import { SwiperSlide } from "swiper/react";
-import { ITranslations } from "@/shared/interfaces";
+import { ITranslations } from "@/shared/interfaces/globals";
 
 type Props = {
     t: ITranslations;

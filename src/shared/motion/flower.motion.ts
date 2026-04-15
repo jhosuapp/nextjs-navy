@@ -1,4 +1,4 @@
-import { PartialMotionVariants } from "../interfaces";
+import { PartialMotionVariants } from "@/shared/interfaces/globals";
 
 export const flowerMotion = (delayAnimate: number, delayExit: number): PartialMotionVariants => {
     return {

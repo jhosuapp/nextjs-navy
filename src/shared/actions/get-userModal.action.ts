@@ -1,4 +1,4 @@
-import { TierlistUser } from "@/features/tierlist/interfaces";
+import { TierlistUser } from "@/features/tierlist/interfaces/tierlist.interface";
 import { navyApi } from "@/shared/api";
 
 const getUserByNameAction = async (username: string):Promise<{data: TierlistUser}> => {

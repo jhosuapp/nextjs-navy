@@ -1,6 +1,6 @@
 import { memo, useEffect, useState, type JSX } from 'react';
 import styles from './floatingDots.module.css';
-import { useSwitchStore } from '@/shared/stores';
+import { useSwitchStore } from '@/shared/stores/switch.store';
 
 const MAX_DOTS = 50;
 const INTERVAL_TIME = 300; 

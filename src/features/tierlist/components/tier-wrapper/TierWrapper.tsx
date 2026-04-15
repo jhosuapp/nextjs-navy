@@ -1,10 +1,10 @@
 import { ReactNode, type JSX } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 
 import styles from './tierWrapper.module.css';
 import icon from '@/config/assets/svg/icon-award-secondary.svg';
-import { fadeInMotion } from '@/shared/motion';
 
 type Props = {
     children: ReactNode;

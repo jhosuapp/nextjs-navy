@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { BansView } from "@/features";
-import { paths } from "@/shared/constants";
+import { BansView } from "@/features/bans/views/Bans.view";
+import { paths } from "@/shared/constants/routes";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";
 

@@ -1,6 +1,6 @@
 import { create, type StateCreator } from "zustand";
 import { devtools } from "zustand/middleware";
-import { Modalitie } from "../interfaces";
+import { Modalitie } from "../interfaces/modalities.interface";
 
 interface ModalitiesState {
     currentModalitie: Modalitie;

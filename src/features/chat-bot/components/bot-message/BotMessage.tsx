@@ -1,7 +1,7 @@
 import type { JSX } from "react";
 import { motion } from 'framer-motion';
 import { ItemBotMessage } from '../../interfaces/chatBot.interface';
-import { fadeInNoneMotion } from '@/shared/motion';
+import { fadeInNoneMotion } from '@/shared/motion/fadeIn.motion';
 import { BotMessageWrapper } from './BotMessageWrapper';
 
 import styles from './botMessage.module.css';

@@ -2,7 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useLoadMore } from "./useLoadMore";
 import { useBansQuery } from "./useBansQuery";
 import { anchorScroll } from "@/shared/helpers";
-import { useLenisStore, useSearchStore } from "@/shared/stores";
+import { useLenisStore } from "@/shared/stores/lenis.store";
+import { useSearchStore } from "@/shared/stores/search.store";
 
 const useBansController = () => {
     const response = useBansQuery();

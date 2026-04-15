@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { HomeView } from "@/features";
+import { HomeView } from "@/features/home/views/Home.view";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "./Layout";
 import { paths } from "@/shared/constants";

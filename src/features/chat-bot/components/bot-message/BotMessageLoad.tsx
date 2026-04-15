@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { Spinner } from "@/shared/components";
+import { Spinner } from "@/shared/components/spinner/Spinner";
 import { BotMessageWrapper } from "./BotMessageWrapper";
 
 import styles from './botMessage.module.css';

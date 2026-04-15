@@ -1,7 +1,8 @@
 import { useState, type JSX } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { fadeInMotion, zoomInMotion } from '@/shared/motion';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
+import { zoomInMotion  } from '@/shared/motion/zoomIn.motion';
 import { useChatBotStore } from '../../stores/chatBot.store';
 
 import styles from './botSticky.module.css';

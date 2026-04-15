@@ -2,7 +2,7 @@ import type { JSX } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useQueryClient } from "@tanstack/react-query";
-import { useMenuStore } from "@/shared/stores";
+import { useMenuStore } from "@/shared/stores/menu.store";
 
 import styles from './header.module.css';
 

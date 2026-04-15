@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { Continents, REGION_VARIANT_BY_CONTINENT } from "@/shared/interfaces";
+import { Continents, REGION_VARIANT_BY_CONTINENT } from "@/shared/interfaces/regions.interface";
 
 import styles from './chipRegions.module.css';
 

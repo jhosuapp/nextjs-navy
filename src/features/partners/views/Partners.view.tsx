@@ -1,6 +1,7 @@
 import type { JSX } from "react";
 import { useTranslation } from "react-i18next";
-import { CardWrappersecondary, Container } from "@/shared/components";
+import { CardWrappersecondary } from "@/shared/components/card-wrapper-secondary/CardWrapperSecondary";
+import { Container } from "@/shared/components/container/Container";
 import { CardPartners } from "../components";
 import { serversData, streamersData } from "../data";
 

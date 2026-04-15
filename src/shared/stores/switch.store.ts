@@ -1,6 +1,6 @@
 import { create, type StateCreator } from "zustand";
 import { devtools, persist } from "zustand/middleware";
-import { SwitchKey } from "../interfaces";
+import { SwitchKey } from "../interfaces/switch.interface";
 
 interface SwitchState {
     switches: Record<SwitchKey, boolean>;

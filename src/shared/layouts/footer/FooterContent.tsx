@@ -4,8 +4,8 @@ import Image from 'next/image';
 import styles from './footer.module.css';
 import icon from '@/config/assets/svg/icon-arrow.svg';
 import { useRouter } from 'next/router';
-import { useLenisStore } from '@/shared/stores';
-import { ITranslations } from '@/shared/interfaces';
+import { useLenisStore } from '@/shared/stores/lenis.store';
+import { ITranslations } from '@/shared/interfaces/globals';
 
 
 type Props = {

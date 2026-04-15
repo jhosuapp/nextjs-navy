@@ -1,11 +1,14 @@
 import type { JSX } from "react";
 import { motion } from 'framer-motion';
-import { CardBody, ChipModalities, ChipRegions, PropsChipRegions } from "@/shared/components";
-import { Tiers } from "@/shared/interfaces";
-import { useModalStore, useSkinStore } from "@/shared/stores";
+import { CardBody } from "@/shared/components/card-body/CardBody";
+import { ChipModalities } from "@/shared/components/chip-modalities/ChipModalities";
+import { ChipRegions, PropsChipRegions } from "@/shared/components/chip-regions/ChipRegions";
+import { Tiers } from "@/shared/interfaces/tiers.interface";
+import { useModalStore } from "@/shared/stores/modal.store";
+import { useSkinStore } from "@/shared/stores/skin.store";
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 
 import styles from './tierDataOverall.module.css';
-import { fadeInMotion } from '@/shared/motion';
 
 
 type Props = {

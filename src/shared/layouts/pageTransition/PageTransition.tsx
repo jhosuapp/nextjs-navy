@@ -6,8 +6,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { anim, text, } from './pageTransition.motion';
 import { routes } from '@/shared/constants';
 import { SVG } from './PageTransitionSVG';
-import { useLoaderStore, useModalStore } from '@/shared/stores';
-import { ModalUser } from '@/shared/components';
+import { useLoaderStore } from '@/shared/stores/loader.store';
+import { useModalStore } from '@/shared/stores/modal.store';
+import { ModalUser } from '@/shared/components/modal-user/ModalUser';
 
 import styles from './pageTransition.module.css';
 

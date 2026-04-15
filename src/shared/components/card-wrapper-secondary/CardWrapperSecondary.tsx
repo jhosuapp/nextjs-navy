@@ -1,7 +1,8 @@
 import { ReactNode, type JSX } from "react";
 import { motion } from 'framer-motion';
-import { fadeUpMotion } from "@/shared/motion";
-import { Divider, Search } from "@/shared/components";
+import { fadeUpMotion } from "@/shared/motion/fadeUp.motion";
+import { Divider } from "@/shared/components/divider/Divider";
+import { Search } from "@/shared/components/search/Search";
 import { CardWrapperSecondaryChip } from "./CardWrapperSecondaryChip";
 
 import styles from './cardWrapperSecondary.module.css';

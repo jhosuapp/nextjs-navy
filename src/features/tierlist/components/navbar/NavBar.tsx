@@ -1,13 +1,15 @@
 import type { JSX } from "react";
 import { motion } from 'framer-motion';
-import { Button, ChipModalities, InputField } from "@/shared/components";
+import { Button } from "@/shared/components/button/Button";
+import { ChipModalities } from "@/shared/components/chip-modalities/ChipModalities";
+import { InputField } from "@/shared/components/input-field/InputField";
 import { userNavBar } from "../../hooks";
-import { zoomInMotion } from '@/shared/motion';
+import { zoomInMotion } from '@/shared/motion/zoomIn.motion';
 import { NavBarInformation } from './NavBarInformation';
+import { ITranslations } from '@/shared/interfaces/globals';
 
 import styles from './navBar.module.css';
 import icon from '@/config/assets/svg/icon-search.svg';
-import { ITranslations } from '@/shared/interfaces';
 
 type Props = {
     t: ITranslations;

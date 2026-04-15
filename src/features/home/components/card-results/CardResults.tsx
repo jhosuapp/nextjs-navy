@@ -1,10 +1,11 @@
 import type { JSX } from "react";
 import { motion } from 'framer-motion';
-import { ChipModalities, PropsChipModalities } from '@/shared/components';
-import { CrownIcon } from '@/config/assets/icon';
+import { ChipModalities, PropsChipModalities } from '@/shared/components/chip-modalities/ChipModalities';
+import { CrownIcon } from '@/config/assets/icon/CrownIcon';
+import { useModalStore } from '@/shared/stores/modal.store';
+import { useSkinStore } from '@/shared/stores/skin.store';
 
 import styles from './cardResults.module.css';
-import { useModalStore, useSkinStore } from '@/shared/stores';
 
 type Props = {
     nick: string; 

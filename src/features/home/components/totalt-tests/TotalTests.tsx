@@ -1,11 +1,12 @@
 import type { JSX } from "react";
 import { motion } from 'framer-motion';
-import { LoaderSecondary } from '@/shared/components';
-import { Modalitie, ITranslations } from '@/shared/interfaces';
+import { LoaderSecondary } from '@/shared/components/loader/LoaderSecondary';
+import { ITranslations } from '@/shared/interfaces/globals';
+import { Modalitie } from '@/shared/interfaces/modalities.interface';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
+import { AnimatedCounter } from '../counter/Counter';
 
 import styles from './totalTests.module.css';
-import { fadeInMotion } from '@/shared/motion';
-import { AnimatedCounter } from '../counter/Counter';
 
 type Props = {
     totalTests: Record<Modalitie, number>;

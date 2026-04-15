@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { RadioField } from "@/shared/components"
+import { RadioField } from "@/shared/components/radio-field/RadioField"
 import { BotMessageWrapper } from "../../bot-message/BotMessageWrapper"
 import { useRadioStepController } from "@/features/chat-bot/hooks/useRadioStep.controller";
 import { ItemBotMessage } from "@/features/chat-bot/interfaces/chatBot.interface";

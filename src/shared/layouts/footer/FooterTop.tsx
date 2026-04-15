@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { ITranslations } from '@/shared/interfaces';
+import { ITranslations } from '@/shared/interfaces/globals';
 import styles from './footer.module.css';
 
 

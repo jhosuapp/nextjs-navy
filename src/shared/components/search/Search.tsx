@@ -1,6 +1,6 @@
 import { useEffect, useState, type JSX } from 'react';
 import { motion } from 'framer-motion';
-import { useSearchStore } from '@/shared/stores';
+import { useSearchStore } from '@/shared/stores/search.store';
 import { InputField } from '../input-field/InputField';
 import { Button } from '../button/Button';
 

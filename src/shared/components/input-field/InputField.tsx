@@ -2,7 +2,7 @@ import { motion, MotionProps } from 'framer-motion';
 import { forwardRef, InputHTMLAttributes, type JSX } from "react";
 
 import styles from './inputField.module.css';
-import { fadeInMotion } from '@/shared/motion';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 
 type NativeProps = InputHTMLAttributes<HTMLInputElement>;
 

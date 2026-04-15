@@ -1,6 +1,6 @@
 import { HTMLAttributes, type JSX } from 'react';
 import { motion, MotionProps } from "framer-motion";
-import { fadeInMotion } from '@/shared/motion';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 
 import styles from './loaderSecondary.module.css';
 
