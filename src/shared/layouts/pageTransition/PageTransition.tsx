@@ -21,9 +21,9 @@ const PageTransition = ({ children }:Props):JSX.Element => {
     const { t } = useTranslation("common");
     const isLoadingDelay = useLoaderStore( state => state.isLoadingDelay );
     const showModal = useModalStore( state => state.showModal );
-    const [dimensions, setDimensions] = useState<{width: number | null, height: number | null }>({
-        width: null,
-        height: null
+    const [dimensions, setDimensions] = useState({
+        width: typeof window !== 'undefined' ? window.innerWidth : 1920,
+        height: typeof window !== 'undefined' ? window.innerHeight : 1080,
     });
 
     useEffect( () => {
@@ -53,11 +53,10 @@ const PageTransition = ({ children }:Props):JSX.Element => {
                     className={ `${styles.curve__route} ${styles.curve__route__transition}` } 
                     {...anim(text)}
                 >
-                    {/* {t('loader.loading')} */}
                     Navy Tierlist
                 </motion.p>
             ) : (
-                <motion.p className={ styles.curve__route } {...anim(text)}>
+                <motion.p className={ `${styles.curve__route}` } {...anim(text)}>
                     {t(`nav.${routes[router.route]}`) ?? '404'}
                 </motion.p>
             )}

@@ -24,8 +24,8 @@ const useBansController = () => {
     const filteredActiveBans = filterBySearch(activeBans);
     const filteredInactiveBans = filterBySearch(inactiveBans);
 
-    const activeBansPaginated = useLoadMore(filteredActiveBans, 6);
-    const inactiveBansPaginated = useLoadMore(filteredInactiveBans, 6);
+    const activeBansPaginated = useLoadMore(filteredActiveBans, 3);
+    const inactiveBansPaginated = useLoadMore(filteredInactiveBans, 3);
     const lenis = useLenisStore(state => state.lenis);
 
     const getDuration = (index: number) => {
@@ -40,7 +40,7 @@ const useBansController = () => {
     };
 
     const handleLoadMoreInactive = () => {
-        inactiveBansPaginated.loadMore(); // 👈 Fix: era activeBansPaginated por error
+        inactiveBansPaginated.loadMore(); 
         anchorScroll(lenis);
     };
 

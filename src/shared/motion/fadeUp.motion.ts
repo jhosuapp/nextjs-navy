@@ -2,7 +2,7 @@ import { PartialMotionVariants } from "@/shared/interfaces/globals";
 
 export const fadeUpMotion = (delayAnimate: number, delayExit: number):PartialMotionVariants => {
     return {
-        initial: { translateY: 100 },
+        initial: { translateY: 70 },
         animate: {
             translateY: 0,                            
             transition: {
@@ -16,7 +16,7 @@ export const fadeUpMotion = (delayAnimate: number, delayExit: number):PartialMot
         },
         exit: {
             opacity: 0,
-            translateY: -100,
+            translateY: -70,
             transition: {
                 type: "spring",
                 stiffness: 50,

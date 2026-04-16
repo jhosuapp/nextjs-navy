@@ -9,6 +9,7 @@ import { Feedback } from "@/shared/components/feedback/Feedback"
 import { CardBan  } from "../components"
 import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
 import { useBansController } from '../hooks';
+import { fadeUpMotion } from "@/shared/motion/fadeUp.motion";
 
 const BansView = ():JSX.Element => {
     const { 
@@ -21,13 +22,6 @@ const BansView = ():JSX.Element => {
         t
     } = useBansController();
 
-    if(response.isLoading){
-        return (
-            <Container className="!mt-5 lg:!mt-10" isFirst isLast>
-                <LoaderSecondary textLoader={ t('loading') }/>
-            </Container>
-        )
-    }
 
     return (
         <Container className="!mt-5 lg:!mt-10" isFirst isLast>
@@ -47,23 +41,32 @@ const BansView = ():JSX.Element => {
                 {value && !activeBans.length && (
                     <Feedback texFeedback={ t('search.resultsNotFound') } />
                 )}
-                {activeBansPaginated.visibleItems.map((data, index)=>(
-                    <motion.div {...fadeInMotion(getDuration(index), 1)} key={`${data.nick}-${index}-actives`}>
-                        <CardBan 
-                            key={ `${data.nick}-${index}` }
-                            data={ data }
-                            isFadeUp={ !value && index <= 5 }
-                            t={ t }
-                        />
-                    </motion.div>
-                ))}
+                {response.isLoading ? (
+                    <Container className="!mt-5 lg:!mt-10" isFirst isLast>
+                        <LoaderSecondary textLoader={ t('loading') }/>
+                    </Container>
+                ): (
+                    <>
+                        {activeBansPaginated.visibleItems.map((data, index)=>(
+                            <motion.div {...fadeInMotion(getDuration(index), 1)} key={`${data.nick}-${index}-actives`}>
+                                <CardBan 
+                                    key={ `${data.nick}-${index}` }
+                                    data={ data }
+                                    isFadeUp={ false }
+                                    t={ t }
+                                />
+                            </motion.div>
+                        ))}
+                    </>
+                )}
             </CardWrappersecondary>
             {activeBansPaginated.hasMore && (
-                <motion.div className='flex justify-center w-full mt-10' {...fadeInMotion(0,0)}>
+                <motion.div className='flex justify-center w-full mt-10 relative overflow-hidden' >
                     <Button
                         onClick={ handleLoadMoreActive }
                         text={t('cta')} 
                         style={'secondary' } 
+                        {...fadeUpMotion(0.56, 0.13)}
                     />
                 </motion.div>
             )}

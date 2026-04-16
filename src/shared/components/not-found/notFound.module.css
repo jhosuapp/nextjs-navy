@@ -1,8 +1,8 @@
 .notFound{
-    @apply col-span-full text-center flex justify-between;
+    @apply col-span-full text-center flex justify-between gap-10 items-center;
 }
 
 .notFoundText{
-    @apply text-xl font-medium text-purple-300 text-opacity-50 text-left;
+    @apply text-xl font-medium text-purple-300 text-opacity-50 text-left leading-none;
 }
 

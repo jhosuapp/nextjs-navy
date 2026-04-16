@@ -1,10 +1,10 @@
-import { useEffect, type JSX } from "react";
+import { useEffect, useState, type JSX } from "react";
 import { motion, useSpring, useMotionValue } from 'framer-motion';
 import { useMediaQuery } from "@/shared/hooks/useMediaquery";
 
 import styles from './cursor.module.css';
 
-const Cursor = (): JSX.Element => {
+const Cursor = (): JSX.Element | null => {
     const isDesktop = useMediaQuery({});
 
     const motionX = useMotionValue(0);
@@ -35,10 +35,10 @@ const Cursor = (): JSX.Element => {
         <motion.div
             className={styles.cursor}
             style={{
-                left: springX,
-                top: springY,
-                x: '-50%',
-                y: '-50%',
+                x: springX,
+                y: springY,
+                translateX: '-50%',
+                translateY: '-60%',
             }}
         >
             <div className={styles.glowOuter} />

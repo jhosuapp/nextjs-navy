@@ -1,5 +1,7 @@
 .cursor {
     @apply fixed z-10 pointer-events-none;
+    will-change: transform, opacity;
+    contain: layout style paint;
     width: 700px;
     height: 700px;
 }
