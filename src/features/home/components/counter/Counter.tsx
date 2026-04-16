@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, useInView, useSpring, useTransform, useScroll } from 'framer-motion';
 import { ChipModalities, PropsChipModalities } from '@/shared/components/chip-modalities/ChipModalities';
 
@@ -15,7 +15,7 @@ type Props = {
 const AnimatedCounter = ({ value, label, suffix = '', index, modalitie, modalitieImage }:Props):JSX.Element => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
-    const [hasAnimated, setHasAnimated] = useState(false);
+    const hasAnimatedRef = useRef<boolean>(false);
     
     const { scrollYProgress } = useScroll({
         target: ref,
@@ -32,11 +32,11 @@ const AnimatedCounter = ({ value, label, suffix = '', index, modalitie, modaliti
     const [displayValue, setDisplayValue] = useState(0);
     
     useEffect(() => {
-        if (isInView && !hasAnimated) {
+        if (isInView && !hasAnimatedRef.current) {
             motionValue.set(value);
-            setHasAnimated(true);
+            hasAnimatedRef.current = true;
         }
-    }, [isInView, value, motionValue, hasAnimated]);
+    }, [isInView, value, motionValue]);
     
     useEffect(() => {
         return rounded.on('change', latest => setDisplayValue(latest));

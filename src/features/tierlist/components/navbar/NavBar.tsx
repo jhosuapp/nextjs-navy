@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Button } from "@/shared/components/button/Button";
 import { ChipModalities } from "@/shared/components/chip-modalities/ChipModalities";
 import { InputField } from "@/shared/components/input-field/InputField";
-import { userNavBar } from "../../hooks";
+import { useNavBar } from "../../hooks";
 import { zoomInMotion } from '@/shared/motion/zoomIn.motion';
 import { NavBarInformation } from './NavBarInformation';
 import { ITranslations } from '@/shared/interfaces/globals';
@@ -16,7 +16,7 @@ type Props = {
 }
 
 const NavBar = ({ t }:Props):JSX.Element => {
-    const { setValue, value, onSubmit } = userNavBar();
+    const { setValue, value, onSubmit } = useNavBar();
 
     return (
         <article className={ styles.navBar }>

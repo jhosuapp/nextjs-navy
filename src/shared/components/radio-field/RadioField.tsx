@@ -15,12 +15,8 @@ type CustomProps = {
 type Props = NativeProps & CustomProps;
 
 
-const RadioField = ({ children, style, classNameParent = '', classNameWrapper = '', motionVariants, ...props }:Props):JSX.Element => {
-    const [isChecked, setIsChecked] = useState<boolean>(false);
-
-    useEffect(() => {
-        setIsChecked(!!props.checked);
-    }, [props.checked]);
+const RadioField = ({ children, classNameParent = '', classNameWrapper = '', motionVariants, ...props }:Props):JSX.Element => {
+    const isChecked = !!props.checked;
 
     return (
         <motion.div 
@@ -35,9 +31,8 @@ const RadioField = ({ children, style, classNameParent = '', classNameWrapper = 
                 <input 
                     type="radio"
                     onChange={(e) => {
-                        setIsChecked(e.target.checked);
                         props.onChange?.(e);
-                      }}
+                    }}
                     {...props}
                 />
                 <label

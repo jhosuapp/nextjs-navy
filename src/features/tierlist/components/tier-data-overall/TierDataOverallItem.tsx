@@ -1,4 +1,5 @@
 import { memo, type JSX } from "react";
+import Image from "next/image";
 import { motion } from 'framer-motion';
 import { CardBody } from "@/shared/components/card-body/CardBody";
 import { ChipModalities } from "@/shared/components/chip-modalities/ChipModalities";
@@ -59,7 +60,12 @@ const TierDataOverallItem = memo(({
             </div>
             <CardBody username={ username }>
                 <p className={ styles.tierDataOverallItem__combatInfo }>
-                    <img src={`/images/${combat_img}`} alt={ `Navy ${combat_title}` } />
+                    <Image 
+                        src={`/images/${combat_img}`} 
+                        alt={ `Navy ${combat_title}` } 
+                        width={20}
+                        height={20}
+                    />
                     { combat_title }
                 </p>
             </CardBody>

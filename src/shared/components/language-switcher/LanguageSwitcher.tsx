@@ -1,4 +1,5 @@
 import { useRef, useState, useEffect, type JSX } from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import styles from './languageSwitcher.module.css';
@@ -62,7 +63,7 @@ const LanguageSwitcher = (): JSX.Element => {
                             onClick={() => handleSelect(code)}
                             onMouseEnter={() => handlePrefetch(code)}
                         >
-                            <img src={`/images/icon-${label}.svg?v=1`} alt="" />
+                            <Image src={`/images/icon-${label}.svg`} width={24} height={24} alt={ `Lenguaje ${label}` } />
                             {label}
                         </button>
                     ))}

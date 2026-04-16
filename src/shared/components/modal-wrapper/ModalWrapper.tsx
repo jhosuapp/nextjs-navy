@@ -14,15 +14,9 @@ type Props = {
 }
 
 const ModalWrapper = ({ children, callBackClose }:Props):JSX.Element | null => {
-    const [mounted, setMounted] = useState(false);
-    const [portalRoot, setPortalRoot] = useState<HTMLElement | null>(null);
+    const portalRoot = document.getElementById('portal-modal');
 
-    useEffect(() => {
-        setMounted(true);
-        setPortalRoot(document.getElementById('portal-modal'));
-    }, []);
-    
-    if (!mounted || !portalRoot) return null;
+    if (!portalRoot) return null;
 
     return createPortal(
         <motion.section
