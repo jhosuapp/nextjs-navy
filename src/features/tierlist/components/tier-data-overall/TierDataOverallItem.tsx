@@ -1,4 +1,5 @@
-import type { JSX } from "react";
+import { memo, type JSX } from "react";
+import Image from "next/image";
 import { motion } from 'framer-motion';
 import { CardBody } from "@/shared/components/card-body/CardBody";
 import { ChipModalities } from "@/shared/components/chip-modalities/ChipModalities";
@@ -19,10 +20,10 @@ type Props = {
     tierSword: Tiers;
     tierNetherite: Tiers;
     tierCrystal: Tiers;
-    delay?: { enter: number, exit: number  };
+    index: number;
 } & PropsChipRegions;
 
-const TierDataOverallItem = ({ 
+const TierDataOverallItem = memo(({ 
     username,
     position,
     tierSword,
@@ -31,7 +32,7 @@ const TierDataOverallItem = ({
     continent,
     combat_title,
     combat_img,
-    delay = { enter: 0, exit: 0 }
+    index
 }:Props):JSX.Element => {
     const setSkin = useSkinStore(state => state.setSkin);
     const setShowModal = useModalStore(state => state.setShowModal);
@@ -39,6 +40,11 @@ const TierDataOverallItem = ({
     const hanldeOnClick = () => {
         setSkin(username);
         setShowModal(true);
+    };
+
+    const delay = {
+        enter: (index % 10) * 0.1,
+        exit: (index % 10) * 0.1
     };
 
     return (
@@ -54,7 +60,12 @@ const TierDataOverallItem = ({
             </div>
             <CardBody username={ username }>
                 <p className={ styles.tierDataOverallItem__combatInfo }>
-                    <img src={`/images/${combat_img}`} alt={ `Navy ${combat_title}` } />
+                    <Image 
+                        src={`/images/${combat_img}`} 
+                        alt={ `Navy ${combat_title}` } 
+                        width={20}
+                        height={20}
+                    />
                     { combat_title }
                 </p>
             </CardBody>
@@ -86,6 +97,8 @@ const TierDataOverallItem = ({
             </div>
         </motion.div>
     )
-}
+})
+
+TierDataOverallItem.displayName = 'TierDataOverallItem';
 
 export { TierDataOverallItem }

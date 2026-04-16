@@ -15,5 +15,5 @@
 }
 
 .langSwitch__wrapper button img{
-    @apply block max-w-6;
+    @apply block max-w-6 object-contain;
 }

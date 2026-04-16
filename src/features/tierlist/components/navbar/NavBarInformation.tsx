@@ -1,4 +1,5 @@
 import { useState, type JSX } from "react";
+import Image from "next/image";
 import { AnimatePresence, motion } from 'framer-motion';
 import { Button } from "@/shared/components/button/Button"
 import { CardWrapper } from "@/shared/components/card-wrapper/CardWrapper"
@@ -108,10 +109,11 @@ const NavBarInformation = ({ t }:Props):JSX.Element => {
                                             {...fadeInMotion(index * 0.25, index * 0.1)}
                                         >
                                             <div className={ styles.navBarInformation__title }>
-                                                <img
+                                                <Image
                                                     src={`/images/${item.img}`}
                                                     alt={item.title}
-                                                    className={styles.image}
+                                                    width={20}
+                                                    height={20}
                                                 />
         
                                                 <h3 style={{ color: item.color }}>

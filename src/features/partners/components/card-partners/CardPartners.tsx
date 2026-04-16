@@ -71,4 +71,6 @@ const CardPartners = memo(({ data, t }: Props): JSX.Element => {
     );
 });
 
+CardPartners.displayName = 'CardPartners';
+
 export { CardPartners }

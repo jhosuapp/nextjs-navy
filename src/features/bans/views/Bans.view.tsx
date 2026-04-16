@@ -28,7 +28,6 @@ const BansView = ():JSX.Element => {
             <CardWrappersecondary 
                 title={ t('hero.active') } 
                 placeholder={ t('hero.search') }
-                text={``} 
                 hasSearch 
                 hasAnimation
             >
@@ -48,9 +47,12 @@ const BansView = ():JSX.Element => {
                 ): (
                     <>
                         {activeBansPaginated.visibleItems.map((data, index)=>(
-                            <motion.div {...fadeInMotion(getDuration(index), 1)} key={`${data.nick}-${index}-actives`}>
+                            <motion.div 
+                                layout
+                                {...fadeInMotion(getDuration(index), 1)} 
+                                key={`${data.nick}-bans-actives`}
+                            >
                                 <CardBan 
-                                    key={ `${data.nick}-${index}` }
                                     data={ data }
                                     isFadeUp={ false }
                                     t={ t }

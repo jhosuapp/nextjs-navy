@@ -1,17 +1,12 @@
-import { useRef, type JSX } from "react";
+import { type JSX } from "react";
 import styles from './loader.module.css';
 import { motion } from 'framer-motion';
 import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
 
 const Loader = ():JSX.Element => {
-    const node = useRef<HTMLElement | null>(null);
-
-    setTimeout(()=>{
-        node.current && node.current.classList.add(styles.animateLoader);
-    },1500);
 
     return (
-        <motion.section className={styles.loader} ref={ node } {...fadeInMotion(0.1, 0)}>
+        <motion.section className={styles.loader} {...fadeInMotion(0.1, 0)}>
             <article className={styles.loader__bg}></article>
             <article className={`${styles.loader__bg} ${styles.loader__bg__secondary}`}></article>
             <article className={styles.loader__content}>

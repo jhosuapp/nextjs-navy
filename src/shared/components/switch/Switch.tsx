@@ -1,4 +1,4 @@
-import React, { useEffect, type JSX } from "react";
+import { useEffect, memo, type JSX } from "react";
 import { motion } from "framer-motion";
 import { variantSwitch } from "./switch.variants";
 import { SwitchKey } from "@/shared/interfaces/switch.interface";
@@ -11,7 +11,7 @@ type Props = {
     id: SwitchKey;
 }
 
-const Switch = React.memo(({ text, id }:Props):JSX.Element => {
+const Switch = memo(({ text, id }:Props):JSX.Element => {
     const switches = useSwitchStore(state => state.switches);
     const setSwitch = useSwitchStore(state => state.setSwitch);
 
@@ -36,5 +36,7 @@ const Switch = React.memo(({ text, id }:Props):JSX.Element => {
         </div>
     )
 });
+
+Switch.displayName = 'Switch';
 
 export { Switch }

@@ -49,6 +49,10 @@
     @apply relative -left-2.5;
 }
 
+.chipModalities__image img{
+    @apply object-contain;
+}
+
 .chipModalitiesActive{
     @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500;
 }

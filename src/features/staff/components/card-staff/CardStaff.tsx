@@ -31,4 +31,6 @@ const CardStaff = memo(({ data }:Props):JSX.Element => {
     )
 })
 
+CardStaff.displayName = 'CardStaff';
+
 export { CardStaff }

@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useModalStore } from "@/shared/stores/modal.store";
 import { useSkinStore } from "@/shared/stores/skin.store";
 
-const userNavBar = () => {
+const useNavBar = () => {
     const formRef = useRef<HTMLFormElement>(null);
     const setShowModal = useModalStore(state => state.setShowModal);
     const setSkin = useSkinStore(state => state.setSkin);
@@ -23,4 +23,4 @@ const userNavBar = () => {
     }
 }
 
-export { userNavBar }
+export { useNavBar }

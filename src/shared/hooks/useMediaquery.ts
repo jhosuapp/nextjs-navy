@@ -10,14 +10,19 @@ const useMediaQuery = ({ breakpoint = 1024, type = 'min-width' }:Props) => {
 
     useEffect(() => {
         const media = window.matchMedia(`(${type}: ${breakpoint}px)`);
-        if (media.matches !== matches) {
+    
+        const listener = () => {
             setMatches(media.matches);
-        }
-        const listener = () => setMatches(media.matches);
-        window.addEventListener('resize', listener);
-
-        return () => window.removeEventListener('resize', listener);
-    }, [breakpoint, matches, type]);
+        };
+    
+        listener();
+    
+        media.addEventListener('change', listener);
+    
+        return () => {
+            media.removeEventListener('change', listener);
+        };
+    }, [breakpoint, type]);
 
     return matches;
 };

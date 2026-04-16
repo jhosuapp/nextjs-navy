@@ -10,14 +10,14 @@ import styles from './cardWrapperSecondary.module.css';
 type Props = {
     children: ReactNode;
     title: string;
-    text: string;
+    text?: string;
     isSmallGrid?: boolean;
     hasSearch?: boolean;
     hasAnimation?: boolean;
     placeholder?: string;
 }
 
-const CardWrappersecondary = ({ children, title, text, isSmallGrid = false, hasSearch = false, hasAnimation = false, placeholder = '' }:Props):JSX.Element => {
+const CardWrappersecondary = ({ children, title, text = '', isSmallGrid = false, hasSearch = false, hasAnimation = false, placeholder = '' }:Props):JSX.Element => {
     return (
         <section className={ `${styles.cardWrappersecondary} ${isSmallGrid && styles.cardWrappersecondarySmall}` }>
             <motion.div {...fadeUpMotion(0.7, 0.13)}>

@@ -31,4 +31,6 @@ const InputField = forwardRef<HTMLInputElement, Props>(({ feedback, style, motio
     }
 );
 
+InputField.displayName = 'InputField';
+
 export { InputField }
