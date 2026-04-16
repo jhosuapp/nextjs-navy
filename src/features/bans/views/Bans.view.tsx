@@ -42,7 +42,7 @@ const BansView = ():JSX.Element => {
                     <Feedback texFeedback={ t('search.resultsNotFound') } />
                 )}
                 {response.isLoading ? (
-                    <Container className="!mt-5 lg:!mt-10" isFirst isLast>
+                    <Container className="!mt-5 lg:!mt-10 flex col-span-full">
                         <LoaderSecondary textLoader={ t('loading') }/>
                     </Container>
                 ): (
