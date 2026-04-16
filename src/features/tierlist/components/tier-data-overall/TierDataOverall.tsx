@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import { useMemo, type JSX } from "react";
 import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 import { AnimatePresence, motion } from 'framer-motion';
 import { TierDataOverallItem } from './TierDataOverallItem';
@@ -57,8 +57,8 @@ const TierDataOverall = ({ t }:Props):JSX.Element => {
                                     continent={ item.region }
                                     combat_title={ `${t(`information.${combatTitleLower}.title`)} (${item.points} ${t('information.points')})` }
                                     combat_img={ combatData.img }
-                                    delay={ { enter: (index % 10) * 0.1, exit: (index % 10) * 0.1} }
-                                    key={ `${item.nick}-${index}-${item.points}` }
+                                    key={ `${item.nick}-tieroverall` }
+                                    index={ index }
                                 />
                             )
                         })}

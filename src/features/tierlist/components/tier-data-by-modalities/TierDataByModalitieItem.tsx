@@ -46,9 +46,9 @@ const TierDataByModalitieItem = ({ currentModalitie, data, tier, tierNumber, del
             key={`${currentModalitie}-tier-wrapper`}
         >
 
-            {uniquePlayers.map((item, index) => (
+            {uniquePlayers.map((item) => (
                 <CardSkin
-                    key={`${item.nick}-${index}`}
+                    key={`${item.nick}-tierByModalitie-${currentModalitie}`}
                     className="!justify-between w-full !px-4 !py-3"
                     username={item.nick}
                     width={50}

@@ -48,4 +48,6 @@ const CardWrapper = memo(({ title, icon, className = '', classNameParent = '', i
     )
 })
 
+CardWrapper.displayName = 'CardWrapper';
+
 export { CardWrapper }

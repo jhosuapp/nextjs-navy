@@ -1,11 +1,11 @@
-import { memo, useEffect, useState, type JSX } from 'react';
 import styles from './floatingDots.module.css';
+import { useEffect, useState, type JSX } from 'react';
 import { useSwitchStore } from '@/shared/stores/switch.store';
 
 const MAX_DOTS = 50;
 const INTERVAL_TIME = 300; 
 
-const FloatingDots = memo((): JSX.Element => {
+const FloatingDots = (): JSX.Element => {
     const disable_particles = useSwitchStore(state => state.switches).disable_particles;
     const [squares, setSquares] = useState<JSX.Element[]>([]);
 
@@ -50,6 +50,6 @@ const FloatingDots = memo((): JSX.Element => {
             {squares}
         </section>
     );
-});
+};
 
 export { FloatingDots };

@@ -1,4 +1,4 @@
-import type { JSX } from "react";
+import { memo, type JSX } from "react";
 import { useModalStore } from '@/shared/stores/modal.store';
 import { useSkinStore } from '@/shared/stores/skin.store';
 import { ChipRegions, PropsChipRegions } from '../chip-regions/ChipRegions';
@@ -20,7 +20,7 @@ type Props = {
     hasTierIndicator?: boolean
 } & PropsChipModalities & PropsChipRegions;
 
-const CardSkin = ({ 
+const CardSkin = memo(({ 
     username, 
     width, 
     height, 
@@ -73,6 +73,8 @@ const CardSkin = ({
             )}
         </div>
     )
-}
+})
+
+CardSkin.displayName = 'CardSkin';
 
 export { CardSkin }

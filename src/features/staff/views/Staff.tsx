@@ -23,8 +23,8 @@ const StaffView = ():JSX.Element => {
             <motion.div {...fadeInMotion(0.5, 1)}>
                 {response.data?.map((group)=>(
                     <CardWrappersecondary text={`${group.members.length} members`} title={ group.role_name } key={`group-${group.role_id}-${response.isLoading}`}>
-                        {group.members?.map((data, index)=>(
-                            <CardStaff data={ data } key={`${data.discord_id}-${index}-staff`} />
+                        {group.members?.map((data)=>(
+                            <CardStaff data={ data } key={`${data.discord_id}-staff`} />
                         ))}
                     </CardWrappersecondary>
                 ))}

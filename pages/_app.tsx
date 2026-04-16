@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     // Hidde loader 
     useEffect(() => {
         setIsLoading();
-    }, []);
+    }, [setIsLoading]);
 
     return (
       <QueryClientProvider client={queryClient}>

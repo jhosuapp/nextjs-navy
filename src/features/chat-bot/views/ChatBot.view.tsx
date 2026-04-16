@@ -17,4 +17,6 @@ const ChatBotView = memo(():JSX.Element => {
     )
 })
 
+ChatBotView.displayName = 'ChatBotView';
+
 export { ChatBotView }

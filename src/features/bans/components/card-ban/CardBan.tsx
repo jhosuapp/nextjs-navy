@@ -47,6 +47,8 @@ const CardBan = memo(({ data, t, isFadeUp = true, variantStatus = 'active' }:Pro
             </div>
         </CardWrapper>
     )
-})
+});
+
+CardBan.displayName = 'CardBan';
 
 export { CardBan }

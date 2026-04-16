@@ -69,4 +69,6 @@ const Settings = memo(():JSX.Element => {
     )
 })
 
+Settings.displayName = 'Settings';
+
 export { Settings }

@@ -39,15 +39,17 @@ const useBotWrapperController = () => {
                 setErrorInMessage('')
             },5000);
         }
-    },[errorInMessage]);
+    },[errorInMessage, setErrorInMessage]);
 
     useEffect(() => {
         scrollToBottom();
     }, [messages, isTyping, isLoad]);
 
     useEffect(()=>{
-        !isTyping && setResetBot();
-    },[router.route]);
+        if(!useChatBotStore.getState().isTyping){
+            setResetBot();
+        }
+    },[router.route, setResetBot]);
 
     return {
         handleCloseBot,
