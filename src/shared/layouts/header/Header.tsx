@@ -1,5 +1,5 @@
 import { useMemo, type JSX } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { HeaderLogo, HeaderLogoText } from './HeaderLogo';
 import { HeaderList } from './HeaderList';
 import { paths } from '@/shared/constants';

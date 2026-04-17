@@ -5,7 +5,7 @@ import { variantsSettingsContent, variantsSettingsBg, variantsSettingsContentMob
 import { useMediaQuery } from '@/shared/hooks/useMediaquery';
 import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 import { Switch } from '../switch/Switch';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 import icon from '@/config/assets/svg/icon-settings.svg';
 import styles from './settings.module.css';

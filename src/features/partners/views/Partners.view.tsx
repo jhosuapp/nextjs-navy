@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { CardWrappersecondary } from "@/shared/components/card-wrapper-secondary/CardWrapperSecondary";
 import { Container } from "@/shared/components/container/Container";
 import { CardPartners } from "../components";
