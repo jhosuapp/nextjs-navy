@@ -1,0 +1,19 @@
+.content{
+    @apply text-center;
+}
+
+.content h1{
+    @apply justify-center text-8xl lg:text-8xl xl:text-[140px] font-bold text-purple-300 text-opacity-50 flex;
+}
+
+.content p{
+    @apply text-lg max-w-64 lg:text-xl xl:text-2xl lg:max-w-full text-purple-300 text-opacity-50;
+}
+
+.content__item{
+    @apply relative overflow-hidden;
+}
+
+.content__cta{
+    @apply flex justify-center mt-10;
+}

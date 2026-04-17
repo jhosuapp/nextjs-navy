@@ -19,11 +19,26 @@ type Props = {
   textPage: string;
   linkPage: string;
   hasYoutube?: boolean;
+  enableBot?: boolean;
+  hasNoIndex?: boolean;
 };
 
 
-const Layout = ({ children, title, description, image = '', url = "https://navytiers.com/images/og-image.png", textPage, hasYoutube = false, linkPage }: Props) => {
+const Layout = ({ 
+    children, 
+    title, 
+    description, 
+    image = '', 
+    url = "https://navytiers.com/images/og-image.png", 
+    textPage, 
+    linkPage,
+    hasYoutube = false, 
+    enableBot = true,
+    hasNoIndex = false,
+}: Props) => {
     const shouldLoadChat = useUserInteraction();
+
+    console.log(hasNoIndex);
 
     return (
         <>
@@ -58,7 +73,12 @@ const Layout = ({ children, title, description, image = '', url = "https://navyt
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:image" content={image} />
 
-                <meta name="robots" content="index, follow" />
+                {hasNoIndex ? (
+                    <meta name="robots" content="noindex, follow" />
+                ) : (
+                    <meta name="robots" content="index, follow" />
+                )}
+                
                 <meta name="theme-color" content="#1e1e1e" />
                 <script type="application/ld+json">
                 {JSON.stringify({
@@ -82,7 +102,7 @@ const Layout = ({ children, title, description, image = '', url = "https://navyt
                 </div>
             </main>
 
-            <ChatBotView />
+            {enableBot && <ChatBotView />}
             <Settings />
 
             <Footer textPage={ textPage } linkPage={ linkPage } />

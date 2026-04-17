@@ -12,6 +12,11 @@
         "text2": "For more information on:",
         "text3": "Next"
     },
+    "notFound":{
+        "description1": "The page you're looking for doesn't exist or has been moved.",
+        "description2": "Check the URL or head back to the homepage.",
+        "cta": "Go back home"
+    },
     "seo":{
         "bansMetaTitle": "Navy Minecraft PvP Tier List | Rankings, Performance & Cheater Bans",
         "bansMetaDescription": "Discover the Navy Minecraft PvP tier list. Analyze player performance, rankings, and see which users were banned for cheating in skill-based tests.",
@@ -22,7 +27,9 @@
         "tierlistMetaTitle":"Navy PvP Tier List | Rankings, Points & Top Players",
         "tierlistMetaDescription":"Explore the Navy PvP tier list, featuring top players, ranking system, and a detailed explanation of how points are earned and calculated.",
         "homeMetaTitle":"Navy | Discord Server for Minecraft Skill Testing",
-        "homeMetaDescription":"Navy is a Discord server where we evaluate Minecraft players skill levels across different modes, both premium and non-premium, through fair and structured tests."
+        "homeMetaDescription":"Navy is a Discord server where we evaluate Minecraft players skill levels across different modes, both premium and non-premium, through fair and structured tests.",
+        "404MetaTitle": "404 - Page Not Found | Navy",
+        "404MetaDescription": "The page you're looking for doesn't exist or has been moved. Explore Navy or head back home to keep browsing."
     },
     "loader": {
         "loading": "Loading"

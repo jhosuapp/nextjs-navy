@@ -12,6 +12,11 @@
         "text2": "Para más información sobre:",
         "text3": "Siguiente"
     },
+    "notFound":{
+        "description1": "La página que estás buscando no existe o ha sido movida.",
+        "description2": "Verifica la URL o regresa al inicio.",
+        "cta": "Volver al inicio"
+    },
     "seo":{
         "bansMetaTitle": "Tier List PvP Minecraft Navy | Rankings, Rendimiento y Baneos",
         "bansMetaDescription": "Descubre la tier list de PvP de Minecraft Navy. Analiza el rendimiento de los jugadores, sus rankings y revisa quiénes fueron baneados por trampas en pruebas de habilidad.",
@@ -22,7 +27,9 @@
         "tierlistMetaTitle":"Tier List PvP Navy | Rankings, Puntos y Mejores Jugadores",
         "tierlistMetaDescription":"Explora la tier list de PvP de Navy, con los mejores jugadores, el sistema de rankings y una explicación detallada de cómo se obtienen y calculan los puntos.",
         "homeMetaTitle":"Navy | Servidor de Discord para tests de nivel en Minecraft",
-        "homeMetaDescription":"Navy es un servidor de Discord donde evaluamos el nivel de jugadores de Minecraft en distintas modalidades, tanto premium como no premium, mediante pruebas justas y estructuradas."
+        "homeMetaDescription":"Navy es un servidor de Discord donde evaluamos el nivel de jugadores de Minecraft en distintas modalidades, tanto premium como no premium, mediante pruebas justas y estructuradas.",
+        "404MetaTitle": "404 - Página no encontrada | Navy",
+        "404MetaDescription": "La página que buscas no existe o fue movida. Explora Navy o vuelve al inicio para seguir descubriendo contenido."
     },
     "loader": {
         "loading": "Cargando"

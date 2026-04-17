@@ -2,10 +2,6 @@
     @apply fixed top-0 left-0 w-full h-full pointer-events-none;
 }
 
-.flowersFirstScreen__clouds{
-    @apply absolute left-0 w-full;
-}
-
 .flowersFirstScreen__content__flowers{
     @apply absolute w-full h-screen;
 }
@@ -40,7 +36,7 @@
 }
 
 .flowersFirstScreen__flower__secondary{
-    @apply -right-32 top-[85vh] w-full min-w-60 max-w-72;
+    @apply -right-16 top-[89vh] w-full min-w-52 max-w-52;
 }
 
 .flowersFirstScreen__flower__secondary__bottom{
@@ -59,30 +55,6 @@
     @apply left-[30%] max-w-28 top-[80%];
 }
 
-.flowersFirstScreen__waves{
-    @apply absolute -bottom-[5%] w-full;
-}
-
-.flowersFirstScreen__waves img{
-    @apply w-full lg:max-h-[25vh] object-top min-h-40 object-cover;
-}
-
-.flowersFirstScreen__clouds{
-    @apply absolute top-0 overflow-hidden w-full left-0 block;
-}
-
-.flowersFirstScreen__clouds img{
-    @apply w-full block;
-}
-
-.flowersFirstScreen__clouds__secondary {
-    @apply absolute bottom-0 w-full block max-w-[1500px] left-0 z-10;
-}
-
-.flowersFirstScreen__clouds__secondary img{
-    @apply w-full block;
-}
-
 .flowersFirstScreen__petal{
     @apply fixed w-full h-screen overflow-hidden top-0 left-0;
 }
@@ -94,10 +66,6 @@
 @media(max-width: 1440px){
     .flowersFirstScreen__flower{
         @apply max-w-52;
-    }
-    
-    .flowersFirstScreen__flower__secondary{
-        @apply max-w-72 -right-10;
     }
     
     .flowersFirstScreen__flower__tertiary{
@@ -151,10 +119,6 @@
     .flowersFirstScreen__flower__tertiary{
         @apply -right-16 bottom-64 max-w-40 top-[unset] hidden;
     }
-
-    .flowersFirstScreen__waves img{
-        @apply min-h-52;
-    }    
 
     .flowersFirstScreen__flower__cuartary{
         @apply right-[5%] max-w-20;
