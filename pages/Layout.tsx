@@ -18,12 +18,25 @@ type Props = {
   image?: string;
   textPage: string;
   linkPage: string;
-  hasYoutube?: boolean;
+  enableBot?: boolean;
+  hasNoIndex?: boolean;
 };
 
 
-const Layout = ({ children, title, description, image = '', url = "https://navytiers.com/images/og-image.png", textPage, hasYoutube = false, linkPage }: Props) => {
+const Layout = ({ 
+    children, 
+    title, 
+    description, 
+    image = '', 
+    url = "https://navytiers.com/images/og-image.png", 
+    textPage, 
+    linkPage,
+    enableBot = true,
+    hasNoIndex = false,
+}: Props) => {
     const shouldLoadChat = useUserInteraction();
+
+    console.log(hasNoIndex);
 
     return (
         <>
@@ -35,12 +48,6 @@ const Layout = ({ children, title, description, image = '', url = "https://navyt
                 <meta name="keywords" content="minecraft pvp tier list, minecraft practice server, navy minecraft, minecraft rankings, kitpvp tierlist" />
                 <meta name="author" content="Navy" />
                 <link rel="canonical" href={`https://navytiers.com${url}`} />
-                {hasYoutube && (
-                    <>
-                        <link rel="preconnect" href="https://www.youtube.com" crossOrigin="" />
-                        <link rel="preconnect" href="https://i.ytimg.com" />
-                    </>
-                )}
                 
                 {/* Open Graph */}
                 <meta property="og:locale" content="es_ES" />
@@ -58,7 +65,12 @@ const Layout = ({ children, title, description, image = '', url = "https://navyt
                 <meta name="twitter:description" content={description} />
                 <meta name="twitter:image" content={image} />
 
-                <meta name="robots" content="index, follow" />
+                {hasNoIndex ? (
+                    <meta name="robots" content="noindex, follow" />
+                ) : (
+                    <meta name="robots" content="index, follow" />
+                )}
+                
                 <meta name="theme-color" content="#1e1e1e" />
                 <script type="application/ld+json">
                 {JSON.stringify({
@@ -82,7 +94,7 @@ const Layout = ({ children, title, description, image = '', url = "https://navyt
                 </div>
             </main>
 
-            <ChatBotView />
+            {enableBot && <ChatBotView />}
             <Settings />
 
             <Footer textPage={ textPage } linkPage={ linkPage } />

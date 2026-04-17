@@ -28,7 +28,7 @@ const BotSticky = ():JSX.Element => {
                 whileTap={{ scale: 0.95 }} 
                 whileHover={{ scale: 1.05 }}
             >
-                <Image src={ iconBot } alt='Bot' />
+                <Image src={ iconBot } width={48} height={48} alt='Bot' />
                 <span></span>
                 <motion.span {...fadeInMotion(1,0)}>1</motion.span>
             </motion.button>

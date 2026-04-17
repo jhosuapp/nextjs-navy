@@ -9,6 +9,7 @@ import { ITranslations } from "@/shared/interfaces/globals";
 
 import iconPlay from '@/config/assets/svg/icon-play.svg';
 import styles from './hero.module.css';
+import { HeroImage } from "./HeroImage";
 
 type Props = {
     t: ITranslations;
@@ -31,14 +32,7 @@ const Hero = ({ t }:Props):JSX.Element => {
                 className={ styles.heroVideo }  
                 {...fadeUpMotion(0.55, 0.15)}
             >
-                <motion.iframe 
-                    {...fadeUpMotion(0.56, 0.13)} 
-                    className={ styles.heroVideo__iframe } 
-                    loading="eager"
-                    allow="autoplay; encrypted-media" 
-                    src="https://www.youtube.com/embed/Lnezno0aG74?autoplay=1&loop=1&playlist=Lnezno0aG74&mute=1"
-                    title="Navy"
-                />
+                <HeroImage />
                 <div className={ styles.heroVideo__bg }></div>
                 <div className={ styles.heroVideo__content }>
                     <HeroText
