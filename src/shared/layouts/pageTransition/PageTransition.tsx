@@ -22,10 +22,10 @@ const PageTransition = ({ children }:Props):JSX.Element => {
     const isLoadingDelay = useLoaderStore( state => state.isLoadingDelay );
     const showModal = useModalStore( state => state.showModal );
     const [dimensions, setDimensions] = useState({
-        width: typeof window !== 'undefined' ? window.innerWidth : 1920,
-        height: typeof window !== 'undefined' ? window.innerHeight : 1080,
+        width: 1920,
+        height: 1080,
     });
-
+    
     useEffect( () => {
         function resize(){
             setDimensions({

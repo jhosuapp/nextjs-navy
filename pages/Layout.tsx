@@ -18,7 +18,6 @@ type Props = {
   image?: string;
   textPage: string;
   linkPage: string;
-  hasYoutube?: boolean;
   enableBot?: boolean;
   hasNoIndex?: boolean;
 };
@@ -32,7 +31,6 @@ const Layout = ({
     url = "https://navytiers.com/images/og-image.png", 
     textPage, 
     linkPage,
-    hasYoutube = false, 
     enableBot = true,
     hasNoIndex = false,
 }: Props) => {
@@ -50,12 +48,6 @@ const Layout = ({
                 <meta name="keywords" content="minecraft pvp tier list, minecraft practice server, navy minecraft, minecraft rankings, kitpvp tierlist" />
                 <meta name="author" content="Navy" />
                 <link rel="canonical" href={`https://navytiers.com${url}`} />
-                {hasYoutube && (
-                    <>
-                        <link rel="preconnect" href="https://www.youtube.com" crossOrigin="" />
-                        <link rel="preconnect" href="https://i.ytimg.com" />
-                    </>
-                )}
                 
                 {/* Open Graph */}
                 <meta property="og:locale" content="es_ES" />
