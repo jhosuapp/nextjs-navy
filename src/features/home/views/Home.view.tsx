@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 import dynamic from "next/dynamic";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Container } from "@/shared/components/container/Container";
 import { Results, TotalTests, Hero } from "../components";
 

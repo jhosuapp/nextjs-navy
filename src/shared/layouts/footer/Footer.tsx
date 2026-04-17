@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { FooterContent } from "./FooterContent";
 import { FooterStars } from "./FooterStars";
 import { FooterTop } from "./FooterTop";

@@ -7,7 +7,6 @@ import { useLoaderStore } from '@/shared/stores/loader.store';
 import { useLenisStore } from '@/shared/stores/lenis.store';
 
 import './globals.css';
-import '@/config/lib/i18n';
 
 function MyApp({ Component, pageProps, router }: AppProps) {
     const setIsLoading = useLoaderStore( state => state.setIsLoading );

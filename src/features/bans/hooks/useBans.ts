@@ -1,4 +1,4 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { useLoadMore } from "./useLoadMore";
 import { useBansQuery } from "./useBansQuery";
 import { anchorScroll } from "@/shared/helpers";

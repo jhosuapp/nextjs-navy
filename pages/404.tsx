@@ -1,8 +1,10 @@
 import { PageTransition } from "@/shared/layouts";
 import Layout from "./Layout";
 import { paths } from "@/shared/constants";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { NotFoundView } from "@/features/not-found/views/NotFound.view";
+import { GetStaticPropsContext } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 
 const NotFound = () => {
@@ -25,3 +27,11 @@ const NotFound = () => {
 };
 
 export default NotFound;
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale ?? 'es', ['common'])),
+        },
+    };
+}

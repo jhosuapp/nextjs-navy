@@ -1,5 +1,5 @@
 import type { JSX } from "react";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { Container } from "@/shared/components/container/Container";
 import { NavBar, TierDataByModalitie, TierDataOverall } from "../components";
 import { useModalitieStore } from "@/shared/stores/modalities.store";

@@ -1,8 +1,10 @@
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { BansView } from "@/features/bans/views/Bans.view";
 import { paths } from "@/shared/constants/routes";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticPropsContext } from "next";
 
 const BansPage = () => {
     const { t } = useTranslation("common");
@@ -23,3 +25,11 @@ const BansPage = () => {
 };
 
 export default BansPage;
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale ?? 'es', ['common', 'bans'])),
+        },
+    };
+}

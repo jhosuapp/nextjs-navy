@@ -2,7 +2,7 @@ import type { JSX } from "react"
 import { motion } from 'framer-motion';
 import { fadeUpMotion } from "@/shared/motion/fadeUp.motion";
 import { Button } from "@/shared/components/button/Button";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 
 import styles from './content.module.css';

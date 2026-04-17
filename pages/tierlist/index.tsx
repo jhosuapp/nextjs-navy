@@ -3,7 +3,9 @@ import { TierlistView } from "@/features/tierlist/views/Tierlist.view";
 import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
+import { GetStaticPropsContext } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const ToastContainer = dynamic(() => import('react-toastify').then(mod => mod.ToastContainer), { ssr: false });
 
@@ -27,3 +29,11 @@ const TierlistPage = () => {
 };
 
 export default TierlistPage;
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale ?? 'es', ['common', 'tierlist'])),
+        },
+    };
+}

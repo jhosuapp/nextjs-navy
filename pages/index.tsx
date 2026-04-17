@@ -3,7 +3,9 @@ import { HomeView } from "@/features/home/views/Home.view";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "./Layout";
 import { paths } from "@/shared/constants";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticPropsContext } from "next";
 
 const ToastContainer = dynamic(() => import('react-toastify').then(mod => mod.ToastContainer), { ssr: false });
 
@@ -26,3 +28,11 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+    return {
+        props: {
+            ...(await serverSideTranslations(locale ?? 'es', ['common', 'home'])),
+        },
+    };
+}
