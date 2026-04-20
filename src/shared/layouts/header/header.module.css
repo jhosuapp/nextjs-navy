@@ -138,7 +138,7 @@
 /* Header hamburger */
 .headerHamburger {
     transition: .25s ease all;
-    @apply bg-tertiary flex justify-center flex-col items-center min-w-10 max-w-12 w-[2.5vw] min-h-10 max-h-12 h-[2.5vw] rounded-full z-10 mr-[5%];
+    @apply bg-secondary flex justify-center flex-col items-center min-w-10 max-w-12 w-[2.5vw] min-h-10 max-h-12 h-[2.5vw] rounded-full z-10;
 }
 
 .headerHamburger span{
@@ -185,4 +185,8 @@
 
 .header__lang{
     @apply border-2 border-purple-300 border-opacity-50 bg-tertiary bg-opacity-40 backdrop-blur-md rounded-md flex items-center h-auto;
+}
+
+.header__lang__mobile{
+    @apply flex items-center mr-[5%] gap-3;
 }

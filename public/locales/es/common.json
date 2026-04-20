@@ -46,6 +46,7 @@
         "lightMode": "Modo claro",
         "disableParticles": "Ocultar partículas",
         "invertColors": "Invertir colores",
-        "grayContrast": "Contraste gris"
+        "grayContrast": "Contraste gris",
+        "lang": "Idioma"
     }
 }

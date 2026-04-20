@@ -38,7 +38,12 @@ const Header = ():JSX.Element => {
                         {isDesktop && <HeaderLogo />}
                         <HeaderList items={ secondaryListItems } />
                     </nav>
-                    {!isDesktop && ( <HeaderHamburger /> )}
+                    {!isDesktop && ( 
+                        <div className={ styles.header__lang__mobile }>
+                            <LanguageSwitcher isHeaderOpen={ hamburger } hasMobileStyle />
+                            <HeaderHamburger /> 
+                        </div>
+                    )}
                 </div>
                 {isDesktop && (
                     <div className={ styles.header__lang }>
