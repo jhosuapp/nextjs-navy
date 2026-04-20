@@ -1,0 +1,52 @@
+{
+    "nav": {
+        "tierlist": "Tierlist",
+        "staff": "Staff",
+        "bans": "Banimentos",
+        "partners": "Patrocinadores",
+        "home": "Início"
+    },
+    "footer": {
+        "developedBy": "Desenvolvido por",
+        "text1": "Clique em seguinte",
+        "text2": "Para mais informações sobre:",
+        "text3": "Seguinte"
+    },
+    "notFound": {
+        "description1": "A página que você está procurando não existe ou foi movida.",
+        "description2": "Verifique a URL ou volte ao início.",
+        "cta": "Voltar ao início"
+    },
+    "seo": {
+        "bansMetaTitle": "Tier List PvP Minecraft Navy | Rankings, Desempenho e Banimentos",
+        "bansMetaDescription": "Descubra a tier list de PvP do Minecraft Navy. Analise o desempenho dos jogadores, seus rankings e veja quem foi banido por trapaças em testes de habilidade.",
+        "partnersMetaTitle": "Parceiros do Navy | Streamers e Servidores PvP",
+        "partnersMetaDescription": "Conheça os parceiros oficiais do Navy, incluindo streamers e servidores de PvP que apoiam e colaboram com a comunidade.",
+        "staffMetaTitle": "Staff do Navy | Donos, Admins e Desenvolvedores",
+        "staffMetaDescription": "Conheça a equipe do Navy, desde os donos e administradores até os desenvolvedores. Descubra quem está por trás do servidor e sua comunidade.",
+        "tierlistMetaTitle": "Tier List PvP Navy | Rankings, Pontos e Melhores Jogadores",
+        "tierlistMetaDescription": "Explore a tier list de PvP do Navy, com os melhores jogadores, o sistema de rankings e uma explicação detalhada de como os pontos são obtidos e calculados.",
+        "homeMetaTitle": "Navy | Servidor de Discord para testes de nível no Minecraft",
+        "homeMetaDescription": "Navy é um servidor de Discord onde avaliamos o nível dos jogadores de Minecraft em diferentes modalidades, tanto premium quanto não premium, por meio de testes justos e estruturados.",
+        "404MetaTitle": "404 - Página não encontrada | Navy",
+        "404MetaDescription": "A página que você procura não existe ou foi movida. Explore o Navy ou volte ao início para continuar descobrindo conteúdo."
+    },
+    "loader": {
+        "loading": "Carregando"
+    },
+    "modal": {
+        "stats": "Estatísticas",
+        "position": "Posição",
+        "points": "Pontos",
+        "region": "Região",
+        "searching": "Buscando usuário...",
+        "error": "Erro, o jogador não foi encontrado"
+    },
+    "switchs": {
+        "lightMode": "Modo claro",
+        "disableParticles": "Ocultar partículas",
+        "invertColors": "Inverter cores",
+        "grayContrast": "Contraste cinza",
+        "lang": "Idioma"
+    }
+}
