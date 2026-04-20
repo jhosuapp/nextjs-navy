@@ -6,6 +6,7 @@ import { useMediaQuery } from '@/shared/hooks/useMediaquery';
 import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 import { Switch } from '../switch/Switch';
 import { useTranslation } from 'next-i18next';
+import { LanguageSwitcher } from '../language-switcher/LanguageSwitcher';
 
 import icon from '@/config/assets/svg/icon-settings.svg';
 import styles from './settings.module.css';
@@ -32,6 +33,10 @@ const Settings = memo(():JSX.Element => {
                     variants={ isDesk ? variantsSettingsContent : variantsSettingsContentMobile }
                 >
                     <div className={ styles.settings__content__block }>
+                        <div className={ styles.settings__item }>
+                            <p>{ t('switchs.lang') }</p>
+                            <LanguageSwitcher hasMobileStyle />
+                        </div>
                         <Switch 
                             text={ t('switchs.lightMode') }
                             id='light_mode'

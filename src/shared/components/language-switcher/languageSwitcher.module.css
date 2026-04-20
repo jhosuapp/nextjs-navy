@@ -14,6 +14,27 @@
     @apply flex justify-center gap-2 w-full px-3 py-2 text-base text-left hover:opacity-60;
 }
 
-.langSwitch__wrapper button img{
-    @apply block max-w-6 object-contain;
+.langSwitchMobile button{
+    @apply bg-secondary rounded-full text-sm gap-3 px-7 min-h-10 text-white text-opacity-70;
+    transition: .25s ease background-color;
+}
+
+.langSwitchMobile .langSwitch__wrapper button{
+    @apply rounded-none;
+}
+
+.langSwitchMobile .langSwitch__wrapper{
+    @apply top-7;
+}
+
+.langSwitchMobile .langSwitch__wrapper button{
+    @apply flex-row-reverse;
+}
+
+.langSwitchOpen.langSwitchMobile > button{
+    @apply !rounded-md border-2 border-purple-300 border-opacity-50;
+}
+
+.langSwitch__currentOpen{
+    @apply !bg-white !text-tertiary font-medium;
 }

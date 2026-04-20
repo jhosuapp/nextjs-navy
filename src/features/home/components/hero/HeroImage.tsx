@@ -56,7 +56,7 @@ const HeroImage = ()=> {
     const mouseX = useTransform(rawMouseX, [-1, 1], ["-1.5%", "1.5%"])
     const mouseY = useTransform(rawMouseY, [-1, 1], ["-1.5%", "1.5%"])
 
-    const springConfig = { stiffness: 40, damping: 18, mass: 0.6 }
+    const springConfig = { stiffness: 80, damping: 18, mass: 0.6 }
     const springScrollY = useSpring(scrollY,  springConfig)
     const springMouseX  = useSpring(mouseX,  springConfig)
     const springMouseY  = useSpring(mouseY,  springConfig)
