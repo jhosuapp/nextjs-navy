@@ -1,0 +1,25 @@
+{
+    "loading": "Carregando os banimentos",
+    "cta": "Carregar mais jogadores",
+    "hero": {
+        "active": "Ativos",
+        "search": "Buscar por nome de usuário"
+    },
+    "card": {
+        "reason": "Motivo",
+        "bannedFor": "Banido por",
+        "duration": "Duração",
+        "date": "Data do banimento",
+        "whenExpires": "Quando expira",
+        "permanent": "Permanente",
+        "never": "Nunca",
+        "days": "Dias",
+        "active": "Ativo",
+        "expired": "Expirado"
+    },
+    "search": {
+        "users": "Usuários",
+        "resultsFound": "Encontramos {{count}} resultados para a busca \"{{value}}\"",
+        "resultsNotFound": "Não encontramos resultados"
+    }
+}

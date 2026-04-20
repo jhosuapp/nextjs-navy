@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const LOCALES = ['en', 'es'];
-const DEFAULT_LOCALE = 'es';
 const COOKIE_NAME = 'i18next';
 
 export function proxy(request: NextRequest) {
@@ -10,6 +8,8 @@ export function proxy(request: NextRequest) {
 
     if (pathname.startsWith('/en')) {
         response.cookies.set(COOKIE_NAME, 'en');
+    } else if(pathname.startsWith('/pt')) {
+        response.cookies.set(COOKIE_NAME, 'pt');
     } else {
         response.cookies.set(COOKIE_NAME, 'es');
     }
