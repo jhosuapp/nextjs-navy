@@ -6,10 +6,10 @@ import { zoomInMotion } from '@/shared/motion/zoomIn.motion';
 import { BotSendMessage } from '../bot-send-message/BotSendMessage';
 import { BotMessage } from '../bot-message/BotMessage';
 import { BotMessageTyping } from '../bot-message/BotMessageTyping';
-import { RadioStep } from '../steps/radio-step/RadioStep';
 import { UpdateUserName } from '../steps/update-user-name/UpdateUserName';
 import { useBotWrapperController } from '../../hooks/useBotWrapper.controller';
 import { BotMessageLoad } from '../bot-message/BotMessageLoad';
+import { Steps } from "../steps/steps/Steps";
 
 import styles from './botWrapper.module.css';
 import iconBot from '@/config/assets/png/icon-bot.webp';
@@ -58,16 +58,11 @@ const BotWrapper = ():JSX.Element => {
                     {isTyping ? (
                         <BotMessageTyping />
                     ) : (
-                        <>
-                            <RadioStep 
-                                options={[{ name: 'oldUserName', value: 'My old username appears' }]} 
-                                messages={[{ text: 'Let"s update it!', delayMessage: 1.5 }, { text: 'But first, select one of the following options:', delayMessage: 3.5 }]}
-                                enableAtStep={1}
-                                enableNextStep={2}
-                            />
+                        <div className={ styles.botWrapper__options }>
+                            <Steps />
                             {/* Flux for update username */}
                             <UpdateUserName />
-                        </>
+                        </div>
                     )}
                     {isLoad && (
                         <BotMessageLoad />

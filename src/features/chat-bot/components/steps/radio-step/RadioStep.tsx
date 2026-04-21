@@ -12,10 +12,11 @@ type Props = {
     messages?: ItemBotMessage[] | null;
     enableAtStep: number;
     enableNextStep: number;
+    resetFlux?: boolean;
     callBackHandleClick?: (value:string)=> ItemBotMessage[];
 }
 
-const RadioStep = ({ options, enableAtStep, enableNextStep, messages, callBackHandleClick }:Props):JSX.Element => {
+const RadioStep = ({ options, enableAtStep, enableNextStep, messages, callBackHandleClick, resetFlux = false }:Props):JSX.Element => {
     const { handleSetAnswer, currentStep } = useRadioStepController();
 
     if(currentStep !== enableAtStep){
@@ -27,10 +28,16 @@ const RadioStep = ({ options, enableAtStep, enableNextStep, messages, callBackHa
             const messagesCallback = callBackHandleClick(value);
             handleSetAnswer(value, enableNextStep, messagesCallback);
         }else{
-            handleSetAnswer(value, enableNextStep, messages as ItemBotMessage[]);
+            if(resetFlux && messages?.length){
+                const lastDelayMessage = messages[messages.length - 1].delayMessage;
+                const newMessage = { text: 'Do you need anything else?', delayMessage: lastDelayMessage};
+                handleSetAnswer(value, enableNextStep, [...messages, newMessage]);
+            }else{
+                handleSetAnswer(value, enableNextStep, messages ?? []);
+            }
         }
     }
-    
+
     return (
         <BotMessageWrapper>
             {options?.map((radio)=>(

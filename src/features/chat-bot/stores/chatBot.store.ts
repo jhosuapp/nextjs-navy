@@ -15,6 +15,11 @@ interface SkinState {
     isTyping: boolean;
     isLoad: boolean;
     messages: ItemBotMessage[];
+    reloadInitialOptions: {
+        delay: number;
+        enabled: boolean;
+        reload: boolean;
+    }
     // Field to write
     isChatEnabled: boolean;
     atrFieldAnswer: { name: ImessagesSave; placeholder: string; };
@@ -41,12 +46,17 @@ interface Actions {
     setResetBot: ()=> void;
 }
 
-const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]> = (set) =>({
+const getInitialState = (): SkinState => ({
     atrFieldAnswer: { name: '', placeholder: '' },
     enableBot: false,
     isLoad: false,
     currentStep: 1,
     isTyping: true,
+    reloadInitialOptions: {
+        delay: 0,
+        enabled: false,
+        reload: false
+    },
     isChatEnabled: false,
     errorInMessage: '',
     messages: [{ text: "Hi, im navy bot", delayMessage: 1.5 }, { text: "What do you want?", delayMessage: 3 }],
@@ -55,6 +65,10 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
         isPremium: '',
         isUpdated: false,
     },
+});
+
+const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]> = (set) =>({
+    ...getInitialState(),
     
     setCurrentStep: (value) => set(({
         currentStep: value
@@ -99,19 +113,7 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
         }),false, 'setUpdateUserNameData'
     ),
     // Reset bot
-    setResetBot: () => set(({
-        atrFieldAnswer: { name: '', placeholder: '' },
-        enableBot: false,
-        currentStep: 1,
-        isTyping: true,
-        isLoad: false,
-        isChatEnabled: false,
-        messages: [{ text: "Hi, im navy bot", delayMessage: 1.5 }, { text: "What do you want?", delayMessage: 3 }],
-        updateUserNameData: {
-            isPremium: '',
-            isUpdated: false,
-        },
-    }), false, 'setResetBot' )
+    setResetBot: () => set(() => getInitialState(), false, 'setResetBot' )
 });
 
 export const useChatBotStore = create<SkinState & Actions>()(
