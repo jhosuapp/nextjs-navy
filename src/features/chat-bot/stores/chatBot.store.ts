@@ -9,12 +9,17 @@ interface IUpdateUserNameData {
     isUpdated: boolean;
 }
 
-interface SkinState {
+interface ChatBotState {
     enableBot: boolean;
     currentStep: number;
     isTyping: boolean;
     isLoad: boolean;
     messages: ItemBotMessage[];
+    reloadInitialOptions: {
+        delay: number;
+        enabled: boolean;
+        reload: boolean;
+    }
     // Field to write
     isChatEnabled: boolean;
     atrFieldAnswer: { name: ImessagesSave; placeholder: string; };
@@ -30,6 +35,7 @@ interface Actions {
     setIsTyping: (value: boolean) => void;
     setIsLoad: (value: boolean) => void;
     setMessage: (value: ItemBotMessage) => void;
+    setReloadInitialOptions: (value: { delay: number; enabled: boolean; reload: boolean }) => void;
     // Field to write
     setAtrFieldAnswer: (value: { name: ImessagesSave, placeholder: string }) => void;
     setIsChatEnabled: (value: boolean) => void;
@@ -38,15 +44,20 @@ interface Actions {
     // Custom steps
     setUpdateUserNameData: (data: Partial<IUpdateUserNameData>) => void;
     // Reset bot
-    setResetBot: ()=> void;
+    setResetBot: (override?: Partial<ChatBotState>) => void;
 }
 
-const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]> = (set) =>({
+const getInitialState = (): ChatBotState => ({
     atrFieldAnswer: { name: '', placeholder: '' },
     enableBot: false,
     isLoad: false,
     currentStep: 1,
     isTyping: true,
+    reloadInitialOptions: {
+        delay: 0,
+        enabled: false,
+        reload: false
+    },
     isChatEnabled: false,
     errorInMessage: '',
     messages: [{ text: "Hi, im navy bot", delayMessage: 1.5 }, { text: "What do you want?", delayMessage: 3 }],
@@ -55,6 +66,10 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
         isPremium: '',
         isUpdated: false,
     },
+});
+
+const storeAPI: StateCreator<ChatBotState & Actions, [["zustand/devtools", never]]> = (set) =>({
+    ...getInitialState(),
     
     setCurrentStep: (value) => set(({
         currentStep: value
@@ -71,6 +86,9 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
     setMessage: (value) => set(
         (state) => ({ messages: [...state.messages, value] }), 
     false, 'setMessage'),
+    setReloadInitialOptions: (value) => set(({
+        reloadInitialOptions: value
+    }), false, 'setEnableBot' ),
     // Field to write
     setEnableBot: (value) => set(({
         enableBot: value
@@ -99,21 +117,14 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
         }),false, 'setUpdateUserNameData'
     ),
     // Reset bot
-    setResetBot: () => set(({
-        atrFieldAnswer: { name: '', placeholder: '' },
-        enableBot: false,
-        currentStep: 1,
-        isTyping: true,
-        isLoad: false,
-        isChatEnabled: false,
-        messages: [{ text: "Hi, im navy bot", delayMessage: 1.5 }, { text: "What do you want?", delayMessage: 3 }],
-        updateUserNameData: {
-            isPremium: '',
-            isUpdated: false,
-        },
-    }), false, 'setResetBot' )
+    setResetBot: (override) => set(
+        () => ({
+            ...getInitialState(),
+            ...override
+        }), false, 'setResetBot'
+    ),
 });
 
-export const useChatBotStore = create<SkinState & Actions>()(
+export const useChatBotStore = create<ChatBotState & Actions>()(
     devtools(storeAPI, { name: "chat-bot-store" })
 );

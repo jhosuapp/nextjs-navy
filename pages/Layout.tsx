@@ -36,8 +36,6 @@ const Layout = ({
 }: Props) => {
     const shouldLoadChat = useUserInteraction();
 
-    console.log(hasNoIndex);
-
     return (
         <>
             <Head>

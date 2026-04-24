@@ -50,3 +50,7 @@
 .botWrapper__error{
     @apply bg-red-500 rounded-sm py-0.5 px-1 text-white text-sm bottom-0 z-10 w-full;
 }
+
+.botWrapper__options{
+    @apply flex flex-col gap-2;
+}

@@ -3,6 +3,7 @@ import { RadioField } from "@/shared/components/radio-field/RadioField"
 import { BotMessageWrapper } from "../../bot-message/BotMessageWrapper"
 import { useRadioStepController } from "@/features/chat-bot/hooks/useRadioStep.controller";
 import { ItemBotMessage } from "@/features/chat-bot/interfaces/chatBot.interface";
+import { useChatBotStore } from "@/features/chat-bot/stores/chatBot.store";
 
 type Props = {
     options: {
@@ -12,25 +13,23 @@ type Props = {
     messages?: ItemBotMessage[] | null;
     enableAtStep: number;
     enableNextStep: number;
+    resetFlux?: boolean;
+    enableInAnyStep?: boolean
     callBackHandleClick?: (value:string)=> ItemBotMessage[];
 }
 
-const RadioStep = ({ options, enableAtStep, enableNextStep, messages, callBackHandleClick }:Props):JSX.Element => {
-    const { handleSetAnswer, currentStep } = useRadioStepController();
+const RadioStep = ({ options, enableAtStep, enableNextStep, messages, callBackHandleClick, resetFlux = false, enableInAnyStep = false }:Props):JSX.Element => {
 
-    if(currentStep !== enableAtStep){
+    const { 
+        currentStep, 
+        handleClick
+    } = useRadioStepController({ enableNextStep, messages, callBackHandleClick, resetFlux, enableInAnyStep });
+
+
+    if(currentStep !== enableAtStep && !enableInAnyStep){
         return <></>
     }
 
-    const handleClick = (value:string)=> {
-        if(callBackHandleClick){
-            const messagesCallback = callBackHandleClick(value);
-            handleSetAnswer(value, enableNextStep, messagesCallback);
-        }else{
-            handleSetAnswer(value, enableNextStep, messages as ItemBotMessage[]);
-        }
-    }
-    
     return (
         <BotMessageWrapper>
             {options?.map((radio)=>(
