@@ -1,5 +1,6 @@
 import type { JSX } from "react";
 import { RadioStep } from "../radio-step/RadioStep";
+import { ResetFlux } from "../reset-flux/ResetFlux";
 
 const Steps = ():JSX.Element => {
     return (
@@ -17,6 +18,8 @@ const Steps = ():JSX.Element => {
                 enableNextStep={200000}
                 resetFlux
             />
+
+            <ResetFlux />
         </>
     )
 }

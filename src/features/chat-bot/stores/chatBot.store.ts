@@ -9,7 +9,7 @@ interface IUpdateUserNameData {
     isUpdated: boolean;
 }
 
-interface SkinState {
+interface ChatBotState {
     enableBot: boolean;
     currentStep: number;
     isTyping: boolean;
@@ -35,6 +35,7 @@ interface Actions {
     setIsTyping: (value: boolean) => void;
     setIsLoad: (value: boolean) => void;
     setMessage: (value: ItemBotMessage) => void;
+    setReloadInitialOptions: (value: { delay: number; enabled: boolean; reload: boolean }) => void;
     // Field to write
     setAtrFieldAnswer: (value: { name: ImessagesSave, placeholder: string }) => void;
     setIsChatEnabled: (value: boolean) => void;
@@ -43,10 +44,10 @@ interface Actions {
     // Custom steps
     setUpdateUserNameData: (data: Partial<IUpdateUserNameData>) => void;
     // Reset bot
-    setResetBot: ()=> void;
+    setResetBot: (override?: Partial<ChatBotState>) => void;
 }
 
-const getInitialState = (): SkinState => ({
+const getInitialState = (): ChatBotState => ({
     atrFieldAnswer: { name: '', placeholder: '' },
     enableBot: false,
     isLoad: false,
@@ -67,7 +68,7 @@ const getInitialState = (): SkinState => ({
     },
 });
 
-const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]> = (set) =>({
+const storeAPI: StateCreator<ChatBotState & Actions, [["zustand/devtools", never]]> = (set) =>({
     ...getInitialState(),
     
     setCurrentStep: (value) => set(({
@@ -85,6 +86,9 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
     setMessage: (value) => set(
         (state) => ({ messages: [...state.messages, value] }), 
     false, 'setMessage'),
+    setReloadInitialOptions: (value) => set(({
+        reloadInitialOptions: value
+    }), false, 'setEnableBot' ),
     // Field to write
     setEnableBot: (value) => set(({
         enableBot: value
@@ -113,9 +117,14 @@ const storeAPI: StateCreator<SkinState & Actions, [["zustand/devtools", never]]>
         }),false, 'setUpdateUserNameData'
     ),
     // Reset bot
-    setResetBot: () => set(() => getInitialState(), false, 'setResetBot' )
+    setResetBot: (override) => set(
+        () => ({
+            ...getInitialState(),
+            ...override
+        }), false, 'setResetBot'
+    ),
 });
 
-export const useChatBotStore = create<SkinState & Actions>()(
+export const useChatBotStore = create<ChatBotState & Actions>()(
     devtools(storeAPI, { name: "chat-bot-store" })
 );

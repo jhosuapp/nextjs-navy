@@ -1,11 +1,23 @@
+import { useEffect } from "react";
 import { ItemBotMessage } from "../interfaces/chatBot.interface";
 import { useChatBotStore } from "../stores/chatBot.store";
 
-const useRadioStepController = () => {
+type Props = {
+    messages?: ItemBotMessage[] | null;
+    enableNextStep: number;
+    resetFlux?: boolean;
+    enableInAnyStep?: boolean;
+    callBackHandleClick?: (value:string)=> ItemBotMessage[];
+}
+
+const useRadioStepController = ({ enableNextStep, messages, callBackHandleClick, resetFlux, enableInAnyStep }:Props) => {
     const setMessage = useChatBotStore( state => state.setMessage );
     const currentStep = useChatBotStore( state => state.currentStep );
     const setCurrentStep = useChatBotStore( state => state.setCurrentStep );
     const setIsTyping = useChatBotStore( state => state.setIsTyping );
+    const setReloadInitialOptions = useChatBotStore( state => state.setReloadInitialOptions );
+    const reloadInitialOptions = useChatBotStore( state => state.reloadInitialOptions );
+    const setResetBot = useChatBotStore( state => state.setResetBot );
 
     const handleSetMessages = (options:ItemBotMessage[]) => {
         setIsTyping(true);
@@ -25,9 +37,53 @@ const useRadioStepController = () => {
         handleSetMessages(messages);
     }
 
+    const handleClick = (value:string)=> {
+        // Validate if this step is enabled in any step, if not, validate if the current step is the one that should be enabled
+        if(enableInAnyStep){
+            if(callBackHandleClick){
+                const messagesCallback = callBackHandleClick(value);
+                setMessage({
+                    text: value,
+                    userResponse: true,
+                    delayMessage: 0
+                })
+                return handleSetMessages(messagesCallback);
+            }
+            return handleSetAnswer(value, enableNextStep, messages ?? []);
+        }
+
+        // Validate if there is a callback function to handle the click, if there is, execute it and get the messages to set
+        if(callBackHandleClick){
+            const messagesCallback = callBackHandleClick(value);
+            return handleSetAnswer(value, enableNextStep, messagesCallback);
+        }
+
+
+        if(resetFlux && messages?.length){
+            const lastDelayMessage = messages[messages.length - 1].delayMessage ?? 0;
+            const newMessage = { text: 'Do you need anything else?', delayMessage: lastDelayMessage};
+            setReloadInitialOptions({ delay: (lastDelayMessage + 2), enabled: true, reload: false });
+            return handleSetAnswer(value, enableNextStep, [...messages, newMessage]);
+        }
+        
+        handleSetAnswer(value, enableNextStep, messages ?? []);
+    }
+
+    useEffect(()=>{
+        if(reloadInitialOptions.reload){
+            setResetBot({
+                enableBot: true,
+                isTyping: false,
+                messages: [],
+            });
+        }
+    },[reloadInitialOptions]);
+
     return {
         handleSetAnswer,
         currentStep,
+        setReloadInitialOptions,
+        handleClick
     }
 }
 
