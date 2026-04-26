@@ -4,6 +4,8 @@ import { useUpdateUsernameMutation, useUserNameQuery } from "./useUserNameQuery"
 import { GlobalFuncsForHooks } from "../interfaces/chatBot.interface";
 
 const useUserNameController = ({ setMessage, setIsLoad, scrollToBottom }:GlobalFuncsForHooks) => {
+    const setReloadInitialOptions = useChatBotStore( state => state.setReloadInitialOptions );
+    const reloadInitialOptions = useChatBotStore( state => state.reloadInitialOptions );
     const messagesSaved = useChatBotStore( state => state.messagesSaved );
     const response = useUserNameQuery(messagesSaved.uuid);
     const mutation = useUpdateUsernameMutation();
@@ -53,8 +55,9 @@ const useUserNameController = ({ setMessage, setIsLoad, scrollToBottom }:GlobalF
             setMessage({
                 text: `Sorry, the UUID entered is not valid`,
                 userResponse: false,
-                delayMessage: 0.2
+                delayMessage: 2
             });
+            setReloadInitialOptions({ ...reloadInitialOptions, enabled: true, delay: 2.5 });
         }
     },[response.data, response.isSuccess, response.isError]);
 

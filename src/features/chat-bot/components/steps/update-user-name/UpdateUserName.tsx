@@ -17,6 +17,8 @@ const UpdateUserName = ():JSX.Element => {
     const setUpdateUserNameData = useChatBotStore(state => state.setUpdateUserNameData);
     const setIsChatEnabled = useChatBotStore(state => state.setIsChatEnabled);
     const setAtrFieldAnswer = useChatBotStore(state => state.setAtrFieldAnswer);
+    const reloadInitialOptions = useChatBotStore(state => state.reloadInitialOptions);
+    const setReloadInitialOptions = useChatBotStore(state => state.setReloadInitialOptions);
 
     const handleClickStepPremium = (value: string) => {
         setUpdateUserNameData({ isPremium: value });
@@ -25,6 +27,7 @@ const UpdateUserName = ():JSX.Element => {
             setAtrFieldAnswer({ name: 'uuid', placeholder: 'Write your uuid here'});
             return premiumMessages;
         }else{
+            setReloadInitialOptions({ ...reloadInitialOptions, enabled: true, delay: 4 });
             return noPremiumMessages;
         }
     }

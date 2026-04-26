@@ -14,11 +14,21 @@ type Props = {
     enableAtStep: number;
     enableNextStep: number;
     resetFlux?: boolean;
-    enableInAnyStep?: boolean
+    enableInAnyStep?: boolean;
+    rowDirection?: boolean;
     callBackHandleClick?: (value:string)=> ItemBotMessage[];
 }
 
-const RadioStep = ({ options, enableAtStep, enableNextStep, messages, callBackHandleClick, resetFlux = false, enableInAnyStep = false }:Props):JSX.Element => {
+const RadioStep = ({ 
+    options, 
+    enableAtStep, 
+    enableNextStep, 
+    messages, 
+    callBackHandleClick, 
+    resetFlux = false, 
+    enableInAnyStep = false, 
+    rowDirection = false 
+}:Props):JSX.Element => {
 
     const { 
         currentStep, 
@@ -31,7 +41,7 @@ const RadioStep = ({ options, enableAtStep, enableNextStep, messages, callBackHa
     }
 
     return (
-        <BotMessageWrapper>
+        <BotMessageWrapper rowDirection={rowDirection}>
             {options?.map((radio)=>(
                 <RadioField
                     name={ radio.name }
