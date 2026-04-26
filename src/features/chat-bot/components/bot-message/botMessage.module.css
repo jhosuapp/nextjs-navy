@@ -7,6 +7,14 @@
     box-shadow: 0 4px 12px #7f8d9e;
 }
 
+.botMessage__content__row{
+    @apply flex-row min-w-[50%];
+}
+
+.botMessage__content__row div{
+    @apply flex-1;
+}
+
 .botMessage__content p{
     @apply font-medium text-black text-base;
 }

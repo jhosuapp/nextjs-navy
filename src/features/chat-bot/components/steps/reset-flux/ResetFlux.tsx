@@ -33,6 +33,7 @@ const ResetFlux = ():JSX.Element => {
             enableAtStep={2} // Not apply because enableInAnyStep is true
             enableNextStep={3} // Not apply because enableInAnyStep is true
             enableInAnyStep
+            rowDirection
             callBackHandleClick={handleClickStepResetFlux}
         />
     )

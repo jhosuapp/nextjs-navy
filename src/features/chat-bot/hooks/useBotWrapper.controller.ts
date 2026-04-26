@@ -13,6 +13,8 @@ const useBotWrapperController = () => {
     const errorInMessage = useChatBotStore( state => state.errorInMessage );
     const setMessage = useChatBotStore( state => state.setMessage );
     const setErrorInMessage = useChatBotStore( state => state.setErrorInMessage );
+    const setReloadInitialOptions = useChatBotStore(state => state.setReloadInitialOptions);
+    const reloadInitialOptions = useChatBotStore(state => state.reloadInitialOptions);
     const containerRef = useRef<HTMLDivElement>(null);
     const router = useRouter();
 
@@ -42,14 +44,51 @@ const useBotWrapperController = () => {
     },[errorInMessage, setErrorInMessage]);
 
     useEffect(() => {
+        if (!messages || messages.length === 0) return;
+    
         scrollToBottom();
-    }, [messages, isTyping, isLoad]);
+    
+        const timeouts: ReturnType<typeof setTimeout>[] = [];
+    
+        messages.forEach((msg) => {
+            const delay = ((msg.delayMessage ?? 0) * 1000) + 100;
+            const t = setTimeout(() => {
+                scrollToBottom();
+            }, delay);
+            timeouts.push(t);
+        });
+    
+        return () => {
+            timeouts.forEach(clearTimeout);
+        };
+    
+    }, [messages, isTyping, isLoad, reloadInitialOptions]);
 
     useEffect(()=>{
         if(!useChatBotStore.getState().isTyping){
             setResetBot();
         }
     },[router.route, setResetBot]);
+
+    useEffect(() => {
+        if (reloadInitialOptions.enabled && reloadInitialOptions.delay) {
+            setReloadInitialOptions({ ...reloadInitialOptions, delay: 0 });
+            setIsTyping(true);
+            const newMessage = {
+                text: 'Do you need anything else?',
+                delayMessage: reloadInitialOptions.delay
+            };
+            setMessage(newMessage);
+        }
+
+        if (reloadInitialOptions.reload) {
+            setResetBot({
+                enableBot: true,
+                isTyping: false,
+                messages: [],
+            });
+        }
+    }, [reloadInitialOptions.enabled, reloadInitialOptions.reload, reloadInitialOptions.delay]);
 
     return {
         handleCloseBot,

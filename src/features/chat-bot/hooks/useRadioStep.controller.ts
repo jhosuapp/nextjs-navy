@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { ItemBotMessage } from "../interfaces/chatBot.interface";
 import { useChatBotStore } from "../stores/chatBot.store";
 
@@ -16,8 +15,6 @@ const useRadioStepController = ({ enableNextStep, messages, callBackHandleClick,
     const setCurrentStep = useChatBotStore( state => state.setCurrentStep );
     const setIsTyping = useChatBotStore( state => state.setIsTyping );
     const setReloadInitialOptions = useChatBotStore( state => state.setReloadInitialOptions );
-    const reloadInitialOptions = useChatBotStore( state => state.reloadInitialOptions );
-    const setResetBot = useChatBotStore( state => state.setResetBot );
 
     const handleSetMessages = (options:ItemBotMessage[]) => {
         setIsTyping(true);
@@ -61,23 +58,12 @@ const useRadioStepController = ({ enableNextStep, messages, callBackHandleClick,
 
         if(resetFlux && messages?.length){
             const lastDelayMessage = messages[messages.length - 1].delayMessage ?? 0;
-            const newMessage = { text: 'Do you need anything else?', delayMessage: lastDelayMessage};
             setReloadInitialOptions({ delay: (lastDelayMessage + 2), enabled: true, reload: false });
-            return handleSetAnswer(value, enableNextStep, [...messages, newMessage]);
+            return handleSetAnswer(value, enableNextStep, messages);
         }
         
         handleSetAnswer(value, enableNextStep, messages ?? []);
     }
-
-    useEffect(()=>{
-        if(reloadInitialOptions.reload){
-            setResetBot({
-                enableBot: true,
-                isTyping: false,
-                messages: [],
-            });
-        }
-    },[reloadInitialOptions]);
 
     return {
         handleSetAnswer,
