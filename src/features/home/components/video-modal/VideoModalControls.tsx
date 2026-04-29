@@ -1,6 +1,6 @@
 import type { JSX } from "react";
 import { motion } from 'framer-motion';
-import { ITranslations } from "../../interfaces";
+import { ITranslations } from "@/shared/interfaces/globals";
 
 import styles from './videoModal.module.css';
 

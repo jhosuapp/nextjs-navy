@@ -1,10 +1,10 @@
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import { UseVimeoModalReturn } from '../../hooks';
-import { ITranslations } from '../../interfaces';
+import { UseVimeoModalReturn } from '../../interfaces';
 import { VideoModalFollower } from './VideoModalFollower';
 import { VideoModalControls } from './VideoModalControls';
+import { ITranslations } from '@/shared/interfaces/globals';
 
 import styles from './videoModal.module.css';
 

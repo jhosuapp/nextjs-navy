@@ -4,20 +4,8 @@ declare global {
   interface Window {
     dataLayer: any[];
     gtagLoaded?: boolean;
+    Vimeo: {
+        Player: new (element: HTMLIFrameElement) => VimeoPlayerInstance;
+    };
   }
-}
-
-declare module "*.svg" {
-  const content: string;
-  export default content;
-}
-
-declare module "*.png" {
-  const content: string;
-  export default content;
-}
-
-declare module "*.webp" {
-  const content: string;
-  export default content;
 }

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useEffect, useState, type JSX } from "react";
 import { useMotionValue, useSpring, motion } from "framer-motion";
-import { ITranslations } from "../../interfaces";
+import { ITranslations } from "@/shared/interfaces/globals";
 
 import styles from './videoModal.module.css';
 

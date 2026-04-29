@@ -4,7 +4,7 @@ import { Container } from "@/shared/components/container/Container";
 import { Results, TotalTests, Hero, VideoModal, FlowersFirstScreen } from "../components";
 import { useResumeQuery, useVimeoModal } from '../hooks';
 
-const DEFAULT_VIDEO_ID = 818507172;
+const DEFAULT_VIDEO_ID = 715502900;
 
 const HomeView = ():JSX.Element => {
     const data = useResumeQuery();
