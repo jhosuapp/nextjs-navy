@@ -31,7 +31,9 @@ const VideoModal = ({ vimeo, iframeSrc, t }: VideoModalProps) => {
         mounted
     } = vimeo;
 
-    if (!mounted) return null;
+    const portalRoot = mounted ? document.getElementById('portal-vimeo') : null;
+
+    if (!portalRoot) return null;
 
     return createPortal(
         <AnimatePresence>
@@ -85,7 +87,7 @@ const VideoModal = ({ vimeo, iframeSrc, t }: VideoModalProps) => {
                 </motion.div>
             )}
         </AnimatePresence>,
-        document.body
+        portalRoot
     );
 }
 

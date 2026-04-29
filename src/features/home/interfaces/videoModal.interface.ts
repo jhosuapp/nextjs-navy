@@ -1,10 +1,10 @@
 export type UseVimeoModalReturn = {
+    mounted: boolean;
     iframeRef: React.RefObject<HTMLIFrameElement | null>;
     isOpen: boolean;
     isPlaying: boolean;
     isMuted: boolean;
     progress: number;
-    mounted: boolean;
     openModal: (videoId: string | number) => Promise<void>;
     closeModal: () => Promise<void>;
     handlePlay: () => Promise<void>;

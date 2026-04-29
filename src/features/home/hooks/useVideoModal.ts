@@ -4,6 +4,7 @@ import { loadVimeoScript, waitForRef } from '../helpers';
 
 
 const useVimeoModal = (): UseVimeoModalReturn => {
+    const mounted = typeof window !== 'undefined';
     const iframeRef   = useRef<HTMLIFrameElement>(null);
     const playerRef   = useRef<VimeoPlayerInstance | null>(null);
     const scriptReady = useRef(false);
@@ -14,7 +15,6 @@ const useVimeoModal = (): UseVimeoModalReturn => {
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted,   setIsMuted]   = useState(false);
     const [progress,  setProgress]  = useState(0);
-    const [mounted, setMounted] = useState(false);
 
     const initPlayer = useCallback(async () => {
         if (playerRef.current) return playerRef.current;
@@ -136,9 +136,8 @@ const useVimeoModal = (): UseVimeoModalReturn => {
         []
     );
 
-    useEffect(() => setMounted(true), []);
-
     return {
+        mounted,
         iframeRef,
         isOpen,
         isPlaying,
@@ -150,8 +149,7 @@ const useVimeoModal = (): UseVimeoModalReturn => {
         handlePause,
         handleMute,
         handleUnmute,
-        handleProgressClick,
-        mounted
+        handleProgressClick
     };
 }
 
