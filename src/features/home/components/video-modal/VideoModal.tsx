@@ -5,6 +5,7 @@ import { UseVimeoModalReturn } from '../../interfaces';
 import { VideoModalFollower } from './VideoModalFollower';
 import { VideoModalControls } from './VideoModalControls';
 import { ITranslations } from '@/shared/interfaces/globals';
+import { createPortal } from 'react-dom';
 
 import styles from './videoModal.module.css';
 
@@ -27,9 +28,12 @@ const VideoModal = ({ vimeo, iframeSrc, t }: VideoModalProps) => {
         handleMute,
         handleUnmute,
         handleProgressClick,
+        mounted
     } = vimeo;
 
-    return (
+    if (!mounted) return null;
+
+    return createPortal(
         <AnimatePresence>
             {isOpen && (
                 <motion.div
@@ -80,7 +84,8 @@ const VideoModal = ({ vimeo, iframeSrc, t }: VideoModalProps) => {
                     />
                 </motion.div>
             )}
-        </AnimatePresence>
+        </AnimatePresence>,
+        document.body
     );
 }
 

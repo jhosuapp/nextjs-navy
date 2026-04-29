@@ -8,7 +8,7 @@ const DEFAULT_VIDEO_ID = 715502900;
 
 const HomeView = ():JSX.Element => {
     const data = useResumeQuery();
-    const vimeo = useVimeoModal({ defaultVideoId: DEFAULT_VIDEO_ID });
+    const vimeo = useVimeoModal();
     const { t } = useTranslation("home");
 
     return (
@@ -17,7 +17,7 @@ const HomeView = ():JSX.Element => {
                 <FlowersFirstScreen />
                 <Hero 
                     t={ t }
-                    handleOpenVideoModal={ ()=> vimeo.openModal(DEFAULT_VIDEO_ID) }
+                    handleOpenVideoModal={ ()=> vimeo.openModal('715502900') }
                 />
             </Container>
             <Container className="!mt-10 lg:!mt-32">
@@ -41,7 +41,7 @@ const HomeView = ():JSX.Element => {
             {/* Video modal */}
             <VideoModal
                 vimeo={ vimeo }
-                iframeSrc={`https://player.vimeo.com/video/${DEFAULT_VIDEO_ID}?h=6220f41888&amp;title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
+                iframeSrc={`https://player.vimeo.com/video/${DEFAULT_VIDEO_ID}?h=6220f41888&title=0&byline=0&portrait=0&speed=0&badge=0&autopause=0&player_id=0&app_id=58479&controls=0`}
                 t={ t }
             />
         </>

@@ -1,9 +1,9 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
-import { UseVimeoModalOptions, UseVimeoModalReturn, VimeoPlayerInstance } from '../interfaces';
+import { UseVimeoModalReturn, VimeoPlayerInstance } from '../interfaces';
 import { loadVimeoScript, waitForRef } from '../helpers';
 
 
-const useVimeoModal = ({ defaultVideoId }: UseVimeoModalOptions): UseVimeoModalReturn => {
+const useVimeoModal = (): UseVimeoModalReturn => {
     const iframeRef   = useRef<HTMLIFrameElement>(null);
     const playerRef   = useRef<VimeoPlayerInstance | null>(null);
     const scriptReady = useRef(false);
@@ -14,6 +14,7 @@ const useVimeoModal = ({ defaultVideoId }: UseVimeoModalOptions): UseVimeoModalR
     const [isPlaying, setIsPlaying] = useState(false);
     const [isMuted,   setIsMuted]   = useState(false);
     const [progress,  setProgress]  = useState(0);
+    const [mounted, setMounted] = useState(false);
 
     const initPlayer = useCallback(async () => {
         if (playerRef.current) return playerRef.current;
@@ -22,7 +23,7 @@ const useVimeoModal = ({ defaultVideoId }: UseVimeoModalOptions): UseVimeoModalR
             await loadVimeoScript();
             scriptReady.current = true;
         }
-        
+
         const iframe = await waitForRef(iframeRef);
 
         const player = new window.Vimeo.Player(iframe as HTMLIFrameElement);
@@ -39,13 +40,11 @@ const useVimeoModal = ({ defaultVideoId }: UseVimeoModalOptions): UseVimeoModalR
         if (!isOpen) return;
 
         intervalRef.current = setInterval(async () => {
-        if (!playerRef.current || durationRef.current === 0) return;
+            if (!playerRef.current || durationRef.current === 0) return;
             try {
                 const seconds = await playerRef.current.getCurrentTime();
                 setProgress((seconds / durationRef.current) * 100);
-            } catch {
-                // player not ready yet — ignore
-            }
+            } catch {  }
         }, 500);
 
         return () => {
@@ -53,8 +52,8 @@ const useVimeoModal = ({ defaultVideoId }: UseVimeoModalOptions): UseVimeoModalR
         };
     }, [isOpen]);
 
-  // ── openModal ─────────────────────────────────────────────────────────────
-  const openModal = useCallback(
+    // ── openModal ─────────────────────────────────────────────────────────────
+    const openModal = useCallback(
         async (videoId: string | number) => {
             setIsOpen(true);
 
@@ -75,8 +74,8 @@ const useVimeoModal = ({ defaultVideoId }: UseVimeoModalOptions): UseVimeoModalR
                 console.error('Error opening modal video:', err);
             }
         },
-    [initPlayer]
-  );
+        [initPlayer]
+    );
 
     // ── closeModal ────────────────────────────────────────────────────────────
     const closeModal = useCallback(async () => {
@@ -84,24 +83,19 @@ const useVimeoModal = ({ defaultVideoId }: UseVimeoModalOptions): UseVimeoModalR
         setIsPlaying(false);
         setProgress(0);
 
-        if (!playerRef.current) return;
+        if (playerRef.current) {
+            try {
+                await playerRef.current.pause();
+            } catch { }
 
-        try {
-            await playerRef.current.pause();
+            try {
+                await playerRef.current.destroy();
+            } catch {  }
 
-            if (defaultVideoId) {
-                setTimeout(async () => {
-                    try {
-                        await playerRef.current?.loadVideo(defaultVideoId);
-                    } catch {
-                        // player may be gone after exit animation
-                    }
-                }, 1000);
-            }
-        } catch (err) {
-            console.error('Error closing modal:', err);
+            playerRef.current = null;
+            durationRef.current = 0;
         }
-    }, [defaultVideoId]);
+    }, []);
 
     // ── Playback controls ─────────────────────────────────────────────────────
     const handlePlay = useCallback(async () => {
@@ -135,12 +129,14 @@ const useVimeoModal = ({ defaultVideoId }: UseVimeoModalOptions): UseVimeoModalR
     const handleProgressClick = useCallback(
         async (e: React.MouseEvent<HTMLDivElement>) => {
             if (!playerRef.current || durationRef.current === 0) return;
-                const rect = e.currentTarget.getBoundingClientRect();
-                const percent = (e.clientX - rect.left) / rect.width;
-                await playerRef.current.setCurrentTime(percent * durationRef.current);
-            },
+            const rect = e.currentTarget.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            await playerRef.current.setCurrentTime(percent * durationRef.current);
+        },
         []
     );
+
+    useEffect(() => setMounted(true), []);
 
     return {
         iframeRef,
@@ -155,6 +151,7 @@ const useVimeoModal = ({ defaultVideoId }: UseVimeoModalOptions): UseVimeoModalR
         handleMute,
         handleUnmute,
         handleProgressClick,
+        mounted
     };
 }
 
