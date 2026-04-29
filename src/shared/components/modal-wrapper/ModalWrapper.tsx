@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { ReactNode, useEffect, useState, type JSX } from 'react';
+import { ReactNode, type JSX } from 'react';
 import { createPortal } from 'react-dom';
 import { motion } from 'framer-motion';
 import { fadeInMotion } from '@/shared/motion/fadeIn.motion';

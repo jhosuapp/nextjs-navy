@@ -2,6 +2,13 @@
     "hero": {
         "scrollDown": "Haz scroll"
     },
+    "videoModal": {
+        "play": "Reproducir",
+        "pause": "Pausar",
+        "mute": "Silenciar",
+        "unmute": "Activar Sonido",
+        "close": "Cerrar Video"
+    },
     "results": {
         "latestHigh": "ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS * ÚLTIMOS RESULTADOS ALTOS *",
         "latestLow": "ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS * ÚLTIMOS RESULTADOS BAJOS *"

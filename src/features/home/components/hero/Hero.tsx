@@ -13,9 +13,10 @@ import { HeroImage } from "./HeroImage";
 
 type Props = {
     t: ITranslations;
+    handleOpenVideoModal?: () => void;
 }
 
-const Hero = ({ t }:Props):JSX.Element => {
+const Hero = ({ t, handleOpenVideoModal }:Props):JSX.Element => {
     return (
         <Container className={ styles.hero }>
             {/* Stars */}
@@ -44,6 +45,7 @@ const Hero = ({ t }:Props):JSX.Element => {
                         type="button"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.95 }}
+                        onClick={ handleOpenVideoModal }
                         {...fadeUpMotion(0.58, 0.09)}
                     >
                         <Image src={ iconPlay } alt="Play blotcraft" />

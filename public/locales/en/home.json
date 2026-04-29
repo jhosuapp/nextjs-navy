@@ -2,6 +2,13 @@
     "hero": {
         "scrollDown": "Scroll down"
     },
+    "videoModal": {
+        "play": "Play",
+        "pause": "Pause",
+        "mute": "Mute",
+        "unmute": "Unmute",
+        "close": "Close Video"
+    },
     "results": {
         "latestHigh": "LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * LATEST HIGH RESULTS * ",
         "latestLow": "LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS * LATEST LOW RESULTS *"

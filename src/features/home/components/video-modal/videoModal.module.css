@@ -1,0 +1,76 @@
+.modal {
+  @apply w-full fixed left-0 top-0 z-[9999999] flex flex-col items-center justify-center box-border bg-black pointer-events-none;
+  height: 100vh;
+}
+  
+.follower {
+  @apply w-24 h-24 rounded-full bg-primary z-[9999] fixed pointer-events-none flex justify-center items-center;
+  transform: translate(-50%, -50%);
+  transition: .5s ease;
+  transition-property:  width, height, background-color;
+}
+  
+.follower img {
+  @apply w-6 h-6;
+  transition: 0.25s ease all;
+}
+  
+.followerSmall {
+  @apply w-5 h-5 bg-white !opacity-100;
+}
+  
+.followerSmall img {
+  @apply opacity-0;
+}
+  
+.closeSecondary {
+  @apply absolute w-full h-full left-0 top-0;
+  z-index: 1;
+}
+  
+.closeButton {
+  @apply w-12 h-12 rounded-full hidden justify-center items-center absolute bg-primary top-5 right-5 cursor-pointer border-none;
+  z-index: 10;
+}
+  
+.closeButton img {
+  @apply max-w-4;
+}
+  
+.iframeWrapper {
+  @apply relative h-0 overflow-hidden w-full pointer-events-none pb-[56.25%];
+  z-index: 2;
+}
+  
+.iframeWrapper iframe {
+  @apply absolute top-0 left-0 w-full h-full border-0 pointer-events-none;
+}
+  
+/* Controls */
+.controls {
+  @apply flex w-[90%] absolute bottom-[5%] left-[5%] gap-5 items-center z-20;
+}
+  
+.progressContainer {
+  @apply relative w-full h-2 bg-[#333] rounded-sm cursor-pointer flex-grow;
+}
+  
+.progressBar {
+  @apply h-full w-0 bg-white rounded-sm;
+  transition: width 0.1s linear;
+}
+  
+.controlBtn {
+  @apply bg-transparent uppercase text-white border-none outline-none font-bold text-lg cursor-pointer whitespace-nowrap p-0;
+}
+  
+@media (max-width: 768px) {
+  .follower,
+  .closeSecondary {
+    @apply hidden;
+  }
+
+  .closeButton {
+    @apply flex;
+  }
+}
