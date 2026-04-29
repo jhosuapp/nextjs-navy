@@ -1,5 +1,4 @@
 import type { JSX } from "react";
-import dynamic from "next/dynamic";
 import { useTranslation } from "next-i18next";
 import { Container } from "@/shared/components/container/Container";
 import { Results, TotalTests, Hero, VideoModal, FlowersFirstScreen } from "../components";
@@ -18,13 +17,8 @@ const HomeView = ():JSX.Element => {
                 <FlowersFirstScreen />
                 <Hero 
                     t={ t }
+                    handleOpenVideoModal={ ()=> vimeo.openModal(DEFAULT_VIDEO_ID) }
                 />
-                              <button
-                className="open-modal-ia"
-                onClick={() => vimeo.openModal('818507172')}
-            >
-                Ver video
-            </button>
             </Container>
             <Container className="!mt-10 lg:!mt-32">
                 <Results 
@@ -46,9 +40,9 @@ const HomeView = ():JSX.Element => {
             </Container>
             {/* Video modal */}
             <VideoModal
-                vimeo={vimeo}
+                vimeo={ vimeo }
                 iframeSrc={`https://player.vimeo.com/video/${DEFAULT_VIDEO_ID}?h=6220f41888&amp;title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479`}
-                locale="es"
+                t={ t }
             />
         </>
     )
