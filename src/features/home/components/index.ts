@@ -6,3 +6,4 @@ export * from './card-results/CardResults';
 export * from './wrapper-carousel/WrapperCarousel';
 export * from './counter/Counter';
 export * from './totalt-tests/TotalTests';
+export * from './video-modal/VideoModal';
