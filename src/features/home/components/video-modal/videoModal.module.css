@@ -1,6 +1,6 @@
 .modal {
   @apply w-full fixed left-0 top-0 z-[9999999] flex flex-col items-center justify-center box-border bg-black pointer-events-none;
-  height: 100vh;
+  height: 100svh;
 }
   
 .follower {
