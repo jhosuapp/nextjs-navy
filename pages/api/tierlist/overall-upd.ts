@@ -36,7 +36,8 @@ async function handler(
     return res.status(405).json({ message: "Method Not Allowed" })
   }
 
-  const page = Number(req.query.page || 1)
+  const rawPage = Number(req.query.page || 1)
+  const page = Number.isFinite(rawPage) && rawPage >= 1 ? Math.floor(rawPage) : 1
   const limit = 10
   const offset = (page - 1) * limit
 

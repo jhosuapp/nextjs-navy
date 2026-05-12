@@ -2,16 +2,6 @@ import type { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from "@/config/lib/prisma"
 import { withRateLimit } from "@/config/lib/rateLimit"
 
-type RateRecord = {
-    count: number
-    start: number
-}
-  
-const rateLimitMap = new Map<string, RateRecord>()
-
-const WINDOW_MS = 60 * 1000;
-const MAX_REQUESTS = 60;
-
 type TierItem = {
     nick: string
     region: string
@@ -28,36 +18,16 @@ async function handler(
     req: NextApiRequest,
     res: NextApiResponse
 ) {
-
-    // 🔒 RATE LIMIT
-    const ip = (req.headers["x-forwarded-for"] as string)?.split(",")[0] || req.socket.remoteAddress || "unknown"
-
-    const now = Date.now()
-    const record = rateLimitMap.get(ip)
-
-    if (!record) {
-        rateLimitMap.set(ip, { count: 1, start: now })
-    } else {
-        if (now - record.start > WINDOW_MS) {
-            // Reinicia ventana
-            rateLimitMap.set(ip, { count: 1, start: now })
-        } else {
-            record.count++
-            if (record.count > MAX_REQUESTS) {
-                return res.status(429).json({
-                    message: "Too many requests. Try again later.",
-                })
-            }
-        }
-    }
     if (req.method !== "GET") {
         return res.status(405).json({ message: "Method Not Allowed" })
     }
 
     const gameFilter = typeof req.query.game === "string" ? req.query.game : null
     const tierFilter = typeof req.query.tier === "string" ? req.query.tier : null
-    const page = Number(req.query.page || 1)
-    const limit = Number(req.query.limit || 8)
+    const rawPage = Number(req.query.page || 1)
+    const rawLimit = Number(req.query.limit || 8)
+    const page = Number.isFinite(rawPage) && rawPage >= 1 ? Math.floor(rawPage) : 1
+    const limit = Number.isFinite(rawLimit) && rawLimit >= 1 ? Math.min(Math.floor(rawLimit), 100) : 8
     const offset = (page - 1) * limit
     
     // 🚀 Límite para vista general (sin filtros)

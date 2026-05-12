@@ -10,7 +10,7 @@ type RateRecord = {
   
 export function withRateLimit(handler: any) {
     return async (req: any, res: any) => {
-        const ip = (req.headers["x-forwarded-for"] as string)?.split(",")[0] || req.socket.remoteAddress || "unknown";
+        const ip = (req.headers["x-real-ip"] as string) || (req.headers["x-forwarded-for"] as string)?.split(",")[0].trim() || req.socket.remoteAddress || "unknown";
     
         const now = Date.now()
         const record = rateLimitMap.get(ip)
@@ -23,6 +23,7 @@ export function withRateLimit(handler: any) {
             } else {
                 record.count++
                 if (record.count > MAX_REQUESTS) {
+                    res.setHeader("Retry-After", "60");
                     return res.status(429).json({
                         message: "Too many requests",
                     })

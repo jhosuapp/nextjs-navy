@@ -35,7 +35,6 @@ export type ProfileData = {
   nick: string
   region: string
   is_premium: boolean
-  discord_id: string
   is_staff: boolean
   staff: StaffInfo | null
   ban: BanInfo | null
@@ -53,7 +52,6 @@ export async function buildProfileData(
   nick: string,
   region: string,
   is_premium: boolean,
-  discord_id: string,
 ): Promise<ProfileData> {
   // Fetch latest tier per game for this user
   const userGames = await prisma.$queryRaw<Array<{ tier: string; game: string }>>`
@@ -129,7 +127,6 @@ export async function buildProfileData(
     nick,
     region,
     is_premium,
-    discord_id,
     is_staff: staffRecord !== null,
     staff: staffInfo,
     ban: banInfo,
