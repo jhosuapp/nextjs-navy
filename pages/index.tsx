@@ -36,13 +36,13 @@ const HomePage = ({ resume }: Props) => {
 export default HomePage;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
-    const resume = await fetchResumeData();
+    const { data: resume, revalidate } = await fetchResumeData();
 
     return {
         props: {
             resume,
             ...(await serverSideTranslations(locale ?? 'es', ['common', 'home'])),
         },
-        revalidate: 3600,
+        revalidate,
     };
 }

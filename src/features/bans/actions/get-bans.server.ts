@@ -1,30 +1,39 @@
 import { prisma } from "@/config/lib/prisma";
 import { BansResponse } from "../interfaces";
 
-export async function fetchBansData(): Promise<BansResponse> {
-    const punishments = await prisma.punishments.findMany({
-        orderBy: { applied: 'desc' },
-    });
+const EMPTY: BansResponse = { active: [], inactive: [] };
 
-    const now = new Date();
+export async function fetchBansData(): Promise<{ data: BansResponse; revalidate: number }> {
+    try {
+        const punishments = await prisma.punishments.findMany({
+            orderBy: { applied: 'desc' },
+        });
 
-    const formatted = punishments.map((p) => ({
-        id: p.id,
-        discord_id: p.discord_id,
-        uuid: p.uuid,
-        nick: p.nick,
-        is_premium: p.is_premium,
-        punisher_id: p.punisher_id,
-        applied: p.applied.toISOString(),
-        expiration: p.expiration?.toISOString() ?? null,
-        permanent: p.expiration === null,
-        active: p.expiration === null || p.expiration > now,
-        reason: p.reason,
-        is_cheater: p.is_cheater,
-    }));
+        const now = new Date();
 
-    return {
-        active: formatted.filter((p) => p.active),
-        inactive: formatted.filter((p) => !p.active),
-    };
+        const formatted = punishments.map((p) => ({
+            id: p.id,
+            discord_id: p.discord_id,
+            uuid: p.uuid,
+            nick: p.nick,
+            is_premium: p.is_premium,
+            punisher_id: p.punisher_id,
+            applied: p.applied.toISOString(),
+            expiration: p.expiration?.toISOString() ?? null,
+            permanent: p.expiration === null,
+            active: p.expiration === null || p.expiration > now,
+            reason: p.reason,
+            is_cheater: p.is_cheater,
+        }));
+
+        return {
+            data: {
+                active: formatted.filter((p) => p.active),
+                inactive: formatted.filter((p) => !p.active),
+            },
+            revalidate: 86400,
+        };
+    } catch {
+        return { data: EMPTY, revalidate: 1 };
+    }
 }

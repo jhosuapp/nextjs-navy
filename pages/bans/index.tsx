@@ -33,13 +33,13 @@ const BansPage = ({ bans }: Props) => {
 export default BansPage;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
-    const bans = await fetchBansData();
+    const { data: bans, revalidate } = await fetchBansData();
 
     return {
         props: {
             bans,
             ...(await serverSideTranslations(locale ?? 'es', ['common', 'bans'])),
         },
-        revalidate: 86400,
+        revalidate,
     };
 }

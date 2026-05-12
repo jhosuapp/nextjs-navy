@@ -33,13 +33,13 @@ const StaffPage = ({ staff }: Props) => {
 export default StaffPage;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
-    const staff = await fetchStaffData();
+    const { data: staff, revalidate } = await fetchStaffData();
 
     return {
         props: {
             staff,
             ...(await serverSideTranslations(locale ?? 'es', ['common'])),
         },
-        revalidate: 86400,
+        revalidate,
     };
 }
