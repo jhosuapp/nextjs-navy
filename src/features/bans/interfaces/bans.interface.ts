@@ -5,8 +5,8 @@ export type Punishment = {
     nick: string | null;
     is_premium: boolean;
     punisher_id: string;
-    applied: Date;
-    expiration: Date | null;
+    applied: string;
+    expiration: string | null;
     permanent: boolean;
     active: boolean;
     reason: string;

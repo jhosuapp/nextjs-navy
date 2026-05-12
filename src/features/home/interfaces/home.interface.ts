@@ -14,5 +14,5 @@ export type TestEntry = {
 export type TierlistResumeResponse = {
     latest_h_tests: TestEntry[]
     latest_l_tests: TestEntry[]
-    total_tests: Record<Modalitie, number>
+    total_tests: Record<string, number>
 }
