@@ -1,5 +1,4 @@
 export * from './results/Results';
-export * from './chip/Chip';
 export * from './hero/Hero';
 export * from './parallax/Parallax';
 export * from './card-results/CardResults';

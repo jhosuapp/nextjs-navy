@@ -3,9 +3,16 @@ import { prisma } from "@/config/lib/prisma";
 import { withRateLimit } from "@/config/lib/rateLimit";
 import { invalidateCacheByPrefix } from "@/config/lib/cache";
 
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {
         return res.status(405).json({ message: "Method not allowed" });
+    }
+
+    const secret = req.headers["x-bot-secret"];
+    if (!secret || secret !== process.env.BOT_SECRET) {
+        return res.status(401).json({ message: "Unauthorized" });
     }
 
     try {
@@ -13,6 +20,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
         if (!uuid || !nick) {
             return res.status(400).json({ message: "uuid y nick son requeridos" });
+        }
+
+        if (!UUID_RE.test(uuid)) {
+            return res.status(400).json({ message: "UUID inválido" });
         }
 
         const cleanUuid: string = uuid.replace(/-/g, "");
@@ -36,18 +47,17 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             return res.status(400).json({ message: "El nick no coincide con el registrado en Mojang" });
         }
 
-        // Actualizar el nick en los 3 modelos que lo tienen
         await Promise.all([
             prisma.staff.update({
                 where: { discord_id: user.discord_id },
                 data: { nick: mojangData.name },
             }),
             prisma.punishments.updateMany({
-                where: { uuid },
+                where: { uuid: cleanUuid },
                 data: { nick: mojangData.name },
             }),
             prisma.tiers.updateMany({
-                where: { uuid },
+                where: { uuid: cleanUuid },
                 data: { nick: mojangData.name },
             }),
         ]);

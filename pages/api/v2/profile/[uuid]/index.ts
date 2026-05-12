@@ -17,6 +17,10 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(400).json({ message: "Missing uuid" })
   }
 
+  if (uuid.length > 64) {
+    return res.status(400).json({ message: "Invalid uuid" })
+  }
+
   try {
     const cacheKey = `profile:uuid:${uuid}`
     const cached = await getCache<ProfileData>(cacheKey)
@@ -26,9 +30,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     // Fetch latest player info from tiers by UUID
     const [latest] = await prisma.$queryRaw<
-      Array<{ nick: string; region: string; is_premium: boolean; discord_id: string }>
+      Array<{ nick: string; region: string; is_premium: boolean }>
     >`
-      SELECT nick, region, is_premium, discord_id
+      SELECT nick, region, is_premium
       FROM tiers
       WHERE uuid = ${uuid}
         AND nick IS NOT NULL
@@ -46,7 +50,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       latest.nick,
       latest.region,
       latest.is_premium,
-      latest.discord_id,
     )
 
     await setCache(cacheKey, profile, CACHE_TTL)

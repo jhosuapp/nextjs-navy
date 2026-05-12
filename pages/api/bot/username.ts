@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { withRateLimit } from "@/config/lib/rateLimit";
 
-export default async function handler(
+async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -40,3 +41,5 @@ export default async function handler(
         });
     }
 }
+
+export default withRateLimit(handler);

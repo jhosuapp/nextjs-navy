@@ -17,10 +17,15 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(400).json({ message: "Missing query" })
   }
 
+  if (rawQuery.length > 16) {
+    return res.status(400).json({ message: "Invalid query" })
+  }
+
   const nick = rawQuery.toLowerCase()
+  const safeNick = nick.replace(/[^a-z0-9_]/g, "_")
 
   try {
-    const cacheKey = `profile:nick:${nick}`
+    const cacheKey = `profile:nick:${safeNick}`
     const cached = await getCache<ProfileData>(cacheKey)
     if (cached) {
       return res.status(200).json(cached)
@@ -33,10 +38,9 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         nick: string
         region: string
         is_premium: boolean
-        discord_id: string
       }>
     >`
-      SELECT uuid, nick, region, is_premium, discord_id
+      SELECT uuid, nick, region, is_premium
       FROM tiers
       WHERE LOWER(nick) = ${nick}
         AND nick IS NOT NULL
@@ -48,7 +52,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       return res.status(404).json({ message: "Player not found" })
     }
 
-    // user_id follows the same COALESCE pattern used across the codebase
     const user_id = latest.uuid ?? `nick_${latest.nick}`
 
     const profile = await buildProfileData(
@@ -57,7 +60,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       latest.nick,
       latest.region,
       latest.is_premium,
-      latest.discord_id,
     )
 
     // Cache under nick key

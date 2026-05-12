@@ -1,7 +1,9 @@
 import type { JSX } from "react";
 import { useTranslation } from "next-i18next";
 import { Container } from "@/shared/components/container/Container";
-import { NavBar, TierDataByModalitie, TierDataOverall } from "../components";
+import { NavBar } from "../components/navbar/NavBar";
+import { TierDataByModalitie } from "../components/tier-data-by-modalities/TierDataByModalitie";
+import { TierDataOverall } from "../components/tier-data-overall/TierDataOverall";
 import { useModalitieStore } from "@/shared/stores/modalities.store";
 import { fadeUpMotion } from "@/shared/motion/fadeUp.motion";
 

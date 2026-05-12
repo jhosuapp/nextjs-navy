@@ -13,11 +13,9 @@ export async function fetchBansData(): Promise<{ data: BansResponse; revalidate:
 
         const formatted = punishments.map((p) => ({
             id: p.id,
-            discord_id: p.discord_id,
             uuid: p.uuid,
             nick: p.nick,
             is_premium: p.is_premium,
-            punisher_id: p.punisher_id,
             applied: p.applied.toISOString(),
             expiration: p.expiration?.toISOString() ?? null,
             permanent: p.expiration === null,

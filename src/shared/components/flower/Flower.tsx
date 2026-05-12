@@ -51,7 +51,7 @@ const Flower = ({ src, alt, className = '', factor = 1, parallaxFactor = 1, tran
 
     return (
         <motion.div style={{ x, y }} className={className} {...props}>
-            <motion.picture  style={{ y: scroll }}>
+            <motion.picture style={{ y: scroll }} suppressHydrationWarning>
                 <Image className="hue-rotate-[270deg] saturate-[0.2] brightness-90" src={src} alt={alt} width={300} height={300} />
             </motion.picture>
         </motion.div>
