@@ -1,19 +1,18 @@
 import { useTranslation } from "next-i18next";
 import { useLoadMore } from "./useLoadMore";
-import { useBansQuery } from "./useBansQuery";
 import { anchorScroll } from "@/shared/helpers";
 import { useLenisStore } from "@/shared/stores/lenis.store";
 import { useSearchStore } from "@/shared/stores/search.store";
+import { BansResponse, Punishment } from "../interfaces";
 
-const useBansController = () => {
-    const response = useBansQuery();
+const useBansController = (initialData: BansResponse) => {
     const { t } = useTranslation("bans");
     const value = useSearchStore(state => state.value);
 
-    const activeBans = response?.data?.active ?? [];
-    const inactiveBans = response?.data?.inactive ?? [];
+    const activeBans = initialData.active;
+    const inactiveBans = initialData.inactive;
 
-    const filterBySearch = (items: any[]) => {
+    const filterBySearch = (items: Punishment[]) => {
         if (!value.trim()) return items;
         const search = value.toLowerCase();
         return items.filter(item =>
@@ -29,7 +28,7 @@ const useBansController = () => {
     const lenis = useLenisStore(state => state.lenis);
 
     const getDuration = (index: number) => {
-        const baseDuration = 0.15;   
+        const baseDuration = 0.15;
         const batchIndex = index % 6;
         return Math.min(0.15 + batchIndex * baseDuration, 1);
     };
@@ -40,12 +39,11 @@ const useBansController = () => {
     };
 
     const handleLoadMoreInactive = () => {
-        inactiveBansPaginated.loadMore(); 
+        inactiveBansPaginated.loadMore();
         anchorScroll(lenis);
     };
 
     return {
-        response, 
         t,
         inactiveBans: filteredInactiveBans,
         activeBans: filteredActiveBans,
@@ -53,7 +51,7 @@ const useBansController = () => {
         handleLoadMoreActive,
         handleLoadMoreInactive,
         activeBansPaginated,
-        inactiveBansPaginated, 
+        inactiveBansPaginated,
         value
     }
 }

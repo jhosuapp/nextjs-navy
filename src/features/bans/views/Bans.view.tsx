@@ -2,37 +2,39 @@ import type { JSX } from "react";
 import { motion } from 'framer-motion';
 import { Container } from "@/shared/components/container/Container"
 import { CardWrappersecondary } from "@/shared/components/card-wrapper-secondary/CardWrapperSecondary"
-import { LoaderSecondary } from "@/shared/components/loader/LoaderSecondary"
 import { Button } from "@/shared/components/button/Button"
 import { NotFound } from "@/shared/components/not-found/NotFound"
 import { Feedback } from "@/shared/components/feedback/Feedback"
-import { CardBan  } from "../components"
+import { CardBan } from "../components"
 import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
 import { useBansController } from '../hooks';
 import { fadeUpMotion } from "@/shared/motion/fadeUp.motion";
+import { BansResponse } from "../interfaces";
 
-const BansView = ():JSX.Element => {
-    const { 
-        response, 
+type Props = {
+    bans: BansResponse;
+}
+
+const BansView = ({ bans }: Props): JSX.Element => {
+    const {
         activeBansPaginated,
-        activeBans, 
+        activeBans,
         getDuration,
         handleLoadMoreActive,
         value,
         t
-    } = useBansController();
-
+    } = useBansController(bans);
 
     return (
         <Container className="!mt-5 lg:!mt-10" isFirst isLast>
-            <CardWrappersecondary 
-                title={ t('hero.active') } 
+            <CardWrappersecondary
+                title={ t('hero.active') }
                 placeholder={ t('hero.search') }
-                hasSearch 
+                hasSearch
                 hasAnimation
             >
                 {value && (
-                    <NotFound 
+                    <NotFound
                         text={`${activeBans.length} ${t('search.users')}`}
                         description={t('search.resultsFound', { count: activeBans.length, value })}
                     />
@@ -40,62 +42,30 @@ const BansView = ():JSX.Element => {
                 {value && !activeBans.length && (
                     <Feedback texFeedback={ t('search.resultsNotFound') } />
                 )}
-                {response.isLoading ? (
-                    <Container className="!mt-5 lg:!mt-10 flex col-span-full">
-                        <LoaderSecondary textLoader={ t('loading') }/>
-                    </Container>
-                ): (
-                    <>
-                        {activeBansPaginated.visibleItems.map((data, index)=>(
-                            <motion.div 
-                                layout
-                                {...fadeInMotion(getDuration(index), 1)} 
-                                key={`${data.nick}-bans-actives`}
-                            >
-                                <CardBan 
-                                    data={ data }
-                                    isFadeUp={ false }
-                                    t={ t }
-                                />
-                            </motion.div>
-                        ))}
-                    </>
-                )}
+                {activeBansPaginated.visibleItems.map((data, index) => (
+                    <motion.div
+                        layout
+                        {...fadeInMotion(getDuration(index), 1)}
+                        key={`${data.nick}-bans-actives`}
+                    >
+                        <CardBan
+                            data={ data }
+                            isFadeUp={ false }
+                            t={ t }
+                        />
+                    </motion.div>
+                ))}
             </CardWrappersecondary>
             {activeBansPaginated.hasMore && (
-                <motion.div className='flex justify-center w-full mt-10 relative overflow-hidden' >
+                <motion.div className='flex justify-center w-full mt-10 relative overflow-hidden'>
                     <Button
                         onClick={ handleLoadMoreActive }
-                        text={t('cta')} 
-                        style={'secondary' } 
+                        text={t('cta')}
+                        style={'secondary'}
                         {...fadeUpMotion(0.56, 0.13)}
                     />
                 </motion.div>
             )}
-
-            {/* {inactiveBans.length && (
-                <CardWrappersecondary title={ `Inactive bans` } text={`${inactiveBans.length} Users`}>
-                    {inactiveBansPaginated.visibleItems.map((data, index)=>(
-                        <motion.div {...fadeInMotion(index <= 5 ? 0.5 : getDuration(index), 1)}>
-                            <CardBan 
-                                key={ `${data.nick}-${index}` }
-                                data={ data }
-                                isFadeUp={ index <= 5 }
-                                variantStatus="inactive"
-                            />
-                        </motion.div>
-                    ))}
-                </CardWrappersecondary>
-            )}
-            {inactiveBansPaginated.hasMore && (
-                <motion.div className='flex justify-center w-full mt-10' {...fadeInMotion(0,0)}>
-                    <Button
-                        onClick={ handleLoadMoreInactive }
-                        text={'Load more players'} 
-                        style={'secondary' } 
-                    />
-                </motion.div>
-            )} */}
         </Container>
     )
 }

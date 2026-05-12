@@ -1,29 +1,26 @@
 import type { JSX } from "react";
 import { motion } from "framer-motion";
-import { LoaderSecondary } from "@/shared/components/loader/LoaderSecondary"
 import { CardWrappersecondary } from "@/shared/components/card-wrapper-secondary/CardWrapperSecondary"
 import { Container } from "@/shared/components/container/Container"
 import { CardStaff } from "../components"
-import { useStaff } from "../hooks";
 import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
+import { GroupedStaffResponse } from "../interfaces";
 
-const StaffView = ():JSX.Element => {
-    const response = useStaff();
+type Props = {
+    staff: GroupedStaffResponse;
+}
 
-    if(response.isLoading){
-        return (
-            <Container className="!mt-5 lg:!mt-10" isFirst isLast>
-                <LoaderSecondary textLoader="Loading staff team"/>
-            </Container>
-        )
-    }
-
+const StaffView = ({ staff }: Props): JSX.Element => {
     return (
         <Container className="!mt-5 lg:!mt-10" isFirst isLast>
             <motion.div {...fadeInMotion(0.5, 1)}>
-                {response.data?.map((group)=>(
-                    <CardWrappersecondary text={`${group.members.length} members`} title={ group.role_name } key={`group-${group.role_id}-${response.isLoading}`}>
-                        {group.members?.map((data)=>(
+                {staff.map((group) => (
+                    <CardWrappersecondary
+                        text={`${group.members.length} members`}
+                        title={ group.role_name }
+                        key={`group-${group.role_id}`}
+                    >
+                        {group.members.map((data) => (
                             <CardStaff data={ data } key={`${data.discord_id}-staff`} />
                         ))}
                     </CardWrappersecondary>

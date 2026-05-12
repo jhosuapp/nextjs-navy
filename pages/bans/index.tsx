@@ -1,16 +1,22 @@
 import { useTranslation } from "next-i18next";
 import { BansView } from "@/features/bans/views/Bans.view";
+import { BansResponse } from "@/features/bans/interfaces";
+import { fetchBansData } from "@/features/bans/actions/get-bans.server";
 import { paths } from "@/shared/constants/routes";
 import { PageTransition } from "@/shared/layouts";
 import Layout from "pages/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
 
-const BansPage = () => {
+type Props = {
+    bans: BansResponse;
+}
+
+const BansPage = ({ bans }: Props) => {
     const { t } = useTranslation("common");
 
     return (
-        <Layout 
+        <Layout
             title={t('seo.bansMetaTitle')}
             description={t('seo.bansMetaDescription')}
             textPage={ t('nav.partners') }
@@ -18,7 +24,7 @@ const BansPage = () => {
             url={ paths.partners }
         >
             <PageTransition>
-                <BansView />
+                <BansView bans={ bans } />
             </PageTransition>
         </Layout>
     )
@@ -27,9 +33,13 @@ const BansPage = () => {
 export default BansPage;
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
+    const bans = await fetchBansData();
+
     return {
         props: {
+            bans,
             ...(await serverSideTranslations(locale ?? 'es', ['common', 'bans'])),
         },
+        revalidate: 86400,
     };
 }

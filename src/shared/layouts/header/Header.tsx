@@ -7,8 +7,6 @@ import { useMediaQuery } from '@/shared/hooks/useMediaquery';
 import { HeaderHamburger } from './HeaderHamburger';
 import { useMenuStore } from '@/shared/stores/menu.store';
 import { LanguageSwitcher } from '@/shared/components/language-switcher/LanguageSwitcher';
-import { getBansAction } from '@/features/bans/actions/get-bans.action';
-import { getStaffAction } from '@/features/staff/actions/get-staff.action';
 import { getTierlistOverallAction } from '@/features/tierlist/actions/get-tierlistOverall.action';
 
 import styles from './header.module.css';
@@ -21,10 +19,10 @@ const Header = ():JSX.Element => {
     const isDesktop = useMediaQuery({ breakpoint: 1024 });
     const firstListItems = useMemo(() => [
         { text: t('nav.tierlist'), path: paths.tierlist, prefetchKey: ['tierlist', 'infinite'], action: ()=> getTierlistOverallAction(1) },
-        { text: t('nav.staff'),    path: paths.staff,    prefetchKey: ["staff"],                action: ()=> getStaffAction() }
+        { text: t('nav.staff'),    path: paths.staff }
     ], [t]);
     const secondaryListItems = useMemo(() => [
-        { text: t('nav.bans'), path: paths.bans, prefetchKey: ['bans'], action: ()=> getBansAction() },
+        { text: t('nav.bans'),     path: paths.bans },
         { text: t('nav.partners'), path: paths.partners }
     ], [t]);
 

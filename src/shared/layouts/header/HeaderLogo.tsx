@@ -4,34 +4,21 @@ import Link from "next/link";
 
 import { paths } from "@/shared/constants"
 import { useMenuStore } from "@/shared/stores/menu.store";
-import { useQueryClient } from "@tanstack/react-query";
-import { getResumeAction } from "@/features/home/actions/get-resume.action";
 
 import styles from './header.module.css';
 
 
 const HeaderLogo = ():JSX.Element => {
-    const queryClient = useQueryClient();
     const setHamburger = useMenuStore( state => state.setHamburger );
 
-    const handlePrefetch = ()=> {
-        queryClient.prefetchQuery({
-            queryKey: ["resumeHome"],
-            queryFn: () => getResumeAction(),
-            staleTime: Infinity,
-        });
-    }
-
     const onClickHamburger = () => {
-        handlePrefetch();
         setTimeout(()=>{ setHamburger(false) },1000);
     }
-    
+
     return (
-        <Link 
-            href={ paths.home } 
-            onClick={ onClickHamburger } 
-            onMouseEnter={ handlePrefetch }
+        <Link
+            href={ paths.home }
+            onClick={ onClickHamburger }
             className={ styles.headerLogo }
         >
             <Image
