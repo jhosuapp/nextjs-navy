@@ -1,9 +1,18 @@
 import type { JSX } from "react";
+import dynamic from "next/dynamic";
 import { useTranslation } from "next-i18next";
 import { Container } from "@/shared/components/container/Container";
-import { Results, TotalTests, Hero, VideoModal, FlowersFirstScreen } from "../components";
+import { Hero } from "../components/hero/Hero";
+import { Results } from "../components/results/Results";
+import { TotalTests } from "../components/totalt-tests/TotalTests";
+import { FlowersFirstScreen } from "../components/parallax/Parallax";
 import { useVimeoModal } from '../hooks';
 import { TierlistResumeResponse } from "../interfaces";
+
+const VideoModal = dynamic(
+    () => import('../components/video-modal/VideoModal').then(m => m.VideoModal),
+    { ssr: false, loading: () => null }
+);
 
 const DEFAULT_VIDEO_ID = 715502900;
 

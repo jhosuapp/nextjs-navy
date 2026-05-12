@@ -2,7 +2,7 @@ import type { JSX } from "react";
 import { motion } from "framer-motion";
 import { CardWrappersecondary } from "@/shared/components/card-wrapper-secondary/CardWrapperSecondary"
 import { Container } from "@/shared/components/container/Container"
-import { CardStaff } from "../components"
+import { CardStaff } from "../components/card-staff/CardStaff"
 import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
 import { GroupedStaffResponse } from "../interfaces";
 

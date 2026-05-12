@@ -5,7 +5,7 @@ import { CardWrappersecondary } from "@/shared/components/card-wrapper-secondary
 import { Button } from "@/shared/components/button/Button"
 import { NotFound } from "@/shared/components/not-found/NotFound"
 import { Feedback } from "@/shared/components/feedback/Feedback"
-import { CardBan } from "../components"
+import { CardBan } from "../components/card-ban/CardBan"
 import { fadeInMotion } from "@/shared/motion/fadeIn.motion";
 import { useBansController } from '../hooks';
 import { fadeUpMotion } from "@/shared/motion/fadeUp.motion";
@@ -31,7 +31,6 @@ const BansView = ({ bans }: Props): JSX.Element => {
                 title={ t('hero.active') }
                 placeholder={ t('hero.search') }
                 hasSearch
-                hasAnimation
             >
                 {value && (
                     <NotFound
@@ -45,12 +44,12 @@ const BansView = ({ bans }: Props): JSX.Element => {
                 {activeBansPaginated.visibleItems.map((data, index) => (
                     <motion.div
                         layout
-                        {...fadeInMotion(getDuration(index), 1)}
+                        {...fadeUpMotion(getDuration(index), 1)}
                         key={`${data.nick}-bans-actives`}
                     >
                         <CardBan
                             data={ data }
-                            isFadeUp={ false }
+                            isFadeUp={ (index > 2 && !value) ? false : true }
                             t={ t }
                         />
                     </motion.div>

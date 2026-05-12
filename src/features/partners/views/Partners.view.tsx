@@ -2,7 +2,7 @@ import type { JSX } from "react";
 import { useTranslation } from "next-i18next";
 import { CardWrappersecondary } from "@/shared/components/card-wrapper-secondary/CardWrapperSecondary";
 import { Container } from "@/shared/components/container/Container";
-import { CardPartners } from "../components";
+import { CardPartners } from "../components/card-partners/CardPartners";
 import { serversData, streamersData } from "../data";
 
 const PartnersView = ():JSX.Element => {
