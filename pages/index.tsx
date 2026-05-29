@@ -3,7 +3,7 @@ import { HomeView } from "@/features/home/views/Home.view";
 import { TierlistResumeResponse } from "@/features/home/interfaces";
 import { fetchResumeData } from "@/features/home/actions/get-resume.server";
 import { PageTransition } from "@/shared/layouts";
-import Layout from "./Layout";
+import Layout from "@/shared/layouts/Layout";
 import { paths } from "@/shared/constants";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';

@@ -58,7 +58,7 @@ const LanguageSwitcher = ({ hasMobileStyle = false, isHeaderOpen = false }:Props
                 {hasMobileStyle ? (
                     <div className="relative w-6 h-4">
                         <Image
-                            src={`/images/icon-${current.label}.svg`}
+                            src={`/images/icon-${current.label}.webp`}
                             alt={current.label}
                             sizes="24px"
                             fill
@@ -84,7 +84,7 @@ const LanguageSwitcher = ({ hasMobileStyle = false, isHeaderOpen = false }:Props
                                 onMouseEnter={() => handlePrefetch(code)}
                                 className={`${isHeaderOpen ? styles.langSwitch__currentOpen : ''}`}
                             >
-                                <Image src={`/images/icon-${label}.svg`} width={24} height={24} alt={ `Lenguaje ${label}` } />
+                                <Image src={`/images/icon-${label}.webp`} width={24} height={24} alt={ `Lenguaje ${label}` } />
                                 {label}
                             </button>
                         ))}

@@ -1,5 +1,5 @@
 import { PageTransition } from "@/shared/layouts";
-import Layout from "./Layout";
+import Layout from "@/shared/layouts/Layout";
 import { paths } from "@/shared/constants";
 import { useTranslation } from "next-i18next";
 import { NotFoundView } from "@/features/not-found/views/NotFound.view";

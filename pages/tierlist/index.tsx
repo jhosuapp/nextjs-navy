@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import { TierlistView } from "@/features/tierlist/views/Tierlist.view";
 import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
-import Layout from "pages/Layout";
+import Layout from "@/shared/layouts/Layout";
 import { useTranslation } from "next-i18next";
 import { GetStaticPropsContext } from "next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
