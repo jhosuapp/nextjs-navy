@@ -4,7 +4,7 @@ import { GroupedStaffResponse } from "@/features/staff/interfaces";
 import { fetchStaffData } from "@/features/staff/actions/get-staff.server";
 import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
-import Layout from "pages/Layout";
+import Layout from "@/shared/layouts/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
 

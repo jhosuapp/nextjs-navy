@@ -1,7 +1,7 @@
 import { PartnersView } from "@/features/partners/views/Partners.view";
 import { paths } from "@/shared/constants";
 import { PageTransition } from "@/shared/layouts";
-import Layout from "pages/Layout";
+import Layout from "@/shared/layouts/Layout";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";

@@ -1,40 +1,44 @@
-.langSwitch{
-    @apply relative block;
+.langSwitch {
+  @apply relative block;
 }
 
-.langSwitch__current{
-    @apply flex items-center gap-1 px-3 py-1.5 text-base font-medium text-white;
+.langSwitch__current {
+  @apply flex items-center gap-1 px-3 py-1.5 text-base font-medium text-white;
 }
 
-.langSwitch__wrapper{
-    @apply absolute right-0 mt-4 w-full min-w-20 shadow-sm border-2 border-purple-300 border-opacity-50 bg-tertiary rounded-md h-auto text-white overflow-hidden;
+.langSwitch__wrapper img {
+  @apply !object-contain;
 }
 
-.langSwitch__wrapper button{
-    @apply flex justify-center gap-2 w-full px-3 py-2 text-base text-left hover:opacity-60;
+.langSwitch__wrapper {
+  @apply absolute right-0 mt-4 w-full min-w-20 shadow-sm border-2 border-purple-300 border-opacity-50 bg-tertiary rounded-md h-auto text-white overflow-hidden;
 }
 
-.langSwitchMobile button{
-    @apply bg-secondary rounded-full text-sm gap-3 px-7 min-h-10 text-white text-opacity-70;
-    transition: .25s ease background-color;
+.langSwitch__wrapper button {
+  @apply flex justify-center gap-2 w-full px-3 py-2 text-base text-left hover:opacity-60;
 }
 
-.langSwitchMobile .langSwitch__wrapper button{
-    @apply rounded-none;
+.langSwitchMobile button {
+  @apply bg-secondary rounded-full text-sm gap-3 px-7 min-h-10 text-white text-opacity-70;
+  transition: 0.25s ease background-color;
 }
 
-.langSwitchMobile .langSwitch__wrapper{
-    @apply top-7;
+.langSwitchMobile .langSwitch__wrapper button {
+  @apply rounded-none;
 }
 
-.langSwitchMobile .langSwitch__wrapper button{
-    @apply flex-row-reverse;
+.langSwitchMobile .langSwitch__wrapper {
+  @apply top-7;
 }
 
-.langSwitchOpen.langSwitchMobile > button{
-    @apply !rounded-md border-2 border-purple-300 border-opacity-50;
+.langSwitchMobile .langSwitch__wrapper button {
+  @apply flex-row-reverse;
 }
 
-.langSwitch__currentOpen{
-    @apply !bg-white !text-tertiary font-medium;
+.langSwitchOpen.langSwitchMobile > button {
+  @apply !rounded-md border-2 border-purple-300 border-opacity-50;
+}
+
+.langSwitch__currentOpen {
+  @apply !bg-white !text-tertiary font-medium;
 }

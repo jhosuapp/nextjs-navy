@@ -4,7 +4,7 @@ import { BansResponse } from "@/features/bans/interfaces";
 import { fetchBansData } from "@/features/bans/actions/get-bans.server";
 import { paths } from "@/shared/constants/routes";
 import { PageTransition } from "@/shared/layouts";
-import Layout from "pages/Layout";
+import Layout from "@/shared/layouts/Layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
 
