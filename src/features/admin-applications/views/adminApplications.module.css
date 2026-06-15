@@ -1,0 +1,19 @@
+.header {
+    @apply w-full flex justify-between items-center gap-4 flex-wrap mb-8;
+}
+
+.header__title {
+    @apply text-2xl lg:text-4xl font-bold text-white leading-tight;
+}
+
+.header__subtitle {
+    @apply text-purple-200 text-opacity-70 text-sm mt-1;
+}
+
+.list {
+    @apply w-full flex flex-col gap-4;
+}
+
+.center {
+    @apply w-full flex justify-center items-center py-20;
+}

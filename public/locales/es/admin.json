@@ -1,0 +1,57 @@
+{
+    "seo": {
+        "title": "Panel de postulaciones | Navy",
+        "description": "Panel interno de gestión de postulaciones de Navy."
+    },
+    "login": {
+        "title": "Acceso al panel",
+        "subtitle": "Inicia sesión para ver las postulaciones",
+        "usernamePlaceholder": "Usuario",
+        "passwordPlaceholder": "Contraseña",
+        "submit": "Iniciar sesión",
+        "validation": {
+            "required": "Este campo es obligatorio",
+            "usernameLength": "El usuario debe tener entre 3 y 60 caracteres",
+            "passwordLength": "La contraseña debe tener al menos 6 caracteres"
+        },
+        "feedback": {
+            "invalid": "Usuario o contraseña incorrectos",
+            "error": "Ocurrió un error al iniciar sesión"
+        }
+    },
+    "list": {
+        "title": "Postulaciones",
+        "subtitle": "Sesión: {{username}} · {{total}} registros",
+        "logout": "Cerrar sesión",
+        "empty": "Aún no hay postulaciones registradas"
+    },
+    "card": {
+        "age": "{{age}} años",
+        "expand": "Ver",
+        "collapse": "Ocultar",
+        "yes": "Sí",
+        "no": "No"
+    },
+    "pagination": {
+        "prev": "Anterior",
+        "next": "Siguiente",
+        "status": "Página {{page}} de {{totalPages}}"
+    },
+    "fields": {
+        "labor_helper": "¿Sabes cuál es la labor de un Helper?",
+        "funciones_helper": "Menciona 2 funciones básicas e indispensables de un Helper",
+        "claro_spam": "¿Tienes claro el significado del término \"Spam\"?",
+        "claro_flood": "¿Tienes claro el significado del término \"Flood\"?",
+        "conoce_hacks_ss": "¿Tienes conocimientos sobre hacks y cómo realizar una SS (ScreenShare)?",
+        "opinion_tierlist": "Opinión sobre la TierList (positivos, negativos y mejora)",
+        "usuarios_peleando": "¿Qué harías si ves a dos usuarios peleando por chat general?",
+        "testers_peleando": "¿Qué harías si ves a dos Testers peleando por chat general?",
+        "ticket_tester": "Respuesta a un ticket sobre cómo postularse para Tester",
+        "ticket_reporte": "Respuesta a un ticket de reporte de otra persona",
+        "hacks_pvp": "3 tipos de hacks PVP y cómo los identificarías",
+        "tiempo_disciplina": "¿Tiene tiempo y disciplina para la TierList?",
+        "meta_principal": "Meta principal dentro del Staff y la TierList",
+        "capacidad_resolucion": "¿Buenas capacidades para resolver conflictos?",
+        "se_enoja_facil": "¿Se enoja fácil?"
+    }
+}

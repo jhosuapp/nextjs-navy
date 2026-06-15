@@ -81,6 +81,15 @@ model applications {
   @@map("applications")
 }
 
+model admin_users {
+  id            Int      @id @default(autoincrement())
+  username      String   @unique(map: "username") @db.VarChar(60)
+  password_hash String   @db.VarChar(255)
+  created_at    DateTime @db.DateTime(0)
+
+  @@map("admin_users")
+}
+
 model api_cache {
   cache_key  String   @id @db.VarChar(255)
   data       String   @db.LongText

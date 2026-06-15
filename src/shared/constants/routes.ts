@@ -13,5 +13,6 @@ export const paths = {
     tierlist: '/tierlist',
     bans: '/bans',
     partners: '/partners',
-    applications: '/applications'
+    applications: '/applications',
+    applicationsAdmin: '/admin/applications'
 }

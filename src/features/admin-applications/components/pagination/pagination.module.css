@@ -1,0 +1,11 @@
+.pagination {
+    @apply flex justify-center items-center gap-4 lg:gap-6 mt-10 w-full;
+}
+
+.pagination button{
+    @apply !max-w-fit !min-w-fit;
+}
+
+.pagination__info {
+    @apply text-purple-200 text-opacity-80 text-sm font-medium min-w-32 text-center;
+}
