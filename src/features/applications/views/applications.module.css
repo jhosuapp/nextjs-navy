@@ -1,0 +1,11 @@
+.hero{
+    @apply w-full max-w-2xl mx-auto mb-10 text-center flex flex-col gap-4;
+}
+
+.hero__title{
+    @apply text-3xl lg:text-5xl font-bold text-white leading-tight;
+}
+
+.hero__description{
+    @apply text-purple-200 text-opacity-80 leading-relaxed;
+}

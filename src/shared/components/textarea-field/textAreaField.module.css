@@ -1,0 +1,7 @@
+.textAreaField{
+    @apply w-full;
+}
+
+.textAreaField textarea{
+    @apply px-5 py-3 min-h-28 w-full flex bg-tertiary border-2 rounded-md border-purple-300 border-opacity-50 backdrop-blur-sm bg-opacity-10 outline-none font-medium placeholder:text-purple-300 placeholder:text-opacity-50 leading-snug text-white resize-y;
+}

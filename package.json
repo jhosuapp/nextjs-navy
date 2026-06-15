@@ -10,6 +10,7 @@
     "doctor": "react-doctor"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
     "@prisma/client": "^6.11.1",
     "@tanstack/react-query": "^5.81.5",
     "axios": "^1.10.0",
@@ -19,9 +20,11 @@
     "next-i18next": "^15.4.2",
     "react": "19.2.5",
     "react-dom": "19.2.5",
+    "react-hook-form": "^7.79.0",
     "react-i18next": "^15.6.0",
     "react-toastify": "^11.0.5",
     "swiper": "^12.0.3",
+    "zod": "^4.4.3",
     "zustand": "^5.0.6"
   },
   "devDependencies": {

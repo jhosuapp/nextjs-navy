@@ -16,41 +16,41 @@ type Props = {
     resetFlux?: boolean;
     enableInAnyStep?: boolean;
     rowDirection?: boolean;
-    callBackHandleClick?: (value:string)=> ItemBotMessage[];
+    callBackHandleClick?: (value: string) => ItemBotMessage[];
 }
 
-const RadioStep = ({ 
-    options, 
-    enableAtStep, 
-    enableNextStep, 
-    messages, 
-    callBackHandleClick, 
-    resetFlux = false, 
-    enableInAnyStep = false, 
-    rowDirection = false 
-}:Props):JSX.Element => {
+const RadioStep = ({
+    options,
+    enableAtStep,
+    enableNextStep,
+    messages,
+    callBackHandleClick,
+    resetFlux = false,
+    enableInAnyStep = false,
+    rowDirection = false
+}: Props): JSX.Element => {
 
-    const { 
-        currentStep, 
+    const {
+        currentStep,
         handleClick
     } = useRadioStepController({ enableNextStep, messages, callBackHandleClick, resetFlux, enableInAnyStep });
 
 
-    if(currentStep !== enableAtStep && !enableInAnyStep){
+    if (currentStep !== enableAtStep && !enableInAnyStep) {
         return <></>
     }
 
     return (
         <BotMessageWrapper rowDirection={rowDirection}>
-            {options?.map((radio)=>(
+            {options?.map((radio) => (
                 <RadioField
-                    name={ radio.name }
-                    id={ radio.name }
+                    name={radio.name}
+                    id={radio.name}
                     value={radio.value}
-                    onClick={ ()=> handleClick(radio.value) }
-                    key={ radio.name }
+                    onClick={() => handleClick(radio.value)}
+                    key={radio.name}
                 >
-                    { radio.value }
+                    {radio.value}
                 </RadioField>
             ))}
         </BotMessageWrapper>

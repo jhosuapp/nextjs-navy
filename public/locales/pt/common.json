@@ -4,7 +4,8 @@
         "staff": "Staff",
         "bans": "Banimentos",
         "partners": "Patrocinadores",
-        "home": "Início"
+        "home": "Início",
+        "applications": "Candidaturas"
     },
     "footer": {
         "developedBy": "Desenvolvido por",
@@ -29,7 +30,9 @@
         "homeMetaTitle": "Navy | Servidor de Discord para testes de nível no Minecraft",
         "homeMetaDescription": "Navy é um servidor de Discord onde avaliamos o nível dos jogadores de Minecraft em diferentes modalidades, tanto premium quanto não premium, por meio de testes justos e estruturados.",
         "404MetaTitle": "404 - Página não encontrada | Navy",
-        "404MetaDescription": "A página que você procura não existe ou foi movida. Explore o Navy ou volte ao início para continuar descobrindo conteúdo."
+        "404MetaDescription": "A página que você procura não existe ou foi movida. Explore o Navy ou volte ao início para continuar descobrindo conteúdo.",
+        "applicationsMetaTitle": "Candidate-se a Helper no Navy | Formulário de Staff e TierList",
+        "applicationsMetaDescription": "Quer fazer parte do Staff do Navy? Preencha o formulário de candidatura a Helper e prove seus conhecimentos sobre moderação, hacks e a TierList."
     },
     "loader": {
         "loading": "Carregando"
