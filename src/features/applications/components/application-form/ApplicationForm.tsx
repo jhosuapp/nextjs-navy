@@ -1,6 +1,7 @@
 import { type JSX, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
-import { Controller } from 'react-hook-form';
+import { Controller, FieldErrors } from 'react-hook-form';
+import { ApplicationFormInterface } from '../../validations/application-form.validation';
 import { Button } from '@/shared/components/button/Button';
 import { ITranslations } from '@/shared/interfaces/globals';
 import { useApplicationFormController } from '../../hooks/useApplicationForm.controller';
@@ -70,6 +71,15 @@ const CONDITIONALS: Array<[FieldName, FieldName]> = [
 
 const TOTAL = STEPS.length;
 
+// Mapa campo -> índice de paso (incluye los campos de detalle condicionales)
+const FIELD_STEP: Partial<Record<FieldName, number>> = {};
+STEPS.forEach((s, i) => {
+    s.questions.forEach((q) => {
+        FIELD_STEP[q.name] = i;
+        if (q.kind === 'yesno-detail') FIELD_STEP[q.detail] = i;
+    });
+});
+
 const stepVariants = {
     enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 32 : -32 }),
     center: { opacity: 1, x: 0 },
@@ -106,6 +116,19 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
         setStep((s) => Math.max(s - 1, 0));
     };
 
+    // Al enviar: si hay errores en pasos anteriores, vuelve al primer paso con error
+    const onInvalid = (formErrors: FieldErrors<ApplicationFormInterface>): void => {
+        const firstErrorStep = (Object.keys(formErrors) as FieldName[])
+            .map((name) => FIELD_STEP[name])
+            .filter((i): i is number => i !== undefined)
+            .sort((a, b) => a - b)[0];
+
+        if (firstErrorStep !== undefined && firstErrorStep !== step) {
+            setDirection(firstErrorStep > step ? 1 : -1);
+            setStep(firstErrorStep);
+        }
+    };
+
     // Evita el submit accidental con Enter en pasos intermedios (no en textareas)
     const handleKeyDown = (e: React.KeyboardEvent<HTMLFormElement>): void => {
         const target = e.target as HTMLElement;
@@ -140,7 +163,7 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
     return (
         <form
             className={styles.form}
-            onSubmit={handleSubmit(onSubmit)}
+            onSubmit={handleSubmit(onSubmit, onInvalid)}
             onKeyDown={handleKeyDown}
             noValidate
         >

@@ -1,0 +1,2 @@
+- [Stack & Patterns](project_stack_and_patterns.md) — Tech stack, no auth middleware, custom rate limiter, Prisma raw query patterns, dual rate-limit anomaly
+- [Audit Findings 2026-05-12](project_vulnerabilities_audit_2026_05_12.md) — First full audit: critical/high/medium/low findings, baseline for regression tracking
