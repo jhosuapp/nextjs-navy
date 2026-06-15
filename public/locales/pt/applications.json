@@ -1,0 +1,125 @@
+{
+    "hero": {
+        "title": "Candidatura a Helper",
+        "description": "Preencha o formulário abaixo com sinceridade. Suas respostas nos ajudam a conhecer seu critério e conhecimentos para fazer parte do Staff e da TierList."
+    },
+    "cta": "Enviar candidatura",
+    "steps": {
+        "personal": "Sobre você",
+        "role": "Seu papel como Helper",
+        "concepts": "Conceitos de moderação",
+        "scenarios": "Situações reais",
+        "commitment": "TierList e compromisso"
+    },
+    "nav": {
+        "back": "Voltar",
+        "next": "Seguinte",
+        "step": "Passo {{current}} de {{total}}"
+    },
+    "options": {
+        "si": "Sim",
+        "no": "Não"
+    },
+    "fields": {
+        "nombre": {
+            "label": "Nome",
+            "placeholder": "Seu nome ou nick"
+        },
+        "correo": {
+            "label": "E-mail",
+            "placeholder": "seuemail@exemplo.com"
+        },
+        "edad": {
+            "label": "Idade",
+            "placeholder": "Sua idade"
+        },
+        "labor_helper": {
+            "label": "Você sabe qual é o trabalho de um Helper?",
+            "placeholder": "Descreva com suas palavras o trabalho de um Helper"
+        },
+        "funciones_helper": {
+            "label": "Mencione 2 funções básicas e indispensáveis de um Helper",
+            "placeholder": "Descreva 2 funções básicas e indispensáveis"
+        },
+        "claro_spam": {
+            "label": "Você tem claro o significado do termo \"Spam\"?"
+        },
+        "detalle_spam": {
+            "label": "Explique o que você entende por \"Spam\"",
+            "placeholder": "Explique brevemente o que você entende por \"Spam\""
+        },
+        "claro_flood": {
+            "label": "Você tem claro o significado do termo \"Flood\"?"
+        },
+        "detalle_flood": {
+            "label": "Explique o que você entende por \"Flood\"",
+            "placeholder": "Explique brevemente o que você entende por \"Flood\""
+        },
+        "conoce_hacks_ss": {
+            "label": "Você tem conhecimentos sobre hacks e como realizar uma SS (ScreenShare)?"
+        },
+        "detalle_hacks_ss": {
+            "label": "Detalhe seus conhecimentos",
+            "placeholder": "Detalhe seus conhecimentos sobre hacks e como realizar uma SS"
+        },
+        "opinion_tierlist": {
+            "label": "O que você acha da TierList? Mencione aspectos positivos e negativos, e sugira uma melhoria concreta",
+            "placeholder": "Aspectos positivos, negativos e uma melhoria concreta"
+        },
+        "usuarios_peleando": {
+            "label": "O que você faria se visse dois usuários brigando no chat geral?",
+            "placeholder": "Descreva como você agiria"
+        },
+        "testers_peleando": {
+            "label": "O que você faria se visse dois Testers brigando no chat geral?",
+            "placeholder": "Descreva como você agiria"
+        },
+        "ticket_tester": {
+            "label": "Como você responderia a um ticket onde alguém pergunta como se candidatar para Tester?",
+            "placeholder": "Redija sua resposta ao ticket"
+        },
+        "ticket_reporte": {
+            "label": "Como você responderia a um ticket onde alguém está denunciando outra pessoa?",
+            "placeholder": "Redija sua resposta ao ticket"
+        },
+        "hacks_pvp": {
+            "label": "Mencione 3 tipos de hacks focados na comunidade PVP (não básicos como Fly ou KillAura) e descreva como você os identificaria particularmente",
+            "placeholder": "Mencione 3 hacks PVP e como você os identificaria"
+        },
+        "tiempo_disciplina": {
+            "label": "Você tem tempo e disciplina suficientes para dedicar o esforço e a atividade exigidos pela TierList?"
+        },
+        "meta_principal": {
+            "label": "Sendo totalmente objetivo, qual será seu objetivo principal dentro do Staff e da TierList?",
+            "placeholder": "Descreva seu objetivo principal"
+        },
+        "capacidad_resolucion": {
+            "label": "Você considera que tem boas capacidades para a resolução de problemas e conflitos?"
+        },
+        "se_enoja_facil": {
+            "label": "Você considera que se irrita com facilidade?"
+        }
+    },
+    "validation": {
+        "required": "Este campo é obrigatório",
+        "nombreLength": "O nome deve ter entre 2 e 60 caracteres",
+        "email": "Insira um e-mail válido",
+        "edad": "Insira uma idade válida (13 a 99)",
+        "tooShort": "Desenvolva um pouco mais sua resposta (mínimo 10 caracteres)",
+        "tooLong": "Você excedeu o máximo de caracteres permitido",
+        "selectRequired": "Selecione uma opção",
+        "detailRequired": "Por favor, detalhe sua resposta"
+    },
+    "success": {
+        "title": "Obrigado por se candidatar!",
+        "message": "Recebemos sua candidatura com sucesso. Nossa equipe vai analisá-la e entraremos em contato se você avançar no processo. Boa sorte!"
+    },
+    "feedback": {
+        "loading": "Enviando sua candidatura...",
+        "success": "Candidatura enviada com sucesso!",
+        "errorThrottle": "Você já enviou uma candidatura recentemente. Tente novamente mais tarde.",
+        "errorDuplicated": "Já existe uma candidatura com este e-mail. Aguarde 24h para reenviar.",
+        "errorValidation": "Verifique os campos: alguns dados não são válidos.",
+        "errorUnexpected": "Ocorreu um erro inesperado. Tente novamente."
+    }
+}

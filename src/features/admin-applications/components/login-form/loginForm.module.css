@@ -1,0 +1,15 @@
+.login {
+    @apply w-full max-w-md mx-auto flex flex-col gap-5 p-8 rounded-xl border-2 border-purple-300 border-opacity-30 bg-tertiary bg-opacity-40 backdrop-blur-sm;
+}
+
+.login__header {
+    @apply text-center flex flex-col gap-2 mb-2;
+}
+
+.login__title {
+    @apply text-2xl lg:text-3xl font-bold text-white leading-tight;
+}
+
+.login__subtitle {
+    @apply text-purple-200 text-opacity-70 text-sm;
+}

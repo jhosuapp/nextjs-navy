@@ -1,0 +1,127 @@
+.form{
+    @apply w-full max-w-2xl mx-auto bg-white bg-opacity-[0.03] border border-purple-300 border-opacity-20 rounded-2xl p-6 lg:p-8 backdrop-blur-sm;
+}
+
+/* ---- Stepper / progreso ---- */
+.stepper{
+    @apply mb-8;
+}
+
+.stepper__head{
+    @apply flex items-baseline justify-between gap-4 mb-3;
+}
+
+.stepper__count{
+    @apply text-purple-300 text-xs font-semibold uppercase tracking-wider whitespace-nowrap;
+}
+
+.stepper__title{
+    @apply text-white font-bold text-right leading-tight;
+}
+
+.progress{
+    @apply h-1.5 w-full rounded-full bg-white bg-opacity-10 overflow-hidden;
+}
+
+.progress__bar{
+    @apply block h-full rounded-full bg-gradient-to-r from-purple-600 via-purple-500 to-purple-300;
+}
+
+.dots{
+    @apply flex gap-2 mt-4;
+}
+
+.dot{
+    @apply h-1.5 flex-1 rounded-full bg-white bg-opacity-10 transition-colors duration-300;
+}
+
+.dot__done{
+    @apply bg-purple-600;
+}
+
+.dot__active{
+    @apply bg-purple-400;
+}
+
+/* ---- Área del paso ---- */
+.stepArea{
+    @apply relative;
+}
+
+.step{
+    @apply flex flex-col gap-6 min-h-[19rem];
+}
+
+/* ---- Campos ---- */
+.field{
+    @apply w-full flex flex-col gap-2.5 border-0 p-0 m-0 min-w-0;
+}
+
+.field__label{
+    @apply text-white font-semibold leading-snug flex gap-2.5 items-start;
+}
+
+.field__num{
+    @apply inline-flex items-center justify-center shrink-0 h-6 min-w-[1.5rem] px-1.5 mt-px rounded-md bg-purple-500 bg-opacity-20 text-purple-200 text-xs font-bold;
+}
+
+.detail{
+    @apply mt-3;
+}
+
+/* ---- Segmented control Sí/No ---- */
+.options{
+    @apply grid grid-cols-2 gap-3 max-w-xs mt-3;
+}
+
+.option{
+    @apply relative flex items-center justify-center h-10 rounded-lg border-2 border-purple-300 border-opacity-30 bg-white bg-opacity-[0.03] text-purple-100 font-semibold cursor-pointer transition-all duration-200 select-none;
+}
+
+.option:hover{
+    @apply border-opacity-60;
+}
+
+.option:focus-within{
+    @apply border-purple-400 ring-2 ring-purple-400 ring-opacity-40;
+}
+
+.option__active{
+    @apply border-purple-400 bg-purple-500 bg-opacity-20 text-white;
+}
+
+.option__input{
+    @apply absolute inset-0 w-full h-full opacity-0 cursor-pointer;
+}
+
+/* ---- Navegación ---- */
+.nav{
+    @apply flex items-center gap-3 mt-8 pt-6 border-t border-white border-opacity-10;
+}
+
+/* ---- Mensaje de agradecimiento ---- */
+.success{
+    @apply flex flex-col items-center text-center gap-5 py-10 px-2;
+}
+
+.success__icon{
+    @apply flex items-center justify-center h-16 w-16 rounded-full bg-purple-500 bg-opacity-20 text-purple-200 border border-purple-300 border-opacity-30;
+}
+
+.success__icon svg{
+    @apply h-8 w-8;
+}
+
+.success__title{
+    @apply text-2xl lg:text-3xl font-bold text-white;
+}
+
+.success__message{
+    @apply text-purple-200 text-opacity-80 leading-relaxed max-w-md;
+}
+
+/* ---- Honeypot ---- */
+.honeypot{
+    @apply absolute opacity-0 pointer-events-none -z-10 h-0 w-0 overflow-hidden;
+    left: -9999px;
+}

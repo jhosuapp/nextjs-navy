@@ -4,6 +4,7 @@ export const routes:any = {
     "/tierlist": "tierlist",
     "/bans": "bans",
     "/partners": "partners",
+    "/applications": "applications",
 }
 
 export const paths = {
@@ -11,5 +12,7 @@ export const paths = {
     staff: '/staff-navy',
     tierlist: '/tierlist',
     bans: '/bans',
-    partners: '/partners'
+    partners: '/partners',
+    applications: '/applications',
+    applicationsAdmin: '/admin/applications'
 }

@@ -1,0 +1,125 @@
+{
+    "hero": {
+        "title": "Helper Application",
+        "description": "Fill out the form below honestly. Your answers help us understand your judgement and knowledge to join the Staff and the TierList."
+    },
+    "cta": "Submit application",
+    "steps": {
+        "personal": "About you",
+        "role": "Your role as Helper",
+        "concepts": "Moderation concepts",
+        "scenarios": "Real situations",
+        "commitment": "TierList & commitment"
+    },
+    "nav": {
+        "back": "Back",
+        "next": "Next",
+        "step": "Step {{current}} of {{total}}"
+    },
+    "options": {
+        "si": "Yes",
+        "no": "No"
+    },
+    "fields": {
+        "nombre": {
+            "label": "Name",
+            "placeholder": "Your name or nick"
+        },
+        "correo": {
+            "label": "Email",
+            "placeholder": "youremail@example.com"
+        },
+        "edad": {
+            "label": "Age",
+            "placeholder": "Your age"
+        },
+        "labor_helper": {
+            "label": "Do you know what a Helper's job is?",
+            "placeholder": "Describe in your own words a Helper's job"
+        },
+        "funciones_helper": {
+            "label": "Name 2 basic and essential functions of a Helper",
+            "placeholder": "Describe 2 basic and essential functions"
+        },
+        "claro_spam": {
+            "label": "Are you clear on the meaning of the term \"Spam\"?"
+        },
+        "detalle_spam": {
+            "label": "Explain what you understand by \"Spam\"",
+            "placeholder": "Briefly explain what you understand by \"Spam\""
+        },
+        "claro_flood": {
+            "label": "Are you clear on the meaning of the term \"Flood\"?"
+        },
+        "detalle_flood": {
+            "label": "Explain what you understand by \"Flood\"",
+            "placeholder": "Briefly explain what you understand by \"Flood\""
+        },
+        "conoce_hacks_ss": {
+            "label": "Do you have knowledge about hacks and how to perform a SS (ScreenShare)?"
+        },
+        "detalle_hacks_ss": {
+            "label": "Detail your knowledge",
+            "placeholder": "Detail your knowledge about hacks and how to perform a SS"
+        },
+        "opinion_tierlist": {
+            "label": "What do you think of the TierList? Mention positive and negative aspects, and suggest a concrete improvement",
+            "placeholder": "Positive aspects, negatives and a concrete improvement"
+        },
+        "usuarios_peleando": {
+            "label": "What would you do if you see two users fighting in general chat?",
+            "placeholder": "Describe how you would act"
+        },
+        "testers_peleando": {
+            "label": "What would you do if you see two Testers fighting in general chat?",
+            "placeholder": "Describe how you would act"
+        },
+        "ticket_tester": {
+            "label": "How would you respond to a ticket where someone asks how to apply for Tester?",
+            "placeholder": "Write your reply to the ticket"
+        },
+        "ticket_reporte": {
+            "label": "How would you respond to a ticket where someone is reporting another person?",
+            "placeholder": "Write your reply to the ticket"
+        },
+        "hacks_pvp": {
+            "label": "Name 3 types of hacks focused on the PVP community (not basic ones like Fly or KillAura) and describe how you would identify them specifically",
+            "placeholder": "Name 3 PVP hacks and how you would identify them"
+        },
+        "tiempo_disciplina": {
+            "label": "Do you have enough time and discipline to dedicate the effort and activity required by the TierList?"
+        },
+        "meta_principal": {
+            "label": "Being completely objective, what will be your main goal within the Staff and the TierList?",
+            "placeholder": "Describe your main goal"
+        },
+        "capacidad_resolucion": {
+            "label": "Do you consider that you have good abilities for solving problems and conflicts?"
+        },
+        "se_enoja_facil": {
+            "label": "Do you consider that you get angry easily?"
+        }
+    },
+    "validation": {
+        "required": "This field is required",
+        "nombreLength": "The name must be between 2 and 60 characters",
+        "email": "Enter a valid email",
+        "edad": "Enter a valid age (13 to 99)",
+        "tooShort": "Develop your answer a bit more (minimum 10 characters)",
+        "tooLong": "You have exceeded the maximum allowed characters",
+        "selectRequired": "Select an option",
+        "detailRequired": "Please detail your answer"
+    },
+    "success": {
+        "title": "Thanks for applying!",
+        "message": "We have received your application successfully. Our team will review it and reach out if you move forward in the process. Good luck!"
+    },
+    "feedback": {
+        "loading": "Submitting your application...",
+        "success": "Application submitted successfully!",
+        "errorThrottle": "You already submitted an application recently. Try again later.",
+        "errorDuplicated": "An application with this email already exists. Wait 24h to resubmit.",
+        "errorValidation": "Check the fields: some data is not valid.",
+        "errorUnexpected": "An unexpected error occurred. Please try again."
+    }
+}

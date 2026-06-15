@@ -1,0 +1,57 @@
+{
+    "seo": {
+        "title": "Applications panel | Navy",
+        "description": "Internal panel to manage Navy applications."
+    },
+    "login": {
+        "title": "Panel access",
+        "subtitle": "Sign in to view the applications",
+        "usernamePlaceholder": "Username",
+        "passwordPlaceholder": "Password",
+        "submit": "Sign in",
+        "validation": {
+            "required": "This field is required",
+            "usernameLength": "Username must be between 3 and 60 characters",
+            "passwordLength": "Password must be at least 6 characters"
+        },
+        "feedback": {
+            "invalid": "Wrong username or password",
+            "error": "An error occurred while signing in"
+        }
+    },
+    "list": {
+        "title": "Applications",
+        "subtitle": "Session: {{username}} · {{total}} records",
+        "logout": "Sign out",
+        "empty": "No applications registered yet"
+    },
+    "card": {
+        "age": "{{age}} years old",
+        "expand": "View",
+        "collapse": "Hide",
+        "yes": "Yes",
+        "no": "No"
+    },
+    "pagination": {
+        "prev": "Previous",
+        "next": "Next",
+        "status": "Page {{page}} of {{totalPages}}"
+    },
+    "fields": {
+        "labor_helper": "Do you know what a Helper's job is?",
+        "funciones_helper": "Name 2 basic and essential Helper duties",
+        "claro_spam": "Are you clear on the meaning of \"Spam\"?",
+        "claro_flood": "Are you clear on the meaning of \"Flood\"?",
+        "conoce_hacks_ss": "Do you know about hacks and how to run a ScreenShare?",
+        "opinion_tierlist": "Opinion on the TierList (pros, cons and an improvement)",
+        "usuarios_peleando": "What would you do if two users fight in general chat?",
+        "testers_peleando": "What would you do if two Testers fight in general chat?",
+        "ticket_tester": "Reply to a ticket about how to apply as a Tester",
+        "ticket_reporte": "Reply to a ticket reporting another person",
+        "hacks_pvp": "3 types of PVP hacks and how you would identify them",
+        "tiempo_disciplina": "Do you have time and discipline for the TierList?",
+        "meta_principal": "Main goal within the Staff and the TierList",
+        "capacidad_resolucion": "Good skills to resolve conflicts?",
+        "se_enoja_facil": "Do you get angry easily?"
+    }
+}

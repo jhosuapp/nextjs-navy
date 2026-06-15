@@ -66,6 +66,10 @@ body::-webkit-scrollbar-thumb {
     @apply bg-primary;
 }
 
+.field__error{
+    @apply text-red-400 text-sm font-medium !leading-3 !mt-2 block;
+}
+
 @keyframes text-reveal {
     from{
         opacity: .5;

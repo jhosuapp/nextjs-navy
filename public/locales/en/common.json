@@ -4,7 +4,8 @@
         "staff": "Staff",
         "bans": "Bans",
         "partners": "Partners",
-        "home": "Home"
+        "home": "Home",
+        "applications": "Applications"
     },
     "footer":{
         "developedBy": "Developed by",
@@ -29,7 +30,9 @@
         "homeMetaTitle":"Navy | Discord Server for Minecraft Skill Testing",
         "homeMetaDescription":"Navy is a Discord server where we evaluate Minecraft players skill levels across different modes, both premium and non-premium, through fair and structured tests.",
         "404MetaTitle": "404 - Page Not Found | Navy",
-        "404MetaDescription": "The page you're looking for doesn't exist or has been moved. Explore Navy or head back home to keep browsing."
+        "404MetaDescription": "The page you're looking for doesn't exist or has been moved. Explore Navy or head back home to keep browsing.",
+        "applicationsMetaTitle": "Apply for Helper at Navy | Staff & TierList Form",
+        "applicationsMetaDescription": "Want to join the Navy Staff? Fill out the Helper application form and prove your knowledge about moderation, hacks and the TierList."
     },
     "loader": {
         "loading": "Loading"

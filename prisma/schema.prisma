@@ -52,6 +52,44 @@ model staff {
   online_staff      online_staff[] @ignore
 }
 
+model applications {
+  id                   Int      @id @default(autoincrement())
+  nombre               String   @db.VarChar(60)
+  correo               String   @db.VarChar(120)
+  edad                 Int
+  labor_helper         String   @db.Text
+  funciones_helper     String   @db.Text
+  claro_spam           Boolean
+  detalle_spam         String?  @db.Text
+  claro_flood          Boolean
+  detalle_flood        String?  @db.Text
+  conoce_hacks_ss      Boolean
+  detalle_hacks_ss     String?  @db.Text
+  opinion_tierlist     String   @db.Text
+  usuarios_peleando    String   @db.Text
+  testers_peleando     String   @db.Text
+  ticket_tester        String   @db.Text
+  ticket_reporte       String   @db.Text
+  hacks_pvp            String   @db.Text
+  tiempo_disciplina    Boolean
+  meta_principal       String   @db.Text
+  capacidad_resolucion Boolean
+  se_enoja_facil       Boolean
+  ip_hash              String?  @db.VarChar(64)
+  created_at           DateTime @db.DateTime(0)
+
+  @@map("applications")
+}
+
+model admin_users {
+  id            Int      @id @default(autoincrement())
+  username      String   @unique(map: "username") @db.VarChar(60)
+  password_hash String   @db.VarChar(255)
+  created_at    DateTime @db.DateTime(0)
+
+  @@map("admin_users")
+}
+
 model api_cache {
   cache_key  String   @id @db.VarChar(255)
   data       String   @db.LongText
