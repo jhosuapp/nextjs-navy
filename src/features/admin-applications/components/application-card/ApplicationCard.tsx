@@ -51,9 +51,12 @@ const ApplicationCard = memo(({ t, data }: Props): JSX.Element => {
                 aria-expanded={open}
             >
                 <div className={styles.card__head}>
-                    <span className={styles.card__name}>{data.nombre}</span>
+                    <div className={styles.card__nameRow}>
+                        <span className={styles.card__name}>{data.nombre}</span>
+                        <span className={styles.card__role}>{data.tipo}</span>
+                    </div>
                     <span className={styles.card__meta}>
-                        {data.correo} · {t("card.age", { age: data.edad })}
+                        {data.discord} · {t("card.age", { age: data.edad })}
                     </span>
                 </div>
                 <div className={styles.card__aside}>

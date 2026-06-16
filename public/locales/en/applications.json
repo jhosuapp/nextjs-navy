@@ -1,12 +1,12 @@
 {
     "hero": {
-        "title": "Helper Application",
+        "title": "Staff Application",
         "description": "Fill out the form below honestly. Your answers help us understand your judgement and knowledge to join the Staff and the TierList."
     },
     "cta": "Submit application",
     "steps": {
         "personal": "About you",
-        "role": "Your role as Helper",
+        "role": "Your role on the Staff",
         "concepts": "Moderation concepts",
         "scenarios": "Real situations",
         "commitment": "TierList & commitment"
@@ -18,16 +18,21 @@
     },
     "options": {
         "si": "Yes",
-        "no": "No"
+        "no": "No",
+        "helper": "Helper",
+        "tester": "Tester"
     },
     "fields": {
+        "tipo": {
+            "label": "Which role are you applying for?"
+        },
         "nombre": {
             "label": "Name",
             "placeholder": "Your name or nick"
         },
-        "correo": {
-            "label": "Email",
-            "placeholder": "youremail@example.com"
+        "discord": {
+            "label": "Discord username",
+            "placeholder": "yourusername"
         },
         "edad": {
             "label": "Age",
@@ -103,12 +108,13 @@
     "validation": {
         "required": "This field is required",
         "nombreLength": "The name must be between 2 and 60 characters",
-        "email": "Enter a valid email",
+        "discord": "Enter a valid Discord username",
         "edad": "Enter a valid age (13 to 99)",
         "tooShort": "Develop your answer a bit more (minimum 10 characters)",
         "tooLong": "You have exceeded the maximum allowed characters",
         "selectRequired": "Select an option",
-        "detailRequired": "Please detail your answer"
+        "detailRequired": "Please detail your answer",
+        "tipoRequired": "Select which role you are applying for"
     },
     "success": {
         "title": "Thanks for applying!",
@@ -118,7 +124,7 @@
         "loading": "Submitting your application...",
         "success": "Application submitted successfully!",
         "errorThrottle": "You already submitted an application recently. Try again later.",
-        "errorDuplicated": "An application with this email already exists. Wait 24h to resubmit.",
+        "errorDuplicated": "An application with this Discord user already exists for this role.",
         "errorValidation": "Check the fields: some data is not valid.",
         "errorUnexpected": "An unexpected error occurred. Please try again."
     }

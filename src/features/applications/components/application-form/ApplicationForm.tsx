@@ -9,6 +9,7 @@ import { FieldName, Step } from './types';
 import { TextControl } from './fields/TextControl';
 import { TextareaControl } from './fields/TextareaControl';
 import { YesNoControl } from './fields/YesNoControl';
+import { ChoiceControl } from './fields/ChoiceControl';
 import icon from '@/config/assets/svg/icon-arrow-left.svg';
 
 import styles from './applicationForm.module.css';
@@ -21,44 +22,45 @@ const STEPS: Step[] = [
     {
         id: 'personal',
         questions: [
-            { kind: 'text', name: 'nombre', num: '1', type: 'text' },
-            { kind: 'text', name: 'correo', num: '2', type: 'email' },
-            { kind: 'text', name: 'edad', num: '3', type: 'number' },
+            { kind: 'choice', name: 'tipo', num: '1', options: ['helper', 'tester'] },
+            { kind: 'text', name: 'nombre', num: '2', type: 'text' },
+            { kind: 'text', name: 'discord', num: '3', type: 'text' },
+            { kind: 'text', name: 'edad', num: '4', type: 'number' },
         ],
     },
     {
         id: 'role',
         questions: [
-            { kind: 'textarea', name: 'labor_helper', num: '4' },
-            { kind: 'textarea', name: 'funciones_helper', num: '5' },
-            { kind: 'textarea', name: 'meta_principal', num: '6' },
+            { kind: 'textarea', name: 'labor_helper', num: '5' },
+            { kind: 'textarea', name: 'funciones_helper', num: '6' },
+            { kind: 'textarea', name: 'meta_principal', num: '7' },
         ],
     },
     {
         id: 'concepts',
         questions: [
-            { kind: 'yesno-detail', name: 'claro_spam', detail: 'detalle_spam', num: '7' },
-            { kind: 'yesno-detail', name: 'claro_flood', detail: 'detalle_flood', num: '8' },
-            { kind: 'yesno-detail', name: 'conoce_hacks_ss', detail: 'detalle_hacks_ss', num: '9' },
-            { kind: 'textarea', name: 'hacks_pvp', num: '10' },
+            { kind: 'yesno-detail', name: 'claro_spam', detail: 'detalle_spam', num: '8' },
+            { kind: 'yesno-detail', name: 'claro_flood', detail: 'detalle_flood', num: '9' },
+            { kind: 'yesno-detail', name: 'conoce_hacks_ss', detail: 'detalle_hacks_ss', num: '10' },
+            { kind: 'textarea', name: 'hacks_pvp', num: '11' },
         ],
     },
     {
         id: 'scenarios',
         questions: [
-            { kind: 'textarea', name: 'usuarios_peleando', num: '11' },
-            { kind: 'textarea', name: 'testers_peleando', num: '12' },
-            { kind: 'textarea', name: 'ticket_tester', num: '13' },
-            { kind: 'textarea', name: 'ticket_reporte', num: '14' },
+            { kind: 'textarea', name: 'usuarios_peleando', num: '12' },
+            { kind: 'textarea', name: 'testers_peleando', num: '13' },
+            { kind: 'textarea', name: 'ticket_tester', num: '14' },
+            { kind: 'textarea', name: 'ticket_reporte', num: '15' },
         ],
     },
     {
         id: 'commitment',
         questions: [
-            { kind: 'textarea', name: 'opinion_tierlist', num: '15' },
-            { kind: 'yesno', name: 'tiempo_disciplina', num: '16' },
-            { kind: 'yesno', name: 'capacidad_resolucion', num: '17' },
-            { kind: 'yesno', name: 'se_enoja_facil', num: '18' },
+            { kind: 'textarea', name: 'opinion_tierlist', num: '16' },
+            { kind: 'yesno', name: 'tiempo_disciplina', num: '17' },
+            { kind: 'yesno', name: 'capacidad_resolucion', num: '18' },
+            { kind: 'yesno', name: 'se_enoja_facil', num: '19' },
         ],
     },
 ];
@@ -218,6 +220,16 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
                         transition={{ duration: 0.28, ease: 'easeOut' }}
                     >
                         {STEPS[step].questions.map((q) => {
+                            if (q.kind === 'choice')
+                                return (
+                                    <ChoiceControl
+                                        key={q.name}
+                                        q={q}
+                                        control={control}
+                                        errors={errors}
+                                        t={t}
+                                    />
+                                );
                             if (q.kind === 'text')
                                 return (
                                     <TextControl

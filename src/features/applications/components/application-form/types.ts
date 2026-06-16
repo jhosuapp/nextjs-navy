@@ -8,7 +8,8 @@ export type Question =
     | { kind: 'text'; name: FieldName; num: string; type: string }
     | { kind: 'textarea'; name: FieldName; num: string }
     | { kind: 'yesno'; name: FieldName; num: string }
-    | { kind: 'yesno-detail'; name: FieldName; detail: FieldName; num: string };
+    | { kind: 'yesno-detail'; name: FieldName; detail: FieldName; num: string }
+    | { kind: 'choice'; name: FieldName; num: string; options: readonly string[] };
 
 export type Step = { id: string; questions: Question[] };
 

@@ -10,8 +10,6 @@ import {
 
 // Una postulación por IP cada 30 min (anti-spam ligero, además del rate limit global)
 const IP_THROTTLE_TTL = 30 * 60;
-// Dedupe por correo durante 24h
-const EMAIL_DEDUPE_HOURS = 24;
 
 const getClientIp = (req: NextApiRequest): string =>
     (req.headers["x-real-ip"] as string) ||
@@ -68,23 +66,23 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             });
         }
 
-        // Dedupe por correo en las últimas 24h
-        const correo = sanitize(data.correo).toLowerCase();
-        const since = new Date(Date.now() - EMAIL_DEDUPE_HOURS * 60 * 60 * 1000);
+        // Una postulación por usuario de Discord y rol (helper/tester)
+        const discord = sanitize(data.discord).toLowerCase();
         const duplicated = await prisma.applications.findFirst({
-            where: { correo, created_at: { gte: since } },
+            where: { discord, tipo: data.tipo },
             select: { id: true },
         });
         if (duplicated) {
             return res.status(409).json({
-                message: "Ya existe una postulación con este correo. Espera 24h para reenviar.",
+                message: "Ya existe una postulación de Discord para este rol.",
             });
         }
 
         await prisma.applications.create({
             data: {
                 nombre: sanitize(data.nombre),
-                correo,
+                discord,
+                tipo: data.tipo,
                 edad: data.edad,
                 labor_helper: sanitize(data.labor_helper),
                 funciones_helper: sanitize(data.funciones_helper),

@@ -14,8 +14,16 @@
     @apply flex flex-col gap-1 min-w-0;
 }
 
+.card__nameRow {
+    @apply flex items-center gap-2 min-w-0;
+}
+
 .card__name {
     @apply text-white font-semibold leading-none truncate;
+}
+
+.card__role {
+    @apply shrink-0 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-purple-300 bg-opacity-20 text-white;
 }
 
 .card__meta {
