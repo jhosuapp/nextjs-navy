@@ -1,7 +1,8 @@
 export type Application = {
     id: number;
     nombre: string;
-    correo: string;
+    discord: string;
+    tipo: string;
     edad: number;
     labor_helper: string;
     funciones_helper: string;

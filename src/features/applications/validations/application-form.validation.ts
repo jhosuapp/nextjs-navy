@@ -7,26 +7,33 @@ import { z } from "zod";
 export type ApplicationMessages = {
     required: string;
     nombreLength: string;
-    email: string;
+    discord: string;
     edad: string;
     tooShort: string;
     tooLong: string;
     selectRequired: string;
     detailRequired: string;
+    tipoRequired: string;
 };
 
 export const defaultApplicationMessages: ApplicationMessages = {
     required: "Este campo es obligatorio",
     nombreLength: "El nombre debe tener entre 2 y 60 caracteres",
-    email: "Ingresa un correo válido",
+    discord: "Ingresa un usuario de Discord válido",
     edad: "Ingresa una edad válida (13 a 99)",
     tooShort: "Desarrolla un poco más tu respuesta (mínimo 10 caracteres)",
     tooLong: "Has superado el máximo de caracteres permitido",
     selectRequired: "Selecciona una opción",
     detailRequired: "Por favor detalla tu respuesta",
+    tipoRequired: "Selecciona a qué rol te postulas",
 };
 
 const YES_NO = ["si", "no"] as const;
+const TIPO = ["helper", "tester"] as const;
+
+// Reglas del sistema nuevo de usernames de Discord: 2-32 chars,
+// minúsculas/números/punto/guion bajo, sin puntos consecutivos.
+const DISCORD_USERNAME = new RegExp("^(?!.*\\.\\.)[a-z0-9._]{2,32}$");
 
 export const createApplicationSchema = (
     m: ApplicationMessages = defaultApplicationMessages
@@ -55,12 +62,14 @@ export const createApplicationSchema = (
                 .trim()
                 .min(2, m.nombreLength)
                 .max(60, m.nombreLength),
-            correo: z
+            tipo: z.enum(TIPO, { error: m.tipoRequired }),
+            discord: z
                 .string({ error: m.required })
                 .trim()
-                .min(1, m.required)
-                .email(m.email)
-                .max(120, m.tooLong),
+                .toLowerCase()
+                .min(2, m.discord)
+                .max(32, m.tooLong)
+                .regex(DISCORD_USERNAME, m.discord),
             edad: z.coerce
                 .number({ error: m.edad })
                 .int(m.edad)

@@ -1,12 +1,12 @@
 {
     "hero": {
-        "title": "Postulación a Helper",
+        "title": "Postulación al Staff",
         "description": "Completa el siguiente formulario con sinceridad. Tus respuestas nos ayudan a conocer tu criterio y conocimientos para formar parte del Staff y la TierList."
     },
     "cta": "Enviar postulación",
     "steps": {
         "personal": "Sobre ti",
-        "role": "Tu rol como Helper",
+        "role": "Tu rol en el Staff",
         "concepts": "Conceptos de moderación",
         "scenarios": "Situaciones reales",
         "commitment": "TierList y compromiso"
@@ -18,16 +18,21 @@
     },
     "options": {
         "si": "Sí",
-        "no": "No"
+        "no": "No",
+        "helper": "Helper",
+        "tester": "Tester"
     },
     "fields": {
+        "tipo": {
+            "label": "¿A qué rol te postulas?"
+        },
         "nombre": {
             "label": "Nombre",
             "placeholder": "Tu nombre o nick"
         },
-        "correo": {
-            "label": "Correo",
-            "placeholder": "tucorreo@ejemplo.com"
+        "discord": {
+            "label": "Usuario de Discord",
+            "placeholder": "Tu usuario"
         },
         "edad": {
             "label": "Edad",
@@ -103,12 +108,13 @@
     "validation": {
         "required": "Este campo es obligatorio",
         "nombreLength": "El nombre debe tener entre 2 y 60 caracteres",
-        "email": "Ingresa un correo válido",
+        "discord": "Ingresa un usuario de Discord válido",
         "edad": "Ingresa una edad válida (13 a 99)",
         "tooShort": "Desarrolla un poco más tu respuesta (mínimo 10 caracteres)",
         "tooLong": "Has superado el máximo de caracteres permitido",
         "selectRequired": "Selecciona una opción",
-        "detailRequired": "Por favor detalla tu respuesta"
+        "detailRequired": "Por favor detalla tu respuesta",
+        "tipoRequired": "Selecciona a qué rol te postulas"
     },
     "success": {
         "title": "¡Gracias por postularte!",
@@ -118,7 +124,7 @@
         "loading": "Enviando tu postulación...",
         "success": "¡Postulación enviada correctamente!",
         "errorThrottle": "Ya enviaste una postulación recientemente. Inténtalo más tarde.",
-        "errorDuplicated": "Ya existe una postulación con este correo. Espera 24h para reenviar.",
+        "errorDuplicated": "Ya existe una postulación de Discord para este rol.",
         "errorValidation": "Revisa los campos: algunos datos no son válidos.",
         "errorUnexpected": "Ocurrió un error inesperado. Inténtalo de nuevo."
     }

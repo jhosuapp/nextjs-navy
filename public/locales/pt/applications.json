@@ -1,12 +1,12 @@
 {
     "hero": {
-        "title": "Candidatura a Helper",
+        "title": "Candidatura ao Staff",
         "description": "Preencha o formulário abaixo com sinceridade. Suas respostas nos ajudam a conhecer seu critério e conhecimentos para fazer parte do Staff e da TierList."
     },
     "cta": "Enviar candidatura",
     "steps": {
         "personal": "Sobre você",
-        "role": "Seu papel como Helper",
+        "role": "Seu papel no Staff",
         "concepts": "Conceitos de moderação",
         "scenarios": "Situações reais",
         "commitment": "TierList e compromisso"
@@ -18,16 +18,21 @@
     },
     "options": {
         "si": "Sim",
-        "no": "Não"
+        "no": "Não",
+        "helper": "Helper",
+        "tester": "Tester"
     },
     "fields": {
+        "tipo": {
+            "label": "Para qual cargo você está se candidatando?"
+        },
         "nombre": {
             "label": "Nome",
             "placeholder": "Seu nome ou nick"
         },
-        "correo": {
-            "label": "E-mail",
-            "placeholder": "seuemail@exemplo.com"
+        "discord": {
+            "label": "Usuário do Discord",
+            "placeholder": "seuusuario"
         },
         "edad": {
             "label": "Idade",
@@ -103,12 +108,13 @@
     "validation": {
         "required": "Este campo é obrigatório",
         "nombreLength": "O nome deve ter entre 2 e 60 caracteres",
-        "email": "Insira um e-mail válido",
+        "discord": "Insira um usuário do Discord válido",
         "edad": "Insira uma idade válida (13 a 99)",
         "tooShort": "Desenvolva um pouco mais sua resposta (mínimo 10 caracteres)",
         "tooLong": "Você excedeu o máximo de caracteres permitido",
         "selectRequired": "Selecione uma opção",
-        "detailRequired": "Por favor, detalhe sua resposta"
+        "detailRequired": "Por favor, detalhe sua resposta",
+        "tipoRequired": "Selecione para qual cargo você está se candidatando"
     },
     "success": {
         "title": "Obrigado por se candidatar!",
@@ -118,7 +124,7 @@
         "loading": "Enviando sua candidatura...",
         "success": "Candidatura enviada com sucesso!",
         "errorThrottle": "Você já enviou uma candidatura recentemente. Tente novamente mais tarde.",
-        "errorDuplicated": "Já existe uma candidatura com este e-mail. Aguarde 24h para reenviar.",
+        "errorDuplicated": "Já existe uma candidatura do Discord para este cargo.",
         "errorValidation": "Verifique os campos: alguns dados não são válidos.",
         "errorUnexpected": "Ocorreu um erro inesperado. Tente novamente."
     }

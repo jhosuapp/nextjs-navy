@@ -22,12 +22,13 @@ const useApplicationFormController = ({ t }: Props) => {
         () => ({
             required: t("validation.required"),
             nombreLength: t("validation.nombreLength"),
-            email: t("validation.email"),
+            discord: t("validation.discord"),
             edad: t("validation.edad"),
             tooShort: t("validation.tooShort"),
             tooLong: t("validation.tooLong"),
             selectRequired: t("validation.selectRequired"),
             detailRequired: t("validation.detailRequired"),
+            tipoRequired: t("validation.tipoRequired"),
         }),
         [t]
     );
@@ -46,7 +47,7 @@ const useApplicationFormController = ({ t }: Props) => {
         resolver: zodResolver(schema) as Resolver<ApplicationFormInterface>,
         defaultValues: {
             nombre: "",
-            correo: "",
+            discord: "",
             labor_helper: "",
             funciones_helper: "",
             detalle_spam: "",
