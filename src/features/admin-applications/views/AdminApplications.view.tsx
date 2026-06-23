@@ -9,7 +9,10 @@ import { useAdminApplicationsController } from "../hooks";
 import { LoginForm } from "../components/login-form/LoginForm";
 import { ApplicationCard } from "../components/application-card/ApplicationCard";
 import { Pagination } from "../components/pagination/Pagination";
+import { ApplicationKindFilter } from "../interfaces";
 import styles from "./adminApplications.module.css";
+
+const FILTERS: ApplicationKindFilter[] = ["all", "helper", "tester"];
 
 const AdminApplicationsView = (): JSX.Element => {
     const {
@@ -32,6 +35,10 @@ const AdminApplicationsView = (): JSX.Element => {
         isListFetching,
         goToNextPage,
         goToPrevPage,
+        kind,
+        setKind,
+        onUpdateStatus,
+        updatingKey,
     } = useAdminApplicationsController();
 
     if (sessionLoading) {
@@ -77,6 +84,20 @@ const AdminApplicationsView = (): JSX.Element => {
                 />
             </motion.header>
 
+            <div className={styles.filters} role="group" aria-label={t("filter.label")}>
+                {FILTERS.map((option) => (
+                    <button
+                        key={option}
+                        type="button"
+                        className={`${styles.filter} ${kind === option ? styles.filter__active : ""}`}
+                        onClick={() => setKind(option)}
+                        aria-pressed={kind === option}
+                    >
+                        {t(`filter.${option}`)}
+                    </button>
+                ))}
+            </div>
+
             {isListLoading ? (
                 <div className={styles.center}>
                     <Spinner />
@@ -87,8 +108,19 @@ const AdminApplicationsView = (): JSX.Element => {
                 <>
                     <div className={styles.list}>
                         {applications.map((application) => (
-                            <motion.div layout key={application.id}>
-                                <ApplicationCard t={t} data={application} />
+                            <motion.div
+                                layout
+                                key={`${application.kind}-${application.id}`}
+                            >
+                                <ApplicationCard
+                                    t={t}
+                                    data={application}
+                                    onUpdateStatus={onUpdateStatus}
+                                    isUpdating={
+                                        updatingKey ===
+                                        `${application.kind}-${application.id}`
+                                    }
+                                />
                             </motion.div>
                         ))}
                     </div>

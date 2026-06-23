@@ -3,6 +3,7 @@ import {
     getApplicationsAction,
     getSessionAction,
 } from "../actions";
+import { ApplicationKindFilter } from "../interfaces";
 
 const useSessionQuery = () =>
     useQuery({
@@ -13,10 +14,14 @@ const useSessionQuery = () =>
         retry: false,
     });
 
-const useApplicationsQuery = (page: number, enabled: boolean) =>
+const useApplicationsQuery = (
+    page: number,
+    kind: ApplicationKindFilter,
+    enabled: boolean
+) =>
     useQuery({
-        queryKey: ["admin-applications", page],
-        queryFn: () => getApplicationsAction(page),
+        queryKey: ["admin-applications", kind, page],
+        queryFn: () => getApplicationsAction(page, kind),
         enabled,
         placeholderData: keepPreviousData,
         staleTime: 0,

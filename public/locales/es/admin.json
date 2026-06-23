@@ -20,7 +20,7 @@
         }
     },
     "list": {
-        "title": "Postulaciones",
+        "title": "Postulaciones staff",
         "subtitle": "Sesión: {{username}} · {{total}} registros",
         "logout": "Cerrar sesión",
         "empty": "Aún no hay postulaciones registradas"
@@ -31,6 +31,25 @@
         "collapse": "Ocultar",
         "yes": "Sí",
         "no": "No"
+    },
+    "kind": {
+        "helper": "Helper",
+        "tester": "Tester"
+    },
+    "filter": {
+        "label": "Filtrar por tipo",
+        "all": "Todos",
+        "helper": "Helper",
+        "tester": "Tester"
+    },
+    "status": {
+        "label": "Estado",
+        "pendiente": "Pendiente",
+        "aceptado": "Aceptado",
+        "rechazado": "Rechazado",
+        "loading": "Actualizando estado...",
+        "updated": "Estado actualizado",
+        "error": "No se pudo actualizar el estado"
     },
     "pagination": {
         "prev": "Anterior",
@@ -52,6 +71,19 @@
         "tiempo_disciplina": "¿Tiene tiempo y disciplina para la TierList?",
         "meta_principal": "Meta principal dentro del Staff y la TierList",
         "capacidad_resolucion": "¿Buenas capacidades para resolver conflictos?",
-        "se_enoja_facil": "¿Se enoja fácil?"
+        "se_enoja_facil": "¿Se enoja fácil?",
+        "region": "Región",
+        "modos": "Modos a testear",
+        "tier_modo": "Tier en ese modo (Navy / McTiers)",
+        "experiencia_tester": "¿Tiene experiencia como tester?",
+        "baneado": "¿Ha sido baneado de un servidor?",
+        "uso_cheats": "¿Ha utilizado cheats?",
+        "opinion_navy": "¿Qué opina de Navy?",
+        "por_que_tester": "¿Por qué quiere ser tester?",
+        "tiempo_testeos": "Tiempo disponible para testeos",
+        "servidores": "Servidores que suele jugar",
+        "clanes_pvp": "¿Ha pertenecido a clanes de PvP?",
+        "toxico": "¿Se considera tóxico?",
+        "sospecha_hacks": "¿Qué haría si sospecha que el testeado usa hacks?"
     }
 }

@@ -20,7 +20,7 @@
         }
     },
     "list": {
-        "title": "Applications",
+        "title": "Staff applications",
         "subtitle": "Session: {{username}} · {{total}} records",
         "logout": "Sign out",
         "empty": "No applications registered yet"
@@ -31,6 +31,25 @@
         "collapse": "Hide",
         "yes": "Yes",
         "no": "No"
+    },
+    "kind": {
+        "helper": "Helper",
+        "tester": "Tester"
+    },
+    "filter": {
+        "label": "Filter by type",
+        "all": "All",
+        "helper": "Helper",
+        "tester": "Tester"
+    },
+    "status": {
+        "label": "Status",
+        "pendiente": "Pending",
+        "aceptado": "Accepted",
+        "rechazado": "Rejected",
+        "loading": "Updating status...",
+        "updated": "Status updated",
+        "error": "Could not update the status"
     },
     "pagination": {
         "prev": "Previous",
@@ -52,6 +71,19 @@
         "tiempo_disciplina": "Do you have time and discipline for the TierList?",
         "meta_principal": "Main goal within the Staff and the TierList",
         "capacidad_resolucion": "Good skills to resolve conflicts?",
-        "se_enoja_facil": "Do you get angry easily?"
+        "se_enoja_facil": "Do you get angry easily?",
+        "region": "Region",
+        "modos": "Modes to test",
+        "tier_modo": "Tier in that mode (Navy / McTiers)",
+        "experiencia_tester": "Has experience as a tester?",
+        "baneado": "Has been banned from a server?",
+        "uso_cheats": "Has used cheats?",
+        "opinion_navy": "What do they think of Navy?",
+        "por_que_tester": "Why do they want to be a tester?",
+        "tiempo_testeos": "Time available for testing",
+        "servidores": "Servers they usually play",
+        "clanes_pvp": "Has belonged to PvP clans?",
+        "toxico": "Considers themselves toxic?",
+        "sospecha_hacks": "What would they do if they suspect the tested user hacks?"
     }
 }

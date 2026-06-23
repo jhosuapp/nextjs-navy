@@ -9,7 +9,10 @@
         "role": "Seu papel no Staff",
         "concepts": "Conceitos de moderação",
         "scenarios": "Situações reais",
-        "commitment": "TierList e compromisso"
+        "commitment": "TierList e compromisso",
+        "testerProfile": "Perfil de tester",
+        "testerBackground": "Antecedentes",
+        "testerMotivation": "Motivação e critério"
     },
     "nav": {
         "back": "Voltar",
@@ -20,7 +23,10 @@
         "si": "Sim",
         "no": "Não",
         "helper": "Helper",
-        "tester": "Tester"
+        "tester": "Tester",
+        "netherite": "Netherite",
+        "crystal": "CrystalPvP",
+        "sword": "Sword"
     },
     "fields": {
         "tipo": {
@@ -103,6 +109,64 @@
         },
         "se_enoja_facil": {
             "label": "Você considera que se irrita com facilidade?"
+        },
+        "region": {
+            "label": "Região",
+            "placeholder": "Sua região (ex. LATAM, NA, EU)"
+        },
+        "modos": {
+            "label": "Em qual(is) modo(s) você quer testar?"
+        },
+        "tier_modo": {
+            "label": "Qual tier você é nesse modo? (Navy / McTiers)",
+            "placeholder": "Mencione seu tier na Navy ou McTiers"
+        },
+        "experiencia_tester": {
+            "label": "Você tem experiência como tester?"
+        },
+        "detalle_experiencia": {
+            "label": "De quais TierLists você participou?",
+            "placeholder": "Mencione as TierLists das quais participou"
+        },
+        "baneado": {
+            "label": "Você já foi banido de um servidor?"
+        },
+        "detalle_baneado": {
+            "label": "Por quais razões?",
+            "placeholder": "Mencione as razões do banimento"
+        },
+        "uso_cheats": {
+            "label": "Você já usou cheats?"
+        },
+        "opinion_navy": {
+            "label": "O que você acha da Navy?",
+            "placeholder": "Compartilhe sua opinião sobre a Navy"
+        },
+        "por_que_tester": {
+            "label": "Por que você quer ser tester na Navy?",
+            "placeholder": "Conte-nos por que você quer ser tester"
+        },
+        "tiempo_testeos": {
+            "label": "Quanto tempo você poderia dedicar a realizar testes?",
+            "placeholder": "Descreva sua disponibilidade"
+        },
+        "servidores": {
+            "label": "Quais servidores você costuma jogar?",
+            "placeholder": "Mencione os servidores que você costuma jogar"
+        },
+        "clanes_pvp": {
+            "label": "Você já pertenceu a clãs de PvP?"
+        },
+        "detalle_clanes": {
+            "label": "Quais? Mencione os nomes",
+            "placeholder": "Mencione os nomes dos clãs"
+        },
+        "toxico": {
+            "label": "Você se considera uma pessoa tóxica?"
+        },
+        "sospecha_hacks": {
+            "label": "O que você faria se suspeitasse que o usuário que está testando usa hacks?",
+            "placeholder": "Descreva como você agiria"
         }
     },
     "validation": {
@@ -114,7 +178,8 @@
         "tooLong": "Você excedeu o máximo de caracteres permitido",
         "selectRequired": "Selecione uma opção",
         "detailRequired": "Por favor, detalhe sua resposta",
-        "tipoRequired": "Selecione para qual cargo você está se candidatando"
+        "tipoRequired": "Selecione para qual cargo você está se candidatando",
+        "modosRequired": "Selecione pelo menos um modo"
     },
     "success": {
         "title": "Obrigado por se candidatar!",

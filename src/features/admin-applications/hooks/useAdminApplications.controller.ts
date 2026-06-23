@@ -5,7 +5,16 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
 import { useTranslation } from "next-i18next";
-import { loginAction, logoutAction } from "../actions";
+import {
+    loginAction,
+    logoutAction,
+    patchApplicationStatusAction,
+} from "../actions";
+import {
+    ApplicationKind,
+    ApplicationKindFilter,
+    ApplicationStatus,
+} from "../interfaces";
 import {
     useApplicationsQuery,
     useSessionQuery,
@@ -20,12 +29,19 @@ const useAdminApplicationsController = () => {
     const { t } = useTranslation("admin");
     const queryClient = useQueryClient();
     const [page, setPage] = useState(1);
+    const [kind, setKindState] = useState<ApplicationKindFilter>("all");
+
+    const setKind = (next: ApplicationKindFilter) => {
+        setKindState(next);
+        setPage(1);
+    };
 
     const sessionQuery = useSessionQuery();
     const isAuthenticated = sessionQuery.data?.authenticated ?? false;
 
     const applicationsQuery = useApplicationsQuery(
         page,
+        kind,
         isAuthenticated && !sessionQuery.isLoading
     );
 
@@ -64,6 +80,47 @@ const useAdminApplicationsController = () => {
 
     const loginMutation = useMutation({ mutationFn: loginAction });
     const logoutMutation = useMutation({ mutationFn: logoutAction });
+
+    const statusMutation = useMutation({
+        mutationFn: ({
+            id,
+            status,
+            kind: itemKind,
+        }: {
+            id: number;
+            status: ApplicationStatus;
+            kind: ApplicationKind;
+        }) => patchApplicationStatusAction(id, { status, kind: itemKind }),
+        onMutate: () => {
+            const toastId = toast.loading(t("status.loading"));
+            return { toastId };
+        },
+        onSuccess: (_data, _variables, context) => {
+            toast.update(context.toastId, {
+                render: t("status.updated"),
+                type: "success",
+                isLoading: false,
+                autoClose: 3000,
+            });
+            queryClient.invalidateQueries({ queryKey: ["admin-applications"] });
+        },
+        onError: (_error, _variables, context) => {
+            toast.update(context!.toastId, {
+                render: t("status.error"),
+                type: "error",
+                isLoading: false,
+                autoClose: 4000,
+            });
+        },
+    });
+
+    const onUpdateStatus = (
+        id: number,
+        status: ApplicationStatus,
+        itemKind: ApplicationKind
+    ) => {
+        statusMutation.mutate({ id, status, kind: itemKind });
+    };
 
     const onLogin = async (formData: LoginFormInterface) => {
         try {
@@ -125,6 +182,14 @@ const useAdminApplicationsController = () => {
         isListFetching: applicationsQuery.isFetching,
         goToNextPage,
         goToPrevPage,
+        // filtro por tipo
+        kind,
+        setKind,
+        // status
+        onUpdateStatus,
+        updatingKey: statusMutation.isPending
+            ? `${statusMutation.variables?.kind}-${statusMutation.variables?.id}`
+            : undefined,
     };
 };
 
