@@ -5,7 +5,12 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
 import { useTranslation } from "next-i18next";
-import { loginAction, logoutAction } from "../actions";
+import {
+    loginAction,
+    logoutAction,
+    patchApplicationStatusAction,
+} from "../actions";
+import { ApplicationStatus } from "../interfaces";
 import {
     useApplicationsQuery,
     useSessionQuery,
@@ -64,6 +69,36 @@ const useAdminApplicationsController = () => {
 
     const loginMutation = useMutation({ mutationFn: loginAction });
     const logoutMutation = useMutation({ mutationFn: logoutAction });
+
+    const statusMutation = useMutation({
+        mutationFn: ({ id, status }: { id: number; status: ApplicationStatus }) =>
+            patchApplicationStatusAction(id, { status }),
+        onMutate: () => {
+            const toastId = toast.loading(t("status.loading"));
+            return { toastId };
+        },
+        onSuccess: (_data, _variables, context) => {
+            toast.update(context.toastId, {
+                render: t("status.updated"),
+                type: "success",
+                isLoading: false,
+                autoClose: 3000,
+            });
+            queryClient.invalidateQueries({ queryKey: ["admin-applications"] });
+        },
+        onError: (_error, _variables, context) => {
+            toast.update(context!.toastId, {
+                render: t("status.error"),
+                type: "error",
+                isLoading: false,
+                autoClose: 4000,
+            });
+        },
+    });
+
+    const onUpdateStatus = (id: number, status: ApplicationStatus) => {
+        statusMutation.mutate({ id, status });
+    };
 
     const onLogin = async (formData: LoginFormInterface) => {
         try {
@@ -125,6 +160,11 @@ const useAdminApplicationsController = () => {
         isListFetching: applicationsQuery.isFetching,
         goToNextPage,
         goToPrevPage,
+        // status
+        onUpdateStatus,
+        updatingId: statusMutation.isPending
+            ? statusMutation.variables?.id
+            : undefined,
     };
 };
 

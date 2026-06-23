@@ -20,7 +20,7 @@
         }
     },
     "list": {
-        "title": "Applications",
+        "title": "Staff applications",
         "subtitle": "Session: {{username}} · {{total}} records",
         "logout": "Sign out",
         "empty": "No applications registered yet"
@@ -31,6 +31,15 @@
         "collapse": "Hide",
         "yes": "Yes",
         "no": "No"
+    },
+    "status": {
+        "label": "Status",
+        "pendiente": "Pending",
+        "aceptado": "Accepted",
+        "rechazado": "Rejected",
+        "loading": "Updating status...",
+        "updated": "Status updated",
+        "error": "Could not update the status"
     },
     "pagination": {
         "prev": "Previous",

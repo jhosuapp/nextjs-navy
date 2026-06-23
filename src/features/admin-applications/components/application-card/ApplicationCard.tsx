@@ -1,13 +1,21 @@
 import { memo, useState, type JSX } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ITranslations } from "@/shared/interfaces/globals";
-import { Application } from "../../interfaces";
+import { Application, ApplicationStatus } from "../../interfaces";
 import styles from "./applicationCard.module.css";
 
 type Props = {
     t: ITranslations;
     data: Application;
+    onUpdateStatus: (id: number, status: ApplicationStatus) => void;
+    isUpdating: boolean;
 };
+
+const STATUS_OPTIONS: ApplicationStatus[] = [
+    "pendiente",
+    "aceptado",
+    "rechazado",
+];
 
 const TEXT_FIELDS: Array<keyof Application> = [
     "labor_helper",
@@ -39,35 +47,67 @@ const formatDate = (iso: string): string =>
         minute: "2-digit",
     });
 
-const ApplicationCard = memo(({ t, data }: Props): JSX.Element => {
+const ApplicationCard = memo(
+    ({ t, data, onUpdateStatus, isUpdating }: Props): JSX.Element => {
     const [open, setOpen] = useState(false);
 
     return (
         <article className={styles.card}>
-            <button
-                type="button"
-                className={styles.card__summary}
-                onClick={() => setOpen((prev) => !prev)}
-                aria-expanded={open}
-            >
-                <div className={styles.card__head}>
-                    <div className={styles.card__nameRow}>
-                        <span className={styles.card__name}>{data.nombre}</span>
-                        <span className={styles.card__role}>{data.tipo}</span>
+            <div className={styles.card__top}>
+                <button
+                    type="button"
+                    className={styles.card__summary}
+                    onClick={() => setOpen((prev) => !prev)}
+                    aria-expanded={open}
+                >
+                    <div className={styles.card__head}>
+                        <div className={styles.card__nameRow}>
+                            <span className={styles.card__name}>
+                                {data.nombre}
+                            </span>
+                            <span className={styles.card__role}>
+                                {data.tipo}
+                            </span>
+                        </div>
+                        <span className={styles.card__meta}>
+                            {data.discord} · {t("card.age", { age: data.edad })}
+                        </span>
                     </div>
-                    <span className={styles.card__meta}>
-                        {data.discord} · {t("card.age", { age: data.edad })}
+                    <div className={styles.card__aside}>
+                        <span className={styles.card__date}>
+                            {formatDate(data.created_at)}
+                        </span>
+                        <span className={styles.card__toggle}>
+                            {open ? t("card.collapse") : t("card.expand")}
+                        </span>
+                    </div>
+                </button>
+
+                <div className={styles.card__status}>
+                    <span className={styles.card__statusLabel}>
+                        {t("status.label")}
                     </span>
+                    <select
+                        className={`${styles.card__statusSelect} ${
+                            styles[`card__statusSelect__${data.status}`]
+                        }`}
+                        value={data.status}
+                        disabled={isUpdating}
+                        onChange={(e) =>
+                            onUpdateStatus(
+                                data.id,
+                                e.target.value as ApplicationStatus
+                            )
+                        }
+                    >
+                        {STATUS_OPTIONS.map((option) => (
+                            <option key={option} value={option}>
+                                {t(`status.${option}`)}
+                            </option>
+                        ))}
+                    </select>
                 </div>
-                <div className={styles.card__aside}>
-                    <span className={styles.card__date}>
-                        {formatDate(data.created_at)}
-                    </span>
-                    <span className={styles.card__toggle}>
-                        {open ? t("card.collapse") : t("card.expand")}
-                    </span>
-                </div>
-            </button>
+            </div>
 
             <AnimatePresence initial={false}>
                 {open && (
@@ -113,7 +153,8 @@ const ApplicationCard = memo(({ t, data }: Props): JSX.Element => {
             </AnimatePresence>
         </article>
     );
-});
+    }
+);
 
 ApplicationCard.displayName = "ApplicationCard";
 

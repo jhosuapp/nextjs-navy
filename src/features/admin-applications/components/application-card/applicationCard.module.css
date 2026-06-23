@@ -2,8 +2,12 @@
     @apply w-full rounded-lg border-2 border-purple-300 border-opacity-30 bg-tertiary bg-opacity-40 backdrop-blur-sm overflow-hidden;
 }
 
+.card__top {
+    @apply flex flex-col sm:flex-row sm:items-stretch;
+}
+
 .card__summary {
-    @apply w-full flex justify-between items-center gap-4 p-4 lg:p-5 text-left transition-colors;
+    @apply flex-1 min-w-0 flex justify-between items-center gap-4 p-4 lg:p-5 text-left transition-colors;
 }
 
 .card__summary:hover {
@@ -40,6 +44,34 @@
 
 .card__toggle {
     @apply text-tertiary text-xs font-medium uppercase px-2 py-1 rounded bg-purple-300 bg-opacity-20 text-white;
+}
+
+.card__status {
+    @apply flex flex-col justify-center gap-1 shrink-0 px-4 lg:px-5 pb-4 sm:py-4 sm:pl-0 sm:pr-5 border-t sm:border-t-0 sm:border-l border-purple-300 border-opacity-20;
+}
+
+.card__statusLabel {
+    @apply text-purple-300 text-[10px] font-semibold uppercase tracking-wide;
+}
+
+.card__statusSelect {
+    @apply text-xs font-bold uppercase tracking-wide px-3 py-2 rounded-md border-2 bg-tertiary text-white cursor-pointer outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.card__statusSelect__pendiente {
+    @apply border-yellow-400 border-opacity-60 text-yellow-200;
+}
+
+.card__statusSelect__aceptado {
+    @apply border-green-400 border-opacity-60 text-green-200;
+}
+
+.card__statusSelect__rechazado {
+    @apply border-red-400 border-opacity-60 text-red-200;
+}
+
+.card__statusSelect option {
+    @apply bg-tertiary text-white normal-case;
 }
 
 .card__detail {

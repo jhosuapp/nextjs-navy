@@ -32,6 +32,8 @@ const AdminApplicationsView = (): JSX.Element => {
         isListFetching,
         goToNextPage,
         goToPrevPage,
+        onUpdateStatus,
+        updatingId,
     } = useAdminApplicationsController();
 
     if (sessionLoading) {
@@ -88,7 +90,12 @@ const AdminApplicationsView = (): JSX.Element => {
                     <div className={styles.list}>
                         {applications.map((application) => (
                             <motion.div layout key={application.id}>
-                                <ApplicationCard t={t} data={application} />
+                                <ApplicationCard
+                                    t={t}
+                                    data={application}
+                                    onUpdateStatus={onUpdateStatus}
+                                    isUpdating={updatingId === application.id}
+                                />
                             </motion.div>
                         ))}
                     </div>

@@ -1,3 +1,5 @@
+export type ApplicationStatus = "pendiente" | "aceptado" | "rechazado";
+
 export type Application = {
     id: number;
     nombre: string;
@@ -23,7 +25,16 @@ export type Application = {
     capacidad_resolucion: boolean;
     se_enoja_facil: boolean;
     ip_hash: string | null;
+    status: ApplicationStatus;
     created_at: string;
+};
+
+export type UpdateStatusBody = {
+    status: ApplicationStatus;
+};
+
+export type UpdateStatusResponse = {
+    message: string;
 };
 
 export type ApplicationsPage = {

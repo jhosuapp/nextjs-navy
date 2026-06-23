@@ -20,7 +20,7 @@
         }
     },
     "list": {
-        "title": "Candidaturas",
+        "title": "Candidaturas de staff",
         "subtitle": "Sessão: {{username}} · {{total}} registros",
         "logout": "Sair",
         "empty": "Ainda não há candidaturas registradas"
@@ -31,6 +31,15 @@
         "collapse": "Ocultar",
         "yes": "Sim",
         "no": "Não"
+    },
+    "status": {
+        "label": "Estado",
+        "pendiente": "Pendente",
+        "aceptado": "Aceito",
+        "rechazado": "Rejeitado",
+        "loading": "Atualizando estado...",
+        "updated": "Estado atualizado",
+        "error": "Não foi possível atualizar o estado"
     },
     "pagination": {
         "prev": "Anterior",

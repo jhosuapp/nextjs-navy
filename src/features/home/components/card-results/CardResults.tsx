@@ -21,7 +21,14 @@ const CardResults = ({ nick, modalitie, modalitieImage, tier }:Props):JSX.Elemen
     };
 
     return (
-        <div className={ styles.cardResults } onClick={hanldeOnClick}>
+        <div
+            className={ styles.cardResults }
+            onClick={hanldeOnClick}
+            onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hanldeOnClick(); } }}
+            role="button"
+            tabIndex={0}
+            aria-label={ nick }
+        >
             <div className={ styles.cardResults__info }>
                 <ChipModalities modalitie={ modalitie } modalitieImage={ modalitieImage } tier={ tier } />
                 <CrownIcon />

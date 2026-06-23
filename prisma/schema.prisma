@@ -77,6 +77,7 @@ model applications {
   capacidad_resolucion Boolean
   se_enoja_facil       Boolean
   ip_hash              String?  @db.VarChar(64)
+  status               String   @default("pendiente") @db.VarChar(16)
   created_at           DateTime @db.DateTime(0)
 
   @@unique([discord, tipo], map: "discord_tipo")
