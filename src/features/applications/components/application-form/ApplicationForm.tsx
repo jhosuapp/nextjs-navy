@@ -1,4 +1,4 @@
-import { type JSX, useState } from 'react';
+import { type JSX, useMemo, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Controller, FieldErrors } from 'react-hook-form';
 import { ApplicationFormInterface } from '../../validations/application-form.validation';
@@ -10,6 +10,7 @@ import { TextControl } from './fields/TextControl';
 import { TextareaControl } from './fields/TextareaControl';
 import { YesNoControl } from './fields/YesNoControl';
 import { ChoiceControl } from './fields/ChoiceControl';
+import { MultiChoiceControl } from './fields/MultiChoiceControl';
 import icon from '@/config/assets/svg/icon-arrow-left.svg';
 
 import styles from './applicationForm.module.css';
@@ -18,16 +19,17 @@ type Props = {
     t: ITranslations;
 };
 
-const STEPS: Step[] = [
-    {
-        id: 'personal',
-        questions: [
-            { kind: 'choice', name: 'tipo', num: '1', options: ['helper', 'tester'] },
-            { kind: 'text', name: 'nombre', num: '2', type: 'text' },
-            { kind: 'text', name: 'discord', num: '3', type: 'text' },
-            { kind: 'text', name: 'edad', num: '4', type: 'number' },
-        ],
-    },
+const PERSONAL_STEP: Step = {
+    id: 'personal',
+    questions: [
+        { kind: 'choice', name: 'tipo', num: '1', options: ['helper', 'tester'] },
+        { kind: 'text', name: 'nombre', num: '2', type: 'text' },
+        { kind: 'text', name: 'discord', num: '3', type: 'text' },
+        { kind: 'text', name: 'edad', num: '4', type: 'number' },
+    ],
+};
+
+const HELPER_STEPS: Step[] = [
     {
         id: 'role',
         questions: [
@@ -65,22 +67,45 @@ const STEPS: Step[] = [
     },
 ];
 
+const TESTER_STEPS: Step[] = [
+    {
+        id: 'testerProfile',
+        questions: [
+            { kind: 'text', name: 'region', num: '5', type: 'text' },
+            { kind: 'multi-choice', name: 'modos', num: '6', options: ['netherite', 'crystal', 'sword'] },
+            { kind: 'textarea', name: 'tier_modo', num: '7' },
+            { kind: 'yesno-detail', name: 'experiencia_tester', detail: 'detalle_experiencia', num: '8' },
+        ],
+    },
+    {
+        id: 'testerBackground',
+        questions: [
+            { kind: 'yesno-detail', name: 'baneado', detail: 'detalle_baneado', num: '9' },
+            { kind: 'yesno', name: 'uso_cheats', num: '10' },
+            { kind: 'yesno-detail', name: 'clanes_pvp', detail: 'detalle_clanes', num: '11' },
+            { kind: 'yesno', name: 'toxico', num: '12' },
+        ],
+    },
+    {
+        id: 'testerMotivation',
+        questions: [
+            { kind: 'textarea', name: 'opinion_navy', num: '13' },
+            { kind: 'textarea', name: 'por_que_tester', num: '14' },
+            { kind: 'textarea', name: 'tiempo_testeos', num: '15' },
+            { kind: 'textarea', name: 'servidores', num: '16' },
+            { kind: 'textarea', name: 'sospecha_hacks', num: '17' },
+        ],
+    },
+];
+
 const CONDITIONALS: Array<[FieldName, FieldName]> = [
     ['claro_spam', 'detalle_spam'],
     ['claro_flood', 'detalle_flood'],
     ['conoce_hacks_ss', 'detalle_hacks_ss'],
+    ['experiencia_tester', 'detalle_experiencia'],
+    ['baneado', 'detalle_baneado'],
+    ['clanes_pvp', 'detalle_clanes'],
 ];
-
-const TOTAL = STEPS.length;
-
-// Mapa campo -> índice de paso (incluye los campos de detalle condicionales)
-const FIELD_STEP: Partial<Record<FieldName, number>> = {};
-STEPS.forEach((s, i) => {
-    s.questions.forEach((q) => {
-        FIELD_STEP[q.name] = i;
-        if (q.kind === 'yesno-detail') FIELD_STEP[q.detail] = i;
-    });
-});
 
 const stepVariants = {
     enter: (dir: number) => ({ opacity: 0, x: dir > 0 ? 32 : -32 }),
@@ -96,7 +121,32 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
     const [step, setStep] = useState(0);
     const [direction, setDirection] = useState(1);
 
-    const isLast = step === TOTAL - 1;
+    const tipo = watch('tipo');
+
+    const STEPS = useMemo<Step[]>(
+        () =>
+            tipo === 'tester'
+                ? [PERSONAL_STEP, ...TESTER_STEPS]
+                : [PERSONAL_STEP, ...HELPER_STEPS],
+        [tipo]
+    );
+
+    const TOTAL = STEPS.length;
+
+    // Mapa campo -> índice de paso (incluye los detalle condicionales)
+    const FIELD_STEP = useMemo<Partial<Record<FieldName, number>>>(() => {
+        const map: Partial<Record<FieldName, number>> = {};
+        STEPS.forEach((s, i) => {
+            s.questions.forEach((q) => {
+                map[q.name] = i;
+                if (q.kind === 'yesno-detail') map[q.detail] = i;
+            });
+        });
+        return map;
+    }, [STEPS]);
+
+    const safeStep = Math.min(step, TOTAL - 1);
+    const isLast = safeStep === TOTAL - 1;
 
     const stepFields = (index: number): FieldName[] => {
         const fields = STEPS[index].questions.map((q) => q.name);
@@ -107,7 +157,7 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
     };
 
     const goNext = async (): Promise<void> => {
-        const valid = await trigger(stepFields(step));
+        const valid = await trigger(stepFields(safeStep));
         if (!valid) return;
         setDirection(1);
         setStep((s) => Math.min(s + 1, TOTAL - 1));
@@ -125,8 +175,8 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
             .filter((i): i is number => i !== undefined)
             .sort((a, b) => a - b)[0];
 
-        if (firstErrorStep !== undefined && firstErrorStep !== step) {
-            setDirection(firstErrorStep > step ? 1 : -1);
+        if (firstErrorStep !== undefined && firstErrorStep !== safeStep) {
+            setDirection(firstErrorStep > safeStep ? 1 : -1);
             setStep(firstErrorStep);
         }
     };
@@ -190,17 +240,17 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
             <div className={styles.stepper}>
                 <div className={styles.stepper__head}>
                     <span className={styles.stepper__count}>
-                        {t('nav.step', { current: step + 1, total: TOTAL })}
+                        {t('nav.step', { current: safeStep + 1, total: TOTAL })}
                     </span>
                     <span className={styles.stepper__title}>
-                        {t(`steps.${STEPS[step].id}`)}
+                        {t(`steps.${STEPS[safeStep].id}`)}
                     </span>
                 </div>
                 <ol className={styles.dots} aria-hidden="true">
                     {STEPS.map((s, i) => (
                         <li
                             key={s.id}
-                            className={`${styles.dot} ${i === step ? styles.dot__active : ''} ${i < step ? styles.dot__done : ''}`}
+                            className={`${styles.dot} ${i === safeStep ? styles.dot__active : ''} ${i < safeStep ? styles.dot__done : ''}`}
                         />
                     ))}
                 </ol>
@@ -210,7 +260,7 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
             <div className={styles.stepArea}>
                 <AnimatePresence mode="wait" custom={direction} initial={false}>
                     <motion.div
-                        key={step}
+                        key={safeStep}
                         className={styles.step}
                         custom={direction}
                         variants={reduceMotion ? undefined : stepVariants}
@@ -219,10 +269,20 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
                         exit="exit"
                         transition={{ duration: 0.28, ease: 'easeOut' }}
                     >
-                        {STEPS[step].questions.map((q) => {
+                        {STEPS[safeStep].questions.map((q) => {
                             if (q.kind === 'choice')
                                 return (
                                     <ChoiceControl
+                                        key={q.name}
+                                        q={q}
+                                        control={control}
+                                        errors={errors}
+                                        t={t}
+                                    />
+                                );
+                            if (q.kind === 'multi-choice')
+                                return (
+                                    <MultiChoiceControl
                                         key={q.name}
                                         q={q}
                                         control={control}

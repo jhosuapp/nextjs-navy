@@ -32,6 +32,16 @@
         "yes": "Sim",
         "no": "Não"
     },
+    "kind": {
+        "helper": "Helper",
+        "tester": "Tester"
+    },
+    "filter": {
+        "label": "Filtrar por tipo",
+        "all": "Todos",
+        "helper": "Helper",
+        "tester": "Tester"
+    },
     "status": {
         "label": "Estado",
         "pendiente": "Pendente",
@@ -61,6 +71,19 @@
         "tiempo_disciplina": "Tem tempo e disciplina para a TierList?",
         "meta_principal": "Meta principal dentro do Staff e da TierList",
         "capacidad_resolucion": "Boas capacidades para resolver conflitos?",
-        "se_enoja_facil": "Você se irrita com facilidade?"
+        "se_enoja_facil": "Você se irrita com facilidade?",
+        "region": "Região",
+        "modos": "Modos para testar",
+        "tier_modo": "Tier nesse modo (Navy / McTiers)",
+        "experiencia_tester": "Tem experiência como tester?",
+        "baneado": "Já foi banido de um servidor?",
+        "uso_cheats": "Já usou cheats?",
+        "opinion_navy": "O que acha da Navy?",
+        "por_que_tester": "Por que quer ser tester?",
+        "tiempo_testeos": "Tempo disponível para testes",
+        "servidores": "Servidores que costuma jogar",
+        "clanes_pvp": "Já pertenceu a clãs de PvP?",
+        "toxico": "Considera-se tóxico?",
+        "sospecha_hacks": "O que faria se suspeitar que o testado usa hacks?"
     }
 }

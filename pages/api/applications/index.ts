@@ -68,47 +68,96 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
         // Una postulación por usuario de Discord y rol (helper/tester)
         const discord = sanitize(data.discord).toLowerCase();
-        const duplicated = await prisma.applications.findFirst({
-            where: { discord, tipo: data.tipo },
-            select: { id: true },
-        });
-        if (duplicated) {
-            return res.status(409).json({
-                message: "Ya existe una postulación de Discord para este rol.",
+
+        if (data.tipo === "tester") {
+            const duplicated = await prisma.tester_applications.findFirst({
+                where: { discord, tipo: data.tipo },
+                select: { id: true },
+            });
+            if (duplicated) {
+                return res.status(409).json({
+                    message: "Ya existe una postulación de Discord para este rol.",
+                });
+            }
+
+            await prisma.tester_applications.create({
+                data: {
+                    nombre: sanitize(data.nombre),
+                    discord,
+                    tipo: data.tipo,
+                    edad: data.edad,
+                    region: sanitize(data.region ?? ""),
+                    modos: (data.modos ?? []).join(","),
+                    tier_modo: sanitize(data.tier_modo ?? ""),
+                    experiencia_tester: toBool(data.experiencia_tester ?? "no"),
+                    detalle_experiencia: cleanDetail(
+                        data.experiencia_tester ?? "no",
+                        data.detalle_experiencia
+                    ),
+                    baneado: toBool(data.baneado ?? "no"),
+                    detalle_baneado: cleanDetail(
+                        data.baneado ?? "no",
+                        data.detalle_baneado
+                    ),
+                    uso_cheats: toBool(data.uso_cheats ?? "no"),
+                    opinion_navy: sanitize(data.opinion_navy ?? ""),
+                    por_que_tester: sanitize(data.por_que_tester ?? ""),
+                    tiempo_testeos: sanitize(data.tiempo_testeos ?? ""),
+                    servidores: sanitize(data.servidores ?? ""),
+                    clanes_pvp: toBool(data.clanes_pvp ?? "no"),
+                    detalle_clanes: cleanDetail(
+                        data.clanes_pvp ?? "no",
+                        data.detalle_clanes
+                    ),
+                    toxico: toBool(data.toxico ?? "no"),
+                    sospecha_hacks: sanitize(data.sospecha_hacks ?? ""),
+                    ip_hash: ipHash,
+                    created_at: new Date(),
+                },
+            });
+        } else {
+            const duplicated = await prisma.applications.findFirst({
+                where: { discord, tipo: data.tipo },
+                select: { id: true },
+            });
+            if (duplicated) {
+                return res.status(409).json({
+                    message: "Ya existe una postulación de Discord para este rol.",
+                });
+            }
+
+            await prisma.applications.create({
+                data: {
+                    nombre: sanitize(data.nombre),
+                    discord,
+                    tipo: data.tipo,
+                    edad: data.edad,
+                    labor_helper: sanitize(data.labor_helper ?? ""),
+                    funciones_helper: sanitize(data.funciones_helper ?? ""),
+                    claro_spam: toBool(data.claro_spam ?? "no"),
+                    detalle_spam: cleanDetail(data.claro_spam ?? "no", data.detalle_spam),
+                    claro_flood: toBool(data.claro_flood ?? "no"),
+                    detalle_flood: cleanDetail(data.claro_flood ?? "no", data.detalle_flood),
+                    conoce_hacks_ss: toBool(data.conoce_hacks_ss ?? "no"),
+                    detalle_hacks_ss: cleanDetail(
+                        data.conoce_hacks_ss ?? "no",
+                        data.detalle_hacks_ss
+                    ),
+                    opinion_tierlist: sanitize(data.opinion_tierlist ?? ""),
+                    usuarios_peleando: sanitize(data.usuarios_peleando ?? ""),
+                    testers_peleando: sanitize(data.testers_peleando ?? ""),
+                    ticket_tester: sanitize(data.ticket_tester ?? ""),
+                    ticket_reporte: sanitize(data.ticket_reporte ?? ""),
+                    hacks_pvp: sanitize(data.hacks_pvp ?? ""),
+                    tiempo_disciplina: toBool(data.tiempo_disciplina ?? "no"),
+                    meta_principal: sanitize(data.meta_principal ?? ""),
+                    capacidad_resolucion: toBool(data.capacidad_resolucion ?? "no"),
+                    se_enoja_facil: toBool(data.se_enoja_facil ?? "no"),
+                    ip_hash: ipHash,
+                    created_at: new Date(),
+                },
             });
         }
-
-        await prisma.applications.create({
-            data: {
-                nombre: sanitize(data.nombre),
-                discord,
-                tipo: data.tipo,
-                edad: data.edad,
-                labor_helper: sanitize(data.labor_helper),
-                funciones_helper: sanitize(data.funciones_helper),
-                claro_spam: toBool(data.claro_spam),
-                detalle_spam: cleanDetail(data.claro_spam, data.detalle_spam),
-                claro_flood: toBool(data.claro_flood),
-                detalle_flood: cleanDetail(data.claro_flood, data.detalle_flood),
-                conoce_hacks_ss: toBool(data.conoce_hacks_ss),
-                detalle_hacks_ss: cleanDetail(
-                    data.conoce_hacks_ss,
-                    data.detalle_hacks_ss
-                ),
-                opinion_tierlist: sanitize(data.opinion_tierlist),
-                usuarios_peleando: sanitize(data.usuarios_peleando),
-                testers_peleando: sanitize(data.testers_peleando),
-                ticket_tester: sanitize(data.ticket_tester),
-                ticket_reporte: sanitize(data.ticket_reporte),
-                hacks_pvp: sanitize(data.hacks_pvp),
-                tiempo_disciplina: toBool(data.tiempo_disciplina),
-                meta_principal: sanitize(data.meta_principal),
-                capacidad_resolucion: toBool(data.capacidad_resolucion),
-                se_enoja_facil: toBool(data.se_enoja_facil),
-                ip_hash: ipHash,
-                created_at: new Date(),
-            },
-        });
 
         await setCache(throttleKey, true, IP_THROTTLE_TTL);
 

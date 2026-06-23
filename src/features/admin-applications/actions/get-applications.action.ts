@@ -1,11 +1,12 @@
 import { navyApi } from "@/shared/api";
-import { ApplicationsPage } from "../interfaces";
+import { ApplicationKindFilter, ApplicationsPage } from "../interfaces";
 
 const getApplicationsAction = async (
-    page: number
+    page: number,
+    kind: ApplicationKindFilter = "all"
 ): Promise<ApplicationsPage> => {
     const { data } = await navyApi.get<ApplicationsPage>(
-        `/admin/applications?page=${page}`
+        `/admin/applications?page=${page}&kind=${kind}`
     );
     return data;
 };

@@ -30,6 +30,18 @@
     @apply shrink-0 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded bg-purple-300 bg-opacity-20 text-white;
 }
 
+.card__kind {
+    @apply shrink-0 text-[10px] font-bold uppercase tracking-wide px-2 py-0.5 rounded border;
+}
+
+.card__kind__helper {
+    @apply border-sky-400 border-opacity-60 text-sky-200 bg-sky-400 bg-opacity-10;
+}
+
+.card__kind__tester {
+    @apply border-fuchsia-400 border-opacity-60 text-fuchsia-200 bg-fuchsia-400 bg-opacity-10;
+}
+
 .card__meta {
     @apply text-purple-200 text-opacity-70 text-sm truncate;
 }

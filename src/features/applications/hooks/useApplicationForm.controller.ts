@@ -29,6 +29,7 @@ const useApplicationFormController = ({ t }: Props) => {
             selectRequired: t("validation.selectRequired"),
             detailRequired: t("validation.detailRequired"),
             tipoRequired: t("validation.tipoRequired"),
+            modosRequired: t("validation.modosRequired"),
         }),
         [t]
     );
@@ -48,6 +49,7 @@ const useApplicationFormController = ({ t }: Props) => {
         defaultValues: {
             nombre: "",
             discord: "",
+            // Helper
             labor_helper: "",
             funciones_helper: "",
             detalle_spam: "",
@@ -60,6 +62,18 @@ const useApplicationFormController = ({ t }: Props) => {
             ticket_reporte: "",
             hacks_pvp: "",
             meta_principal: "",
+            // Tester
+            region: "",
+            modos: [],
+            tier_modo: "",
+            opinion_navy: "",
+            por_que_tester: "",
+            tiempo_testeos: "",
+            servidores: "",
+            sospecha_hacks: "",
+            detalle_experiencia: "",
+            detalle_baneado: "",
+            detalle_clanes: "",
             website: "",
         },
     });

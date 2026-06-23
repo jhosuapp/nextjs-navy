@@ -6,6 +6,9 @@ import { requireAdmin } from "@/config/lib/adminAuth";
 const ALLOWED_STATUS = ["pendiente", "aceptado", "rechazado"] as const;
 type AllowedStatus = (typeof ALLOWED_STATUS)[number];
 
+const ALLOWED_KIND = ["helper", "tester"] as const;
+type AllowedKind = (typeof ALLOWED_KIND)[number];
+
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "PATCH") {
         return res.status(405).json({ message: "Method not allowed" });
@@ -20,16 +23,26 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         return res.status(400).json({ message: "Identificador inválido" });
     }
 
-    const { status } = req.body ?? {};
+    const { status, kind } = req.body ?? {};
     if (!ALLOWED_STATUS.includes(status as AllowedStatus)) {
         return res.status(400).json({ message: "Estado inválido" });
     }
+    if (!ALLOWED_KIND.includes(kind as AllowedKind)) {
+        return res.status(400).json({ message: "Tipo inválido" });
+    }
 
     try {
-        await prisma.applications.update({
-            where: { id: rawId },
-            data: { status: status as AllowedStatus },
-        });
+        if (kind === "tester") {
+            await prisma.tester_applications.update({
+                where: { id: rawId },
+                data: { status: status as AllowedStatus },
+            });
+        } else {
+            await prisma.applications.update({
+                where: { id: rawId },
+                data: { status: status as AllowedStatus },
+            });
+        }
 
         return res.status(200).json({ message: "Estado actualizado" });
     } catch (error) {

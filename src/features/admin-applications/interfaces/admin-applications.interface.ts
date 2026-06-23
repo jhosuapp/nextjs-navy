@@ -1,5 +1,9 @@
 export type ApplicationStatus = "pendiente" | "aceptado" | "rechazado";
 
+export type ApplicationKind = "helper" | "tester";
+
+export type ApplicationKindFilter = "all" | ApplicationKind;
+
 export type Application = {
     id: number;
     nombre: string;
@@ -29,8 +33,41 @@ export type Application = {
     created_at: string;
 };
 
+export type HelperApplication = Application & { kind: "helper" };
+
+export type TesterApplication = {
+    kind: "tester";
+    id: number;
+    nombre: string;
+    discord: string;
+    tipo: string;
+    edad: number;
+    region: string;
+    modos: string;
+    tier_modo: string;
+    experiencia_tester: boolean;
+    detalle_experiencia: string | null;
+    baneado: boolean;
+    detalle_baneado: string | null;
+    uso_cheats: boolean;
+    opinion_navy: string;
+    por_que_tester: string;
+    tiempo_testeos: string;
+    servidores: string;
+    clanes_pvp: boolean;
+    detalle_clanes: string | null;
+    toxico: boolean;
+    sospecha_hacks: string;
+    ip_hash: string | null;
+    status: ApplicationStatus;
+    created_at: string;
+};
+
+export type AdminApplication = HelperApplication | TesterApplication;
+
 export type UpdateStatusBody = {
     status: ApplicationStatus;
+    kind: ApplicationKind;
 };
 
 export type UpdateStatusResponse = {
@@ -42,7 +79,7 @@ export type ApplicationsPage = {
     limit: number;
     total: number;
     totalPages: number;
-    data: Application[];
+    data: AdminApplication[];
 };
 
 export type SessionResponse = {

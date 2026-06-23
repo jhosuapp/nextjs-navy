@@ -10,7 +10,11 @@ import {
     logoutAction,
     patchApplicationStatusAction,
 } from "../actions";
-import { ApplicationStatus } from "../interfaces";
+import {
+    ApplicationKind,
+    ApplicationKindFilter,
+    ApplicationStatus,
+} from "../interfaces";
 import {
     useApplicationsQuery,
     useSessionQuery,
@@ -25,12 +29,19 @@ const useAdminApplicationsController = () => {
     const { t } = useTranslation("admin");
     const queryClient = useQueryClient();
     const [page, setPage] = useState(1);
+    const [kind, setKindState] = useState<ApplicationKindFilter>("all");
+
+    const setKind = (next: ApplicationKindFilter) => {
+        setKindState(next);
+        setPage(1);
+    };
 
     const sessionQuery = useSessionQuery();
     const isAuthenticated = sessionQuery.data?.authenticated ?? false;
 
     const applicationsQuery = useApplicationsQuery(
         page,
+        kind,
         isAuthenticated && !sessionQuery.isLoading
     );
 
@@ -71,8 +82,15 @@ const useAdminApplicationsController = () => {
     const logoutMutation = useMutation({ mutationFn: logoutAction });
 
     const statusMutation = useMutation({
-        mutationFn: ({ id, status }: { id: number; status: ApplicationStatus }) =>
-            patchApplicationStatusAction(id, { status }),
+        mutationFn: ({
+            id,
+            status,
+            kind: itemKind,
+        }: {
+            id: number;
+            status: ApplicationStatus;
+            kind: ApplicationKind;
+        }) => patchApplicationStatusAction(id, { status, kind: itemKind }),
         onMutate: () => {
             const toastId = toast.loading(t("status.loading"));
             return { toastId };
@@ -96,8 +114,12 @@ const useAdminApplicationsController = () => {
         },
     });
 
-    const onUpdateStatus = (id: number, status: ApplicationStatus) => {
-        statusMutation.mutate({ id, status });
+    const onUpdateStatus = (
+        id: number,
+        status: ApplicationStatus,
+        itemKind: ApplicationKind
+    ) => {
+        statusMutation.mutate({ id, status, kind: itemKind });
     };
 
     const onLogin = async (formData: LoginFormInterface) => {
@@ -160,10 +182,13 @@ const useAdminApplicationsController = () => {
         isListFetching: applicationsQuery.isFetching,
         goToNextPage,
         goToPrevPage,
+        // filtro por tipo
+        kind,
+        setKind,
         // status
         onUpdateStatus,
-        updatingId: statusMutation.isPending
-            ? statusMutation.variables?.id
+        updatingKey: statusMutation.isPending
+            ? `${statusMutation.variables?.kind}-${statusMutation.variables?.id}`
             : undefined,
     };
 };

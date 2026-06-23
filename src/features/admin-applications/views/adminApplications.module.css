@@ -10,6 +10,22 @@
     @apply text-purple-200 text-opacity-70 text-sm mt-1;
 }
 
+.filters {
+    @apply w-full flex flex-wrap gap-2 mb-6;
+}
+
+.filter {
+    @apply text-xs font-semibold uppercase tracking-wide px-4 py-2 rounded-md border-2 border-purple-300 border-opacity-30 text-purple-200 transition-colors;
+}
+
+.filter:hover {
+    @apply bg-purple-300 bg-opacity-5;
+}
+
+.filter__active {
+    @apply border-opacity-80 bg-purple-300 bg-opacity-20 text-white;
+}
+
 .list {
     @apply w-full flex flex-col gap-4;
 }

@@ -84,6 +84,36 @@ model applications {
   @@map("applications")
 }
 
+model tester_applications {
+  id                  Int      @id @default(autoincrement())
+  nombre              String   @db.VarChar(60)
+  discord             String   @db.VarChar(32)
+  tipo                String   @db.VarChar(16)
+  edad                Int
+  region              String   @db.VarChar(60)
+  modos               String   @db.VarChar(80)
+  tier_modo           String   @db.Text
+  experiencia_tester  Boolean
+  detalle_experiencia String?  @db.Text
+  baneado             Boolean
+  detalle_baneado     String?  @db.Text
+  uso_cheats          Boolean
+  opinion_navy        String   @db.Text
+  por_que_tester      String   @db.Text
+  tiempo_testeos      String   @db.Text
+  servidores          String   @db.Text
+  clanes_pvp          Boolean
+  detalle_clanes      String?  @db.Text
+  toxico              Boolean
+  sospecha_hacks      String   @db.Text
+  ip_hash             String?  @db.VarChar(64)
+  status              String   @default("pendiente") @db.VarChar(16)
+  created_at          DateTime @db.DateTime(0)
+
+  @@unique([discord, tipo], map: "discord_tipo_tester")
+  @@map("tester_applications")
+}
+
 model admin_users {
   id            Int      @id @default(autoincrement())
   username      String   @unique(map: "username") @db.VarChar(60)
