@@ -13,6 +13,7 @@
     "@hookform/resolvers": "^5.4.0",
     "@prisma/client": "^6.11.1",
     "@tanstack/react-query": "^5.81.5",
+    "@vercel/speed-insights": "^2.0.0",
     "axios": "^1.10.0",
     "framer-motion": "^12.19.2",
     "lenis": "^1.3.4",
