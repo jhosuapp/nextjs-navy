@@ -3,9 +3,6 @@ import { prisma } from "@/config/lib/prisma";
 import { withRateLimit } from "@/config/lib/rateLimit";
 import { invalidateCacheByPrefix } from "@/config/lib/cache";
 
-const UUID_RE =
-  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
-
 async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Method not allowed" });
@@ -21,10 +18,6 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     if (!uuid || !nick) {
       return res.status(400).json({ message: "uuid y nick son requeridos" });
-    }
-
-    if (!UUID_RE.test(uuid)) {
-      return res.status(400).json({ message: "UUID inválido" });
     }
 
     const cleanUuid: string = uuid.replace(/-/g, "");
