@@ -56,6 +56,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     return res.status(200).json(profile)
   } catch (error) {
+    console.error("[api/v2/profile/[uuid]] GET failed:", error)
     return res.status(500).json({ message: "Error fetching profile" })
   }
 }
