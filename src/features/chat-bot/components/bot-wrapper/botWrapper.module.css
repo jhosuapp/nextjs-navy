@@ -1,54 +1,95 @@
 .botWrapper{
-    @apply fixed right-5 bottom-5 w-full max-w-[375px] bg-tertiary z-20 rounded-lg overflow-hidden shadow-purple-300 border-2 border-purple-300 border-opacity-50;
+    @apply fixed right-5 bottom-5 w-full max-w-[375px] bg-tertiary z-20 rounded-2xl overflow-hidden border-2 border-purple-300 border-opacity-40 flex flex-col;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .45);
+}
+
+@media (max-width: 640px) {
+    .botWrapper{
+        @apply right-3 left-3 bottom-3 w-auto max-w-none rounded-xl;
+    }
 }
 
 .botWrapperNav{
-    @apply bg-tertiary bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 py-2 px-4 flex items-center justify-between border-b-2 border-purple-300 border-opacity-50;
+    @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 py-2.5 px-4 flex items-center justify-between gap-2 border-b border-white/10;
 }
 
 .botWrapperNav__name{
-    @apply flex items-center gap-2;
+    @apply flex items-center gap-2.5 min-w-0;
 }
 
 .botWrapperNav__name img{
-    @apply max-w-10 bg-tertiary rounded-md p-1.5 bg-gradient-to-l from-purple-900 via-purple-700 to-purple-500;
+    @apply w-10 h-10 bg-white/10 rounded-full p-1.5 shrink-0;
 }
 
-.botWrapperNav__name p{
-    @apply text-white text-base font-medium;
+.botWrapperNav__info{
+    @apply flex flex-col leading-tight min-w-0;
+}
+
+.botWrapperNav__info p{
+    @apply text-white text-base font-semibold truncate;
+}
+
+.botWrapperNav__status{
+    @apply flex items-center gap-1.5 text-white/80 text-xs font-medium;
+}
+
+.botWrapperNav__status i{
+    @apply w-2 h-2 rounded-full bg-green-400 inline-block;
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, .7);
+    animation: 2s ease-out infinite pulseStatus;
+}
+
+@keyframes pulseStatus {
+    0%{ box-shadow: 0 0 0 0 rgba(74, 222, 128, .6); }
+    70%{ box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+    100%{ box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+.botWrapperNav__actions{
+    @apply flex items-center gap-1 shrink-0;
 }
 
 .botWrapperNav__action{
-    @apply w-6 h-6 flex items-center justify-center;
+    @apply w-8 h-8 flex items-center justify-center rounded-full text-white/90 transition-colors hover:bg-white/15 hover:text-white;
 }
 
-.botWrapperNav__action span{
-    @apply w-full h-0.5 bg-white;
+.botWrapperNav__action svg{
+    @apply w-[18px] h-[18px];
 }
 
 .botWrapper__content{
-    @apply relative bg-red-50 h-72 w-full;
+    @apply relative bg-tertiary h-80 w-full;
+}
+
+@media (max-width: 640px) {
+    .botWrapper__content{
+        @apply h-[55vh];
+    }
 }
 
 .botWrapper__bg{
-    @apply absolute w-full h-full object-cover bg-tertiary;
+    @apply absolute w-full h-full object-cover bg-tertiary opacity-70;
 }
 
 .botWrapper__content__block{
-    @apply relative z-10 p-5 max-h-72 overflow-auto;
+    @apply relative z-10 p-4 h-full overflow-y-auto overflow-x-hidden;
+}
+
+.botWrapper__content__inner{
+    @apply flex flex-col;
 }
 
 .botWrapper__content__block::-webkit-scrollbar-thumb {
     background: rgba(124, 126, 124, .35);
-    @apply mr-0.5 hover:bg-primary;
+    @apply rounded-full hover:bg-primary;
 }
 
 .botWrapper__content__block::-webkit-scrollbar {
-    @apply w-2 h-1.5;
+    @apply w-1.5;
 }
 
 .botWrapper__error{
-    @apply bg-red-500 rounded-sm py-0.5 px-1 text-white text-sm bottom-0 z-10 w-full;
+    @apply bg-red-500 py-1.5 px-4 text-white text-sm z-10 w-full;
 }
 
 .botWrapper__options{

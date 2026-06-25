@@ -51,5 +51,48 @@
         "invertColors": "Invert colors",
         "grayContrast": "Gray contrast",
         "lang": "Language"
+    },
+    "chatBot": {
+        "title": "Navy bot",
+        "status": "Online",
+        "tooltip": "Hi! How can I help you?",
+        "close": "Close chat",
+        "restart": "Restart conversation",
+        "send": "Send message",
+        "loading": "Please wait a moment",
+        "inputPlaceholder": "Type your message...",
+        "greeting1": "Hi! I'm the Navy bot 👋",
+        "greeting2": "How can I help you today?",
+        "options": {
+            "updateUsername": "Update my username",
+            "discord": "Join the Discord",
+            "applyStaff": "Apply as staff",
+            "premium": "I'm premium",
+            "notPremium": "I'm not premium",
+            "yes": "Yes",
+            "no": "No"
+        },
+        "flow": {
+            "updateIntro1": "Let's update it!",
+            "updateIntro2": "But first, select one of the following options:",
+            "discordIntro": "Awesome! Join our Discord community:",
+            "discordCta": "Open Discord",
+            "applyIntro": "Awesome! You can apply as a helper through our form.",
+            "applyCta": "Open the form",
+            "askUuid": "Now, enter your NameMC account UUID.",
+            "uuidPlaceholder": "Type your UUID here",
+            "notPremium1": "I'm sorry.",
+            "notPremium2": "We can't update your username because you need a premium account.",
+            "updating": "{{username}}, we're updating your username.",
+            "updateSuccess": "Your username has been successfully updated!",
+            "updateNotFound": "The username exists on NameMC but not in our database.",
+            "invalidUuid": "Sorry, the UUID you entered is not valid.",
+            "anythingElse": "Do you need anything else?",
+            "goodbye1": "Okay, I hope I helped you.",
+            "goodbye2": "You can now close this chat."
+        },
+        "errors": {
+            "emptyField": "The field cannot be empty."
+        }
     }
 }

@@ -51,5 +51,48 @@
         "invertColors": "Invertir colores",
         "grayContrast": "Contraste gris",
         "lang": "Idioma"
+    },
+    "chatBot": {
+        "title": "Navy bot",
+        "status": "En línea",
+        "tooltip": "¡Hola! ¿En qué puedo ayudarte?",
+        "close": "Cerrar chat",
+        "restart": "Reiniciar conversación",
+        "send": "Enviar mensaje",
+        "loading": "Espera un momento",
+        "inputPlaceholder": "Escribe tu mensaje...",
+        "greeting1": "¡Hola! Soy el bot de Navy 👋",
+        "greeting2": "¿En qué puedo ayudarte hoy?",
+        "options": {
+            "updateUsername": "Actualizar mi nombre de usuario",
+            "discord": "Unirme al Discord",
+            "applyStaff": "Postularme como staff",
+            "premium": "Soy premium",
+            "notPremium": "No soy premium",
+            "yes": "Sí",
+            "no": "No"
+        },
+        "flow": {
+            "updateIntro1": "¡Vamos a actualizarlo!",
+            "updateIntro2": "Pero primero, selecciona una de las siguientes opciones:",
+            "discordIntro": "¡Genial! Únete a nuestra comunidad de Discord:",
+            "discordCta": "Abrir Discord",
+            "applyIntro": "¡Genial! Puedes postularte como helper desde nuestro formulario.",
+            "applyCta": "Ir al formulario",
+            "askUuid": "Ahora, ingresa el UUID de tu cuenta de NameMC.",
+            "uuidPlaceholder": "Escribe aquí tu UUID",
+            "notPremium1": "Lo siento.",
+            "notPremium2": "No podemos actualizar tu nombre de usuario porque necesitas tener una cuenta premium.",
+            "updating": "{{username}}, estamos actualizando tu nombre de usuario.",
+            "updateSuccess": "¡Tu nombre de usuario se actualizó correctamente!",
+            "updateNotFound": "El nombre de usuario existe en NameMC pero no en nuestra base de datos.",
+            "invalidUuid": "Lo siento, el UUID ingresado no es válido.",
+            "anythingElse": "¿Necesitas algo más?",
+            "goodbye1": "Vale, espero haberte ayudado.",
+            "goodbye2": "Ya puedes cerrar este chat."
+        },
+        "errors": {
+            "emptyField": "El campo no puede estar vacío."
+        }
     }
 }

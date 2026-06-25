@@ -1,10 +1,10 @@
-.botMessage{ 
-    @apply w-full flex items-center mb-4;
+.botMessage{
+    @apply w-full flex items-center mb-3;
 }
 
 .botMessage__content{
-    @apply w-fit flex flex-col gap-2 bg-white px-3.5 py-2.5 rounded-md;
-    box-shadow: 0 4px 12px #7f8d9e;
+    @apply w-fit max-w-[80%] flex flex-col gap-2 bg-white px-3.5 py-2.5 rounded-2xl rounded-bl-sm break-words;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .25);
 }
 
 .botMessage__content__row{
@@ -16,14 +16,22 @@
 }
 
 .botMessage__content p{
-    @apply font-medium text-black text-base;
+    @apply font-medium text-black text-sm leading-relaxed break-words;
+}
+
+.botMessage__cta{
+    @apply inline-flex items-center justify-center gap-1.5 w-full text-center text-white text-sm font-semibold px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 transition-transform hover:scale-[1.02];
 }
 
 .botMessageResponse{
     @apply justify-end;
 }
 
-.botMessageResponse .botMessage__content, 
+.botMessageResponse .botMessage__content{
+    @apply rounded-2xl rounded-br-sm;
+}
+
+.botMessageResponse .botMessage__content,
 .botMessage__contentPurple{
     @apply bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500;
 }

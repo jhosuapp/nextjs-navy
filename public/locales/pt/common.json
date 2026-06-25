@@ -51,5 +51,48 @@
         "invertColors": "Inverter cores",
         "grayContrast": "Contraste cinza",
         "lang": "Idioma"
+    },
+    "chatBot": {
+        "title": "Navy bot",
+        "status": "Online",
+        "tooltip": "Olá! Como posso ajudar?",
+        "close": "Fechar chat",
+        "restart": "Reiniciar conversa",
+        "send": "Enviar mensagem",
+        "loading": "Aguarde um momento",
+        "inputPlaceholder": "Digite sua mensagem...",
+        "greeting1": "Olá! Eu sou o bot do Navy 👋",
+        "greeting2": "Como posso ajudar você hoje?",
+        "options": {
+            "updateUsername": "Atualizar meu nome de usuário",
+            "discord": "Entrar no Discord",
+            "applyStaff": "Candidatar-me a staff",
+            "premium": "Sou premium",
+            "notPremium": "Não sou premium",
+            "yes": "Sim",
+            "no": "Não"
+        },
+        "flow": {
+            "updateIntro1": "Vamos atualizá-lo!",
+            "updateIntro2": "Mas primeiro, selecione uma das seguintes opções:",
+            "discordIntro": "Ótimo! Entre na nossa comunidade do Discord:",
+            "discordCta": "Abrir Discord",
+            "applyIntro": "Ótimo! Você pode se candidatar como helper pelo nosso formulário.",
+            "applyCta": "Abrir formulário",
+            "askUuid": "Agora, insira o UUID da sua conta do NameMC.",
+            "uuidPlaceholder": "Digite seu UUID aqui",
+            "notPremium1": "Sinto muito.",
+            "notPremium2": "Não podemos atualizar seu nome de usuário porque você precisa de uma conta premium.",
+            "updating": "{{username}}, estamos atualizando seu nome de usuário.",
+            "updateSuccess": "Seu nome de usuário foi atualizado com sucesso!",
+            "updateNotFound": "O nome de usuário existe no NameMC, mas não em nosso banco de dados.",
+            "invalidUuid": "Desculpe, o UUID inserido não é válido.",
+            "anythingElse": "Você precisa de mais alguma coisa?",
+            "goodbye1": "Tudo bem, espero ter ajudado.",
+            "goodbye2": "Agora você pode fechar este chat."
+        },
+        "errors": {
+            "emptyField": "O campo não pode ficar vazio."
+        }
     }
 }
