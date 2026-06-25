@@ -107,6 +107,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             data,
         });
     } catch (error) {
+        console.error("[api/admin/applications] GET failed:", error);
         return res.status(500).json({ message: "Error al obtener postulaciones" });
     }
 }

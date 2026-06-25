@@ -244,6 +244,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     return res.status(200).json(result)
   } catch (error) {
+    console.error("[api/v2/profile/[uuid]/rankings] GET failed:", error)
     return res.status(500).json({ message: "Error fetching rankings" })
   }
 }

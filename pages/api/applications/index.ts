@@ -163,6 +163,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
         return res.status(201).json({ message: "Postulación enviada correctamente" });
     } catch (error) {
+        console.error("[api/applications] POST failed:", error);
         return res.status(500).json({ message: "Error al enviar la postulación" });
     }
 }

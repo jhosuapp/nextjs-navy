@@ -36,6 +36,7 @@ async function handler(
             username: data.name,
         });
     } catch (error) {
+        console.error("[api/bot/username] GET failed:", error);
         return res.status(500).json({
             message: "Error consultando Mojang",
         });

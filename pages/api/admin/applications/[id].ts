@@ -46,6 +46,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
         return res.status(200).json({ message: "Estado actualizado" });
     } catch (error) {
+        console.error("[api/admin/applications/[id]] PATCH failed:", error);
         return res
             .status(500)
             .json({ message: "Error al actualizar el estado" });

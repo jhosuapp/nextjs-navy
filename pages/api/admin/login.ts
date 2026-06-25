@@ -40,6 +40,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
         return res.status(200).json({ username: user.username });
     } catch (error) {
+        console.error("[api/admin/login] POST failed:", error);
         return res.status(500).json({ message: "Error al iniciar sesión" });
     }
 }
