@@ -1,0 +1,7 @@
+.botOptions{
+    @apply flex flex-col items-end gap-2 mt-1;
+}
+
+.botOptions__chip{
+    @apply w-fit max-w-[85%] text-right text-sm font-semibold text-white px-4 py-2 rounded-2xl rounded-br-sm border border-purple-400/60 bg-white/5 backdrop-blur-sm transition-colors hover:bg-gradient-to-r hover:from-purple-900 hover:via-purple-700 hover:to-purple-500 hover:border-transparent;
+}

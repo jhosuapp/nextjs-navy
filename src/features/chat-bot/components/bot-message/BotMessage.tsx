@@ -1,32 +1,42 @@
-import type { JSX } from "react";
-import { motion } from 'framer-motion';
-import { ItemBotMessage } from '../../interfaces/chatBot.interface';
-import { fadeInNoneMotion } from '@/shared/motion/fadeIn.motion';
+import { memo, type JSX } from "react";
+import Link from "next/link";
+import { BotMessage as BotMessageType } from '../../interfaces/chatBot.interface';
 import { BotMessageWrapper } from './BotMessageWrapper';
 
 import styles from './botMessage.module.css';
 
-type Props = ItemBotMessage & {
-    isLast?: boolean;
-    onAnimationComplete?: () => void;
+type Props = {
+    message: BotMessageType;
 };
 
-const BotMessage = ({ text, userResponse = false, delayMessage = 0, isLast = false, onAnimationComplete }: Props): JSX.Element => {
+const BotMessage = memo(({ message }: Props): JSX.Element => {
+    const isUser = message.role === 'user';
+
     return (
-        <motion.div 
-            {...fadeInNoneMotion(delayMessage, 0)}
-            className={ `${styles.botMessage} ${userResponse && styles.botMessageResponse}` }
-            onAnimationComplete={() => {
-                if (isLast && onAnimationComplete) {
-                    onAnimationComplete();
-                }
-            }}
-        >
+        <div className={ `${styles.botMessage} ${isUser ? styles.botMessageResponse : ''}` }>
             <BotMessageWrapper>
-                <p>{ text }</p>
+                { message.text && <p>{ message.text }</p> }
+                { message.kind === 'link' && message.href && (
+                    message.external ? (
+                        <a
+                            className={ styles.botMessage__cta }
+                            href={ message.href }
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            { message.ctaText ?? message.href }
+                        </a>
+                    ) : (
+                        <Link className={ styles.botMessage__cta } href={ message.href }>
+                            { message.ctaText ?? message.href }
+                        </Link>
+                    )
+                )}
             </BotMessageWrapper>
-        </motion.div>
+        </div>
     )
-}
+});
+
+BotMessage.displayName = 'BotMessage';
 
 export { BotMessage }

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ReactNode, type JSX } from 'react';
-import { fadeInNoneMotion } from '@/shared/motion/fadeIn.motion';
+import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 
 import styles from './botMessage.module.css';
 
@@ -12,9 +12,9 @@ type Props = {
 
 const BotMessageWrapper = ({ children, isPurple = false, rowDirection = false }:Props):JSX.Element => {
     return (
-        <motion.div 
+        <motion.div
             className={ `${styles.botMessage__content} ${isPurple && styles.botMessage__contentPurple} ${rowDirection ? styles.botMessage__content__row : ''}` }
-            {...fadeInNoneMotion(0.2, 0.2)}
+            {...fadeInMotion(0, 0)}
         >
             { children }
         </motion.div>
