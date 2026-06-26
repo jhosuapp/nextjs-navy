@@ -3,8 +3,7 @@ import Image from 'next/image';
 
 import styles from './footer.module.css';
 import icon from '@/config/assets/svg/icon-arrow.svg';
-import { useRouter } from 'next/router';
-import { useLenisStore } from '@/shared/stores/lenis.store';
+import { CustomLink } from '@/shared/components/custom-link/CustomLink';
 import { ITranslations } from '@/shared/interfaces/globals';
 
 
@@ -15,19 +14,6 @@ type Props = {
 }
 
 const FooterContent = ({ textPage, linkPage, t }:Props):JSX.Element => {
-    const router = useRouter();
-    const lenis = useLenisStore(state => state.lenis);
-
-    const handleDelay = (url: string) => {
-        lenis?.scrollTo(0, {
-          duration: 0.65,
-        });
-      
-        setTimeout(() => {
-          router.push(url);
-        }, 500);
-    };
-
     return (
         <section className={ styles.footerContent }>
             <article className={ styles.footerContent__disclaimer }>
@@ -36,14 +22,14 @@ const FooterContent = ({ textPage, linkPage, t }:Props):JSX.Element => {
             </article>
             <article className={ styles.footerContent__preview }>
                 <p>{ textPage }</p>
-                <div 
-                    onClick={ ()=> handleDelay(linkPage) }
+                <CustomLink
+                    to={ linkPage }
                     className={ styles.footerContent__nextPage }
                 >
                     <p>{t('footer.text3')}</p>
                     <div></div>
                     <Image src={ icon } alt='next Navy' />
-                </div>
+                </CustomLink>
             </article>
         </section>
     )

@@ -1,8 +1,8 @@
 import type { JSX } from "react";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { useQueryClient } from "@tanstack/react-query";
 import { useMenuStore } from "@/shared/stores/menu.store";
+import { CustomLink } from "@/shared/components/custom-link/CustomLink";
 
 import styles from './header.module.css';
 
@@ -48,11 +48,10 @@ const HeaderListItem = ({ text, path, prefetchKey = [], action }:Props):JSX.Elem
 
     return (
         <li className={`${styles.HeaderListItem} ${isActive ? styles.HeaderListItemActive : ''}`}>
-            <Link 
-                onClick={ onClickHamburger } 
+            <CustomLink
+                to={ path }
+                onClick={ onClickHamburger }
                 onMouseEnter={ handlePrefetch }
-                href={ path } 
-                locale={router.locale}
             >
                 {text.split('').map((char, index) => (
                     <p
@@ -62,7 +61,7 @@ const HeaderListItem = ({ text, path, prefetchKey = [], action }:Props):JSX.Elem
                         {char === ' ' ? '\u00A0' : char}
                     </p>
                 ))}
-            </Link>
+            </CustomLink>
         </li>
     )
 

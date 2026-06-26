@@ -1,7 +1,7 @@
 import { memo, type JSX } from "react";
-import Link from "next/link";
 import { BotMessage as BotMessageType } from '../../interfaces/chatBot.interface';
 import { BotMessageWrapper } from './BotMessageWrapper';
+import { CustomLink } from '@/shared/components/custom-link/CustomLink';
 
 import styles from './botMessage.module.css';
 
@@ -27,9 +27,9 @@ const BotMessage = memo(({ message }: Props): JSX.Element => {
                             { message.ctaText ?? message.href }
                         </a>
                     ) : (
-                        <Link className={ styles.botMessage__cta } href={ message.href }>
+                        <CustomLink className={ styles.botMessage__cta } to={ message.href }>
                             { message.ctaText ?? message.href }
-                        </Link>
+                        </CustomLink>
                     )
                 )}
             </BotMessageWrapper>
