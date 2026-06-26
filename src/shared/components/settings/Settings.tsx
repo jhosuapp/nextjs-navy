@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { memo, useState, type JSX } from 'react';
 import { motion } from 'framer-motion';
-import { variantsSettingsContent, variantsSettingsBg, variantsSettingsContentMobile } from './settings.variants';
+import { variantsSettingsContent, variantsSettingsBg } from './settings.variants';
 import { useMediaQuery } from '@/shared/hooks/useMediaquery';
 import { fadeInMotion } from '@/shared/motion/fadeIn.motion';
 import { Switch } from '../switch/Switch';
@@ -11,14 +11,18 @@ import { LanguageSwitcher } from '../language-switcher/LanguageSwitcher';
 import icon from '@/config/assets/svg/icon-settings.svg';
 import styles from './settings.module.css';
 
-const Settings = memo(():JSX.Element => {
-    const isDesk = useMediaQuery({breakpoint: 991 });
+const Settings = memo(():JSX.Element | null => {
+    const isDesk = useMediaQuery({ breakpoint: 1024 });
     const [ settings, setSettings ] = useState<boolean>(false);
     const { t } = useTranslation('common');
 
     const handleClick = ()=>{
         setSettings(!settings);
     }
+
+    // On mobile the settings live inside the hamburger menu (HeaderSettings),
+    // so the floating gear panel is hidden to declutter the view.
+    if (!isDesk) return null;
 
     return (
         <motion.div {...fadeInMotion(1, 0)}>
@@ -30,7 +34,7 @@ const Settings = memo(():JSX.Element => {
                 {/* Content settings */}
                 <motion.article
                     className={ styles.settings__content }
-                    variants={ isDesk ? variantsSettingsContent : variantsSettingsContentMobile }
+                    variants={ variantsSettingsContent }
                 >
                     <div className={ styles.settings__content__block }>
                         <div className={ styles.settings__item }>

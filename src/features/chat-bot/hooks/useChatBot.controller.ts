@@ -1,5 +1,7 @@
 import { useCallback, useEffect, useRef } from "react";
+import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+import { useMenuStore } from "@/shared/stores/menu.store";
 import { useChatBotStore } from "../stores/chatBot.store";
 import { BOT_FLOWS, ROOT_STEP } from "../config/botFlows";
 import { getUserNameAction } from "../actions/get-username.action";
@@ -13,6 +15,8 @@ const makeId = (): string => `${Date.now()}-${Math.random().toString(36).slice(2
 
 const useChatBot = () => {
     const { t } = useTranslation("common");
+    const router = useRouter();
+    const hamburger = useMenuStore(s => s.hamburger);
 
     const messages = useChatBotStore(s => s.messages);
     const status = useChatBotStore(s => s.status);
@@ -167,6 +171,27 @@ const useChatBot = () => {
         return () => clearTimers();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
+
+    // Close the bot whenever the user navigates to another page: the store is global
+    // and survives navigation, so without this it would reopen on the next route.
+    useEffect(() => {
+        const handleRouteChange = () => {
+            ++runIdRef.current;
+            clearTimers();
+            reset();
+        };
+        router.events.on("routeChangeStart", handleRouteChange);
+        return () => router.events.off("routeChangeStart", handleRouteChange);
+    }, [router.events, clearTimers, reset]);
+
+    // Close the bot when the mobile hamburger menu opens so they don't overlap.
+    useEffect(() => {
+        if (hamburger) {
+            ++runIdRef.current;
+            clearTimers();
+            reset();
+        }
+    }, [hamburger, clearTimers, reset]);
 
     return {
         t,

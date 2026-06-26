@@ -1,9 +1,9 @@
 import type { JSX } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 import { paths } from "@/shared/constants"
 import { useMenuStore } from "@/shared/stores/menu.store";
+import { CustomLink } from "@/shared/components/custom-link/CustomLink";
 
 import styles from './header.module.css';
 
@@ -16,8 +16,8 @@ const HeaderLogo = ():JSX.Element => {
     }
 
     return (
-        <Link
-            href={ paths.home }
+        <CustomLink
+            to={ paths.home }
             onClick={ onClickHamburger }
             className={ styles.headerLogo }
         >
@@ -30,7 +30,7 @@ const HeaderLogo = ():JSX.Element => {
                 fetchPriority="high"
                 sizes="128px"
             />
-        </Link>
+        </CustomLink>
     )
 }
 
@@ -42,12 +42,12 @@ const HeaderLogoText = ():JSX.Element => {
     }
 
     return (
-        <Link href={ paths.home } onClick={ onClickHamburger } className={ styles.headerLogoText }>
+        <CustomLink to={ paths.home } onClick={ onClickHamburger } className={ styles.headerLogoText }>
             <span>N</span>
             <span>A</span>
             <span>V</span>
             <span>Y</span>
-        </Link>
+        </CustomLink>
     )
 }
 

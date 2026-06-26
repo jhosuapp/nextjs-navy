@@ -30,7 +30,7 @@
         @apply w-full;
     }
     .header__nav{
-        @apply !absolute h-full top-0 left-0 min-h-svh flex-col justify-start bg-tertiary w-full pt-24 opacity-0 pointer-events-none;
+        @apply !absolute h-full top-0 left-0 min-h-svh flex-col justify-start bg-tertiary w-full pt-24 pb-10 opacity-0 pointer-events-none overflow-y-auto;
     }
     .header__navActive{
         @apply opacity-100 pointer-events-auto;
@@ -179,6 +179,16 @@
 
 .headerMenuOpen .HeaderListItem p{
     @apply opacity-0 animate-textReveal odd:z-20;
+}
+
+/* Header settings (mobile only — lives inside the hamburger menu) */
+
+.headerSettings{
+    @apply w-full mt-4 pt-6 border-t-2 border-purple-300 border-opacity-50;
+}
+
+.headerSettings__title{
+    @apply text-white text-2xl normal-case pl-[5%] mb-5 opacity-70;
 }
 
 /* Header lang */
