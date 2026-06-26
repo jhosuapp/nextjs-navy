@@ -5,6 +5,7 @@ import { HeaderList } from './HeaderList';
 import { paths } from '@/shared/constants';
 import { useMediaQuery } from '@/shared/hooks/useMediaquery';
 import { HeaderHamburger } from './HeaderHamburger';
+import { HeaderSettings } from './HeaderSettings';
 import { useMenuStore } from '@/shared/stores/menu.store';
 import { LanguageSwitcher } from '@/shared/components/language-switcher/LanguageSwitcher';
 import { getTierlistOverallAction } from '@/features/tierlist/actions/get-tierlistOverall.action';
@@ -35,6 +36,7 @@ const Header = ():JSX.Element => {
                         <HeaderList items={ firstListItems } />
                         {isDesktop && <HeaderLogo />}
                         <HeaderList items={ secondaryListItems } />
+                        {!isDesktop && <HeaderSettings />}
                     </nav>
                     {!isDesktop && ( 
                         <div className={ styles.header__lang__mobile }>

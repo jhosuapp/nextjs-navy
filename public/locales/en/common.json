@@ -50,7 +50,8 @@
         "disableParticles": "Disable particles",
         "invertColors": "Invert colors",
         "grayContrast": "Gray contrast",
-        "lang": "Language"
+        "lang": "Language",
+        "title": "Settings"
     },
     "chatBot": {
         "title": "Navy bot",

@@ -50,7 +50,8 @@
         "disableParticles": "Ocultar partículas",
         "invertColors": "Invertir colores",
         "grayContrast": "Contraste gris",
-        "lang": "Idioma"
+        "lang": "Idioma",
+        "title": "Ajustes"
     },
     "chatBot": {
         "title": "Navy bot",
