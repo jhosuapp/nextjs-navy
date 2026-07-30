@@ -1,48 +1,48 @@
-.cardResults{
-    @apply p-4 rounded-md relative overflow-hidden w-52 lg:w-72 shrink-0 cursor-pointer backdrop-blur-md;
-    /* Borde degradado real (morado claro -> oscuro) con técnica padding-box/border-box */
-    border: 2px solid transparent;
-    background:
-        linear-gradient(160deg, rgba(26, 21, 26, 0.75), rgba(46, 8, 84, 0.35)) padding-box,
-        linear-gradient(135deg, rgba(216, 180, 254, 0.7), rgba(126, 34, 206, 0.25) 45%, rgba(216, 180, 254, 0.6)) border-box;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+.cardResults {
+  @apply p-4 rounded-md relative overflow-hidden w-52 lg:w-72 shrink-0 cursor-pointer border-2 border-purple-300 border-opacity-50 bg-tertiary bg-opacity-10 backdrop-blur-sm;
+  /* Borde degradado real (morado claro -> oscuro) con técnica padding-box/border-box */
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.cardResults:hover{
-    @apply scale-[1.04];
-    box-shadow: 0 12px 32px rgba(126, 34, 206, 0.35), inset 0 0 0 1px rgba(216, 180, 254, 0.2);
+.cardResults:hover {
+  @apply scale-[1.04];
 }
 
-.cardResults__content{
-    @apply flex flex-col justify-center items-center relative pt-1;
+.cardResults__content {
+  @apply flex flex-col justify-center items-center relative pt-1;
 }
 
 /* Glow radial morado detrás del skin para dar profundidad */
-.cardResults__content::before{
-    @apply content-[""] absolute rounded-full pointer-events-none z-0;
-    width: 150px;
-    height: 150px;
-    top: 35%;
-    left: 50%;
-    transform: translate(-50%, -45%);
-    background: radial-gradient(circle, rgba(126, 34, 206, 0.5) 0%, rgba(126, 34, 206, 0) 70%);
+.cardResults__content::before {
+  @apply content-[""] absolute rounded-full pointer-events-none z-0;
+  width: 150px;
+  height: 150px;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  background: radial-gradient(
+    circle,
+    rgba(126, 34, 206, 0.5) 0%,
+    rgba(126, 34, 206, 0) 70%
+  );
 }
 
-.cardResults__player{
-    @apply text-transparent text-lg lg:text-xl font-bold inline-block bg-clip-text max-w-[140px] text-ellipsis whitespace-nowrap overflow-hidden text-center tracking-wide mt-1 relative z-10;
+.cardResults__player {
+  @apply text-transparent text-lg lg:text-xl font-bold inline-block bg-clip-text max-w-[140px] text-ellipsis whitespace-nowrap overflow-hidden text-center tracking-wide mt-1 relative z-10;
 }
 
-.cardResults__info{
-    @apply flex justify-between items-center relative z-10;
+.cardResults__info {
+  @apply flex justify-between items-center relative z-10;
 }
 
-.cardResults__skin{
-    @apply w-full max-w-32 lg:max-w-44 relative z-10;
-    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
-    transition: transform 0.35s ease;
+.cardResults__skin {
+  @apply w-full max-w-32 lg:max-w-44 relative z-10;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+  transition: transform 0.35s ease;
 }
 
-.cardResults:hover .cardResults__skin{
-    transform: translateY(-4px);
+.cardResults:hover .cardResults__skin {
+  transform: translateY(-4px);
 }
