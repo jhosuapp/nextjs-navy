@@ -1,5 +1,5 @@
 .textAreaField{
-    @apply w-full;
+    @apply w-full relative;
 }
 
 .textAreaField textarea{

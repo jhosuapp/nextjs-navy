@@ -1,5 +1,5 @@
 .login {
-    @apply w-full max-w-md mx-auto flex flex-col gap-5 p-8 rounded-xl border-2 border-purple-300 border-opacity-30 bg-tertiary bg-opacity-40 backdrop-blur-sm;
+    @apply w-full max-w-md mx-auto flex flex-col gap-10 p-8 rounded-xl border-2 border-purple-300 border-opacity-30 bg-tertiary bg-opacity-40 backdrop-blur-sm;
 }
 
 .login__header {
