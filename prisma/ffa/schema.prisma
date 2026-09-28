@@ -1,0 +1,28 @@
+// Schema de la base de datos secundaria `ffa` (estadisticas de juego).
+// Se genera a un cliente aparte para no chocar con el cliente principal (`Bot`),
+// ya que Prisma con MySQL no soporta multiples bases en un mismo datasource.
+//
+// Sincronizar cambios:  npm run prisma:ffa:pull
+// Regenerar el cliente: npm run prisma:ffa:generate
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/ffa"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("FFA_DATABASE_URL")
+}
+
+model teststats {
+  game           String @db.VarChar(64)
+  uuid           String @db.Char(36)
+  username       String @db.VarChar(16)
+  kills          Int    @default(0)
+  deaths         Int    @default(0)
+  current_streak Int    @default(0)
+  best_streak    Int    @default(0)
+
+  @@id([game, uuid])
+}

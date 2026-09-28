@@ -1,8 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "postinstall": "prisma generate",
-    "dev": "prisma generate && next dev",
+    "postinstall": "npm run prisma:generate",
+    "prisma:generate": "prisma generate && prisma generate --config prisma.ffa.config.ts",
+    "prisma:pull": "prisma db pull",
+    "prisma:ffa:generate": "prisma generate --config prisma.ffa.config.ts",
+    "prisma:ffa:pull": "prisma db pull --config prisma.ffa.config.ts",
+    "dev": "npm run prisma:generate && next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
