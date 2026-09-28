@@ -1,12 +1,11 @@
 import type { JSX } from "react";
 import dynamic from "next/dynamic";
-import { useTranslation } from "next-i18next";
 import { Container } from "@/shared/components/container/Container";
 import { Hero } from "../components/hero/Hero";
 import { Results } from "../components/results/Results";
 import { TotalTests } from "../components/totalt-tests/TotalTests";
 import { FlowersFirstScreen } from "../components/parallax/Parallax";
-import { useVimeoModal } from '../hooks';
+import { useHomeController, useVimeoModal } from '../hooks';
 import { TierlistResumeResponse } from "../interfaces";
 
 const VideoModal = dynamic(
@@ -20,9 +19,9 @@ type Props = {
     resume: TierlistResumeResponse;
 }
 
-const HomeView = ({ resume }: Props): JSX.Element => {
+const HomeView = ({ resume: initialResume }: Props): JSX.Element => {
     const vimeo = useVimeoModal();
-    const { t } = useTranslation("home");
+    const { t, resume } = useHomeController({ initialResume });
 
     return (
         <>

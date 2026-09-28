@@ -19,14 +19,14 @@ const Results = ({ hTests, lTests, t }:Props):JSX.Element => {
                 <p className='text-purple-300 text-opacity-50 font-medium text-2xl lg:text-5xl text-nowrap'>{t('results.latestHigh')}</p>
             </WrapperCarousel>
             <WrapperCarousel>
-                {hTests?.length && hTests.map((data) => (
+                {hTests?.map((data) => (
                     <CardResults
                         nick={ data.nick }
                         modalitie={ data.game }
                         modalitieImage={ `${data.game}.webp` as any }
                         showModalitie
                         tier={ data.tier }
-                        key={`${data.nick}-results`}
+                        key={`${data.nick}-${data.game}`}
                     />
                 ))}
             </WrapperCarousel>
@@ -34,7 +34,7 @@ const Results = ({ hTests, lTests, t }:Props):JSX.Element => {
                 <p className='text-purple-300 text-opacity-50 font-medium text-2xl lg:text-5xl text-nowrap'>{t('results.latestLow')}</p>
             </WrapperCarousel>
             <WrapperCarousel reverse>
-                {lTests?.length && lTests.map((data, index) => (
+                {lTests?.map((data, index) => (
                     <CardResults
                         nick={ data.nick }
                         modalitie={ data.game }
