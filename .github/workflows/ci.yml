@@ -26,6 +26,7 @@ jobs:
         run: npm ci
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          FFA_DATABASE_URL: ${{ secrets.FFA_DATABASE_URL }}
 
       - name: Lint
         run: npm run lint
@@ -37,3 +38,4 @@ jobs:
         run: npm run build
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          FFA_DATABASE_URL: ${{ secrets.FFA_DATABASE_URL }}
