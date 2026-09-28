@@ -101,7 +101,11 @@
         "closeMenu": "Cerrar menú",
         "viewSite": "Ver sitio",
         "session": "Sesión",
-        "logout": "Cerrar sesión"
+        "logout": "Cerrar sesión",
+        "roles": {
+            "admin": "Administrador",
+            "founder": "Fundador"
+        }
     },
     "common": {
         "actions": "Acciones",
@@ -315,6 +319,7 @@
             "to": "cambia a",
             "filter": {
                 "all": "Todo",
+                "application": "Postulaciones",
                 "staff": "Staff",
                 "ban": "Baneos",
                 "user": "Usuarios",
@@ -323,7 +328,8 @@
             "entities": {
                 "staff": "Staff",
                 "ban": "Baneo",
-                "user": "Usuario"
+                "user": "Usuario",
+                "application": "Postulación"
             },
             "actions": {
                 "update": "Edición",
@@ -331,7 +337,8 @@
                 "restore": "Restaurado",
                 "revalidate": "Refresco",
                 "cache_purge": "Caché",
-                "password_change": "Contraseña"
+                "password_change": "Contraseña",
+                "status_change": "Estado"
             }
         }
     }

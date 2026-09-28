@@ -9,13 +9,14 @@ import styles from "./sidebarFooter.module.css";
 type Props = {
     t: ITranslations;
     username?: string;
+    roleLabel: string;
     collapsed: boolean;
     onLogout: () => void;
     isLoggingOut: boolean;
 };
 
 const SidebarFooter = memo(
-    ({ t, username, collapsed, onLogout, isLoggingOut }: Props): JSX.Element => (
+    ({ t, username, roleLabel, collapsed, onLogout, isLoggingOut }: Props): JSX.Element => (
         <div className={cn(styles.sidebarFooter, collapsed && styles.sidebarFooter__collapsed)}>
             <Link href={paths.home} className={styles.sidebarFooter__link} title={collapsed ? t("nav.viewSite") : undefined}>
                 <ExternalIcon size={18} />
@@ -27,7 +28,7 @@ const SidebarFooter = memo(
                     {username?.charAt(0).toUpperCase() ?? "?"}
                 </span>
                 <span className={styles.sidebarFooter__name}>
-                    <small>{t("nav.session")}</small>
+                    <small>{roleLabel}</small>
                     <strong>{username}</strong>
                 </span>
                 <button

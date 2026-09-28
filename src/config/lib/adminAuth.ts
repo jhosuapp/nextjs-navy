@@ -5,6 +5,7 @@ import {
     scryptSync,
     timingSafeEqual,
 } from "crypto";
+import { prisma } from "./prisma";
 
 /**
  * Autenticación del panel admin.
@@ -21,12 +22,19 @@ const SESSION_TTL_SECONDS = 8 * 60 * 60;
 
 const SCRYPT_KEYLEN = 64;
 
-export type AdminSession = {
+/** Roles del panel. `founder` puede además ver el registro de actividad. */
+export const ADMIN_ROLES = ["admin", "founder"] as const;
+export type AdminRole = (typeof ADMIN_ROLES)[number];
+
+/** Lo que viaja firmado en la cookie. El rol NO va aquí: se lee de la BD. */
+type SessionIdentity = {
     uid: number;
     username: string;
 };
 
-type SessionPayload = AdminSession & { exp: number };
+export type AdminSession = SessionIdentity & { role: AdminRole };
+
+type SessionPayload = SessionIdentity & { exp: number };
 
 const getSecret = (): string => {
     const secret = process.env.ADMIN_SESSION_SECRET;
@@ -69,7 +77,7 @@ const sign = (body: string): string =>
     base64urlEncode(createHmac("sha256", getSecret()).update(body).digest());
 
 /** Crea un token de sesión firmado y con expiración. */
-export const createSessionToken = (session: AdminSession): string => {
+export const createSessionToken = (session: SessionIdentity): string => {
     const payload: SessionPayload = {
         ...session,
         exp: Math.floor(Date.now() / 1000) + SESSION_TTL_SECONDS,
@@ -79,7 +87,7 @@ export const createSessionToken = (session: AdminSession): string => {
 };
 
 /** Verifica firma y expiración. Devuelve la sesión o null. */
-export const verifySessionToken = (token: string): AdminSession | null => {
+export const verifySessionToken = (token: string): SessionIdentity | null => {
     try {
         const [body, signature] = token.split(".");
         if (!body || !signature) return null;
@@ -123,9 +131,30 @@ export const buildSessionCookie = (token: string): string =>
 export const buildClearCookie = (): string =>
     `${SESSION_COOKIE}=; ${cookieBase()} Max-Age=0`;
 
-/** Lee y valida la sesión desde la cookie de la request. */
-export const requireAdmin = (req: NextApiRequest): AdminSession | null => {
+/**
+ * Lee y valida la sesión desde la cookie de la request.
+ *
+ * Además de firma y expiración, comprueba en `admin_users` que el usuario sigue
+ * existiendo (mismo id y username): borrar o renombrar un admin revoca su
+ * sesión al instante, sin tener que rotar `ADMIN_SESSION_SECRET`. El rol se lee
+ * aquí también, así que dar o quitar `founder` tiene efecto inmediato.
+ */
+export const requireAdmin = async (
+    req: NextApiRequest
+): Promise<AdminSession | null> => {
     const token = req.cookies[SESSION_COOKIE];
     if (!token) return null;
-    return verifySessionToken(token);
+
+    const identity = verifySessionToken(token);
+    if (!identity) return null;
+
+    const user = await prisma.admin_users.findUnique({
+        where: { id: identity.uid },
+        select: { username: true, role: true },
+    });
+
+    if (user?.username !== identity.username) return null;
+
+    const role: AdminRole = user.role === "founder" ? "founder" : "admin";
+    return { ...identity, role };
 };

@@ -36,9 +36,10 @@ export type AuditAction =
     | "restore"
     | "revalidate"
     | "cache_purge"
-    | "password_change";
+    | "password_change"
+    | "status_change";
 
-export type AuditEntity = "staff" | "ban" | "user";
+export type AuditEntity = "staff" | "ban" | "user" | "application";
 
 export type AuditEntry = {
     id: number;

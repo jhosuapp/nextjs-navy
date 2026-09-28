@@ -86,6 +86,7 @@ const useAdminSessionController = () => {
         isLoading: sessionQuery.isLoading,
         isAuthenticated: sessionQuery.data?.authenticated ?? false,
         username: sessionQuery.data?.username,
+        role: sessionQuery.data?.role ?? "admin",
         onLogout,
         isLoggingOut: logoutMutation.isPending,
     };

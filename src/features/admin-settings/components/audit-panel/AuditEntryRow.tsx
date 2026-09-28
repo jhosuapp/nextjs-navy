@@ -13,6 +13,7 @@ const ACTION_TONES: Record<AuditAction, BadgeTone> = {
     revalidate: "neutral",
     cache_purge: "warning",
     password_change: "warning",
+    status_change: "info",
 };
 
 type Props = {

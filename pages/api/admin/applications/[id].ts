@@ -1,7 +1,5 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "@/config/lib/prisma";
-import { withRateLimit } from "@/config/lib/rateLimit";
-import { requireAdmin } from "@/config/lib/adminAuth";
+import { createAdminHandler, queryString } from "@/config/lib/adminHandler";
 
 const ALLOWED_STATUS = ["pendiente", "aceptado", "rechazado"] as const;
 type AllowedStatus = (typeof ALLOWED_STATUS)[number];
@@ -9,48 +7,56 @@ type AllowedStatus = (typeof ALLOWED_STATUS)[number];
 const ALLOWED_KIND = ["helper", "tester"] as const;
 type AllowedKind = (typeof ALLOWED_KIND)[number];
 
-async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method !== "PATCH") {
-        return res.status(405).json({ message: "Method not allowed" });
-    }
-
-    if (!requireAdmin(req)) {
-        return res.status(401).json({ message: "Unauthorized" });
-    }
-
-    const rawId = Number(req.query.id);
-    if (!Number.isInteger(rawId) || rawId < 1) {
-        return res.status(400).json({ message: "Identificador inválido" });
-    }
-
-    const { status, kind } = req.body ?? {};
-    if (!ALLOWED_STATUS.includes(status as AllowedStatus)) {
-        return res.status(400).json({ message: "Estado inválido" });
-    }
-    if (!ALLOWED_KIND.includes(kind as AllowedKind)) {
-        return res.status(400).json({ message: "Tipo inválido" });
-    }
-
-    try {
-        if (kind === "tester") {
-            await prisma.tester_applications.update({
-                where: { id: rawId },
-                data: { status: status as AllowedStatus },
-            });
-        } else {
-            await prisma.applications.update({
-                where: { id: rawId },
-                data: { status: status as AllowedStatus },
-            });
+export default createAdminHandler("applications/[id]", {
+    PATCH: async (req, res, session) => {
+        const id = Number(queryString(req.query.id));
+        if (!Number.isInteger(id) || id < 1) {
+            return void res.status(400).json({ message: "Identificador inválido" });
         }
 
-        return res.status(200).json({ message: "Estado actualizado" });
-    } catch (error) {
-        console.error("[api/admin/applications/[id]] PATCH failed:", error);
-        return res
-            .status(500)
-            .json({ message: "Error al actualizar el estado" });
-    }
-}
+        const { status, kind } = req.body ?? {};
+        if (!ALLOWED_STATUS.includes(status as AllowedStatus)) {
+            return void res.status(400).json({ message: "Estado inválido" });
+        }
+        if (!ALLOWED_KIND.includes(kind as AllowedKind)) {
+            return void res.status(400).json({ message: "Tipo inválido" });
+        }
 
-export default withRateLimit(handler);
+        // Actualización + auditoría (estado anterior → nuevo) en una sola transacción.
+        const result = await prisma.$transaction(async (tx) => {
+            const current =
+                kind === "tester"
+                    ? await tx.tester_applications.findUnique({ where: { id }, select: { status: true } })
+                    : await tx.applications.findUnique({ where: { id }, select: { status: true } });
+
+            if (!current) return null;
+            if (current.status === status) return current;
+
+            if (kind === "tester") {
+                await tx.tester_applications.update({ where: { id }, data: { status } });
+            } else {
+                await tx.applications.update({ where: { id }, data: { status } });
+            }
+
+            await tx.admin_audit_log.create({
+                data: {
+                    admin_username: session.username,
+                    action: "status_change",
+                    entity: "application",
+                    entity_key: `${kind}:${id}`,
+                    before_data: JSON.stringify({ status: current.status }),
+                    after_data: JSON.stringify({ status }),
+                    created_at: new Date(),
+                },
+            });
+
+            return current;
+        });
+
+        if (!result) {
+            return void res.status(404).json({ message: "Postulación no encontrada" });
+        }
+
+        res.status(200).json({ message: "Estado actualizado" });
+    },
+});

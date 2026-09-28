@@ -14,10 +14,11 @@ const useCacheStatsQuery = () =>
         retry: false,
     });
 
-const useAuditQuery = (page: number, entity: AuditFilter) =>
+const useAuditQuery = (page: number, entity: AuditFilter, enabled: boolean) =>
     useQuery({
         queryKey: [...ADMIN_AUDIT_KEY, entity, page],
         queryFn: () => getAuditAction(page, entity),
+        enabled,
         placeholderData: keepPreviousData,
         staleTime: 0,
         refetchOnWindowFocus: false,

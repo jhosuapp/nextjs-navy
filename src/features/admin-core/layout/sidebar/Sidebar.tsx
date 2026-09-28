@@ -14,7 +14,7 @@ import styles from "./sidebar.module.css";
  * (persistido) y drawer off-canvas en móvil.
  */
 const Sidebar = (): JSX.Element => {
-    const { t, currentPath, collapsed, mobileOpen, toggleCollapsed, closeMobile, username, onLogout, isLoggingOut } =
+    const { t, currentPath, collapsed, mobileOpen, toggleCollapsed, closeMobile, username, role, onLogout, isLoggingOut } =
         useSidebar();
 
     return (
@@ -35,6 +35,7 @@ const Sidebar = (): JSX.Element => {
                 <SidebarFooter
                     t={t}
                     username={username}
+                    roleLabel={t(`nav.roles.${role}`)}
                     collapsed={collapsed}
                     onLogout={onLogout}
                     isLoggingOut={isLoggingOut}
