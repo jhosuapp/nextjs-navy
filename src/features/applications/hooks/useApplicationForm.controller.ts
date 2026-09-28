@@ -1,10 +1,12 @@
-import { useMemo } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Resolver, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
 import { ITranslations } from "@/shared/interfaces/globals";
 import { useApplicationFormQuery } from "./useApplicationForm.query";
+import { getApplicationStatusAction } from "../actions/get-application-status.action";
+import { CooldownInfo } from "../helpers";
 import {
     ApplicationFormInterface,
     ApplicationMessages,
@@ -17,6 +19,7 @@ type Props = {
 
 const useApplicationFormController = ({ t }: Props) => {
     const mutation = useApplicationFormQuery();
+    const [cooldown, setCooldown] = useState<CooldownInfo | null>(null);
 
     const messages = useMemo<ApplicationMessages>(
         () => ({
@@ -30,6 +33,7 @@ const useApplicationFormController = ({ t }: Props) => {
             detailRequired: t("validation.detailRequired"),
             tipoRequired: t("validation.tipoRequired"),
             modosRequired: t("validation.modosRequired"),
+            termsRequired: t("validation.termsRequired"),
         }),
         [t]
     );
@@ -74,9 +78,37 @@ const useApplicationFormController = ({ t }: Props) => {
             detalle_experiencia: "",
             detalle_baneado: "",
             detalle_clanes: "",
+            acepta_terminos: false,
             website: "",
         },
     });
+
+    /**
+     * Consulta el cooldown antes de que el usuario rellene el formulario entero.
+     * Ante un fallo de red no bloquea: el servidor vuelve a validarlo al enviar.
+     */
+    const checkCooldown = useCallback(
+        async (discord?: string, tipo?: string): Promise<boolean> => {
+            if (!discord || !tipo) return true;
+
+            try {
+                const status = await getApplicationStatusAction(discord, tipo);
+                if (status.canApply) {
+                    setCooldown(null);
+                    return true;
+                }
+                setCooldown({
+                    availableAt: status.availableAt,
+                    daysRemaining: status.daysRemaining,
+                    hoursRemaining: status.hoursRemaining,
+                });
+                return false;
+            } catch {
+                return true;
+            }
+        },
+        []
+    );
 
     const onSubmit = async (formData: ApplicationFormInterface) => {
         const toastId = toast.loading(t("feedback.loading"));
@@ -93,7 +125,17 @@ const useApplicationFormController = ({ t }: Props) => {
             let message = t("feedback.errorUnexpected");
             if (error instanceof AxiosError) {
                 const status = error.response?.status;
+                const body = error.response?.data as (CooldownInfo & { code?: string }) | undefined;
+
                 if (status === 429) message = t("feedback.errorThrottle");
+                else if (status === 409 && body?.code === "cooldown") {
+                    setCooldown({
+                        availableAt: body.availableAt,
+                        daysRemaining: body.daysRemaining,
+                        hoursRemaining: body.hoursRemaining,
+                    });
+                    message = t("feedback.errorCooldown", { days: body.daysRemaining });
+                }
                 else if (status === 409) message = t("feedback.errorDuplicated");
                 else if (status === 400) message = t("feedback.errorValidation");
             }
@@ -114,6 +156,8 @@ const useApplicationFormController = ({ t }: Props) => {
         handleSubmit,
         onSubmit,
         mutation,
+        cooldown,
+        checkCooldown,
     };
 };
 

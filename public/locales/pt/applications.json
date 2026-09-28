@@ -167,6 +167,14 @@
         "sospecha_hacks": {
             "label": "O que você faria se suspeitasse que o usuário que está testando usa hacks?",
             "placeholder": "Descreva como você agiria"
+        },
+        "acepta_terminos": {
+            "legend": "Aceitação dos termos",
+            "labelBefore": "Li e aceito os",
+            "linkTerms": "Termos e Condições",
+            "labelMiddle": "e a",
+            "linkPrivacy": "Política de Privacidade",
+            "labelAfter": " da Navy."
         }
     },
     "validation": {
@@ -179,7 +187,8 @@
         "selectRequired": "Selecione uma opção",
         "detailRequired": "Por favor, detalhe sua resposta",
         "tipoRequired": "Selecione para qual cargo você está se candidatando",
-        "modosRequired": "Selecione pelo menos um modo"
+        "modosRequired": "Selecione pelo menos um modo",
+        "termsRequired": "Você precisa aceitar os Termos e a Política de Privacidade"
     },
     "success": {
         "title": "Obrigado por se candidatar!",
@@ -191,6 +200,17 @@
         "errorThrottle": "Você já enviou uma candidatura recentemente. Tente novamente mais tarde.",
         "errorDuplicated": "Já existe uma candidatura do Discord para este cargo.",
         "errorValidation": "Verifique os campos: alguns dados não são válidos.",
-        "errorUnexpected": "Ocorreu um erro inesperado. Tente novamente."
+        "errorUnexpected": "Ocorreu um erro inesperado. Tente novamente.",
+        "errorCooldown": "Você já se candidatou. Poderá tentar novamente em {{days}} dias."
+    },
+    "cooldown": {
+        "title": "Você já tem uma candidatura recente",
+        "days_one": "{{count}} dia",
+        "days_other": "{{count}} dias",
+        "hours_one": "{{count}} hora",
+        "hours_other": "{{count}} horas",
+        "message": "Você só pode se candidatar uma vez a cada duas semanas para o mesmo cargo. Ainda faltam {{remaining}} para poder enviar uma nova candidatura.",
+        "availableAt": "Você poderá se candidatar novamente em {{date}}.",
+        "hint": "Enquanto isso, aproveite para melhorar o seu nível e preparar respostas melhores. Estamos à sua espera!"
     }
 }

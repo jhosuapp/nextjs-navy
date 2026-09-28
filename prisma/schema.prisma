@@ -77,10 +77,12 @@ model applications {
   capacidad_resolucion Boolean
   se_enoja_facil       Boolean
   ip_hash              String?  @db.VarChar(64)
-  status               String   @default("pendiente") @db.VarChar(16)
   created_at           DateTime @db.DateTime(0)
+  status               String   @default("pendiente") @db.VarChar(16)
+  acepta_terminos      Boolean  @default(false)
+  terminos_version     String?  @db.VarChar(16)
 
-  @@unique([discord, tipo], map: "discord_tipo")
+  @@index([discord, tipo, created_at], map: "discord_tipo_created")
   @@map("applications")
 }
 
@@ -109,8 +111,10 @@ model tester_applications {
   ip_hash             String?  @db.VarChar(64)
   status              String   @default("pendiente") @db.VarChar(16)
   created_at          DateTime @db.DateTime(0)
+  acepta_terminos     Boolean  @default(false)
+  terminos_version    String?  @db.VarChar(16)
 
-  @@unique([discord, tipo], map: "discord_tipo_tester")
+  @@index([discord, tipo, created_at], map: "discord_tipo_created_tester")
   @@map("tester_applications")
 }
 

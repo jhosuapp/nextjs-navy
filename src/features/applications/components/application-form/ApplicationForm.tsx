@@ -1,4 +1,5 @@
 import { type JSX, useMemo, useState } from 'react';
+import { useRouter } from 'next/router';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Controller, FieldErrors } from 'react-hook-form';
 import { ApplicationFormInterface } from '../../validations/application-form.validation';
@@ -11,6 +12,7 @@ import { TextareaControl } from './fields/TextareaControl';
 import { YesNoControl } from './fields/YesNoControl';
 import { ChoiceControl } from './fields/ChoiceControl';
 import { MultiChoiceControl } from './fields/MultiChoiceControl';
+import { ConsentControl } from './fields/ConsentControl';
 import icon from '@/config/assets/svg/icon-arrow-left.svg';
 
 import styles from './applicationForm.module.css';
@@ -63,6 +65,7 @@ const HELPER_STEPS: Step[] = [
             { kind: 'yesno', name: 'tiempo_disciplina', num: '17' },
             { kind: 'yesno', name: 'capacidad_resolucion', num: '18' },
             { kind: 'yesno', name: 'se_enoja_facil', num: '19' },
+            { kind: 'consent', name: 'acepta_terminos', num: '20' },
         ],
     },
 ];
@@ -94,6 +97,7 @@ const TESTER_STEPS: Step[] = [
             { kind: 'textarea', name: 'tiempo_testeos', num: '15' },
             { kind: 'textarea', name: 'servidores', num: '16' },
             { kind: 'textarea', name: 'sospecha_hacks', num: '17' },
+            { kind: 'consent', name: 'acepta_terminos', num: '18' },
         ],
     },
 ];
@@ -114,10 +118,21 @@ const stepVariants = {
 };
 
 const ApplicationForm = ({ t }: Props): JSX.Element => {
-    const { control, errors, watch, trigger, handleSubmit, onSubmit, mutation } =
-        useApplicationFormController({ t });
+    const {
+        control,
+        errors,
+        watch,
+        trigger,
+        handleSubmit,
+        onSubmit,
+        mutation,
+        cooldown,
+        checkCooldown,
+    } = useApplicationFormController({ t });
 
+    const { locale } = useRouter();
     const reduceMotion = useReducedMotion();
+    const [checkingCooldown, setCheckingCooldown] = useState(false);
     const [step, setStep] = useState(0);
     const [direction, setDirection] = useState(1);
 
@@ -159,6 +174,16 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
     const goNext = async (): Promise<void> => {
         const valid = await trigger(stepFields(safeStep));
         if (!valid) return;
+
+        // Tras los datos personales se comprueba el cooldown, para avisar antes
+        // de que el usuario rellene el resto de pasos.
+        if (safeStep === 0) {
+            setCheckingCooldown(true);
+            const canApply = await checkCooldown(watch('discord'), watch('tipo'));
+            setCheckingCooldown(false);
+            if (!canApply) return;
+        }
+
         setDirection(1);
         setStep((s) => Math.min(s + 1, TOTAL - 1));
     };
@@ -189,6 +214,45 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
             void goNext();
         }
     };
+
+    // Bloqueo por cooldown: reemplaza el formulario con el tiempo restante
+    if (cooldown) {
+        const remaining =
+            cooldown.daysRemaining > 1
+                ? t('cooldown.days', { count: cooldown.daysRemaining })
+                : t('cooldown.hours', { count: cooldown.hoursRemaining });
+
+        return (
+            <div className={styles.form}>
+                <motion.div
+                    className={`${styles.success} ${styles.cooldown}`}
+                    initial={reduceMotion ? false : { opacity: 0, y: 14 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, ease: 'easeOut' }}
+                    role="status"
+                >
+                    <span className={styles.success__icon} aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+                            <circle cx="12" cy="12" r="9" />
+                            <path d="M12 7v5l3 2" />
+                        </svg>
+                    </span>
+                    <h2 className={styles.success__title}>{t('cooldown.title')}</h2>
+                    <p className={styles.success__message}>
+                        {t('cooldown.message', { remaining })}
+                    </p>
+                    <p className={styles.cooldown__date}>
+                        {t('cooldown.availableAt', {
+                            date: new Intl.DateTimeFormat(locale ?? 'es', {
+                                dateStyle: 'long',
+                            }).format(new Date(cooldown.availableAt)),
+                        })}
+                    </p>
+                    <p className={styles.cooldown__hint}>{t('cooldown.hint')}</p>
+                </motion.div>
+            </div>
+        );
+    }
 
     // Mensaje de agradecimiento tras enviar (reemplaza los campos)
     if (mutation.isSuccess) {
@@ -300,6 +364,16 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
                                         t={t}
                                     />
                                 );
+                            if (q.kind === 'consent')
+                                return (
+                                    <ConsentControl
+                                        key={q.name}
+                                        q={q}
+                                        control={control}
+                                        errors={errors}
+                                        t={t}
+                                    />
+                                );
                             if (q.kind === 'textarea')
                                 return (
                                     <TextareaControl
@@ -348,6 +422,7 @@ const ApplicationForm = ({ t }: Props): JSX.Element => {
                         isSmall
                         className="!ml-auto"
                         onClick={goNext}
+                        isLoad={checkingCooldown}
                     />
                 )}
                 {isLast && (

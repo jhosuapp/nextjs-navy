@@ -15,6 +15,7 @@ export type ApplicationMessages = {
     detailRequired: string;
     tipoRequired: string;
     modosRequired: string;
+    termsRequired: string;
 };
 
 export const defaultApplicationMessages: ApplicationMessages = {
@@ -28,6 +29,7 @@ export const defaultApplicationMessages: ApplicationMessages = {
     detailRequired: "Por favor detalla tu respuesta",
     tipoRequired: "Selecciona a qué rol te postulas",
     modosRequired: "Selecciona al menos un modo",
+    termsRequired: "Debes aceptar los Términos y la Política de Privacidad",
 };
 
 const YES_NO = ["si", "no"] as const;
@@ -165,6 +167,11 @@ export const createApplicationSchema = (
             toxico: optYesNo,
             clanes_pvp: optYesNo,
             detalle_clanes: optionalDetail,
+
+            // Aceptación de /tyc y /pdp: obligatoria para helper y tester.
+            // `.refine` en vez de `z.literal(true)` para que el tipo inferido
+            // siga siendo `boolean` y el formulario pueda arrancar en `false`.
+            acepta_terminos: z.boolean().refine((value) => value === true, m.termsRequired),
 
             // Honeypot anti-bots: debe quedar vacío
             website: z.string().max(0).optional().or(z.literal("")),
