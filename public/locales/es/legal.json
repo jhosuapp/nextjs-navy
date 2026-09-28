@@ -1,0 +1,173 @@
+{
+    "tyc": {
+        "title": "Términos y Condiciones",
+        "updated": "Última actualización: 21 de septiembre de 2026",
+        "intro": "Estos Términos y Condiciones regulan el uso del sitio web navytiers.com y de los servicios de la comunidad Navy. Al usar el sitio o participar en nuestras actividades, aceptas lo que se describe a continuación.",
+        "sections": {
+            "acceptance": {
+                "title": "1. Aceptación de los términos",
+                "p1": "Al acceder a navytiers.com, consultar la tier list o enviar una postulación, declaras haber leído y aceptado estos Términos y Condiciones junto con nuestra Política de Privacidad.",
+                "p2": "Si no estás de acuerdo con alguna parte de estos términos, te pedimos que no utilices el sitio ni participes en las actividades de la comunidad."
+            },
+            "service": {
+                "title": "2. Qué es Navy",
+                "p1": "Navy es una comunidad de Discord dedicada a evaluar el nivel de juego de jugadores de Minecraft en distintas modalidades de PvP, tanto en cuentas premium como no premium, mediante pruebas organizadas por nuestro equipo de testers.",
+                "p2": "Este sitio web es un escaparate informativo de esa comunidad: publica la tier list, los resultados de las pruebas, el equipo de staff, los partners, la lista de sanciones y el formulario de postulaciones. No es un servidor de juego ni ofrece servicios de pago."
+            },
+            "eligibility": {
+                "title": "3. Edad mínima y requisitos",
+                "p1": "Para participar en las pruebas o enviar una postulación debes tener al menos 13 años cumplidos, en línea con los requisitos de Discord. Si en tu país la edad mínima para usar este tipo de servicios es superior, debes respetarla.",
+                "p2": "Debes disponer de una cuenta de Discord activa y proporcionar información veraz. Navy puede rechazar o revertir cualquier participación basada en datos falsos o en la suplantación de otra persona."
+            },
+            "conduct": {
+                "title": "4. Conducta esperada",
+                "p1": "El uso del sitio y la participación en la comunidad se rigen por el respeto mutuo. Queda expresamente prohibido:",
+                "items": {
+                    "item1": "Utilizar cheats, macros, clientes modificados o cualquier ventaja no permitida durante una prueba.",
+                    "item2": "Suplantar la identidad de otro jugador, tester o miembro del staff.",
+                    "item3": "Acosar, amenazar, insultar o discriminar a otros miembros de la comunidad.",
+                    "item4": "Enviar postulaciones masivas, spam o contenido automatizado, así como intentar evadir los límites de envío del formulario.",
+                    "item5": "Intentar acceder sin autorización a las áreas privadas del sitio, a la API o a la base de datos."
+                }
+            },
+            "applications": {
+                "title": "5. Postulaciones a Staff y Tester",
+                "p1": "El formulario de postulación es voluntario y gratuito. Enviarlo no genera ninguna relación laboral, contractual ni económica con Navy, ni da derecho a obtener el rol solicitado.",
+                "p2": "Revisamos las postulaciones manualmente y solo contactamos a las personas que avanzan en el proceso, por lo que no garantizamos una respuesta a cada envío. Al postularte aceptas además que:",
+                "items": {
+                    "item1": "La información que proporcionas es veraz y te corresponde.",
+                    "item2": "Puedes volver a postularte al mismo rol pasadas dos semanas desde tu último envío; antes de ese plazo el formulario quedará bloqueado.",
+                    "item3": "Guardamos un registro de tus postulaciones anteriores para poder valorar tu evolución.",
+                    "item4": "Podemos descartar una postulación sin explicar los motivos, especialmente si detectamos datos falsos, sanciones previas o incumplimientos de estos términos."
+                }
+            },
+            "tiers": {
+                "title": "6. Tier list y resultados",
+                "p1": "Los tiers los asignan los testers de Navy tras una prueba y reflejan su valoración en el momento de realizarla. Son revisables: pueden subir, bajar o retirarse si el jugador vuelve a testear, si se detecta un error o si se comprueba el uso de trampas.",
+                "p2": "Navy puede sancionar y publicar en la sección de baneos a los jugadores que hagan trampas durante una prueba. La tier list se ofrece con fines informativos y de entretenimiento y no constituye una clasificación oficial de Minecraft ni de ningún servidor de terceros."
+            },
+            "ip": {
+                "title": "7. Propiedad intelectual",
+                "p1": "El nombre Navy, su logotipo, el diseño del sitio, los textos y el resto de elementos gráficos pertenecen a Navy o se utilizan con permiso. No pueden reproducirse con fines comerciales sin autorización previa.",
+                "p2": "Minecraft es una marca registrada de Mojang Studios y Microsoft. Navy es un proyecto independiente, creado por la comunidad, y no está afiliado, patrocinado ni respaldado por Mojang Studios, Microsoft ni por ninguno de sus socios. Los nombres de usuario y las skins mostradas pertenecen a sus respectivos jugadores."
+            },
+            "thirdParty": {
+                "title": "8. Servicios de terceros",
+                "p1": "El sitio se apoya en servicios externos que tienen sus propias condiciones de uso y políticas de privacidad:",
+                "items": {
+                    "item1": "Discord, para la comunidad, las pruebas y el contacto con el equipo.",
+                    "item2": "Vimeo, para reproducir los vídeos incrustados en la página de inicio.",
+                    "item3": "mc-heads.net y render.crafty.gg, para mostrar las skins de los jugadores.",
+                    "item4": "El proveedor de alojamiento del sitio y sus herramientas de métricas de rendimiento."
+                }
+            },
+            "liability": {
+                "title": "9. Disponibilidad y responsabilidad",
+                "p1": "El sitio y sus datos se ofrecen «tal cual». No garantizamos que esté disponible de forma ininterrumpida, que esté libre de errores ni que la información mostrada sea exacta en todo momento, ya que depende de sistemas y servicios externos.",
+                "p2": "En la medida que permita la ley aplicable, Navy y su equipo no se hacen responsables de daños derivados del uso o de la imposibilidad de usar el sitio, de interrupciones del servicio ni de las decisiones que tomes basándote en la información publicada."
+            },
+            "changes": {
+                "title": "10. Cambios en los términos",
+                "p1": "Podemos actualizar estos Términos y Condiciones cuando cambien nuestros servicios o la normativa aplicable. La fecha de la última revisión aparece al principio de esta página, y el uso continuado del sitio tras una actualización implica su aceptación."
+            },
+            "law": {
+                "title": "11. Contacto",
+                "p1": "Para cualquier duda sobre estos términos, una reclamación o una solicitud relacionada con tu postulación, escríbenos a través de nuestro servidor de Discord: discord.gg/navyy.",
+                "p2": "Intentamos resolver cualquier incidencia de forma directa con la persona afectada antes de recurrir a otras vías."
+            }
+        }
+    },
+    "pdp": {
+        "title": "Política de Privacidad",
+        "updated": "Última actualización: 21 de septiembre de 2026",
+        "intro": "Esta Política de Privacidad explica qué datos personales recogemos en navytiers.com, con qué finalidad los usamos, cuánto tiempo los conservamos y qué derechos tienes sobre ellos.",
+        "sections": {
+            "responsible": {
+                "title": "1. Responsable del tratamiento",
+                "p1": "El responsable del tratamiento de los datos es el equipo de Navy, que gestiona la comunidad de Discord y el sitio web navytiers.com.",
+                "p2": "Puedes contactarnos en cualquier momento a través de nuestro servidor de Discord: discord.gg/navyy."
+            },
+            "dataCollected": {
+                "title": "2. Qué datos recogemos",
+                "p1": "Solo tratamos los datos necesarios para que el sitio y las postulaciones funcionen:",
+                "items": {
+                    "item1": "Datos del formulario de postulación: nombre o nick, usuario de Discord, edad, región, modalidades y las respuestas abiertas que escribas.",
+                    "item2": "Datos técnicos: un hash irreversible (SHA-256) de tu dirección IP, que usamos únicamente para limitar envíos repetidos. No guardamos la IP en claro.",
+                    "item3": "Preferencias de navegación guardadas en tu navegador: idioma, modo claro u oscuro y ajustes de accesibilidad. No salen de tu dispositivo.",
+                    "item4": "Datos públicos de la tier list generados por las pruebas: nick, identificador de Minecraft, región, modalidad, tier y fecha del test."
+                }
+            },
+            "purposes": {
+                "title": "3. Para qué usamos los datos",
+                "p1": "Usamos la información recogida exclusivamente para:",
+                "items": {
+                    "item1": "Revisar y valorar las postulaciones a Staff y Tester, y contactarte por Discord si avanzas en el proceso.",
+                    "item2": "Prevenir el spam, los envíos automatizados y el abuso del formulario.",
+                    "item3": "Publicar la tier list, los resultados de las pruebas y la lista de sanciones.",
+                    "item4": "Mantener y mejorar el sitio, incluyendo métricas agregadas de rendimiento."
+                }
+            },
+            "legalBasis": {
+                "title": "4. Base legítima",
+                "p1": "El tratamiento de los datos del formulario se basa en tu consentimiento expreso: antes de enviar una postulación debes marcar la casilla de aceptación de los Términos y Condiciones y de esta Política de Privacidad. Registramos esa aceptación junto con tu postulación.",
+                "p2": "La publicación de los resultados de las pruebas y las medidas antifraude se apoyan en el interés legítimo de mantener una tier list fiable y una comunidad segura. Puedes retirar tu consentimiento en cualquier momento escribiéndonos por Discord."
+            },
+            "retention": {
+                "title": "5. Cuánto tiempo conservamos los datos",
+                "p1": "Cada tipo de dato tiene un plazo de conservación distinto:",
+                "items": {
+                    "item1": "Postulaciones: se conservan mientras sigas siendo parte de la comunidad o hasta que solicites su eliminación, con un máximo de 12 meses desde el último envío si no avanzas en el proceso.",
+                    "item2": "Hash de la dirección IP: se usa para un bloqueo temporal de 30 minutos y queda asociado a la postulación con fines antifraude.",
+                    "item3": "Resultados de la tier list: se mantienen mientras la clasificación siga siendo pública, ya que forman parte del histórico de la comunidad."
+                }
+            },
+            "sharing": {
+                "title": "6. Con quién compartimos los datos",
+                "p1": "No vendemos ni cedemos tus datos personales a terceros con fines comerciales. Solo acceden a ellos:",
+                "items": {
+                    "item1": "Los miembros del equipo de Navy encargados de revisar las postulaciones, mediante un panel de administración protegido con contraseña.",
+                    "item2": "Nuestro proveedor de alojamiento y de base de datos, que los almacena por cuenta nuestra.",
+                    "item3": "Discord, cuando el contacto o la prueba se realiza a través de su plataforma, conforme a sus propias políticas."
+                }
+            },
+            "cookies": {
+                "title": "7. Cookies y almacenamiento local",
+                "p1": "El sitio no usa cookies publicitarias ni de seguimiento entre sitios. Lo que guardamos en tu navegador es:",
+                "items": {
+                    "item1": "Una cookie de sesión, únicamente para los administradores que inician sesión en el panel interno.",
+                    "item2": "Preferencias locales de idioma, tema y accesibilidad, almacenadas en tu propio navegador.",
+                    "item3": "Métricas agregadas y anónimas de rendimiento de las páginas, que no identifican a ningún visitante."
+                }
+            },
+            "minors": {
+                "title": "8. Menores de edad",
+                "p1": "El sitio y las postulaciones están dirigidos a personas de 13 años o más. No recogemos de forma consciente datos de menores de esa edad.",
+                "p2": "Si eres menor de edad según la legislación de tu país, deberías contar con el permiso de tus padres o tutores antes de enviar cualquier dato. Si detectamos o nos informan de que hemos recibido datos de un menor de 13 años, los eliminaremos."
+            },
+            "rights": {
+                "title": "9. Tus derechos",
+                "p1": "Puedes ejercer en cualquier momento los siguientes derechos escribiéndonos por Discord:",
+                "items": {
+                    "item1": "Acceso: saber qué datos tuyos conservamos.",
+                    "item2": "Rectificación: corregir los datos que sean inexactos o estén incompletos.",
+                    "item3": "Supresión: pedir que borremos tu postulación y los datos asociados.",
+                    "item4": "Oposición y retirada del consentimiento, sin que ello afecte a la licitud del tratamiento anterior."
+                }
+            },
+            "security": {
+                "title": "10. Seguridad",
+                "p1": "Aplicamos medidas técnicas razonables para proteger la información: conexión cifrada mediante HTTPS, cabeceras de seguridad en todas las páginas, hash irreversible de las direcciones IP, límites de peticiones por IP y acceso al panel de administración restringido y protegido.",
+                "p2": "Ningún sistema es completamente infalible. Si se produjera una brecha que afectara a tus datos, lo comunicaríamos en el servidor de Discord lo antes posible."
+            },
+            "changes": {
+                "title": "11. Cambios en esta política",
+                "p1": "Podemos actualizar esta Política de Privacidad si cambian nuestros servicios o la normativa aplicable. La fecha de la última revisión figura al principio de la página y los cambios relevantes se anunciarán en el servidor de Discord."
+            },
+            "contact": {
+                "title": "12. Contacto",
+                "p1": "Si tienes dudas sobre esta política o quieres ejercer tus derechos, escríbenos en discord.gg/navyy.",
+                "p2": "Responderemos a tu solicitud en el plazo más breve posible."
+            }
+        }
+    }
+}

@@ -7,7 +7,11 @@
 }
 
 .footerTop ul{
-    @apply flex justify-between text-base lg:text-lg;
+    @apply flex flex-wrap justify-between items-center gap-x-6 gap-y-2 text-base lg:text-lg;
+}
+
+.footerTop__legal{
+    @apply flex items-center gap-2;
 }
 
 .footerTop ul{

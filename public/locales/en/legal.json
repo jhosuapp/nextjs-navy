@@ -1,0 +1,173 @@
+{
+    "tyc": {
+        "title": "Terms and Conditions",
+        "updated": "Last updated: September 21, 2026",
+        "intro": "These Terms and Conditions govern the use of navytiers.com and of the Navy community services. By using the site or taking part in our activities, you accept what is described below.",
+        "sections": {
+            "acceptance": {
+                "title": "1. Acceptance of the terms",
+                "p1": "By accessing navytiers.com, browsing the tier list or submitting an application, you confirm that you have read and accepted these Terms and Conditions together with our Privacy Policy.",
+                "p2": "If you disagree with any part of these terms, please do not use the site or take part in the community's activities."
+            },
+            "service": {
+                "title": "2. What Navy is",
+                "p1": "Navy is a Discord community dedicated to evaluating the skill level of Minecraft players across different PvP modes, on both premium and non-premium accounts, through tests organised by our team of testers.",
+                "p2": "This website is an informational showcase of that community: it publishes the tier list, test results, the staff team, our partners, the punishment list and the application form. It is not a game server and does not offer paid services."
+            },
+            "eligibility": {
+                "title": "3. Minimum age and requirements",
+                "p1": "To take part in the tests or submit an application you must be at least 13 years old, in line with Discord's requirements. If the minimum age for this kind of service is higher in your country, you must comply with it.",
+                "p2": "You need an active Discord account and must provide truthful information. Navy may reject or reverse any participation based on false data or on impersonating another person."
+            },
+            "conduct": {
+                "title": "4. Expected conduct",
+                "p1": "Using the site and taking part in the community is based on mutual respect. The following is expressly forbidden:",
+                "items": {
+                    "item1": "Using cheats, macros, modified clients or any unfair advantage during a test.",
+                    "item2": "Impersonating another player, tester or staff member.",
+                    "item3": "Harassing, threatening, insulting or discriminating against other members of the community.",
+                    "item4": "Sending mass applications, spam or automated content, or attempting to bypass the form's submission limits.",
+                    "item5": "Attempting to gain unauthorised access to the site's private areas, its API or its database."
+                }
+            },
+            "applications": {
+                "title": "5. Staff and Tester applications",
+                "p1": "The application form is voluntary and free. Submitting it does not create any employment, contractual or financial relationship with Navy, nor does it entitle you to the role you applied for.",
+                "p2": "We review applications manually and only contact the people who move forward in the process, so we cannot guarantee a reply to every submission. By applying you also accept that:",
+                "items": {
+                    "item1": "The information you provide is truthful and belongs to you.",
+                    "item2": "You may apply again for the same role two weeks after your last submission; before that period the form will stay locked.",
+                    "item3": "We keep a record of your previous applications so we can assess how you have progressed.",
+                    "item4": "We may reject an application without explaining why, especially if we detect false data, previous punishments or breaches of these terms."
+                }
+            },
+            "tiers": {
+                "title": "6. Tier list and results",
+                "p1": "Tiers are assigned by Navy testers after a test and reflect their assessment at that moment. They can be reviewed: they may go up, go down or be removed if the player tests again, if an error is found or if cheating is confirmed.",
+                "p2": "Navy may punish players who cheat during a test and publish them in the punishments section. The tier list is provided for informational and entertainment purposes and is not an official ranking of Minecraft or of any third-party server."
+            },
+            "ip": {
+                "title": "7. Intellectual property",
+                "p1": "The Navy name, its logo, the site design, its texts and the remaining graphic elements belong to Navy or are used with permission. They may not be reproduced for commercial purposes without prior authorisation.",
+                "p2": "Minecraft is a trademark of Mojang Studios and Microsoft. Navy is an independent, community-built project and is not affiliated with, sponsored by or endorsed by Mojang Studios, Microsoft or any of their partners. The usernames and skins shown belong to their respective players."
+            },
+            "thirdParty": {
+                "title": "8. Third-party services",
+                "p1": "The site relies on external services that have their own terms of use and privacy policies:",
+                "items": {
+                    "item1": "Discord, for the community, the tests and contact with the team.",
+                    "item2": "Vimeo, to play the videos embedded on the home page.",
+                    "item3": "mc-heads.net and render.crafty.gg, to display player skins.",
+                    "item4": "Our hosting provider and its performance metrics tooling."
+                }
+            },
+            "liability": {
+                "title": "9. Availability and liability",
+                "p1": "The site and its data are provided \"as is\". We do not guarantee uninterrupted availability, freedom from errors, or that the information shown is accurate at all times, as it depends on external systems and services.",
+                "p2": "To the extent permitted by applicable law, Navy and its team are not liable for damages arising from the use of, or inability to use, the site, from service interruptions, or from decisions you make based on the published information."
+            },
+            "changes": {
+                "title": "10. Changes to the terms",
+                "p1": "We may update these Terms and Conditions when our services or the applicable regulations change. The date of the latest revision appears at the top of this page, and continued use of the site after an update implies acceptance."
+            },
+            "law": {
+                "title": "11. Contact",
+                "p1": "For any question about these terms, a complaint or a request related to your application, reach out through our Discord server: discord.gg/navyy.",
+                "p2": "We try to resolve any issue directly with the person involved before turning to other channels."
+            }
+        }
+    },
+    "pdp": {
+        "title": "Privacy Policy",
+        "updated": "Last updated: September 21, 2026",
+        "intro": "This Privacy Policy explains what personal data we collect on navytiers.com, what we use it for, how long we keep it and what rights you have over it.",
+        "sections": {
+            "responsible": {
+                "title": "1. Data controller",
+                "p1": "The data controller is the Navy team, which runs the Discord community and the navytiers.com website.",
+                "p2": "You can contact us at any time through our Discord server: discord.gg/navyy."
+            },
+            "dataCollected": {
+                "title": "2. What data we collect",
+                "p1": "We only process the data needed for the site and the applications to work:",
+                "items": {
+                    "item1": "Application form data: name or nick, Discord username, age, region, game modes and the open answers you write.",
+                    "item2": "Technical data: an irreversible hash (SHA-256) of your IP address, used only to limit repeated submissions. We do not store the IP in plain text.",
+                    "item3": "Browsing preferences stored in your browser: language, light or dark mode and accessibility settings. They never leave your device.",
+                    "item4": "Public tier list data generated by the tests: nick, Minecraft identifier, region, game mode, tier and test date."
+                }
+            },
+            "purposes": {
+                "title": "3. What we use the data for",
+                "p1": "We use the information collected exclusively to:",
+                "items": {
+                    "item1": "Review and assess Staff and Tester applications, and contact you on Discord if you move forward in the process.",
+                    "item2": "Prevent spam, automated submissions and abuse of the form.",
+                    "item3": "Publish the tier list, the test results and the punishment list.",
+                    "item4": "Maintain and improve the site, including aggregated performance metrics."
+                }
+            },
+            "legalBasis": {
+                "title": "4. Legal basis",
+                "p1": "Processing of the form data is based on your explicit consent: before submitting an application you must tick the box accepting the Terms and Conditions and this Privacy Policy. We record that acceptance together with your application.",
+                "p2": "Publishing test results and our anti-fraud measures rely on the legitimate interest of keeping a reliable tier list and a safe community. You can withdraw your consent at any time by contacting us on Discord."
+            },
+            "retention": {
+                "title": "5. How long we keep the data",
+                "p1": "Each type of data has a different retention period:",
+                "items": {
+                    "item1": "Applications: kept while you remain part of the community or until you request their deletion, with a maximum of 12 months from the last submission if you do not move forward in the process.",
+                    "item2": "IP address hash: used for a temporary 30-minute block and kept alongside the application for anti-fraud purposes.",
+                    "item3": "Tier list results: kept while the ranking remains public, as they are part of the community's history."
+                }
+            },
+            "sharing": {
+                "title": "6. Who we share the data with",
+                "p1": "We do not sell or transfer your personal data to third parties for commercial purposes. It is only accessed by:",
+                "items": {
+                    "item1": "The Navy team members in charge of reviewing applications, through a password-protected admin panel.",
+                    "item2": "Our hosting and database provider, which stores it on our behalf.",
+                    "item3": "Discord, when contact or the test takes place on its platform, subject to its own policies."
+                }
+            },
+            "cookies": {
+                "title": "7. Cookies and local storage",
+                "p1": "The site does not use advertising or cross-site tracking cookies. What we store in your browser is:",
+                "items": {
+                    "item1": "A session cookie, only for administrators who log in to the internal panel.",
+                    "item2": "Local language, theme and accessibility preferences, stored in your own browser.",
+                    "item3": "Aggregated, anonymous page performance metrics that do not identify any visitor."
+                }
+            },
+            "minors": {
+                "title": "8. Minors",
+                "p1": "The site and the applications are intended for people aged 13 or over. We do not knowingly collect data from children below that age.",
+                "p2": "If you are a minor under the law of your country, you should have your parents' or guardians' permission before submitting any data. If we find out, or are told, that we have received data from a child under 13, we will delete it."
+            },
+            "rights": {
+                "title": "9. Your rights",
+                "p1": "You can exercise the following rights at any time by contacting us on Discord:",
+                "items": {
+                    "item1": "Access: find out what data of yours we hold.",
+                    "item2": "Rectification: correct data that is inaccurate or incomplete.",
+                    "item3": "Erasure: ask us to delete your application and the associated data.",
+                    "item4": "Objection and withdrawal of consent, without affecting the lawfulness of earlier processing."
+                }
+            },
+            "security": {
+                "title": "10. Security",
+                "p1": "We apply reasonable technical measures to protect the information: encrypted HTTPS connections, security headers on every page, irreversible hashing of IP addresses, per-IP request limits, and restricted, protected access to the admin panel.",
+                "p2": "No system is completely foolproof. If a breach affecting your data occurred, we would announce it on the Discord server as soon as possible."
+            },
+            "changes": {
+                "title": "11. Changes to this policy",
+                "p1": "We may update this Privacy Policy if our services or the applicable regulations change. The date of the latest revision appears at the top of the page and relevant changes will be announced on the Discord server."
+            },
+            "contact": {
+                "title": "12. Contact",
+                "p1": "If you have questions about this policy or want to exercise your rights, write to us at discord.gg/navyy.",
+                "p2": "We will respond to your request as quickly as possible."
+            }
+        }
+    }
+}

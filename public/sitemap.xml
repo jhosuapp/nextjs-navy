@@ -102,4 +102,44 @@
     <priority>0.7</priority>
   </url>
 
+  <url>
+    <loc>https://navytiers.com/tyc</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/tyc" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/tyc" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/tyc" />
+
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/en/tyc</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/tyc" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/tyc" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/tyc" />
+
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/pdp</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/pdp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/pdp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/pdp" />
+
+    <priority>0.3</priority>
+  </url>
+
+  <url>
+    <loc>https://navytiers.com/en/pdp</loc>
+
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/pdp" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/pdp" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/pdp" />
+
+    <priority>0.3</priority>
+  </url>
+
 </urlset>

@@ -5,34 +5,42 @@
         "bans": "Baneos",
         "partners": "Patrocinadores",
         "home": "Inicio",
-        "applications": "Postulaciones"
+        "applications": "Postulaciones",
+        "tyc": "Términos",
+        "pdp": "Privacidad"
     },
-    "footer":{
+    "footer": {
         "developedBy": "Desarrollado por",
         "text1": "Haz click en seguiente",
         "text2": "Para más información sobre:",
-        "text3": "Siguiente"
+        "text3": "Siguiente",
+        "terms": "Términos y Condiciones",
+        "privacy": "Política de Privacidad"
     },
-    "notFound":{
+    "notFound": {
         "description1": "La página que estás buscando no existe o ha sido movida.",
         "description2": "Verifica la URL o regresa al inicio.",
         "cta": "Volver al inicio"
     },
-    "seo":{
+    "seo": {
         "bansMetaTitle": "Tier List PvP Minecraft Navy | Rankings, Rendimiento y Baneos",
         "bansMetaDescription": "Descubre la tier list de PvP de Minecraft Navy. Analiza el rendimiento de los jugadores, sus rankings y revisa quiénes fueron baneados por trampas en pruebas de habilidad.",
         "partnersMetaTitle": "Partners de Navy | Streamers y Servidores PvP",
         "partnersMetaDescription": "Conoce a los partners oficiales de Navy, incluyendo streamers y servidores de PvP que apoyan y colaboran con la comunidad.",
-        "staffMetaTitle":"Staff de Navy | Dueños, Admins y Desarrolladores",
-        "staffMetaDescription":"Conoce al equipo de trabajo de Navy, desde los dueños y administradores hasta los desarrolladores. Descubre quiénes están detrás del servidor y su comunidad.",
-        "tierlistMetaTitle":"Tier List PvP Navy | Rankings, Puntos y Mejores Jugadores",
-        "tierlistMetaDescription":"Explora la tier list de PvP de Navy, con los mejores jugadores, el sistema de rankings y una explicación detallada de cómo se obtienen y calculan los puntos.",
-        "homeMetaTitle":"Navy | Servidor de Discord para tests de nivel en Minecraft",
-        "homeMetaDescription":"Navy es un servidor de Discord donde evaluamos el nivel de jugadores de Minecraft en distintas modalidades, tanto premium como no premium, mediante pruebas justas y estructuradas.",
+        "staffMetaTitle": "Staff de Navy | Dueños, Admins y Desarrolladores",
+        "staffMetaDescription": "Conoce al equipo de trabajo de Navy, desde los dueños y administradores hasta los desarrolladores. Descubre quiénes están detrás del servidor y su comunidad.",
+        "tierlistMetaTitle": "Tier List PvP Navy | Rankings, Puntos y Mejores Jugadores",
+        "tierlistMetaDescription": "Explora la tier list de PvP de Navy, con los mejores jugadores, el sistema de rankings y una explicación detallada de cómo se obtienen y calculan los puntos.",
+        "homeMetaTitle": "Navy | Servidor de Discord para tests de nivel en Minecraft",
+        "homeMetaDescription": "Navy es un servidor de Discord donde evaluamos el nivel de jugadores de Minecraft en distintas modalidades, tanto premium como no premium, mediante pruebas justas y estructuradas.",
         "404MetaTitle": "404 - Página no encontrada | Navy",
         "404MetaDescription": "La página que buscas no existe o fue movida. Explora Navy o vuelve al inicio para seguir descubriendo contenido.",
         "applicationsMetaTitle": "Postúlate a Helper en Navy | Formulario de Staff y TierList",
-        "applicationsMetaDescription": "¿Quieres formar parte del Staff de Navy? Completa el formulario de postulación a Helper y demuestra tus conocimientos sobre moderación, hacks y la TierList."
+        "applicationsMetaDescription": "¿Quieres formar parte del Staff de Navy? Completa el formulario de postulación a Helper y demuestra tus conocimientos sobre moderación, hacks y la TierList.",
+        "tycMetaTitle": "Términos y Condiciones | Navy",
+        "tycMetaDescription": "Condiciones de uso de Navy: qué es la comunidad, conducta esperada, cómo funcionan las postulaciones a Staff y Tester y las normas de la tier list de PvP.",
+        "pdpMetaTitle": "Política de Privacidad | Navy",
+        "pdpMetaDescription": "Qué datos personales recoge Navy en el formulario de postulación, con qué finalidad los usa, cuánto tiempo los conserva y cómo ejercer tus derechos."
     },
     "loader": {
         "loading": "Cargando"
@@ -45,7 +53,7 @@
         "searching": "Buscando usuario...",
         "error": "Error, el jugador no se ha encontrado"
     },
-    "switchs":{
+    "switchs": {
         "lightMode": "Modo claro",
         "disableParticles": "Ocultar partículas",
         "invertColors": "Invertir colores",
