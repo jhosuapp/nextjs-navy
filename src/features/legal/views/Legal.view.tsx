@@ -26,7 +26,7 @@ const LegalView = ({ doc }: Props): JSX.Element => {
 
     return (
         <Container className="!mt-5 lg:!mt-10" isFirst isLast>
-            <motion.header className={styles.legalHero} {...fadeUpMotion(0.57, 0)}>
+            <motion.header className={styles.legalHero} {...fadeUpMotion(0.7, 0.15)}>
                 <h1 className={styles.legalHero__title}>{t(`${doc}.title`)}</h1>
                 <p className={styles.legalHero__updated}>{t(`${doc}.updated`)}</p>
                 <p className={styles.legalHero__intro}>{t(`${doc}.intro`)}</p>
@@ -37,6 +37,7 @@ const LegalView = ({ doc }: Props): JSX.Element => {
                     key={section.id}
                     title={t(`${doc}.sections.${section.id}.title`)}
                     text={`${index + 1} / ${sections.length}`}
+                    hasAnimation
                 >
                     <div className={styles.legalSection}>
                         {range(section.paragraphs).map((n) => (

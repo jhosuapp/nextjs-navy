@@ -14,7 +14,6 @@ const FooterTop = ({ t }:Props):JSX.Element => {
         <section className={ styles.footerTop }>
             <ul>
                 <li>©2026 navy - <a className='hoverLine' href="https://github.com/jhosuapp" target='_blank'>jhosuapp</a></li>
-                <li>Discord - <a className='hoverLine' href="https://discord.gg/navyy" target='_blank'>discord.gg.navyy</a></li>
                 <li className={ styles.footerTop__legal }>
                     <CustomLink to={ paths.tyc } className='hoverLine'>{t('footer.terms')}</CustomLink>
                     <span aria-hidden="true">·</span>
