@@ -1,0 +1,40 @@
+.adminButton {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold whitespace-nowrap
+        transition-colors duration-200 select-none
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 focus-visible:ring-offset-tertiary
+        disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.adminButton__sm {
+    @apply h-8 px-3 text-xs;
+}
+
+.adminButton__md {
+    @apply h-10 px-4 text-sm;
+}
+
+.adminButton__primary {
+    @apply bg-purple-600 text-white hover:bg-purple-500;
+}
+
+.adminButton__ghost {
+    @apply border border-white/10 text-purple-100 hover:bg-white/5 hover:border-white/20;
+}
+
+.adminButton__subtle {
+    @apply bg-white/5 text-purple-100 hover:bg-white/10;
+}
+
+.adminButton__danger {
+    @apply bg-red-500/15 text-red-300 border border-red-500/30 hover:bg-red-500/25;
+}
+
+.adminButton__spinner {
+    @apply w-4 h-4 rounded-full border-2 border-current border-t-transparent animate-spin;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .adminButton__spinner {
+        @apply animate-none;
+    }
+}

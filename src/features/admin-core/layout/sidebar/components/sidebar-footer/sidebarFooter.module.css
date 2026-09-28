@@ -1,0 +1,55 @@
+.sidebarFooter {
+    @apply flex flex-col gap-2 pt-4 border-t border-white/10;
+}
+
+.sidebarFooter__link {
+    @apply flex items-center gap-3 h-10 px-3 rounded-xl text-sm text-purple-200/60
+        hover:text-white hover:bg-white/5 transition-colors
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400;
+}
+
+.sidebarFooter__label {
+    @apply whitespace-nowrap;
+}
+
+.sidebarFooter__user {
+    @apply flex items-center gap-3 p-2 rounded-xl bg-white/[0.04];
+}
+
+.sidebarFooter__avatar {
+    @apply flex items-center justify-center shrink-0 w-9 h-9 rounded-lg bg-purple-500/25 text-purple-100 font-bold;
+}
+
+.sidebarFooter__name {
+    @apply flex flex-col flex-1 min-w-0 leading-tight;
+}
+
+.sidebarFooter__name small {
+    @apply text-[10px] uppercase tracking-wider text-purple-200/45;
+}
+
+.sidebarFooter__name strong {
+    @apply text-sm text-white truncate;
+}
+
+.sidebarFooter__logout {
+    @apply flex items-center justify-center shrink-0 w-9 h-9 rounded-lg text-purple-200/60
+        hover:text-red-300 hover:bg-red-500/10 transition-colors disabled:opacity-40
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400;
+}
+
+@media (min-width: 1024px) {
+    .sidebarFooter__collapsed .sidebarFooter__link {
+        @apply justify-center px-0;
+    }
+
+    .sidebarFooter__collapsed .sidebarFooter__label,
+    .sidebarFooter__collapsed .sidebarFooter__name,
+    .sidebarFooter__collapsed .sidebarFooter__avatar {
+        @apply hidden;
+    }
+
+    .sidebarFooter__collapsed .sidebarFooter__user {
+        @apply justify-center p-1 bg-transparent;
+    }
+}

@@ -1,0 +1,15 @@
+.statCard {
+    @apply flex flex-col gap-1 p-4 rounded-xl bg-white/[0.03] border border-white/10 min-w-0;
+}
+
+.statCard__label {
+    @apply text-[11px] font-semibold uppercase tracking-wider text-purple-200/50;
+}
+
+.statCard__value {
+    @apply text-2xl font-bold text-white tabular-nums;
+}
+
+.statCard__hint {
+    @apply text-xs text-purple-200/50;
+}

@@ -1,0 +1,55 @@
+.audit__toolbar {
+    @apply mb-4;
+}
+
+.audit__center {
+    @apply flex justify-center py-10;
+}
+
+.audit__list {
+    @apply flex flex-col divide-y divide-white/5 rounded-xl border border-white/10 transition-opacity;
+}
+
+.audit__fetching {
+    @apply opacity-60;
+}
+
+.audit__entry {
+    @apply flex flex-col gap-2 px-4 py-3;
+}
+
+.audit__head {
+    @apply flex flex-wrap items-center gap-x-3 gap-y-1;
+}
+
+.audit__target {
+    @apply text-sm text-white;
+}
+
+.audit__target code {
+    @apply text-xs text-purple-200/70 break-all;
+}
+
+.audit__meta {
+    @apply ml-auto text-xs text-purple-200/45;
+}
+
+.audit__changes {
+    @apply flex flex-col gap-1 pl-1;
+}
+
+.audit__changes li {
+    @apply flex flex-wrap items-baseline gap-2 text-xs text-purple-200/60;
+}
+
+.audit__field {
+    @apply font-semibold text-purple-200/80;
+}
+
+.audit__before {
+    @apply line-through text-red-300/70 break-all;
+}
+
+.audit__after {
+    @apply text-emerald-300 break-all;
+}

@@ -1,0 +1,49 @@
+.adminDialog {
+    @apply fixed inset-0 z-[200] flex items-center justify-center p-4;
+}
+
+.adminDialog__drawerRoot {
+    @apply justify-end p-0;
+}
+
+.adminDialog__overlay {
+    @apply absolute inset-0 bg-black/60 backdrop-blur-[2px];
+}
+
+.adminDialog__panel {
+    @apply relative z-10 flex flex-col bg-[#211a22] border-white/10 shadow-2xl outline-none;
+}
+
+.adminDialog__dialog {
+    @apply w-full max-w-md max-h-[90vh] rounded-2xl border;
+}
+
+.adminDialog__drawer {
+    @apply h-dvh w-full sm:max-w-md border-l;
+}
+
+.adminDialog__header {
+    @apply flex items-start justify-between gap-4 px-6 pt-6 pb-4;
+}
+
+.adminDialog__title {
+    @apply text-lg font-bold text-white leading-tight;
+}
+
+.adminDialog__description {
+    @apply text-sm text-purple-200/60 mt-1;
+}
+
+.adminDialog__close {
+    @apply flex items-center justify-center shrink-0 w-8 h-8 rounded-lg text-purple-200/60
+        hover:text-white hover:bg-white/10
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400;
+}
+
+.adminDialog__body {
+    @apply flex-1 overflow-y-auto px-6 pb-6;
+}
+
+.adminDialog__footer {
+    @apply flex flex-wrap justify-end gap-2 px-6 py-4 border-t border-white/10;
+}

@@ -1,0 +1,7 @@
+.pagination {
+    @apply flex justify-center items-center gap-3 mt-6 w-full;
+}
+
+.pagination__info {
+    @apply text-purple-200/70 text-sm font-medium min-w-32 text-center tabular-nums;
+}

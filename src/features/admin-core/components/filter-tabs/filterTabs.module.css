@@ -1,0 +1,18 @@
+.filterTabs {
+    @apply inline-flex flex-wrap gap-1 p-1 rounded-xl bg-white/[0.04] border border-white/10;
+}
+
+.filterTabs__tab {
+    @apply inline-flex items-center gap-2 h-8 px-3 rounded-lg text-xs font-semibold uppercase tracking-wide
+        text-purple-200/70 transition-colors duration-200
+        hover:text-white hover:bg-white/5
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400;
+}
+
+.filterTabs__tabActive {
+    @apply bg-purple-600 text-white hover:bg-purple-600;
+}
+
+.filterTabs__count {
+    @apply min-w-5 px-1.5 rounded-md bg-black/25 text-[10px] leading-5 text-center tabular-nums;
+}

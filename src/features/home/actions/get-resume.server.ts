@@ -1,5 +1,6 @@
 import { Prisma } from "@prisma/client";
 import { prisma } from "@/config/lib/prisma";
+import { visibleTiersSql } from "@/config/lib/adminOverrides";
 import { TestEntry, TierlistResumeResponse } from "../interfaces";
 
 const EMPTY: TierlistResumeResponse = { latest_h_tests: [], latest_l_tests: [], total_tests: {} };
@@ -32,7 +33,7 @@ const latestTests = (isHigh: boolean, tiers: string[]): Promise<RawTest[]> =>
             SELECT
                 id, nick, region, tier, game, date,
                 ROW_NUMBER() OVER (PARTITION BY nick, game ORDER BY date DESC, id DESC) as rn
-            FROM tiers
+            FROM ${visibleTiersSql} AS tiers
             WHERE is_high = ${isHigh}
             AND tier IN (${Prisma.join(tiers)})
         )
@@ -51,13 +52,17 @@ export async function getResumeData(): Promise<TierlistResumeResponse> {
     const [latestHTests, latestLTests, testsByGame] = await Promise.all([
         latestTests(true, HIGH_TIERS),
         latestTests(false, LOW_TIERS),
-        prisma.tiers.groupBy({ by: ['game'], _count: { game: true } }),
+        prisma.$queryRaw<Array<{ game: string; total: bigint }>>`
+            SELECT game, COUNT(*) AS total
+            FROM ${visibleTiersSql} AS tiers
+            GROUP BY game
+        `,
     ]);
 
     const total_tests: Record<string, number> = {};
     for (const item of testsByGame) {
         if (item.game?.trim()) {
-            total_tests[item.game] = item._count.game;
+            total_tests[item.game] = Number(item.total);
         }
     }
 

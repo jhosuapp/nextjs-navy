@@ -1,0 +1,15 @@
+.adminLayout {
+    @apply relative w-full min-h-dvh bg-tertiary text-purple-50 font-roboto;
+}
+
+.adminLayout__shell {
+    @apply flex w-full min-h-dvh;
+}
+
+.adminLayout__main {
+    @apply flex-1 min-w-0 px-4 sm:px-6 lg:px-10 pb-12 lg:pt-10;
+}
+
+.adminLayout__content {
+    @apply w-full max-w-7xl mx-auto;
+}

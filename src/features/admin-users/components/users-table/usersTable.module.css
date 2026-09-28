@@ -1,0 +1,23 @@
+.usersTable__games {
+    @apply flex flex-wrap gap-1.5;
+}
+
+.usersTable__game {
+    @apply inline-flex items-center gap-1 h-6 px-2 rounded-md bg-white/5 border border-white/10 text-[11px] text-purple-200/80 whitespace-nowrap;
+}
+
+.usersTable__game b {
+    @apply text-white;
+}
+
+.usersTable__more {
+    @apply inline-flex items-center h-6 px-2 text-[11px] text-purple-200/50;
+}
+
+.usersTable__badges {
+    @apply flex flex-wrap gap-1.5;
+}
+
+.usersTable__actions {
+    @apply flex items-center justify-end gap-1;
+}

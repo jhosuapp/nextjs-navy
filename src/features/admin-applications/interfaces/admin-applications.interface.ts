@@ -81,17 +81,3 @@ export type ApplicationsPage = {
     totalPages: number;
     data: AdminApplication[];
 };
-
-export type SessionResponse = {
-    authenticated: boolean;
-    username?: string;
-};
-
-export type LoginBody = {
-    username: string;
-    password: string;
-};
-
-export type LoginResponse = {
-    username: string;
-};

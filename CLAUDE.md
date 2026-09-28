@@ -86,6 +86,16 @@ Deployments must define **both** `DATABASE_URL` and `FFA_DATABASE_URL`, since `p
 
 `prisma db pull` rewrites the whole schema file — it drops leading comments and can strip `@ignore` from relation fields whose model is `@@ignore`d (this breaks `prisma generate`). Check `git diff` after every pull.
 
+### Admin panel (`/admin/*`) and the overrides layer
+
+The Discord bot owns and re-syncs `staff`, `punishments` and `tiers`, so the panel **never writes to those tables**. Edits and soft deletes live in `admin_overrides` (one row per `entity` + `entity_key`, `NULL` column = use the bot value, `hidden_at` = hidden) and every change is logged to `admin_audit_log`. Both tables were created by hand (`prisma/manual-migrations/2026-09-28-admin-dashboard.sql`) — never `db pull`/`db push`.
+
+Public reads must go through the override-aware helpers in `@/config/lib/adminOverrides`:
+- Staff → `getPublicStaff()`, bans → `getPublicPunishments()`.
+- Any raw query on `tiers` → `FROM ${visibleTiersSql} AS tiers` (hides hidden players, applies nick overrides).
+
+Admin API routes use `createAdminHandler` (`@/config/lib/adminHandler`: rate limit + 405 + 401 + 500), write with `saveOverride()` and then call `refreshAfterChange()` to revalidate ISR pages. Admin pages use `getLayout = getAdminLayout` (persistent sidebar; `_app` skips the global `AnimatePresence` for them). Shared admin UI lives in `src/features/admin-core/`.
+
 ### Internationalisation
 
 `next-i18next` with locales `es` (default), `en`, `pt`. Use the `useTranslation` hook inside controller hooks. The `t` function is typed as `ITranslations` from `@/shared/interfaces/globals`.

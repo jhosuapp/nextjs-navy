@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from "@/config/lib/prisma"
+import { visibleTiersSql } from "@/config/lib/adminOverrides"
 import { withRateLimit } from "@/config/lib/rateLimit"
 
 type TierItem = {
@@ -53,7 +54,7 @@ async function handler(
                         PARTITION BY COALESCE(uuid, CONCAT('nick_', nick)), game 
                         ORDER BY date DESC
                     ) as rn
-                FROM tiers
+                FROM ${visibleTiersSql} AS tiers
                 WHERE game = ${gameFilter}
                 AND LOWER(tier) LIKE ${`%${tierFilter.replace('t', '').toLowerCase()}%`}
             ),
@@ -85,7 +86,7 @@ async function handler(
                         PARTITION BY COALESCE(uuid, CONCAT('nick_', nick)), game 
                         ORDER BY date DESC
                     ) as rn
-                FROM tiers
+                FROM ${visibleTiersSql} AS tiers
                 WHERE game = ${gameFilter}
                 AND LOWER(tier) LIKE ${`%${tierFilter.replace('t', '').toLowerCase()}%`}
             )
@@ -135,7 +136,7 @@ async function handler(
                     PARTITION BY COALESCE(uuid, CONCAT('nick_', nick)), game 
                     ORDER BY date DESC
                 ) as rn
-            FROM tiers
+            FROM ${visibleTiersSql} AS tiers
             WHERE nick IS NOT NULL 
             AND region IS NOT NULL 
             AND tier IS NOT NULL 
@@ -153,7 +154,7 @@ async function handler(
                     ORDER BY t.date DESC
                 ) as user_rn
             FROM latest_tiers lt
-            INNER JOIN tiers t 
+            INNER JOIN ${visibleTiersSql} t
                 ON COALESCE(t.uuid, CONCAT('nick_', t.nick)) = lt.user_id
             WHERE lt.rn = 1
         ),
@@ -202,7 +203,7 @@ async function handler(
                     PARTITION BY COALESCE(uuid, CONCAT('nick_', nick)), game 
                     ORDER BY date DESC
                 ) as rn
-            FROM tiers
+            FROM ${visibleTiersSql} AS tiers
             WHERE game IS NOT NULL
         )
         SELECT game, COUNT(DISTINCT user_id) as total_users

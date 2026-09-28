@@ -1,0 +1,11 @@
+.emptyState {
+    @apply w-full flex flex-col items-center justify-center gap-3 py-16 px-6 rounded-2xl border border-dashed border-white/10 text-center;
+}
+
+.emptyState__icon {
+    @apply flex items-center justify-center w-12 h-12 rounded-xl bg-white/5 text-purple-200/60;
+}
+
+.emptyState__text {
+    @apply text-sm text-purple-200/60 max-w-sm;
+}

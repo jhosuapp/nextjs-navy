@@ -1,13 +1,12 @@
-import { prisma } from "@/config/lib/prisma";
+import { getPublicPunishments } from "@/config/lib/adminOverrides";
 import { BansResponse } from "../interfaces";
 
 const EMPTY: BansResponse = { active: [], inactive: [] };
 
 export async function fetchBansData(): Promise<{ data: BansResponse; revalidate: number }> {
     try {
-        const punishments = await prisma.punishments.findMany({
-            orderBy: { applied: 'desc' },
-        });
+        // Con overrides del panel aplicados y sin los baneos ocultos.
+        const punishments = await getPublicPunishments();
 
         const now = new Date();
 

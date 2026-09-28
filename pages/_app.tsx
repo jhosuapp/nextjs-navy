@@ -6,10 +6,13 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { useLoaderStore } from '@/shared/stores/loader.store';
 import { useLenisStore } from '@/shared/stores/lenis.store';
+import type { NextPageWithLayout } from '@/shared/interfaces/page.interface';
 
 import './globals.css';
 
-function MyApp({ Component, pageProps, router }: AppProps) {
+type AppPropsWithLayout = AppProps & { Component: NextPageWithLayout };
+
+function MyApp({ Component, pageProps, router }: AppPropsWithLayout) {
     const setIsLoading = useLoaderStore( state => state.setIsLoading );
     const [queryClient] = useState(() => new QueryClient());
     //Scroll smoth
@@ -47,9 +50,14 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
     return (
       <QueryClientProvider client={queryClient}>
-          <AnimatePresence mode='wait'>
-              <Component key={router.route} {...pageProps} />
-          </AnimatePresence>
+          {/* Páginas con layout persistente (panel admin): el layout gestiona sus propias transiciones. */}
+          {Component.getLayout ? (
+              Component.getLayout(<Component {...pageProps} />)
+          ) : (
+              <AnimatePresence mode='wait'>
+                  <Component key={router.route} {...pageProps} />
+              </AnimatePresence>
+          )}
           <SpeedInsights />
       </QueryClientProvider>
     )

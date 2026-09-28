@@ -1,1 +1,1 @@
-export * from './anchorScroll';
+export * from './anchorScroll';export * from './cn';

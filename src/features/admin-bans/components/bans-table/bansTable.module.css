@@ -1,0 +1,19 @@
+.bansTable__reason {
+    @apply block text-purple-100/90 line-clamp-2;
+}
+
+.bansTable__dates {
+    @apply flex flex-col whitespace-nowrap;
+}
+
+.bansTable__dates small {
+    @apply text-xs text-purple-200/45;
+}
+
+.bansTable__badges {
+    @apply flex flex-wrap gap-1.5;
+}
+
+.bansTable__actions {
+    @apply flex items-center justify-end gap-1;
+}

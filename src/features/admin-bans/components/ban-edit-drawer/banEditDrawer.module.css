@@ -1,0 +1,15 @@
+.banEdit {
+    @apply flex flex-col gap-6;
+}
+
+.banEdit__notice {
+    @apply text-xs leading-relaxed text-purple-200/60 p-3 rounded-lg bg-purple-500/10 border border-purple-400/20;
+}
+
+.banEdit__group {
+    @apply flex flex-col gap-4;
+}
+
+.banEdit__meta {
+    @apply text-xs text-purple-200/45;
+}

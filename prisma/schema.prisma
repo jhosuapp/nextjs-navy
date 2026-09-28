@@ -154,3 +154,42 @@ model tiers {
   is_high    Boolean
   date       DateTime @db.DateTime(0)
 }
+
+/// Overrides del panel admin sobre tablas que sincroniza el bot (staff, punishments, tiers).
+/// Escrito a mano: ver prisma/manual-migrations/2026-09-28-admin-dashboard.sql
+model admin_overrides {
+  id              Int       @id @default(autoincrement())
+  entity          String    @db.VarChar(16)
+  entity_key      String    @db.VarChar(80)
+  nick            String?   @db.VarChar(32)
+  role_name       String?   @db.VarChar(64)
+  role_colour     String?   @db.VarChar(7)
+  role_weight     Int?
+  reason          String?   @db.Text
+  is_cheater      Boolean?
+  expiration_mode String?   @db.VarChar(10)
+  expiration      DateTime? @db.DateTime(0)
+  hidden_at       DateTime? @db.DateTime(0)
+  hidden_reason   String?   @db.VarChar(255)
+  updated_by      String    @db.VarChar(60)
+  updated_at      DateTime  @db.DateTime(0)
+
+  @@unique([entity, entity_key], map: "entity_entity_key")
+  @@map("admin_overrides")
+}
+
+/// Auditoría de acciones del panel admin.
+model admin_audit_log {
+  id             Int      @id @default(autoincrement())
+  admin_username String   @db.VarChar(60)
+  action         String   @db.VarChar(32)
+  entity         String?  @db.VarChar(16)
+  entity_key     String?  @db.VarChar(80)
+  before_data    String?  @db.Text
+  after_data     String?  @db.Text
+  created_at     DateTime @db.DateTime(0)
+
+  @@index([created_at], map: "created_at_idx")
+  @@index([entity, entity_key], map: "entity_idx")
+  @@map("admin_audit_log")
+}

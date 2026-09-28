@@ -1,0 +1,39 @@
+.cache__center {
+    @apply flex justify-center py-8;
+}
+
+.cache__grid {
+    @apply grid gap-3 sm:grid-cols-2;
+}
+
+.cache__item {
+    @apply flex flex-col gap-2 p-4 rounded-xl border border-white/10 bg-white/[0.02];
+}
+
+.cache__head {
+    @apply flex items-center justify-between gap-3;
+}
+
+.cache__name {
+    @apply text-sm font-semibold text-white;
+}
+
+.cache__hint {
+    @apply text-xs text-purple-200/50;
+}
+
+.cache__stats {
+    @apply grid grid-cols-2 gap-2 mt-1;
+}
+
+.cache__stats dt {
+    @apply text-[11px] uppercase tracking-wider text-purple-200/45;
+}
+
+.cache__stats dd {
+    @apply text-xl font-bold text-white tabular-nums;
+}
+
+.cache__note {
+    @apply mt-3 text-xs text-purple-200/45;
+}

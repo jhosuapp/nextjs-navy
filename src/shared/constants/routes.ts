@@ -17,6 +17,10 @@ export const paths = {
     partners: '/partners',
     applications: '/applications',
     applicationsAdmin: '/admin/applications',
+    adminSettings: '/admin/settings',
+    adminStaff: '/admin/staff',
+    adminBans: '/admin/bans',
+    adminUsers: '/admin/users',
     tyc: '/tyc',
     pdp: '/pdp'
 }

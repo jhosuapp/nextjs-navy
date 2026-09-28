@@ -1,0 +1,23 @@
+.statusBadge {
+    @apply inline-flex items-center gap-1 h-6 px-2 rounded-md text-[11px] font-semibold uppercase tracking-wide whitespace-nowrap border;
+}
+
+.statusBadge__success {
+    @apply bg-emerald-500/10 text-emerald-300 border-emerald-500/25;
+}
+
+.statusBadge__danger {
+    @apply bg-red-500/10 text-red-300 border-red-500/25;
+}
+
+.statusBadge__warning {
+    @apply bg-amber-500/10 text-amber-300 border-amber-500/25;
+}
+
+.statusBadge__info {
+    @apply bg-purple-500/15 text-purple-200 border-purple-400/30;
+}
+
+.statusBadge__neutral {
+    @apply bg-white/5 text-purple-200/70 border-white/10;
+}
