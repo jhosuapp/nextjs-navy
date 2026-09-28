@@ -10,7 +10,8 @@ export type Question =
     | { kind: 'yesno'; name: FieldName; num: string }
     | { kind: 'yesno-detail'; name: FieldName; detail: FieldName; num: string }
     | { kind: 'choice'; name: FieldName; num: string; options: readonly string[] }
-    | { kind: 'multi-choice'; name: FieldName; num: string; options: readonly string[] };
+    | { kind: 'multi-choice'; name: FieldName; num: string; options: readonly string[] }
+    | { kind: 'consent'; name: FieldName; num: string };
 
 export type Step = { id: string; questions: Question[] };
 

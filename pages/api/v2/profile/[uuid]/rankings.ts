@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from "@/config/lib/prisma"
+import { visibleTiersSql } from "@/config/lib/adminOverrides"
 import { withRateLimit } from "@/config/lib/rateLimit"
 import { getCache, setCache } from "@/config/lib/cache"
 import { normalizeTierKey } from "@/config/lib/profileHelper"
@@ -49,7 +50,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
 
     // Fetch latest player nick from tiers
     const [latest] = await prisma.$queryRaw<Array<{ nick: string }>>`
-      SELECT nick FROM tiers
+      SELECT nick FROM ${visibleTiersSql} AS tiers
       WHERE uuid = ${uuid} AND nick IS NOT NULL
       ORDER BY date DESC
       LIMIT 1
@@ -68,7 +69,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
           tier,
           game,
           ROW_NUMBER() OVER (PARTITION BY game ORDER BY date DESC) AS rn
-        FROM tiers
+        FROM ${visibleTiersSql} AS tiers
         WHERE uuid = ${uuid}
           AND tier IS NOT NULL
       )
@@ -89,7 +90,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
     // Fetch latest date for tie-breaking
     const [dateData] = await prisma.$queryRaw<[{ latest_date: Date }]>`
       SELECT MAX(date) as latest_date
-      FROM tiers
+      FROM ${visibleTiersSql} AS tiers
       WHERE uuid = ${uuid}
     `
     const latestDate = dateData.latest_date
@@ -106,7 +107,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             PARTITION BY COALESCE(uuid, CONCAT('nick_', nick)), game
             ORDER BY date DESC
           ) AS rn
-        FROM tiers
+        FROM ${visibleTiersSql} AS tiers
         WHERE nick IS NOT NULL AND tier IS NOT NULL
       ),
       user_points AS (
@@ -147,7 +148,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
               PARTITION BY COALESCE(uuid, CONCAT('nick_', nick))
               ORDER BY date DESC
             ) AS rn
-          FROM tiers
+          FROM ${visibleTiersSql} AS tiers
         ) t ON t.user_id = up.user_id AND t.rn = 1
       )
       SELECT COUNT(*) + 1 AS position
@@ -173,7 +174,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
               PARTITION BY COALESCE(uuid, CONCAT('nick_', nick))
               ORDER BY date DESC
             ) AS rn
-          FROM tiers
+          FROM ${visibleTiersSql} AS tiers
           WHERE game = ${game}
             AND nick IS NOT NULL
             AND tier IS NOT NULL
@@ -214,7 +215,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
                 PARTITION BY COALESCE(uuid, CONCAT('nick_', nick))
                 ORDER BY date DESC
               ) AS rn
-            FROM tiers
+            FROM ${visibleTiersSql} AS tiers
           ) t ON t.user_id = gd.user_id AND t.rn = 1
         )
         SELECT COUNT(*) + 1 AS position

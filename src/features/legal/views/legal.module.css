@@ -1,0 +1,33 @@
+.legalHero{
+    @apply mb-10 lg:mb-16 text-purple-300 text-opacity-50;
+}
+
+.legalHero__title{
+    @apply text-3xl lg:text-5xl font-bold mb-3;
+}
+
+.legalHero__updated{
+    @apply text-sm lg:text-base uppercase tracking-wide mb-5;
+}
+
+.legalHero__intro{
+    @apply text-base lg:text-xl max-w-4xl;
+}
+
+/* El contenido de CardWrappersecondary es un grid auto-fill: el texto legal
+   ocupa la fila entera para no quedarse en una columna estrecha. */
+.legalSection{
+    @apply col-span-full flex flex-col gap-4 text-purple-300 text-opacity-50 text-base lg:text-lg;
+}
+
+.legalSection__paragraph{
+    @apply leading-relaxed;
+}
+
+.legalSection__list{
+    @apply flex flex-col gap-2 pl-5 list-disc leading-relaxed;
+}
+
+.legalSection__list li::marker{
+    @apply text-purple-300 text-opacity-50;
+}

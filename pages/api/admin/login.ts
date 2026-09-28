@@ -9,7 +9,7 @@ import {
 import {
     createLoginSchema,
     defaultLoginMessages,
-} from "@/features/admin-applications/validations/login.validation";
+} from "@/features/admin-core/validations/login.validation";
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== "POST") {

@@ -1,0 +1,13 @@
+.adminTopbar {
+    @apply sticky top-0 z-30 flex items-center gap-3 h-14 px-4 -mx-4 sm:-mx-6 mb-4
+        bg-tertiary/85 backdrop-blur border-b border-white/10 lg:hidden;
+}
+
+.adminTopbar__menu {
+    @apply flex items-center justify-center w-10 h-10 rounded-lg text-purple-100 hover:bg-white/10
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400;
+}
+
+.adminTopbar__title {
+    @apply text-sm font-semibold text-white truncate;
+}

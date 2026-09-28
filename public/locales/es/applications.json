@@ -167,6 +167,14 @@
         "sospecha_hacks": {
             "label": "¿Qué harías si sospechas que el usuario al que estás testeando utiliza hacks?",
             "placeholder": "Describe cómo actuarías"
+        },
+        "acepta_terminos": {
+            "legend": "Aceptación de los términos",
+            "labelBefore": "He leído y acepto los",
+            "linkTerms": "Términos y Condiciones",
+            "labelMiddle": "y la",
+            "linkPrivacy": "Política de Privacidad",
+            "labelAfter": " de Navy."
         }
     },
     "validation": {
@@ -179,7 +187,8 @@
         "selectRequired": "Selecciona una opción",
         "detailRequired": "Por favor detalla tu respuesta",
         "tipoRequired": "Selecciona a qué rol te postulas",
-        "modosRequired": "Selecciona al menos un modo"
+        "modosRequired": "Selecciona al menos un modo",
+        "termsRequired": "Debes aceptar los Términos y la Política de Privacidad"
     },
     "success": {
         "title": "¡Gracias por postularte!",
@@ -191,6 +200,17 @@
         "errorThrottle": "Ya enviaste una postulación recientemente. Inténtalo más tarde.",
         "errorDuplicated": "Ya existe una postulación de Discord para este rol.",
         "errorValidation": "Revisa los campos: algunos datos no son válidos.",
-        "errorUnexpected": "Ocurrió un error inesperado. Inténtalo de nuevo."
+        "errorUnexpected": "Ocurrió un error inesperado. Inténtalo de nuevo.",
+        "errorCooldown": "Ya te postulaste. Podrás volver a intentarlo en {{days}} días."
+    },
+    "cooldown": {
+        "title": "Ya tienes una postulación reciente",
+        "days_one": "{{count}} día",
+        "days_other": "{{count}} días",
+        "hours_one": "{{count}} hora",
+        "hours_other": "{{count}} horas",
+        "message": "Solo puedes postularte una vez cada dos semanas al mismo rol. Te faltan {{remaining}} para poder enviar una nueva postulación.",
+        "availableAt": "Podrás volver a postularte el {{date}}.",
+        "hint": "Mientras tanto, aprovecha para mejorar tu nivel y preparar mejores respuestas. ¡Te esperamos!"
     }
 }

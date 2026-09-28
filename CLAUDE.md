@@ -62,9 +62,39 @@ Routes query the external database via Prisma and expose data to the client. Eve
 - Be wrapped with `withRateLimit` from `@/config/lib/rateLimit` (40 req/min per IP)
 - Use `getCache`/`setCache` from `@/config/lib/cache` for expensive queries (stored in `api_cache` table)
 
-### Prisma (`src/config/lib/prisma.ts`)
+### Prisma — two databases, two clients
 
-Singleton pattern using `globalThis` to prevent multiple connections in dev. Import from `@/config/lib/prisma`, never instantiate `PrismaClient` directly.
+Prisma on MySQL cannot span multiple databases from one datasource, so this project runs **two independent clients**. Both use the `globalThis` singleton pattern to prevent connection leaks in dev. Never instantiate `PrismaClient` directly.
+
+| Database | Import | Schema | Config | Contents |
+|---|---|---|---|---|
+| `Bot` (primary) | `@/config/lib/prisma` → `prisma` | `prisma/schema.prisma` | `prisma.config.ts` | staff, tierlist, punishments, applications, cache |
+| `ffa` (secondary) | `@/config/lib/ffaPrisma` → `ffaPrisma` | `prisma/ffa/schema.prisma` | `prisma.ffa.config.ts` | `teststats` — per-game kills/deaths/streaks |
+
+The `ffa` client is generated to `prisma/generated/ffa` (gitignored) instead of `node_modules/@prisma/client`, which is what keeps the two clients from colliding.
+
+```bash
+npm run prisma:generate      # regenerate BOTH clients (runs on postinstall and dev)
+npm run prisma:pull          # sync schema from `Bot`
+npm run prisma:ffa:pull      # sync schema from `ffa`
+npm run prisma:ffa:generate  # regenerate only the ffa client
+```
+
+Any CLI command targeting `ffa` needs `--config prisma.ffa.config.ts`; without it the CLI silently operates on `Bot`.
+
+Deployments must define **both** `DATABASE_URL` and `FFA_DATABASE_URL`, since `postinstall` generates both clients.
+
+`prisma db pull` rewrites the whole schema file — it drops leading comments and can strip `@ignore` from relation fields whose model is `@@ignore`d (this breaks `prisma generate`). Check `git diff` after every pull.
+
+### Admin panel (`/admin/*`) and the overrides layer
+
+The Discord bot owns and re-syncs `staff`, `punishments` and `tiers`, so the panel **never writes to those tables**. Edits and soft deletes live in `admin_overrides` (one row per `entity` + `entity_key`, `NULL` column = use the bot value, `hidden_at` = hidden) and every change is logged to `admin_audit_log`. Both tables were created by hand (`prisma/manual-migrations/2026-09-28-admin-dashboard.sql`) — never `db pull`/`db push`.
+
+Public reads must go through the override-aware helpers in `@/config/lib/adminOverrides`:
+- Staff → `getPublicStaff()`, bans → `getPublicPunishments()`.
+- Any raw query on `tiers` → `FROM ${visibleTiersSql} AS tiers` (hides hidden players, applies nick overrides).
+
+Admin API routes use `createAdminHandler` (`@/config/lib/adminHandler`: rate limit + 405 + 401 + 500), write with `saveOverride()` and then call `refreshAfterChange()` to revalidate ISR pages. Admin pages use `getLayout = getAdminLayout` (persistent sidebar; `_app` skips the global `AnimatePresence` for them). Shared admin UI lives in `src/features/admin-core/`.
 
 ### Internationalisation
 

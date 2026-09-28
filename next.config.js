@@ -28,6 +28,12 @@ const nextConfig = {
 
   poweredByHeader: false,
 
+  async redirects() {
+    return [
+      { source: '/admin', destination: '/admin/applications', permanent: false },
+    ];
+  },
+
   async headers() {
     return [
       {

@@ -49,12 +49,14 @@
 }
 
 .step{
-    @apply flex flex-col gap-6 min-h-[19rem];
+    /* gap-9: deja sitio al chip de error flotante bajo cada campo, incluso
+       cuando el mensaje rompe a dos líneas en móvil */
+    @apply flex flex-col gap-10 min-h-[19rem];
 }
 
 /* ---- Campos ---- */
 .field{
-    @apply w-full flex flex-col gap-2.5 border-0 p-0 m-0 min-w-0;
+    @apply relative w-full flex flex-col gap-2.5 border-0 p-0 m-0 min-w-0;
 }
 
 .field__label{
@@ -94,6 +96,28 @@
     @apply absolute inset-0 w-full h-full opacity-0 cursor-pointer;
 }
 
+/* ---- Aceptación de términos ---- */
+.consent{
+    @apply h-auto w-full max-w-none justify-start items-start gap-3 p-4 mt-3 text-left font-normal;
+}
+
+.consent__box{
+    @apply flex items-center justify-center min-w-6 w-6 h-6 mt-0.5 rounded border-2 border-purple-300 border-opacity-40 text-sm font-bold text-white;
+}
+
+.option__active .consent__box{
+    @apply border-purple-400 bg-purple-500 bg-opacity-40;
+}
+
+.consent__text{
+    @apply text-sm lg:text-base leading-relaxed;
+}
+
+/* z-10 para quedar por encima del input que cubre toda la etiqueta */
+.consent__link{
+    @apply relative z-10 underline font-semibold text-purple-200;
+}
+
 /* ---- Navegación ---- */
 .nav{
     @apply flex items-center gap-3 mt-8 pt-6 border-t border-white border-opacity-10;
@@ -124,4 +148,17 @@
 .honeypot{
     @apply absolute opacity-0 pointer-events-none -z-10 h-0 w-0 overflow-hidden;
     left: -9999px;
+}
+
+/* ---- Bloqueo por cooldown ---- */
+.cooldown{
+    @apply gap-3;
+}
+
+.cooldown__date{
+    @apply mt-3 font-semibold text-purple-100;
+}
+
+.cooldown__hint{
+    @apply mt-2 text-sm text-purple-200 text-opacity-70;
 }

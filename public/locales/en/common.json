@@ -5,34 +5,42 @@
         "bans": "Bans",
         "partners": "Partners",
         "home": "Home",
-        "applications": "Applications"
+        "applications": "Applications",
+        "tyc": "Terms",
+        "pdp": "Privacy"
     },
-    "footer":{
+    "footer": {
         "developedBy": "Developed by",
         "text1": "Click on next",
         "text2": "For more information on:",
-        "text3": "Next"
+        "text3": "Next",
+        "terms": "Terms and Conditions",
+        "privacy": "Privacy Policy"
     },
-    "notFound":{
+    "notFound": {
         "description1": "The page you're looking for doesn't exist or has been moved.",
         "description2": "Check the URL or head back to the homepage.",
         "cta": "Go back home"
     },
-    "seo":{
+    "seo": {
         "bansMetaTitle": "Navy Minecraft PvP Tier List | Rankings, Performance & Cheater Bans",
         "bansMetaDescription": "Discover the Navy Minecraft PvP tier list. Analyze player performance, rankings, and see which users were banned for cheating in skill-based tests.",
         "partnersMetaTitle": "Navy Partners | Streamers & PvP Server Sponsors",
         "partnersMetaDescription": "Meet the official Navy partners, including popular streamers and PvP servers that support and collaborate with the community.",
-        "staffMetaTitle":"Navy Staff | Owners, Admins & Developers",
-        "staffMetaDescription":"Meet the Navy staff team, from owners and administrators to developers. Discover the people behind the server and its community.",
-        "tierlistMetaTitle":"Navy PvP Tier List | Rankings, Points & Top Players",
-        "tierlistMetaDescription":"Explore the Navy PvP tier list, featuring top players, ranking system, and a detailed explanation of how points are earned and calculated.",
-        "homeMetaTitle":"Navy | Discord Server for Minecraft Skill Testing",
-        "homeMetaDescription":"Navy is a Discord server where we evaluate Minecraft players skill levels across different modes, both premium and non-premium, through fair and structured tests.",
+        "staffMetaTitle": "Navy Staff | Owners, Admins & Developers",
+        "staffMetaDescription": "Meet the Navy staff team, from owners and administrators to developers. Discover the people behind the server and its community.",
+        "tierlistMetaTitle": "Navy PvP Tier List | Rankings, Points & Top Players",
+        "tierlistMetaDescription": "Explore the Navy PvP tier list, featuring top players, ranking system, and a detailed explanation of how points are earned and calculated.",
+        "homeMetaTitle": "Navy | Discord Server for Minecraft Skill Testing",
+        "homeMetaDescription": "Navy is a Discord server where we evaluate Minecraft players skill levels across different modes, both premium and non-premium, through fair and structured tests.",
         "404MetaTitle": "404 - Page Not Found | Navy",
         "404MetaDescription": "The page you're looking for doesn't exist or has been moved. Explore Navy or head back home to keep browsing.",
         "applicationsMetaTitle": "Apply for Helper at Navy | Staff & TierList Form",
-        "applicationsMetaDescription": "Want to join the Navy Staff? Fill out the Helper application form and prove your knowledge about moderation, hacks and the TierList."
+        "applicationsMetaDescription": "Want to join the Navy Staff? Fill out the Helper application form and prove your knowledge about moderation, hacks and the TierList.",
+        "tycMetaTitle": "Terms and Conditions | Navy",
+        "tycMetaDescription": "Navy terms of use: what the community is, expected conduct, how Staff and Tester applications work and the rules behind the PvP tier list.",
+        "pdpMetaTitle": "Privacy Policy | Navy",
+        "pdpMetaDescription": "What personal data Navy collects through the application form, what it is used for, how long it is kept and how to exercise your rights."
     },
     "loader": {
         "loading": "Loading"
@@ -45,7 +53,7 @@
         "searching": "Searching user...",
         "error": "Error, player not found"
     },
-    "switchs":{
+    "switchs": {
         "lightMode": "Light mode",
         "disableParticles": "Disable particles",
         "invertColors": "Invert colors",

@@ -1,11 +1,10 @@
-import { prisma } from "@/config/lib/prisma";
+import { getPublicStaff } from "@/config/lib/adminOverrides";
 import { GroupedStaffResponse } from "../interfaces";
 
 export async function fetchStaffData(): Promise<{ data: GroupedStaffResponse; revalidate: number }> {
     try {
-        const members = await prisma.staff.findMany({
-            orderBy: { staff_role_weight: 'desc' },
-        });
+        // Con overrides del panel aplicados, sin ocultos y ordenado por peso.
+        const members = await getPublicStaff();
 
         const grouped = members.reduce<Record<string, GroupedStaffResponse[number]>>((acc, member) => {
             const roleName = member.staff_role_name;

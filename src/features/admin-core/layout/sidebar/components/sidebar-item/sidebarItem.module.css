@@ -1,0 +1,48 @@
+.sidebarItem {
+    @apply relative flex items-center gap-3 h-11 px-3 rounded-xl text-sm font-medium text-purple-200/70
+        transition-colors duration-200
+        hover:text-white hover:bg-white/5
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400;
+}
+
+.sidebarItem__active {
+    @apply bg-purple-500/15 text-white hover:bg-purple-500/20;
+}
+
+.sidebarItem__active::before {
+    content: "";
+    @apply absolute left-0 top-2.5 bottom-2.5 w-1 rounded-r-full bg-purple-400;
+}
+
+.sidebarItem__icon {
+    @apply shrink-0;
+}
+
+.sidebarItem__label {
+    @apply whitespace-nowrap overflow-hidden;
+}
+
+.sidebarItem__tooltip {
+    @apply hidden;
+}
+
+@media (min-width: 1024px) {
+    .sidebarItem__collapsed {
+        @apply justify-center px-0;
+    }
+
+    .sidebarItem__collapsed .sidebarItem__label {
+        @apply sr-only;
+    }
+
+    .sidebarItem__collapsed .sidebarItem__tooltip {
+        @apply block absolute left-full ml-3 top-1/2 -translate-y-1/2 z-50 px-2.5 py-1 rounded-md
+            bg-[#2b222c] border border-white/10 text-xs text-white whitespace-nowrap shadow-lg
+            opacity-0 pointer-events-none transition-opacity duration-150;
+    }
+
+    .sidebarItem__collapsed:hover .sidebarItem__tooltip,
+    .sidebarItem__collapsed:focus-visible .sidebarItem__tooltip {
+        @apply opacity-100;
+    }
+}

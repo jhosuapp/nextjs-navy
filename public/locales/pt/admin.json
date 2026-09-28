@@ -1,11 +1,11 @@
 {
     "seo": {
-        "title": "Painel de candidaturas | Navy",
-        "description": "Painel interno de gestão de candidaturas da Navy."
+        "title": "Painel admin | Navy",
+        "description": "Painel interno de administração da Navy."
     },
     "login": {
         "title": "Acesso ao painel",
-        "subtitle": "Inicie sessão para ver as candidaturas",
+        "subtitle": "Entre para acessar o painel",
         "usernamePlaceholder": "Usuário",
         "passwordPlaceholder": "Senha",
         "submit": "Entrar",
@@ -20,9 +20,8 @@
         }
     },
     "list": {
-        "title": "Candidaturas de staff",
-        "subtitle": "Sessão: {{username}} · {{total}} registros",
-        "logout": "Sair",
+        "title": "Candidaturas",
+        "subtitle": "{{total}} candidaturas registradas",
         "empty": "Ainda não há candidaturas registradas"
     },
     "card": {
@@ -54,7 +53,8 @@
     "pagination": {
         "prev": "Anterior",
         "next": "Próximo",
-        "status": "Página {{page}} de {{totalPages}}"
+        "status": "Página {{page}} de {{totalPages}}",
+        "label": "Paginação"
     },
     "fields": {
         "labor_helper": "Você sabe qual é o trabalho de um Helper?",
@@ -85,5 +85,254 @@
         "clanes_pvp": "Já pertenceu a clãs de PvP?",
         "toxico": "Considera-se tóxico?",
         "sospecha_hacks": "O que faria se suspeitar que o testado usa hacks?"
+    },
+    "nav": {
+        "label": "Seções do painel",
+        "brand": "Navy · ir para candidaturas",
+        "panel": "Painel admin",
+        "applications": "Candidaturas",
+        "settings": "Configurações",
+        "staff": "Staff",
+        "bans": "Banimentos",
+        "users": "Usuários",
+        "expand": "Expandir menu",
+        "collapse": "Recolher menu",
+        "openMenu": "Abrir menu",
+        "closeMenu": "Fechar menu",
+        "viewSite": "Ver site",
+        "session": "Sessão",
+        "logout": "Sair"
+    },
+    "common": {
+        "actions": "Ações",
+        "edit": "Editar",
+        "hide": "Ocultar",
+        "restore": "Restaurar",
+        "save": "Salvar alterações",
+        "cancel": "Cancelar",
+        "close": "Fechar",
+        "reset": "Restaurar padrão",
+        "yes": "Sim",
+        "no": "Não",
+        "originalValue": "Valor do bot: {{value}}",
+        "overridden": "Editado",
+        "hidden": "Oculto",
+        "visible": "Visível",
+        "noNick": "Sem nick",
+        "noResults": "Nenhum resultado para essa busca",
+        "clearSearch": "Limpar busca",
+        "filterLabel": "Filtrar",
+        "filterVisible": "Visíveis",
+        "filterHidden": "Ocultos",
+        "hiddenReason": "Motivo (opcional)",
+        "hiddenReasonPlaceholder": "Visível apenas no painel",
+        "saving": "Salvando…",
+        "saved": "Alterações salvas",
+        "saveError": "Não foi possível salvar as alterações",
+        "lastEdit": "Última edição por {{user}} · {{date}}"
+    },
+    "form": {
+        "required": "Este campo é obrigatório",
+        "nick": "Nick de Minecraft inválido (3-16, letras, números ou _)",
+        "colour": "Cor inválida (formato #RRGGBB)",
+        "weight": "Peso inválido (número inteiro)",
+        "roleName": "Máximo de 64 caracteres",
+        "reason": "Máximo de 2000 caracteres",
+        "date": "Data inválida",
+        "passwordLength": "A senha deve ter entre 8 e 200 caracteres",
+        "passwordMismatch": "As senhas não coincidem",
+        "passwordSame": "A nova senha deve ser diferente da atual"
+    },
+    "staff": {
+        "title": "Staff",
+        "description": "Edite nicks e cargos como aparecem no site ou oculte membros. Os dados do bot não são alterados.",
+        "searchPlaceholder": "Buscar por nick, cargo ou ID",
+        "columns": {
+            "member": "Membro",
+            "role": "Cargo",
+            "weight": "Peso",
+            "status": "Status"
+        },
+        "empty": {
+            "visible": "Não há membros do staff",
+            "hidden": "Não há membros ocultos"
+        },
+        "edit": {
+            "title": "Editar membro",
+            "description": "As alterações entram no site público ao salvar.",
+            "notice": "O bot sincroniza o staff pelo Discord: o que você editar aqui fica salvo como uma camada por cima e não se perde na próxima sincronização. Use “Restaurar padrão” para voltar ao valor do bot.",
+            "nick": "Nick",
+            "roleName": "Nome do cargo",
+            "roleColour": "Cor do cargo",
+            "roleWeight": "Peso (ordem)"
+        },
+        "hide": {
+            "title": "Ocultar {{nick}}?",
+            "description": "Deixará de aparecer na página de staff e no perfil. Você pode restaurar quando quiser."
+        }
+    },
+    "bans": {
+        "title": "Banimentos",
+        "description": "Corrija nicks, motivos ou duração dos banimentos públicos ou oculte os que não devem aparecer.",
+        "searchPlaceholder": "Buscar por nick, uuid ou motivo",
+        "filter": {
+            "active": "Ativos",
+            "inactive": "Expirados",
+            "hidden": "Ocultos"
+        },
+        "columns": {
+            "player": "Jogador",
+            "reason": "Motivo",
+            "expiration": "Expira",
+            "status": "Status"
+        },
+        "empty": {
+            "active": "Não há banimentos ativos",
+            "inactive": "Não há banimentos expirados",
+            "hidden": "Não há banimentos ocultos"
+        },
+        "permanent": "Permanente",
+        "appliedAt": "Aplicado {{date}}",
+        "active": "Ativo",
+        "expired": "Expirado",
+        "cheater": "Cheater",
+        "edit": {
+            "title": "Editar banimento #{{id}}",
+            "description": "As alterações entram no site público ao salvar.",
+            "notice": "O banimento original do bot não é alterado: as mudanças ficam salvas como uma camada por cima. Use “Restaurar padrão” para voltar ao valor do bot.",
+            "nick": "Nick",
+            "reason": "Motivo",
+            "cheater": "Marcar como cheater",
+            "permanent": "Banimento permanente",
+            "expiration": "Data de expiração"
+        },
+        "hide": {
+            "title": "Ocultar o banimento #{{id}}?",
+            "description": "Deixará de aparecer na página de banimentos e no perfil do jogador. Você pode restaurar quando quiser."
+        }
+    },
+    "users": {
+        "title": "Usuários",
+        "description": "Jogadores da tierlist. Corrija o nick ou remova do ranking sem apagar os resultados.",
+        "searchPlaceholder": "Buscar por nick ou uuid",
+        "filter": {
+            "visible": "No ranking",
+            "hidden": "Ocultos"
+        },
+        "columns": {
+            "player": "Jogador",
+            "points": "Pontos",
+            "games": "Modalidades",
+            "status": "Status"
+        },
+        "empty": {
+            "visible": "Não há jogadores no ranking",
+            "hidden": "Não há jogadores ocultos"
+        },
+        "inRanking": "No ranking",
+        "noPremium": "Não premium",
+        "originalNick": "Nick do bot: {{nick}}",
+        "hideAction": "Ocultar do ranking",
+        "edit": {
+            "title": "Editar jogador",
+            "description": "O nick é atualizado na tierlist, ranking e perfil.",
+            "nick": "Nick",
+            "notice": "Os resultados dos testes não são alterados. Deixe o campo vazio ou use “Restaurar padrão” para voltar ao nick do bot."
+        },
+        "hide": {
+            "title": "Ocultar {{nick}} do ranking?",
+            "description": "Deixará de aparecer na tierlist, ranking, últimos resultados e busca de perfis, e as posições são recalculadas. Os resultados são mantidos e você pode restaurar."
+        }
+    },
+    "settings": {
+        "title": "Configurações",
+        "description": "Ferramentas de manutenção do site público.",
+        "revalidate": {
+            "title": "Atualizar páginas",
+            "description": "Staff e banimentos são regenerados a cada 24 h. Force a atualização para ver as mudanças na hora.",
+            "all": "Atualizar tudo",
+            "run": "Atualizar",
+            "ok": "Atualizada",
+            "failed": "Erro",
+            "loading": "Atualizando páginas…",
+            "success": "Páginas atualizadas",
+            "error": "Não foi possível atualizar as páginas",
+            "lastRun": "Última atualização: {{date}}",
+            "targets": {
+                "home": {
+                    "name": "Início",
+                    "hint": "Últimos resultados e totais (a cada 5 min)"
+                },
+                "staff": {
+                    "name": "Staff",
+                    "hint": "/staff-navy (a cada 24 h)"
+                },
+                "bans": {
+                    "name": "Banimentos",
+                    "hint": "/bans (a cada 24 h)"
+                }
+            }
+        },
+        "cache": {
+            "title": "Cache da API",
+            "description": "Respostas em cache no banco de dados para aliviar consultas pesadas.",
+            "refresh": "Atualizar estatísticas",
+            "purge": "Limpar",
+            "purgeExpired": "Limpar expiradas",
+            "total": "Entradas",
+            "expired": "Expiradas",
+            "loading": "Limpando cache…",
+            "success": "Cache limpo",
+            "error": "Não foi possível limpar o cache",
+            "confirmTitle": "Limpar o cache?",
+            "confirmDescription": "Todas as entradas de “{{group}}” serão removidas. Elas são recriadas na próxima visita.",
+            "protectedNote": "A proteção anti-spam das candidaturas nunca é limpa por aqui.",
+            "groups": {
+                "profiles": {
+                    "name": "Perfis",
+                    "hint": "Perfis e rankings dos jogadores (5 min)"
+                },
+                "modes": {
+                    "name": "Modalidades",
+                    "hint": "Lista de modalidades (1 h)"
+                }
+            }
+        },
+        "password": {
+            "title": "Segurança",
+            "description": "Altere a senha da sua conta de administrador.",
+            "current": "Senha atual",
+            "next": "Nova senha",
+            "confirm": "Repita a nova senha",
+            "submit": "Alterar senha",
+            "success": "Senha atualizada",
+            "error": "Não foi possível alterar a senha"
+        },
+        "audit": {
+            "title": "Registro de atividade",
+            "description": "Toda alteração feita pelo painel é registrada com o valor anterior.",
+            "empty": "Ainda não há atividade registrada",
+            "to": "muda para",
+            "filter": {
+                "all": "Tudo",
+                "staff": "Staff",
+                "ban": "Banimentos",
+                "user": "Usuários",
+                "system": "Sistema"
+            },
+            "entities": {
+                "staff": "Staff",
+                "ban": "Banimento",
+                "user": "Usuário"
+            },
+            "actions": {
+                "update": "Edição",
+                "hide": "Ocultado",
+                "restore": "Restaurado",
+                "revalidate": "Atualização",
+                "cache_purge": "Cache",
+                "password_change": "Senha"
+            }
+        }
     }
 }

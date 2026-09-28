@@ -77,10 +77,12 @@ model applications {
   capacidad_resolucion Boolean
   se_enoja_facil       Boolean
   ip_hash              String?  @db.VarChar(64)
-  status               String   @default("pendiente") @db.VarChar(16)
   created_at           DateTime @db.DateTime(0)
+  status               String   @default("pendiente") @db.VarChar(16)
+  acepta_terminos      Boolean  @default(false)
+  terminos_version     String?  @db.VarChar(16)
 
-  @@unique([discord, tipo], map: "discord_tipo")
+  @@index([discord, tipo, created_at], map: "discord_tipo_created")
   @@map("applications")
 }
 
@@ -109,8 +111,10 @@ model tester_applications {
   ip_hash             String?  @db.VarChar(64)
   status              String   @default("pendiente") @db.VarChar(16)
   created_at          DateTime @db.DateTime(0)
+  acepta_terminos     Boolean  @default(false)
+  terminos_version    String?  @db.VarChar(16)
 
-  @@unique([discord, tipo], map: "discord_tipo_tester")
+  @@index([discord, tipo, created_at], map: "discord_tipo_created_tester")
   @@map("tester_applications")
 }
 
@@ -149,4 +153,43 @@ model tiers {
   tier       String   @db.VarChar(16)
   is_high    Boolean
   date       DateTime @db.DateTime(0)
+}
+
+/// Overrides del panel admin sobre tablas que sincroniza el bot (staff, punishments, tiers).
+/// Escrito a mano: ver prisma/manual-migrations/2026-09-28-admin-dashboard.sql
+model admin_overrides {
+  id              Int       @id @default(autoincrement())
+  entity          String    @db.VarChar(16)
+  entity_key      String    @db.VarChar(80)
+  nick            String?   @db.VarChar(32)
+  role_name       String?   @db.VarChar(64)
+  role_colour     String?   @db.VarChar(7)
+  role_weight     Int?
+  reason          String?   @db.Text
+  is_cheater      Boolean?
+  expiration_mode String?   @db.VarChar(10)
+  expiration      DateTime? @db.DateTime(0)
+  hidden_at       DateTime? @db.DateTime(0)
+  hidden_reason   String?   @db.VarChar(255)
+  updated_by      String    @db.VarChar(60)
+  updated_at      DateTime  @db.DateTime(0)
+
+  @@unique([entity, entity_key], map: "entity_entity_key")
+  @@map("admin_overrides")
+}
+
+/// Auditoría de acciones del panel admin.
+model admin_audit_log {
+  id             Int      @id @default(autoincrement())
+  admin_username String   @db.VarChar(60)
+  action         String   @db.VarChar(32)
+  entity         String?  @db.VarChar(16)
+  entity_key     String?  @db.VarChar(80)
+  before_data    String?  @db.Text
+  after_data     String?  @db.Text
+  created_at     DateTime @db.DateTime(0)
+
+  @@index([created_at], map: "created_at_idx")
+  @@index([entity, entity_key], map: "entity_idx")
+  @@map("admin_audit_log")
 }

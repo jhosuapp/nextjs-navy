@@ -1,0 +1,7 @@
+.staffTable__badges {
+    @apply flex flex-wrap gap-1.5;
+}
+
+.staffTable__actions {
+    @apply flex items-center justify-end gap-1;
+}

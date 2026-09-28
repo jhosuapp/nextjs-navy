@@ -1,11 +1,11 @@
 {
     "seo": {
-        "title": "Applications panel | Navy",
-        "description": "Internal panel to manage Navy applications."
+        "title": "Admin panel | Navy",
+        "description": "Navy internal admin panel."
     },
     "login": {
         "title": "Panel access",
-        "subtitle": "Sign in to view the applications",
+        "subtitle": "Sign in to access the panel",
         "usernamePlaceholder": "Username",
         "passwordPlaceholder": "Password",
         "submit": "Sign in",
@@ -20,9 +20,8 @@
         }
     },
     "list": {
-        "title": "Staff applications",
-        "subtitle": "Session: {{username}} · {{total}} records",
-        "logout": "Sign out",
+        "title": "Applications",
+        "subtitle": "{{total}} applications submitted",
         "empty": "No applications registered yet"
     },
     "card": {
@@ -54,7 +53,8 @@
     "pagination": {
         "prev": "Previous",
         "next": "Next",
-        "status": "Page {{page}} of {{totalPages}}"
+        "status": "Page {{page}} of {{totalPages}}",
+        "label": "Pagination"
     },
     "fields": {
         "labor_helper": "Do you know what a Helper's job is?",
@@ -85,5 +85,254 @@
         "clanes_pvp": "Has belonged to PvP clans?",
         "toxico": "Considers themselves toxic?",
         "sospecha_hacks": "What would they do if they suspect the tested user hacks?"
+    },
+    "nav": {
+        "label": "Panel sections",
+        "brand": "Navy · go to applications",
+        "panel": "Admin panel",
+        "applications": "Applications",
+        "settings": "Settings",
+        "staff": "Staff",
+        "bans": "Bans",
+        "users": "Users",
+        "expand": "Expand menu",
+        "collapse": "Collapse menu",
+        "openMenu": "Open menu",
+        "closeMenu": "Close menu",
+        "viewSite": "View site",
+        "session": "Signed in",
+        "logout": "Sign out"
+    },
+    "common": {
+        "actions": "Actions",
+        "edit": "Edit",
+        "hide": "Hide",
+        "restore": "Restore",
+        "save": "Save changes",
+        "cancel": "Cancel",
+        "close": "Close",
+        "reset": "Reset",
+        "yes": "Yes",
+        "no": "No",
+        "originalValue": "Bot value: {{value}}",
+        "overridden": "Edited",
+        "hidden": "Hidden",
+        "visible": "Visible",
+        "noNick": "No nick",
+        "noResults": "No results for that search",
+        "clearSearch": "Clear search",
+        "filterLabel": "Filter",
+        "filterVisible": "Visible",
+        "filterHidden": "Hidden",
+        "hiddenReason": "Reason (optional)",
+        "hiddenReasonPlaceholder": "Only visible in the panel",
+        "saving": "Saving…",
+        "saved": "Changes saved",
+        "saveError": "Could not save changes",
+        "lastEdit": "Last edited by {{user}} · {{date}}"
+    },
+    "form": {
+        "required": "This field is required",
+        "nick": "Invalid Minecraft nick (3-16, letters, numbers or _)",
+        "colour": "Invalid colour (#RRGGBB format)",
+        "weight": "Invalid weight (whole number)",
+        "roleName": "64 characters max",
+        "reason": "2000 characters max",
+        "date": "Invalid date",
+        "passwordLength": "Password must be 8 to 200 characters",
+        "passwordMismatch": "Passwords do not match",
+        "passwordSame": "New password must be different from the current one"
+    },
+    "staff": {
+        "title": "Staff",
+        "description": "Edit nicks and roles as shown on the site, or hide members. Bot data is never modified.",
+        "searchPlaceholder": "Search by nick, role or ID",
+        "columns": {
+            "member": "Member",
+            "role": "Role",
+            "weight": "Weight",
+            "status": "Status"
+        },
+        "empty": {
+            "visible": "No staff members",
+            "hidden": "No hidden members"
+        },
+        "edit": {
+            "title": "Edit member",
+            "description": "Changes go live on the public site when saved.",
+            "notice": "The bot syncs staff from Discord: edits made here are stored as a layer on top and survive the next sync. Use “Reset” to go back to the bot value.",
+            "nick": "Nick",
+            "roleName": "Role name",
+            "roleColour": "Role colour",
+            "roleWeight": "Weight (order)"
+        },
+        "hide": {
+            "title": "Hide {{nick}}?",
+            "description": "They will no longer appear on the staff page or their profile. You can restore them anytime."
+        }
+    },
+    "bans": {
+        "title": "Bans",
+        "description": "Fix nicks, reasons or duration of public bans, or hide the ones that should not be shown.",
+        "searchPlaceholder": "Search by nick, uuid or reason",
+        "filter": {
+            "active": "Active",
+            "inactive": "Expired",
+            "hidden": "Hidden"
+        },
+        "columns": {
+            "player": "Player",
+            "reason": "Reason",
+            "expiration": "Expires",
+            "status": "Status"
+        },
+        "empty": {
+            "active": "No active bans",
+            "inactive": "No expired bans",
+            "hidden": "No hidden bans"
+        },
+        "permanent": "Permanent",
+        "appliedAt": "Applied {{date}}",
+        "active": "Active",
+        "expired": "Expired",
+        "cheater": "Cheater",
+        "edit": {
+            "title": "Edit ban #{{id}}",
+            "description": "Changes go live on the public site when saved.",
+            "notice": "The bot's original ban is not modified: changes are stored as a layer on top. Use “Reset” to go back to the bot value.",
+            "nick": "Nick",
+            "reason": "Reason",
+            "cheater": "Mark as cheater",
+            "permanent": "Permanent ban",
+            "expiration": "Expiration date"
+        },
+        "hide": {
+            "title": "Hide ban #{{id}}?",
+            "description": "It will no longer be shown on the bans page or the player's profile. You can restore it anytime."
+        }
+    },
+    "users": {
+        "title": "Users",
+        "description": "Tierlist players. Fix their nick or remove them from the ranking without deleting their results.",
+        "searchPlaceholder": "Search by nick or uuid",
+        "filter": {
+            "visible": "In ranking",
+            "hidden": "Hidden"
+        },
+        "columns": {
+            "player": "Player",
+            "points": "Points",
+            "games": "Modes",
+            "status": "Status"
+        },
+        "empty": {
+            "visible": "No players in the ranking",
+            "hidden": "No hidden players"
+        },
+        "inRanking": "In ranking",
+        "noPremium": "Non-premium",
+        "originalNick": "Bot nick: {{nick}}",
+        "hideAction": "Hide from ranking",
+        "edit": {
+            "title": "Edit player",
+            "description": "The nick is updated in tierlist, ranking and profile.",
+            "nick": "Nick",
+            "notice": "Test results are not modified. Leave the field empty or use “Reset” to go back to the bot nick."
+        },
+        "hide": {
+            "title": "Hide {{nick}} from the ranking?",
+            "description": "They will no longer appear in the tierlist, ranking, latest results or profile search, and positions are recalculated. Their results are kept and you can restore them."
+        }
+    },
+    "settings": {
+        "title": "Settings",
+        "description": "Maintenance tools for the public site.",
+        "revalidate": {
+            "title": "Refresh pages",
+            "description": "Staff and bans are regenerated every 24 h. Force an update to see changes instantly.",
+            "all": "Refresh all",
+            "run": "Refresh",
+            "ok": "Updated",
+            "failed": "Error",
+            "loading": "Refreshing pages…",
+            "success": "Pages refreshed",
+            "error": "Could not refresh pages",
+            "lastRun": "Last refresh: {{date}}",
+            "targets": {
+                "home": {
+                    "name": "Home",
+                    "hint": "Latest results and totals (every 5 min)"
+                },
+                "staff": {
+                    "name": "Staff",
+                    "hint": "/staff-navy (every 24 h)"
+                },
+                "bans": {
+                    "name": "Bans",
+                    "hint": "/bans (every 24 h)"
+                }
+            }
+        },
+        "cache": {
+            "title": "API cache",
+            "description": "Responses cached in the database to lighten heavy queries.",
+            "refresh": "Refresh stats",
+            "purge": "Purge",
+            "purgeExpired": "Clear expired",
+            "total": "Entries",
+            "expired": "Expired",
+            "loading": "Purging cache…",
+            "success": "Cache purged",
+            "error": "Could not purge cache",
+            "confirmTitle": "Purge the cache?",
+            "confirmDescription": "All “{{group}}” entries will be deleted. They are rebuilt on the next visit.",
+            "protectedNote": "The applications anti-spam protection is never purged from here.",
+            "groups": {
+                "profiles": {
+                    "name": "Profiles",
+                    "hint": "Player profiles and rankings (5 min)"
+                },
+                "modes": {
+                    "name": "Modes",
+                    "hint": "Mode list (1 h)"
+                }
+            }
+        },
+        "password": {
+            "title": "Security",
+            "description": "Change your admin account password.",
+            "current": "Current password",
+            "next": "New password",
+            "confirm": "Repeat new password",
+            "submit": "Change password",
+            "success": "Password updated",
+            "error": "Could not change password"
+        },
+        "audit": {
+            "title": "Activity log",
+            "description": "Every change made from the panel is logged with its previous value.",
+            "empty": "No activity logged yet",
+            "to": "changes to",
+            "filter": {
+                "all": "All",
+                "staff": "Staff",
+                "ban": "Bans",
+                "user": "Users",
+                "system": "System"
+            },
+            "entities": {
+                "staff": "Staff",
+                "ban": "Ban",
+                "user": "User"
+            },
+            "actions": {
+                "update": "Edit",
+                "hide": "Hidden",
+                "restore": "Restored",
+                "revalidate": "Refresh",
+                "cache_purge": "Cache",
+                "password_change": "Password"
+            }
+        }
     }
 }

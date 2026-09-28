@@ -66,8 +66,35 @@ body::-webkit-scrollbar-thumb {
     @apply bg-primary;
 }
 
+/* Error flotante: sale del flujo para que aparecer/desaparecer no desplace
+   el resto del formulario. Su ancla es el contenedor del campo (`relative`). */
 .field__error{
-    @apply text-red-400 text-sm font-medium !leading-3 !mt-2 block;
+    @apply absolute z-30 left-0 top-full mt-1 w-max max-w-full px-2.5 py-0.5 rounded-md
+           bg-red-500 text-white text-xs font-semibold leading-tight shadow-lg pointer-events-none line-clamp-2;
+    animation: field-error-in .18s ease-out both;
+}
+
+/* Pico que lo une visualmente al campo */
+.field__error::before{
+    content: '';
+    @apply absolute -top-1 left-3 w-2 h-2 bg-red-500 rotate-45 rounded-sm;
+}
+
+/* Con el mensaje flotando, el propio campo marca el estado de error */
+.global-error-field input,
+.global-error-field textarea{
+    @apply !border-red-400 !border-opacity-90;
+}
+
+@keyframes field-error-in{
+    from{
+        opacity: 0;
+        transform: translateY(-.25rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes text-reveal {

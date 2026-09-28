@@ -1,0 +1,12 @@
+.confirmDialog__field {
+    @apply flex flex-col gap-2;
+}
+
+.confirmDialog__label {
+    @apply text-xs font-semibold uppercase tracking-wide text-purple-200/70;
+}
+
+.confirmDialog__input {
+    @apply w-full h-10 px-3 rounded-lg bg-white/[0.04] border border-white/10 text-sm text-white
+        placeholder:text-purple-200/40 outline-none focus:border-purple-400;
+}

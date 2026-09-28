@@ -1,0 +1,7 @@
+.settingsGrid {
+    @apply grid gap-5 xl:grid-cols-2 items-start;
+}
+
+.settingsGrid__full {
+    @apply xl:col-span-2;
+}

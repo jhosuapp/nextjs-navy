@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from "@/config/lib/prisma"
+import { visibleTiersSql } from "@/config/lib/adminOverrides"
 import { withRateLimit } from "@/config/lib/rateLimit"
 import { getCache, setCache } from "@/config/lib/cache"
 import { buildProfileData, ProfileData } from "@/config/lib/profileHelper"
@@ -33,7 +34,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
       Array<{ nick: string; region: string; is_premium: boolean }>
     >`
       SELECT nick, region, is_premium
-      FROM tiers
+      FROM ${visibleTiersSql} AS tiers
       WHERE uuid = ${uuid}
         AND nick IS NOT NULL
       ORDER BY date DESC

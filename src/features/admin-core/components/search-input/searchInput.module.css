@@ -1,0 +1,23 @@
+.searchInput {
+    @apply relative w-full sm:w-72;
+}
+
+.searchInput__icon {
+    @apply absolute left-3 top-1/2 -translate-y-1/2 text-purple-200/50 pointer-events-none;
+}
+
+.searchInput__field {
+    @apply w-full h-10 pl-10 pr-9 rounded-lg bg-white/[0.04] border border-white/10 text-sm text-white
+        placeholder:text-purple-200/40 outline-none transition-colors
+        focus:border-purple-400 focus:bg-white/[0.06];
+}
+
+.searchInput__field::-webkit-search-cancel-button {
+    @apply hidden;
+}
+
+.searchInput__clear {
+    @apply absolute right-2 top-1/2 -translate-y-1/2 flex items-center justify-center w-6 h-6 rounded-md
+        text-purple-200/60 hover:text-white hover:bg-white/10
+        focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400;
+}

@@ -1,0 +1,7 @@
+.userEdit {
+    @apply flex flex-col gap-5;
+}
+
+.userEdit__notice {
+    @apply text-xs leading-relaxed text-purple-200/60;
+}

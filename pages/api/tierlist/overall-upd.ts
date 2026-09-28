@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next"
 import { prisma } from "@/config/lib/prisma"
+import { visibleTiersSql } from "@/config/lib/adminOverrides"
 import { Prisma } from "@prisma/client"
 import { withRateLimit } from "@/config/lib/rateLimit"
 
@@ -58,7 +59,7 @@ async function handler(
         COALESCE(uuid, CONCAT('nick_', nick)) as user_id,
         nick as latest_nick,
         region as latest_region
-      FROM tiers
+      FROM ${visibleTiersSql} AS tiers
       WHERE LOWER(nick) = ${searchNick}
       ORDER BY date DESC
       LIMIT 1
@@ -80,7 +81,7 @@ async function handler(
           tier,
           game,
           ROW_NUMBER() OVER (PARTITION BY game ORDER BY date DESC) as rn
-        FROM tiers
+        FROM ${visibleTiersSql} AS tiers
         WHERE COALESCE(uuid, CONCAT('nick_', nick)) = ${userId}
       )
       SELECT tier, game
@@ -101,7 +102,7 @@ async function handler(
     // Obtener la fecha más reciente del usuario
     const [userDateData] = await prisma.$queryRaw<[{ latest_date: Date }]>`
       SELECT MAX(date) as latest_date
-      FROM tiers
+      FROM ${visibleTiersSql} AS tiers
       WHERE COALESCE(uuid, CONCAT('nick_', nick)) = ${userId}
     `
     const userLatestDate = userDateData.latest_date
@@ -120,7 +121,7 @@ async function handler(
               game 
             ORDER BY date DESC
           ) as rn
-        FROM tiers
+        FROM ${visibleTiersSql} AS tiers
         WHERE nick IS NOT NULL AND tier IS NOT NULL
       ),
       user_points AS (
@@ -161,7 +162,7 @@ async function handler(
               PARTITION BY COALESCE(uuid, CONCAT('nick_', nick))
               ORDER BY date DESC
             ) as rn
-          FROM tiers
+          FROM ${visibleTiersSql} AS tiers
         ) t ON t.user_id = up.user_id AND t.rn = 1
       )
       SELECT COUNT(*) + 1 as position
@@ -203,7 +204,7 @@ async function handler(
             game 
           ORDER BY date DESC
         ) as rn
-      FROM tiers
+      FROM ${visibleTiersSql} AS tiers
       WHERE nick IS NOT NULL AND tier IS NOT NULL
     ),
     user_points AS (
@@ -238,7 +239,7 @@ async function handler(
           PARTITION BY COALESCE(uuid, CONCAT('nick_', nick))
           ORDER BY date DESC
         ) as rn
-      FROM tiers
+      FROM ${visibleTiersSql} AS tiers
       WHERE nick IS NOT NULL AND region IS NOT NULL
     ),
     ranked AS (
@@ -267,7 +268,7 @@ async function handler(
   // Obtener total
   const [totalData] = await prisma.$queryRaw<[{ total: bigint }]>`
     SELECT COUNT(DISTINCT COALESCE(uuid, CONCAT('nick_', nick))) as total
-    FROM tiers
+    FROM ${visibleTiersSql} AS tiers
     WHERE nick IS NOT NULL
   `
 
@@ -290,7 +291,7 @@ async function handler(
             game 
           ORDER BY date DESC
         ) as rn
-      FROM tiers
+      FROM ${visibleTiersSql} AS tiers
       WHERE COALESCE(uuid, CONCAT('nick_', nick)) IN (${Prisma.join(userIds)})
     )
     SELECT user_id, tier, game

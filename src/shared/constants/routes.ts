@@ -5,6 +5,8 @@ export const routes:any = {
     "/bans": "bans",
     "/partners": "partners",
     "/applications": "applications",
+    "/tyc": "tyc",
+    "/pdp": "pdp",
 }
 
 export const paths = {
@@ -14,5 +16,11 @@ export const paths = {
     bans: '/bans',
     partners: '/partners',
     applications: '/applications',
-    applicationsAdmin: '/admin/applications'
+    applicationsAdmin: '/admin/applications',
+    adminSettings: '/admin/settings',
+    adminStaff: '/admin/staff',
+    adminBans: '/admin/bans',
+    adminUsers: '/admin/users',
+    tyc: '/tyc',
+    pdp: '/pdp'
 }

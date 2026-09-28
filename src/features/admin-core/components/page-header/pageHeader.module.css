@@ -1,0 +1,19 @@
+.pageHeader {
+    @apply w-full flex flex-wrap items-end justify-between gap-4 mb-6 lg:mb-8;
+}
+
+.pageHeader__text {
+    @apply flex flex-col gap-1 min-w-0;
+}
+
+.pageHeader__title {
+    @apply text-2xl lg:text-3xl font-bold text-white leading-tight;
+}
+
+.pageHeader__description {
+    @apply text-sm text-purple-200/60 max-w-2xl;
+}
+
+.pageHeader__actions {
+    @apply flex flex-wrap items-center gap-2;
+}

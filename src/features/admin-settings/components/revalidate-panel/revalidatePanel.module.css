@@ -1,0 +1,27 @@
+.revalidate__list {
+    @apply flex flex-col divide-y divide-white/5 rounded-xl border border-white/10;
+}
+
+.revalidate__item {
+    @apply flex flex-wrap items-center justify-between gap-3 px-4 py-3;
+}
+
+.revalidate__text {
+    @apply flex flex-col min-w-0;
+}
+
+.revalidate__name {
+    @apply text-sm font-semibold text-white;
+}
+
+.revalidate__hint {
+    @apply text-xs text-purple-200/50;
+}
+
+.revalidate__side {
+    @apply flex items-center gap-2;
+}
+
+.revalidate__meta {
+    @apply mt-3 text-xs text-purple-200/45;
+}

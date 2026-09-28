@@ -1,0 +1,28 @@
+/* Overlay del drawer (solo móvil). */
+.overlay {
+    @apply fixed inset-0 z-40 bg-black/60 backdrop-blur-[2px] lg:hidden;
+}
+
+/* Mobile-first: drawer off-canvas. Desde `lg` es una columna sticky. */
+.sidebar {
+    @apply fixed top-0 left-0 z-50 h-dvh w-64 flex flex-col gap-6 py-6 px-4
+        bg-[#161116] border-r border-white/10
+        -translate-x-full transition-[transform,width,padding] duration-300 ease-out
+        lg:sticky lg:z-auto lg:shrink-0 lg:translate-x-0;
+}
+
+.sidebar__mobileOpen {
+    @apply translate-x-0;
+}
+
+@media (min-width: 1024px) {
+    .sidebar__collapsed {
+        @apply w-[4.75rem] px-3;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .sidebar {
+        @apply transition-none;
+    }
+}

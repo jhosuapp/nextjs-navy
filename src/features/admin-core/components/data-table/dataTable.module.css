@@ -1,0 +1,38 @@
+.dataTable {
+    @apply w-full overflow-x-auto rounded-2xl border border-white/10 bg-white/[0.02] transition-opacity duration-200;
+}
+
+.dataTable__fetching {
+    @apply opacity-60;
+}
+
+.dataTable__table {
+    @apply w-full text-left text-sm border-collapse;
+}
+
+.dataTable__th {
+    @apply px-4 py-3 text-[11px] font-semibold uppercase tracking-wider text-purple-200/50
+        border-b border-white/10 whitespace-nowrap bg-white/[0.02];
+}
+
+.dataTable__row {
+    @apply transition-colors duration-150 hover:bg-white/[0.03];
+}
+
+.dataTable__row:not(:last-child) {
+    @apply border-b border-white/5;
+}
+
+.dataTable__td {
+    @apply px-4 py-3 align-middle text-purple-50;
+}
+
+.dataTable__state {
+    @apply w-full flex justify-center items-center py-20;
+}
+
+@media (max-width: 767px) {
+    .dataTable__hideMobile {
+        @apply hidden;
+    }
+}

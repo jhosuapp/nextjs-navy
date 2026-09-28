@@ -7,9 +7,14 @@ import {
     createApplicationSchema,
     defaultApplicationMessages,
 } from "@/features/applications/validations/application-form.validation";
+import { getCooldown } from "@/features/applications/helpers";
+import { TERMS_VERSION } from "@/shared/constants";
 
 // Una postulación por IP cada 30 min (anti-spam ligero, además del rate limit global)
 const IP_THROTTLE_TTL = 30 * 60;
+
+// Código que el cliente usa para distinguir el 409 de cooldown de otros conflictos
+const COOLDOWN_CODE = "cooldown";
 
 const getClientIp = (req: NextApiRequest): string =>
     (req.headers["x-real-ip"] as string) ||
@@ -66,17 +71,23 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             });
         }
 
-        // Una postulación por usuario de Discord y rol (helper/tester)
+        // Se permite volver a postularse al mismo rol pasado el cooldown (COOLDOWN_DAYS).
+        // El histórico se conserva: cada intento es una fila nueva.
         const discord = sanitize(data.discord).toLowerCase();
 
         if (data.tipo === "tester") {
-            const duplicated = await prisma.tester_applications.findFirst({
+            const last = await prisma.tester_applications.findFirst({
                 where: { discord, tipo: data.tipo },
-                select: { id: true },
+                orderBy: { created_at: "desc" },
+                select: { created_at: true },
             });
-            if (duplicated) {
+
+            const cooldown = getCooldown(last?.created_at);
+            if (cooldown) {
                 return res.status(409).json({
-                    message: "Ya existe una postulación de Discord para este rol.",
+                    message: `Ya te postulaste. Podrás volver a intentarlo en ${cooldown.daysRemaining} día(s).`,
+                    code: COOLDOWN_CODE,
+                    ...cooldown,
                 });
             }
 
@@ -111,18 +122,25 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
                     ),
                     toxico: toBool(data.toxico ?? "no"),
                     sospecha_hacks: sanitize(data.sospecha_hacks ?? ""),
+                    acepta_terminos: true,
+                    terminos_version: TERMS_VERSION,
                     ip_hash: ipHash,
                     created_at: new Date(),
                 },
             });
         } else {
-            const duplicated = await prisma.applications.findFirst({
+            const last = await prisma.applications.findFirst({
                 where: { discord, tipo: data.tipo },
-                select: { id: true },
+                orderBy: { created_at: "desc" },
+                select: { created_at: true },
             });
-            if (duplicated) {
+
+            const cooldown = getCooldown(last?.created_at);
+            if (cooldown) {
                 return res.status(409).json({
-                    message: "Ya existe una postulación de Discord para este rol.",
+                    message: `Ya te postulaste. Podrás volver a intentarlo en ${cooldown.daysRemaining} día(s).`,
+                    code: COOLDOWN_CODE,
+                    ...cooldown,
                 });
             }
 
@@ -153,6 +171,8 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
                     meta_principal: sanitize(data.meta_principal ?? ""),
                     capacidad_resolucion: toBool(data.capacidad_resolucion ?? "no"),
                     se_enoja_facil: toBool(data.se_enoja_facil ?? "no"),
+                    acepta_terminos: true,
+                    terminos_version: TERMS_VERSION,
                     ip_hash: ipHash,
                     created_at: new Date(),
                 },

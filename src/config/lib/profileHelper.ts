@@ -1,7 +1,14 @@
 import { prisma } from "./prisma"
 import { Prisma } from "@prisma/client"
+import {
+  applyBanOverride,
+  applyStaffOverride,
+  getOverridesMap,
+  isHidden,
+  visibleTiersSql,
+} from "./adminOverrides"
 
-const TIER_POINTS: Record<string, number> = {
+export const TIER_POINTS: Record<string, number> = {
   H1: 70, L1: 50,
   H2: 40, L2: 30,
   H3: 20, L3: 10,
@@ -60,7 +67,7 @@ export async function buildProfileData(
         tier,
         game,
         ROW_NUMBER() OVER (PARTITION BY game ORDER BY date DESC) AS rn
-      FROM tiers
+      FROM ${visibleTiersSql} AS tiers
       WHERE COALESCE(uuid, CONCAT('nick_', nick)) = ${user_id}
         AND tier IS NOT NULL
     )
@@ -83,7 +90,12 @@ export async function buildProfileData(
   ? { uuid }
   : { nick: { equals: nick } }
 
-  const staffRecord = await prisma.staff.findFirst({ where: staffWhere })
+  const rawStaff = await prisma.staff.findFirst({ where: staffWhere })
+  const staffOverride = rawStaff
+    ? (await getOverridesMap("staff", [rawStaff.discord_id])).get(rawStaff.discord_id)
+    : undefined
+  const staffRecord =
+    rawStaff && !isHidden(staffOverride) ? applyStaffOverride(rawStaff, staffOverride) : null
 
   const staffInfo: StaffInfo | null = staffRecord
     ? {
@@ -94,22 +106,24 @@ export async function buildProfileData(
       }
     : null
 
-  // Active ban check — prefer UUID match, fall back to nick
+  // Active ban check — prefer UUID match, fall back to nick. Se leen los últimos
+  // baneos y se aplican overrides: un admin puede haberlo ocultado o cambiado
+  // su expiración.
   const now = new Date()
-  const banWhere: Prisma.punishmentsWhereInput = uuid
-    ? {
-        uuid,
-        OR: [{ expiration: null }, { expiration: { gt: now } }],
-      }
-    : {
-        nick,
-        OR: [{ expiration: null }, { expiration: { gt: now } }],
-      }
-
-  const activeBan = await prisma.punishments.findFirst({
-    where: banWhere,
+  const banCandidates = await prisma.punishments.findMany({
+    where: uuid ? { uuid } : { nick },
     orderBy: { applied: "desc" },
+    take: 20,
   })
+  const banOverrides = await getOverridesMap(
+    "ban",
+    banCandidates.map((ban) => String(ban.id)),
+  )
+  const activeBan =
+    banCandidates
+      .filter((ban) => !isHidden(banOverrides.get(String(ban.id))))
+      .map((ban) => applyBanOverride(ban, banOverrides.get(String(ban.id))))
+      .find((ban) => ban.expiration === null || ban.expiration > now) ?? null
 
   const banInfo: BanInfo | null = activeBan
     ? {

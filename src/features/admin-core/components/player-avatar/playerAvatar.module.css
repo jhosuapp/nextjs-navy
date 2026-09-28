@@ -1,0 +1,20 @@
+.playerAvatar {
+    @apply flex items-center gap-3 min-w-0;
+}
+
+.playerAvatar__img {
+    @apply w-8 h-8 rounded-md shrink-0 bg-white/5;
+    image-rendering: pixelated;
+}
+
+.playerAvatar__text {
+    @apply flex flex-col min-w-0;
+}
+
+.playerAvatar__nick {
+    @apply font-semibold text-white truncate;
+}
+
+.playerAvatar__subtitle {
+    @apply text-xs text-purple-200/50 truncate;
+}

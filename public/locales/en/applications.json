@@ -167,6 +167,14 @@
         "sospecha_hacks": {
             "label": "What would you do if you suspect the user you are testing is using hacks?",
             "placeholder": "Describe how you would act"
+        },
+        "acepta_terminos": {
+            "legend": "Acceptance of the terms",
+            "labelBefore": "I have read and accept the",
+            "linkTerms": "Terms and Conditions",
+            "labelMiddle": "and the",
+            "linkPrivacy": "Privacy Policy",
+            "labelAfter": " of Navy."
         }
     },
     "validation": {
@@ -179,7 +187,8 @@
         "selectRequired": "Select an option",
         "detailRequired": "Please detail your answer",
         "tipoRequired": "Select which role you are applying for",
-        "modosRequired": "Select at least one mode"
+        "modosRequired": "Select at least one mode",
+        "termsRequired": "You must accept the Terms and the Privacy Policy"
     },
     "success": {
         "title": "Thanks for applying!",
@@ -191,6 +200,17 @@
         "errorThrottle": "You already submitted an application recently. Try again later.",
         "errorDuplicated": "An application with this Discord user already exists for this role.",
         "errorValidation": "Check the fields: some data is not valid.",
-        "errorUnexpected": "An unexpected error occurred. Please try again."
+        "errorUnexpected": "An unexpected error occurred. Please try again.",
+        "errorCooldown": "You already applied. You can try again in {{days}} days."
+    },
+    "cooldown": {
+        "title": "You already have a recent application",
+        "days_one": "{{count}} day",
+        "days_other": "{{count}} days",
+        "hours_one": "{{count}} hour",
+        "hours_other": "{{count}} hours",
+        "message": "You can only apply once every two weeks for the same role. You still have {{remaining}} left before you can send a new application.",
+        "availableAt": "You will be able to apply again on {{date}}.",
+        "hint": "In the meantime, use the time to improve your gameplay and prepare better answers. We are waiting for you!"
     }
 }

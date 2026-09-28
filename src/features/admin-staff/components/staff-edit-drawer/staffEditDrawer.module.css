@@ -1,0 +1,19 @@
+.staffEdit {
+    @apply flex flex-col gap-6;
+}
+
+.staffEdit__notice {
+    @apply text-xs leading-relaxed text-purple-200/60 p-3 rounded-lg bg-purple-500/10 border border-purple-400/20;
+}
+
+.staffEdit__colour {
+    @apply flex items-center gap-2;
+}
+
+.staffEdit__swatch {
+    @apply shrink-0 w-10 h-10 p-1 rounded-lg bg-white/[0.04] border border-white/10 cursor-pointer;
+}
+
+.staffEdit__meta {
+    @apply text-xs text-purple-200/45;
+}

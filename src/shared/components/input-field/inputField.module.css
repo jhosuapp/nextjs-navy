@@ -1,5 +1,5 @@
 .inputField{
-    @apply w-full;
+    @apply w-full relative;
 }
 
 .inputField input{

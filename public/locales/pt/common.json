@@ -5,13 +5,17 @@
         "bans": "Banimentos",
         "partners": "Patrocinadores",
         "home": "Início",
-        "applications": "Candidaturas"
+        "applications": "Candidaturas",
+        "tyc": "Termos",
+        "pdp": "Privacidade"
     },
     "footer": {
         "developedBy": "Desenvolvido por",
         "text1": "Clique em seguinte",
         "text2": "Para mais informações sobre:",
-        "text3": "Seguinte"
+        "text3": "Seguinte",
+        "terms": "Termos e Condições",
+        "privacy": "Política de Privacidade"
     },
     "notFound": {
         "description1": "A página que você está procurando não existe ou foi movida.",
@@ -32,7 +36,11 @@
         "404MetaTitle": "404 - Página não encontrada | Navy",
         "404MetaDescription": "A página que você procura não existe ou foi movida. Explore o Navy ou volte ao início para continuar descobrindo conteúdo.",
         "applicationsMetaTitle": "Candidate-se a Helper no Navy | Formulário de Staff e TierList",
-        "applicationsMetaDescription": "Quer fazer parte do Staff do Navy? Preencha o formulário de candidatura a Helper e prove seus conhecimentos sobre moderação, hacks e a TierList."
+        "applicationsMetaDescription": "Quer fazer parte do Staff do Navy? Preencha o formulário de candidatura a Helper e prove seus conhecimentos sobre moderação, hacks e a TierList.",
+        "tycMetaTitle": "Termos e Condições | Navy",
+        "tycMetaDescription": "Condições de uso da Navy: o que é a comunidade, conduta esperada, como funcionam as candidaturas a Staff e Tester e as regras da tier list de PvP.",
+        "pdpMetaTitle": "Política de Privacidade | Navy",
+        "pdpMetaDescription": "Quais dados pessoais a Navy coleta no formulário de candidatura, para que os usa, por quanto tempo os conserva e como exercer os seus direitos."
     },
     "loader": {
         "loading": "Carregando"
