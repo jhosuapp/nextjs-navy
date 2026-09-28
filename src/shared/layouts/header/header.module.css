@@ -3,7 +3,7 @@
 }
 
 .header__content{
-    @apply w-full border-2 border-purple-300 border-opacity-50 flex items-center rounded-md relative bg-tertiary bg-opacity-40 backdrop-blur-md;
+    @apply w-full border-2 border-purple-300 border-opacity-50 flex items-center justify-between gap-8 px-6 py-3 rounded-md relative bg-tertiary bg-opacity-40 backdrop-blur-md;
 }
 
 .header__wrapper{
@@ -16,7 +16,7 @@
 
 .header__nav{
     transition: 0.5s ease all;
-    @apply flex justify-between items-center w-full;
+    @apply flex items-center w-auto ml-auto;
 }
 
 @media(max-width: 1024px){
@@ -24,13 +24,13 @@
         @apply bg-tertiary bg-opacity-40 backdrop-blur-md border-b-2 border-purple-300 border-opacity-50 my-0;
     }
     .header__content{
-        @apply border-none justify-between py-2 rounded-none;
+        @apply border-none justify-between gap-0 px-0 py-2 rounded-none;
     }
     .header__wrapper{
         @apply w-full;
     }
     .header__nav{
-        @apply !absolute h-full top-0 left-0 min-h-svh flex-col justify-start bg-tertiary w-full pt-24 pb-10 opacity-0 pointer-events-none overflow-y-auto;
+        @apply !absolute h-full top-0 left-0 ml-0 min-h-svh flex-col justify-start bg-tertiary w-full pt-24 pb-10 opacity-0 pointer-events-none overflow-y-auto;
     }
     .header__navActive{
         @apply opacity-100 pointer-events-auto;
@@ -39,16 +39,8 @@
 
 /* Logo */
 
-.headerLogo{
-    @apply relative w-full max-w-32 flex items-center justify-center z-10;
-}
-
-.headerLogo img{
-    @apply absolute w-full block;
-}
-
 .headerLogoText{
-    @apply text-white font-bold text-3xl mt-2 ml-[5%] z-10 relative;
+    @apply text-white font-bold text-3xl leading-none shrink-0 z-10 relative;
 }
 
 .headerLogoText span{
@@ -56,8 +48,8 @@
 }
 
 @media(max-width: 1024px){
-    .headerLogo{
-        @apply max-w-16;
+    .headerLogoText{
+        @apply mt-2 ml-[5%];
     }
 }
 
@@ -65,19 +57,19 @@
 /* Header list */
 
 .headerList{
-    @apply flex w-full justify-center;
+    @apply flex w-full justify-end gap-8;
 }
 
 @media(max-width: 1024px){
     .headerList{
-        @apply flex-col justify-start items-start pl-[5%];
+        @apply flex-col justify-start items-start gap-0 pl-[5%];
     }    
 }
 
 /* Header list item */
 
 .HeaderListItem{
-    @apply text-white flex justify-center uppercase font-medium text-base relative w-full leading-none py-5;
+    @apply text-white flex justify-center uppercase font-medium text-base relative w-auto whitespace-nowrap leading-none py-2;
 }
 
 .HeaderListItem a{
@@ -123,7 +115,7 @@
         @apply text-[35px] justify-start;
     }    
     .HeaderListItem{
-        @apply !text-2xl normal-case py-2;
+        @apply !text-2xl normal-case w-full py-2;
     }    
 }
 
@@ -194,7 +186,7 @@
 /* Header lang */
 
 .header__lang{
-    @apply border-2 border-purple-300 border-opacity-50 bg-tertiary bg-opacity-40 backdrop-blur-md rounded-md flex items-center h-auto;
+    @apply flex items-center shrink-0 pl-6 border-l-2 border-purple-300 border-opacity-50;
 }
 
 .header__lang__mobile{
