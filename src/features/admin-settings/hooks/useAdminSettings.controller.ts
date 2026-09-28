@@ -2,7 +2,7 @@ import { useMemo, useState } from "react";
 import { Resolver, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslation } from "next-i18next";
-import { useAdminMutation, useUnauthorizedGuard } from "@/features/admin-core/hooks";
+import { useAdminMutation, useAdminSessionQuery, useUnauthorizedGuard } from "@/features/admin-core/hooks";
 import { ITranslations } from "@/shared/interfaces/globals";
 import { deleteCacheAction, postPasswordAction, postRevalidateAction } from "../actions";
 import { AuditFilter, CacheGroup, CachePurgeBody, RevalidateResult, RevalidateTarget } from "../interfaces";
@@ -101,11 +101,11 @@ const usePasswordForm = (t: ITranslations) => {
     };
 };
 
-/** Registro de auditoría paginado y filtrable. */
-const useAudit = () => {
+/** Registro de auditoría paginado y filtrable (solo fundadores; la API también lo exige). */
+const useAudit = (enabled: boolean) => {
     const [page, setPage] = useState(1);
     const [filter, setFilterState] = useState<AuditFilter>("all");
-    const auditQuery = useAuditQuery(page, filter);
+    const auditQuery = useAuditQuery(page, filter, enabled);
     useUnauthorizedGuard(auditQuery.error);
 
     const totalPages = auditQuery.data?.totalPages ?? 1;
@@ -129,13 +129,15 @@ const useAudit = () => {
 
 const useAdminSettingsController = () => {
     const { t } = useTranslation("admin");
+    const isFounder = useAdminSessionQuery().data?.role === "founder";
 
     return {
         t,
+        isFounder,
         revalidate: useRevalidate(t),
         cache: useCache(t),
         password: usePasswordForm(t),
-        audit: useAudit(),
+        audit: useAudit(isFounder),
     };
 };
 

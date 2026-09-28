@@ -12,7 +12,7 @@ const useSidebar = () => {
     const mobileOpen = useAdminSidebarStore((state) => state.mobileOpen);
     const toggleCollapsed = useAdminSidebarStore((state) => state.toggleCollapsed);
     const setMobileOpen = useAdminSidebarStore((state) => state.setMobileOpen);
-    const { username, onLogout, isLoggingOut } = useAdminSessionController();
+    const { username, role, onLogout, isLoggingOut } = useAdminSessionController();
 
     // Estado persistido (colapsado) solo tras montar: evita mismatch de hidratación.
     useEffect(() => {
@@ -44,6 +44,7 @@ const useSidebar = () => {
         toggleCollapsed,
         closeMobile: () => setMobileOpen(false),
         username,
+        role,
         onLogout,
         isLoggingOut,
     };

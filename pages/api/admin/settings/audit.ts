@@ -11,7 +11,7 @@ import type {
     AuditResponse,
 } from "@/features/admin-settings/interfaces";
 
-const FILTERS: AuditFilter[] = ["all", "staff", "ban", "user", "system"];
+const FILTERS: AuditFilter[] = ["all", "application", "staff", "ban", "user", "system"];
 
 const parseFilter = (value: string): AuditFilter =>
     FILTERS.includes(value as AuditFilter) ? (value as AuditFilter) : "all";
@@ -34,6 +34,7 @@ const parseJson = (value: string | null): Record<string, unknown> | null => {
     }
 };
 
+// Solo fundadores: el historial muestra valores anteriores y quién hizo cada cambio.
 export default createAdminHandler("settings/audit", {
     GET: async (req, res) => {
         const page = pageSchema.parse(queryString(req.query.page));
@@ -69,4 +70,4 @@ export default createAdminHandler("settings/audit", {
         };
         res.status(200).json(body);
     },
-});
+}, { roles: ["founder"] });

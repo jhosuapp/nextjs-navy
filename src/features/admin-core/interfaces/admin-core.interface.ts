@@ -1,6 +1,9 @@
+export type AdminRole = "admin" | "founder";
+
 export type SessionResponse = {
     authenticated: boolean;
     username?: string;
+    role?: AdminRole;
 };
 
 export type LoginBody = {

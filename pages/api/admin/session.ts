@@ -7,16 +7,22 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         return res.status(405).json({ message: "Method not allowed" });
     }
 
-    const session = requireAdmin(req);
+    try {
+        const session = await requireAdmin(req);
 
-    if (!session) {
-        return res.status(200).json({ authenticated: false });
+        if (!session) {
+            return res.status(200).json({ authenticated: false });
+        }
+
+        return res.status(200).json({
+            authenticated: true,
+            username: session.username,
+            role: session.role,
+        });
+    } catch (error) {
+        console.error("[api/admin/session] GET failed:", error);
+        return res.status(500).json({ message: "Error al validar la sesión" });
     }
-
-    return res.status(200).json({
-        authenticated: true,
-        username: session.username,
-    });
 }
 
 export default withRateLimit(handler);

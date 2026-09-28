@@ -123,6 +123,8 @@ model admin_users {
   username      String   @unique(map: "username") @db.VarChar(60)
   password_hash String   @db.VarChar(255)
   created_at    DateTime @db.DateTime(0)
+  /// 'admin' | 'founder'. Añadido a mano: prisma/manual-migrations/2026-09-28-admin-roles.sql
+  role          String   @default("admin") @db.VarChar(16)
 
   @@map("admin_users")
 }

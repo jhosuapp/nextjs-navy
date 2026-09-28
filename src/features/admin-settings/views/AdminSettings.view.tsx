@@ -7,7 +7,7 @@ import styles from "./adminSettings.module.css";
 
 const AdminSettingsView = (): JSX.Element => {
     const { locale } = useRouter();
-    const { t, revalidate, cache, password, audit } = useAdminSettingsController();
+    const { t, isFounder, revalidate, cache, password, audit } = useAdminSettingsController();
 
     return (
         <>
@@ -24,9 +24,11 @@ const AdminSettingsView = (): JSX.Element => {
                 />
                 <CachePanel t={t} cache={cache} />
                 <PasswordPanel t={t} password={password} />
-                <div className={styles.settingsGrid__full}>
-                    <AuditPanel t={t} locale={locale} audit={audit} />
-                </div>
+                {isFounder && (
+                    <div className={styles.settingsGrid__full}>
+                        <AuditPanel t={t} locale={locale} audit={audit} />
+                    </div>
+                )}
             </div>
         </>
     );

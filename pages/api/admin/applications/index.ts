@@ -17,11 +17,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
         return res.status(405).json({ message: "Method not allowed" });
     }
 
-    if (!requireAdmin(req)) {
-        return res.status(401).json({ message: "Unauthorized" });
-    }
-
     try {
+        if (!(await requireAdmin(req))) {
+            return res.status(401).json({ message: "Unauthorized" });
+        }
+
         const rawPage = Number(req.query.page ?? 1);
         const page =
             Number.isFinite(rawPage) && rawPage >= 1 ? Math.floor(rawPage) : 1;

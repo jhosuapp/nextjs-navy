@@ -101,7 +101,11 @@
         "closeMenu": "Fechar menu",
         "viewSite": "Ver site",
         "session": "Sessão",
-        "logout": "Sair"
+        "logout": "Sair",
+        "roles": {
+            "admin": "Administrador",
+            "founder": "Fundador"
+        }
     },
     "common": {
         "actions": "Ações",
@@ -315,6 +319,7 @@
             "to": "muda para",
             "filter": {
                 "all": "Tudo",
+                "application": "Candidaturas",
                 "staff": "Staff",
                 "ban": "Banimentos",
                 "user": "Usuários",
@@ -323,7 +328,8 @@
             "entities": {
                 "staff": "Staff",
                 "ban": "Banimento",
-                "user": "Usuário"
+                "user": "Usuário",
+                "application": "Candidatura"
             },
             "actions": {
                 "update": "Edição",
@@ -331,7 +337,8 @@
                 "restore": "Restaurado",
                 "revalidate": "Atualização",
                 "cache_purge": "Cache",
-                "password_change": "Senha"
+                "password_change": "Senha",
+                "status_change": "Status"
             }
         }
     }

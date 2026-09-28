@@ -101,7 +101,11 @@
         "closeMenu": "Close menu",
         "viewSite": "View site",
         "session": "Signed in",
-        "logout": "Sign out"
+        "logout": "Sign out",
+        "roles": {
+            "admin": "Admin",
+            "founder": "Founder"
+        }
     },
     "common": {
         "actions": "Actions",
@@ -315,6 +319,7 @@
             "to": "changes to",
             "filter": {
                 "all": "All",
+                "application": "Applications",
                 "staff": "Staff",
                 "ban": "Bans",
                 "user": "Users",
@@ -323,7 +328,8 @@
             "entities": {
                 "staff": "Staff",
                 "ban": "Ban",
-                "user": "User"
+                "user": "User",
+                "application": "Application"
             },
             "actions": {
                 "update": "Edit",
@@ -331,7 +337,8 @@
                 "restore": "Restored",
                 "revalidate": "Refresh",
                 "cache_purge": "Cache",
-                "password_change": "Password"
+                "password_change": "Password",
+                "status_change": "Status"
             }
         }
     }

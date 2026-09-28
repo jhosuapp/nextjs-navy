@@ -39,7 +39,8 @@ export type AuditAction =
     | "restore"
     | "revalidate"
     | "cache_purge"
-    | "password_change";
+    | "password_change"
+    | "status_change";
 
 const OVERRIDE_FIELDS = [
     "nick",
