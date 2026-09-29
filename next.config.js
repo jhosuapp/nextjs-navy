@@ -7,6 +7,12 @@ const nextConfig = {
 
   i18n,
 
+  // `serverSideTranslations` lee config y JSON del disco en runtime; sin esto el
+  // trace no los incluye y la regeneración ISR en Vercel devuelve 500.
+  outputFileTracingIncludes: {
+    '/**': ['./next-i18next.config.js', './public/locales/**/*.json'],
+  },
+
   images: {
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60 * 60 * 24 * 365,
