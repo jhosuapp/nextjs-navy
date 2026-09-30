@@ -4,9 +4,12 @@ import {
     AdminButton,
     AdminDialog,
     AdminInput,
+    AdminTextarea,
+    AdminToggle,
     FieldShell,
     ResetButton,
 } from "@/features/admin-core/components";
+import { SOCIAL_PREFIX, STAFF_PROFILE_RULES, STAFF_SOCIALS, STAFF_STATUS_MODES } from "@/shared/constants/staffProfile";
 import { formatDateTime } from "@/features/admin-core/helpers";
 import { ITranslations } from "@/shared/interfaces/globals";
 import { AdminStaffMember } from "../../interfaces";
@@ -145,6 +148,120 @@ const StaffEditDrawer = memo(
                                 </FieldShell>
                             )}
                         />
+
+                        <section className={styles.staffEdit__section} aria-labelledby="staff-profile-title">
+                            <div>
+                                <h3 id="staff-profile-title" className={styles.staffEdit__sectionTitle}>
+                                    {t("staff.profile.title")}
+                                </h3>
+                                <p className={styles.staffEdit__sectionText}>{t("staff.profile.description")}</p>
+                            </div>
+
+                            <Controller
+                                name="status_mode"
+                                control={control}
+                                render={({ field }) => (
+                                    <div className={styles.staffEdit__field}>
+                                        <span id="staff-status-label" className={styles.staffEdit__label}>
+                                            {t("staff.profile.status")}
+                                        </span>
+                                        <div className={styles.staffEdit__segmented} role="radiogroup" aria-labelledby="staff-status-label">
+                                            {(["auto", ...STAFF_STATUS_MODES] as const).map((mode) => (
+                                                <button
+                                                    key={mode}
+                                                    type="button"
+                                                    role="radio"
+                                                    aria-checked={field.value === mode}
+                                                    className={styles.staffEdit__segment}
+                                                    onClick={() => field.onChange(mode)}
+                                                >
+                                                    {t(`staff.profile.statuses.${mode}`)}
+                                                </button>
+                                            ))}
+                                        </div>
+                                        <p className={styles.staffEdit__hint}>
+                                            {member.activity.auto_status
+                                                ? t("staff.profile.autoHint", {
+                                                      status: t(`staff.profile.statuses.${member.activity.auto_status}`),
+                                                      count: member.activity.recent_tests,
+                                                  })
+                                                : t("staff.profile.autoHintNoTester")}
+                                        </p>
+                                    </div>
+                                )}
+                            />
+
+                            <Controller
+                                name="bio"
+                                control={control}
+                                render={({ field }) => (
+                                    <FieldShell
+                                        id="staff-bio"
+                                        label={t("staff.profile.bio")}
+                                        error={errors.bio?.message}
+                                        hint={t("staff.profile.bioHint", {
+                                            count: field.value.length,
+                                            max: STAFF_PROFILE_RULES.bioMax,
+                                        })}
+                                    >
+                                        <AdminTextarea
+                                            id="staff-bio"
+                                            rows={3}
+                                            maxLength={STAFF_PROFILE_RULES.bioMax}
+                                            hasError={!!errors.bio}
+                                            {...field}
+                                        />
+                                    </FieldShell>
+                                )}
+                            />
+
+                            <div className={styles.staffEdit__socials}>
+                                {STAFF_SOCIALS.map((key) => (
+                                    <Controller
+                                        key={key}
+                                        name={key}
+                                        control={control}
+                                        render={({ field }) => (
+                                            <FieldShell
+                                                id={`staff-${key}`}
+                                                label={t(`staff.profile.socials.${key}`)}
+                                                error={errors[key]?.message}
+                                            >
+                                                <div className={styles.staffEdit__prefixed}>
+                                                    <span aria-hidden="true">{SOCIAL_PREFIX[key]}</span>
+                                                    <AdminInput
+                                                        id={`staff-${key}`}
+                                                        maxLength={60}
+                                                        autoComplete="off"
+                                                        spellCheck={false}
+                                                        placeholder={t("staff.profile.handlePlaceholder")}
+                                                        hasError={!!errors[key]}
+                                                        {...field}
+                                                    />
+                                                </div>
+                                            </FieldShell>
+                                        )}
+                                    />
+                                ))}
+                            </div>
+
+                            <Controller
+                                name="show_namemc"
+                                control={control}
+                                render={({ field }) => (
+                                    <AdminToggle
+                                        id="staff-namemc"
+                                        label={t("staff.profile.namemc")}
+                                        description={
+                                            member.is_premium ? t("staff.profile.namemcHint") : t("staff.profile.namemcNoPremium")
+                                        }
+                                        checked={field.value}
+                                        disabled={!member.is_premium}
+                                        onChange={field.onChange}
+                                    />
+                                )}
+                            />
+                        </section>
 
                         {member.updated_by && (
                             <p className={styles.staffEdit__meta}>

@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { ADMIN_RULES } from "@/shared/constants/admin";
+import { normalizeHandle, socialRegex, STAFF_PROFILE_RULES, STAFF_STATUS_MODES, StaffSocialKey } from "@/shared/constants/staffProfile";
 
 export type StaffFormMessages = {
     required: string;
@@ -7,7 +8,19 @@ export type StaffFormMessages = {
     colour: string;
     weight: string;
     roleName: string;
+    bio: string;
+    handle: string;
 };
+
+/** Campos del formulario que van a `admin_overrides` (el resto, a `staff_profiles`). */
+export const STAFF_OVERRIDE_FORM_FIELDS = ["nick", "role_name", "role_colour", "role_weight"] as const;
+
+/** Red social opcional: vacío = sin red; si no, se normaliza y valida como en la API. */
+const social = (key: StaffSocialKey, message: string) =>
+    z
+        .string()
+        .trim()
+        .refine((v) => v === "" || socialRegex(key).test(normalizeHandle(key, v)), message);
 
 /** Valores del formulario como strings (inputs nativos); se convierten al enviar. */
 export const createStaffFormSchema = (m: StaffFormMessages) =>
@@ -26,6 +39,18 @@ export const createStaffFormSchema = (m: StaffFormMessages) =>
                 const n = Number(v);
                 return n >= ADMIN_RULES.roleWeightMin && n <= ADMIN_RULES.roleWeightMax;
             }, m.weight),
+        // Perfil público
+        bio: z.string().trim().max(STAFF_PROFILE_RULES.bioMax, m.bio),
+        status_mode: z.enum(["auto", ...STAFF_STATUS_MODES]),
+        instagram: social("instagram", m.handle),
+        tiktok: social("tiktok", m.handle),
+        youtube: social("youtube", m.handle),
+        twitch: social("twitch", m.handle),
+        x: social("x", m.handle),
+        github: social("github", m.handle),
+        linkedin: social("linkedin", m.handle),
+        discord_username: social("discord_username", m.handle),
+        show_namemc: z.boolean(),
     });
 
 export type StaffFormValues = z.infer<ReturnType<typeof createStaffFormSchema>>;

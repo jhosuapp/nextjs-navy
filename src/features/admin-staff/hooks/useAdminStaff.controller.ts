@@ -1,13 +1,14 @@
 import { useCallback, useDeferredValue, useMemo, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { useAdminMutation, useUnauthorizedGuard } from "@/features/admin-core/hooks";
-import { patchStaffAction } from "../actions";
-import { AdminStaffMember, StaffPatchBody, StaffVisibilityFilter } from "../interfaces";
-import { StaffFormValues } from "../validations/staff-form.validation";
+import { patchStaffAction, patchStaffProfileAction } from "../actions";
+import { AdminStaffMember, StaffPatchBody, StaffProfilePatchBody, StaffVisibilityFilter } from "../interfaces";
+import { STAFF_OVERRIDE_FORM_FIELDS, StaffFormValues } from "../validations/staff-form.validation";
 import { ADMIN_STAFF_KEY, useAdminStaffQuery } from "./useAdminStaff.query";
-import { toStaffPatch, useStaffForm } from "./useStaffForm";
+import { toProfilePatch, toStaffPatch, useStaffForm } from "./useStaffForm";
 
-type PatchVariables = { discordId: string; body: StaffPatchBody };
+/** `body` → overrides del bot; `profile` → perfil público. Se envía solo lo que cambia. */
+type PatchVariables = { discordId: string; body?: StaffPatchBody; profile?: StaffProfilePatchBody };
 
 const matches = (member: AdminStaffMember, needle: string): boolean =>
     !needle ||
@@ -47,7 +48,11 @@ const useAdminStaffController = () => {
     const form = useStaffForm(t, editing);
 
     const patchMutation = useAdminMutation<PatchVariables>({
-        mutationFn: ({ discordId, body }) => patchStaffAction(discordId, body),
+        mutationFn: async ({ discordId, body, profile }) => {
+            const response = body ? await patchStaffAction(discordId, body) : undefined;
+            const profileResponse = profile ? await patchStaffProfileAction(discordId, profile) : undefined;
+            return (profileResponse ?? response)!;
+        },
         messages: { loading: t("common.saving"), success: t("common.saved"), error: t("common.saveError") },
         invalidate: [ADMIN_STAFF_KEY],
         onSuccess: () => {
@@ -60,7 +65,18 @@ const useAdminStaffController = () => {
 
     const onSubmitEdit = form.handleSubmit((values: StaffFormValues) => {
         if (!editing) return;
-        mutate({ discordId: editing.discord_id, body: toStaffPatch(values, editing.original) });
+        const { dirtyFields } = form.formState;
+        const overridesChanged = STAFF_OVERRIDE_FORM_FIELDS.some((field) => dirtyFields[field]);
+        const profile = toProfilePatch(values, editing.profile);
+        const profileChanged = Object.keys(profile).length > 0;
+
+        if (!overridesChanged && !profileChanged) return setEditing(null);
+
+        mutate({
+            discordId: editing.discord_id,
+            body: overridesChanged ? toStaffPatch(values, editing.original) : undefined,
+            profile: profileChanged ? profile : undefined,
+        });
     });
 
     const onConfirmHide = (reason: string) => {

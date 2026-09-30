@@ -1,4 +1,5 @@
 import { HiddenState, OverrideMeta } from "@/features/admin-core/interfaces";
+import { StaffStatus } from "@/shared/constants/staffProfile";
 
 export type StaffEditableFields = {
     nick: string | null;
@@ -19,7 +20,34 @@ export type AdminStaffMember = HiddenState &
         original: StaffEditableFields;
         /** Solo los campos con override activo. */
         overrides: Partial<StaffEditableFields>;
+        /** Perfil público editable (`staff_profiles`). */
+        profile: StaffProfileFields;
+        activity: StaffActivity;
     };
+
+export type StaffProfileFields = {
+    bio: string | null;
+    status_mode: StaffStatus | null;
+    instagram: string | null;
+    tiktok: string | null;
+    youtube: string | null;
+    twitch: string | null;
+    x: string | null;
+    github: string | null;
+    linkedin: string | null;
+    discord_username: string | null;
+    show_namemc: boolean;
+};
+
+export type StaffProfilePatchBody = Partial<StaffProfileFields>;
+
+/** Actividad como tester, para calcular el estado automático. */
+export type StaffActivity = {
+    total_tests: number;
+    recent_tests: number;
+    /** Estado que se mostraría en modo automático. */
+    auto_status: StaffStatus | null;
+};
 
 export type AdminStaffResponse = {
     data: AdminStaffMember[];

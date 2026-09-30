@@ -17,3 +17,55 @@
 .staffEdit__meta {
     @apply text-xs text-purple-200/45;
 }
+
+.staffEdit__section {
+    @apply flex flex-col gap-5 pt-6 border-t border-white/10;
+}
+
+.staffEdit__sectionTitle {
+    @apply text-sm font-semibold text-white;
+}
+
+.staffEdit__sectionText {
+    @apply mt-1 text-xs leading-relaxed text-purple-200/60;
+}
+
+.staffEdit__field {
+    @apply flex flex-col gap-2;
+}
+
+.staffEdit__label {
+    @apply text-sm font-medium text-purple-100/90;
+}
+
+.staffEdit__hint {
+    @apply text-xs text-purple-200/45;
+}
+
+.staffEdit__segmented {
+    @apply grid grid-cols-4 gap-1 p-1 rounded-lg bg-white/[0.04] border border-white/10;
+}
+
+.staffEdit__segment {
+    @apply h-9 rounded-md text-xs font-medium text-purple-200/70 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400;
+}
+
+.staffEdit__segment[aria-checked="true"] {
+    @apply bg-purple-600 text-white;
+}
+
+.staffEdit__socials {
+    @apply grid gap-4 sm:grid-cols-2;
+}
+
+.staffEdit__prefixed {
+    @apply flex items-center rounded-lg bg-white/[0.04] border border-white/10 focus-within:border-purple-400;
+}
+
+.staffEdit__prefixed > span {
+    @apply pl-3 text-xs text-purple-200/45 whitespace-nowrap select-none;
+}
+
+.staffEdit__prefixed input {
+    @apply !border-0 !bg-transparent !pl-1 min-w-0;
+}

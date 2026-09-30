@@ -21,7 +21,7 @@ const StaffPage = ({ staff }: Props) => {
             description={t('seo.staffMetaDescription')}
             textPage={t('nav.bans')}
             linkPage={ paths.bans }
-            url={ paths.bans }
+            url={ paths.staff }
         >
             <PageTransition>
                 <StaffView staff={ staff } />
@@ -38,7 +38,7 @@ export async function getStaticProps({ locale }: GetStaticPropsContext) {
     return {
         props: {
             staff,
-            ...(await serverSideTranslations(locale ?? 'es', ['common'])),
+            ...(await serverSideTranslations(locale ?? 'es', ['common', 'staff'])),
         },
         revalidate,
     };

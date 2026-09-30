@@ -1,8 +1,9 @@
-import type { punishments, staff } from "@prisma/client";
+import type { punishments, staff, staff_profiles } from "@prisma/client";
 import type { AdminOverride } from "./adminOverrides";
 import { applyBanOverride, applyStaffOverride } from "./adminOverrides";
+import { pickProfile } from "./staffProfiles";
 import type { HiddenState, OverrideMeta } from "@/features/admin-core/interfaces";
-import type { AdminStaffMember, StaffEditableFields } from "@/features/admin-staff/interfaces";
+import type { AdminStaffMember, StaffActivity, StaffEditableFields, StaffProfileFields } from "@/features/admin-staff/interfaces";
 import type { AdminBan, BanEditableFields, BanOverrides } from "@/features/admin-bans/interfaces";
 
 /**
@@ -28,7 +29,12 @@ const staffFields = (row: staff): StaffEditableFields => ({
     role_weight: row.staff_role_weight,
 });
 
-export const serializeStaff = (row: staff, override?: AdminOverride): AdminStaffMember => {
+export const serializeStaff = (
+    row: staff,
+    override: AdminOverride | undefined,
+    profile: staff_profiles | undefined,
+    activity: StaffActivity
+): AdminStaffMember => {
     const overrides: Partial<StaffEditableFields> = {};
     if (override?.nick != null) overrides.nick = override.nick;
     if (override?.role_name != null) overrides.role_name = override.role_name;
@@ -43,6 +49,8 @@ export const serializeStaff = (row: staff, override?: AdminOverride): AdminStaff
         current: staffFields(applyStaffOverride(row, override)),
         original: staffFields(row),
         overrides,
+        profile: pickProfile(profile) as StaffProfileFields,
+        activity,
         ...serializeHidden(override),
         ...serializeMeta(override),
     };

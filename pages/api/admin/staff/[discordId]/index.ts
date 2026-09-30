@@ -22,7 +22,7 @@ export default createAdminHandler("staff/[discordId]", {
         }
 
         await saveOverride("staff", discordId, parsed.data, session.username);
-        await refreshAfterChange(res, ["staff"]);
+        await refreshAfterChange(res, ["staff", "testers"]);
 
         res.status(200).json({ message: "Staff actualizado" });
     },
