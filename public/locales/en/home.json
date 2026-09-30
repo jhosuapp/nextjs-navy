@@ -16,7 +16,8 @@
     "resume": {
         "crystalTests": "Crystal Tests",
         "swordTests": "Sword Tests",
-        "netheriteTests": "Netherite Tests"
+        "netheriteTests": "Netherite Tests",
+        "diamondTests": "Diamond Pot Tests"
     },
     "feedback": {
         "latestHighLoader": "Loading High Results",

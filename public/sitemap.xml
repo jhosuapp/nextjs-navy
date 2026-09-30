@@ -83,21 +83,21 @@
   </url>
 
   <url>
-    <loc>https://navytiers.com/partners</loc>
+    <loc>https://navytiers.com/top-testers</loc>
 
-    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/partners" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/partners" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/partners" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/top-testers" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/top-testers" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/top-testers" />
 
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://navytiers.com/en/partners</loc>
+    <loc>https://navytiers.com/en/top-testers</loc>
 
-    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/partners" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/partners" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/partners" />
+    <xhtml:link rel="alternate" hreflang="es" href="https://navytiers.com/top-testers" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://navytiers.com/en/top-testers" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://navytiers.com/top-testers" />
 
     <priority>0.7</priority>
   </url>

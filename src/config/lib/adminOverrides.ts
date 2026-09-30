@@ -11,7 +11,10 @@ import { prisma } from "./prisma";
  * `hidden_at` no NULL es el soft delete (oculto en la web pública).
  */
 
-export type OverrideEntity = "staff" | "ban" | "user";
+export type OverrideEntity = "staff" | "ban" | "user" | "tester";
+
+/** Entidades que aparecen en la auditoría (overrides + perfiles de staff). */
+export type AuditLogEntity = OverrideEntity | "staff_profile";
 
 export type AdminOverride = admin_overrides;
 
@@ -178,7 +181,7 @@ const toAuditJson = (value: unknown): string | null =>
 export async function writeAudit(params: {
     admin: string;
     action: AuditAction;
-    entity?: OverrideEntity | null;
+    entity?: AuditLogEntity | null;
     entityKey?: string | null;
     before?: unknown;
     after?: unknown;

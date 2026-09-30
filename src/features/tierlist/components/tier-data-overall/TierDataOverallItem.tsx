@@ -20,6 +20,7 @@ type Props = {
     tierSword: Tiers;
     tierNetherite: Tiers;
     tierCrystal: Tiers;
+    tierDiamond: Tiers;
     index: number;
 } & PropsChipRegions;
 
@@ -29,6 +30,7 @@ const TierDataOverallItem = memo(({
     tierSword,
     tierNetherite,
     tierCrystal,
+    tierDiamond,
     continent,
     combat_title,
     combat_img,
@@ -93,6 +95,13 @@ const TierDataOverallItem = memo(({
                     modalitieImage="crystal.webp" 
                     tier={ tierCrystal }
                     disabled={ !tierCrystal }
+                />
+                <ChipModalities 
+                    modalitie="diamond" 
+                    variant="blue" 
+                    modalitieImage="diamond.webp" 
+                    tier={ tierDiamond }
+                    disabled={ !tierDiamond }
                 />
             </div>
         </motion.div>

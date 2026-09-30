@@ -1,0 +1,32 @@
+{
+    "members_one": "{{count}} membro",
+    "members_other": "{{count}} membros",
+    "onlineNow_one": "{{count}} online agora",
+    "onlineNow_other": "{{count}} online agora",
+    "online": "Online",
+    "offline": "Offline",
+    "status": {
+        "active": "Ativo",
+        "inactive": "Inativo",
+        "paused": "Em pausa"
+    },
+    "stats": {
+        "month": "Testes este mês",
+        "total": "Testes totais"
+    },
+    "socials": {
+        "label": "Redes de {{nick}}",
+        "instagram": "Instagram",
+        "tiktok": "TikTok",
+        "youtube": "YouTube",
+        "twitch": "Twitch",
+        "x": "X",
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "namemc": "NameMC",
+        "discord": "Copiar usuário do Discord",
+        "copied": "Copiado!"
+    },
+    "premium": "Premium",
+    "noPremium": "Não premium"
+}

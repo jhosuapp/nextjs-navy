@@ -1,0 +1,50 @@
+{
+    "title": "Top Testers",
+    "subtitle": "Los testers que más pruebas han hecho en Navy. El ranking mensual se reinicia cada mes.",
+    "periods": {
+        "current": "Este mes",
+        "previous": "Mes anterior",
+        "all": "Histórico",
+        "more": "Otros meses",
+        "label": "Periodo del ranking"
+    },
+    "summary": {
+        "tests": "Tests realizados",
+        "testers": "Testers activos",
+        "average": "Media por tester"
+    },
+    "podium": {
+        "title": "Podio",
+        "tests": "tests",
+        "share": "{{value}}% del total"
+    },
+    "list": {
+        "title": "Clasificación",
+        "position": "Posición {{value}}",
+        "tests": "tests",
+        "more": "Ver más testers",
+        "count": "{{count}} testers"
+    },
+    "trend": {
+        "up": "Sube {{value}} puestos respecto al mes anterior",
+        "down": "Baja {{value}} puestos respecto al mes anterior",
+        "same": "Mantiene su puesto",
+        "new": "Nuevo este mes",
+        "newShort": "Nuevo"
+    },
+    "filters": {
+        "search": "Buscar tester",
+        "onlyStaff": "Solo staff actual"
+    },
+    "retired": "Tester retirado",
+    "empty": {
+        "title": "Sin resultados",
+        "search": "Ningún tester coincide con la búsqueda.",
+        "period": "Todavía no hay tests en este periodo."
+    },
+    "notes": {
+        "inProgress": "Mes en curso: el ranking se actualiza cada hora.",
+        "allTime": "El histórico incluye todos los tests registrados por el bot desde sus inicios.",
+        "updated": "Actualizado {{value}}"
+    }
+}

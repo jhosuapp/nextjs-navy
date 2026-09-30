@@ -1,0 +1,82 @@
+.rankingList__items{
+    @apply flex flex-col gap-3;
+}
+
+.rankingList__more{
+    @apply flex justify-center pt-6;
+}
+
+.rankingRow{
+    @apply relative grid items-center gap-x-4 gap-y-3 p-3 lg:p-4 border-2 border-purple-300 border-opacity-30 rounded-md bg-tertiary bg-opacity-10 backdrop-blur-sm transition-colors hover:border-opacity-60;
+    @apply grid-cols-[auto_minmax(0,1fr)_auto] [grid-template-areas:'position_identity_stats'_'bar_bar_bar'];
+    @apply lg:grid-cols-[auto_minmax(0,16rem)_minmax(0,1fr)_auto] lg:[grid-template-areas:'position_identity_bar_stats'];
+}
+
+.rankingRow__position{
+    @apply [grid-area:position] [clip-path:polygon(25%_0%,100%_0%,75%_100%,0%_100%)];
+    @apply w-14 h-10 flex items-center justify-center bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 font-semibold text-white tabular-nums;
+}
+
+.rankingRow__position1{
+    @apply from-yellow-400 via-yellow-300 to-yellow-200 text-neutral-black;
+}
+
+.rankingRow__position2{
+    @apply from-gray-400 via-gray-300 to-gray-200 text-neutral-black;
+}
+
+.rankingRow__position3{
+    @apply from-orange-400 via-orange-300 to-orange-200 text-neutral-black;
+}
+
+.rankingRow__identity{
+    @apply [grid-area:identity] flex items-center gap-3 min-w-0;
+}
+
+.rankingRow__skin{
+    @apply w-11 h-11 shrink-0 flex items-end justify-center overflow-hidden border-2 border-purple-300 border-opacity-40 rounded-md bg-gradient-to-b from-purple-900/50 to-tertiary;
+}
+
+.rankingRow__skin img{
+    @apply w-full p-0.5;
+}
+
+.rankingRow__name{
+    @apply flex flex-col gap-1 min-w-0;
+}
+
+.rankingRow__name p{
+    @apply text-white font-medium truncate;
+}
+
+.rankingRow__retired{
+    @apply !text-purple-300 !text-opacity-60 italic;
+}
+
+.rankingRow__bar{
+    @apply [grid-area:bar] h-1.5 w-full rounded-full bg-purple-300 bg-opacity-10 overflow-hidden;
+}
+
+.rankingRow__bar span{
+    @apply block h-full rounded-full bg-gradient-to-r from-purple-700 to-purple-300 transition-[width] duration-700;
+}
+
+.rankingRow__stats{
+    @apply [grid-area:stats] flex items-center gap-3;
+}
+
+.rankingRow__stats p{
+    @apply flex items-baseline gap-1 text-white;
+}
+
+.rankingRow__stats strong{
+    @apply text-xl font-bold tabular-nums;
+}
+
+.rankingRow__stats span{
+    @apply text-xs text-purple-300 text-opacity-60;
+}
+
+.rankingRow__hit{
+    @apply absolute inset-0 rounded-md cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300;
+}

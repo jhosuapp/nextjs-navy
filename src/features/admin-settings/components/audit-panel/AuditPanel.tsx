@@ -9,7 +9,7 @@ import { AuditFilter } from "../../interfaces";
 import { AuditEntryRow } from "./AuditEntryRow";
 import styles from "./auditPanel.module.css";
 
-const FILTERS: AuditFilter[] = ["all", "application", "staff", "ban", "user", "system"];
+const FILTERS: AuditFilter[] = ["all", "application", "staff", "ban", "user", "tester", "system"];
 
 type Props = {
     t: ITranslations;

@@ -26,7 +26,8 @@
         "tester": "Tester",
         "netherite": "Netherite",
         "crystal": "CrystalPvP",
-        "sword": "Sword"
+        "sword": "Sword",
+        "diamond": "Diamond Pot"
     },
     "fields": {
         "tipo": {

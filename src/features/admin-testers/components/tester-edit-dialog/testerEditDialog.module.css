@@ -1,0 +1,7 @@
+.testerEdit {
+    @apply flex flex-col gap-5;
+}
+
+.testerEdit__notice {
+    @apply text-xs leading-relaxed text-purple-200/60;
+}

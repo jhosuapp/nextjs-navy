@@ -34,7 +34,7 @@ export const defaultApplicationMessages: ApplicationMessages = {
 
 const YES_NO = ["si", "no"] as const;
 const TIPO = ["helper", "tester"] as const;
-const MODOS = ["netherite", "crystal", "sword"] as const;
+const MODOS = ["netherite", "crystal", "sword", "diamond"] as const;
 
 // Reglas del sistema nuevo de usernames de Discord: 2-32 chars,
 // minúsculas/números/punto/guion bajo, sin puntos consecutivos.

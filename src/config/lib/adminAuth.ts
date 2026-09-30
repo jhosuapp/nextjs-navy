@@ -136,8 +136,9 @@ export const buildClearCookie = (): string =>
  *
  * Además de firma y expiración, comprueba en `admin_users` que el usuario sigue
  * existiendo (mismo id y username): borrar o renombrar un admin revoca su
- * sesión al instante, sin tener que rotar `ADMIN_SESSION_SECRET`. El rol se lee
- * aquí también, así que dar o quitar `founder` tiene efecto inmediato.
+ * sesión al instante, sin tener que rotar `ADMIN_SESSION_SECRET`. Lo mismo al
+ * desactivarlo (`disabled_at`). El rol se lee aquí también, así que dar o
+ * quitar `founder` tiene efecto inmediato.
  */
 export const requireAdmin = async (
     req: NextApiRequest
@@ -150,10 +151,10 @@ export const requireAdmin = async (
 
     const user = await prisma.admin_users.findUnique({
         where: { id: identity.uid },
-        select: { username: true, role: true },
+        select: { username: true, role: true, disabled_at: true },
     });
 
-    if (user?.username !== identity.username) return null;
+    if (user?.username !== identity.username || user.disabled_at) return null;
 
     const role: AdminRole = user.role === "founder" ? "founder" : "admin";
     return { ...identity, role };

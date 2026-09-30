@@ -75,7 +75,7 @@ const TESTER_STEPS: Step[] = [
         id: 'testerProfile',
         questions: [
             { kind: 'text', name: 'region', num: '5', type: 'text' },
-            { kind: 'multi-choice', name: 'modos', num: '6', options: ['netherite', 'crystal', 'sword'] },
+            { kind: 'multi-choice', name: 'modos', num: '6', options: ['netherite', 'crystal', 'sword', 'diamond'] },
             { kind: 'textarea', name: 'tier_modo', num: '7' },
             { kind: 'yesno-detail', name: 'experiencia_tester', detail: 'detalle_experiencia', num: '8' },
         ],

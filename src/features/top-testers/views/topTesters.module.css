@@ -1,0 +1,51 @@
+.topTesters__header{
+    @apply flex flex-col lg:flex-row lg:items-end justify-between gap-6 lg:gap-10 mb-8;
+}
+
+.topTesters__eyebrow{
+    @apply inline-flex items-center gap-2 mb-2 text-sm font-medium uppercase tracking-widest text-purple-300 text-opacity-70;
+}
+
+.topTesters__title{
+    @apply text-4xl lg:text-6xl font-bold leading-none bg-gradient-to-r from-purple-300 via-white to-purple-300 bg-clip-text text-transparent;
+}
+
+.topTesters__subtitle{
+    @apply mt-3 max-w-xl text-base text-purple-300 text-opacity-60;
+}
+
+.topTesters__filters{
+    @apply mb-14 lg:mb-20 lg:sticky lg:top-32 lg:z-10;
+}
+
+.topTesters__list{
+    @apply mt-10 lg:mt-14;
+}
+
+.topTesters__listHeader{
+    @apply flex items-center justify-between mb-4;
+}
+
+.topTesters__listHeader h2{
+    @apply text-2xl lg:text-3xl font-medium text-purple-300 text-opacity-50;
+}
+
+.topTesters__listHeader span{
+    @apply min-h-8 flex items-center px-4 rounded-md border-2 border-purple-300 border-opacity-50 bg-seventh text-purple-300 text-opacity-50 font-medium;
+}
+
+.topTesters__empty{
+    @apply flex flex-col items-center gap-1 py-16 text-center border-2 border-dashed border-purple-300 border-opacity-30 rounded-md;
+}
+
+.topTesters__empty p{
+    @apply text-lg font-medium text-white;
+}
+
+.topTesters__empty span{
+    @apply text-purple-300 text-opacity-60;
+}
+
+.topTesters__notes{
+    @apply flex flex-col md:flex-row justify-between gap-2 mt-8 text-sm text-purple-300 text-opacity-50;
+}

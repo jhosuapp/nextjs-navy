@@ -1,0 +1,7 @@
+.staff__online{
+    @apply inline-flex items-center gap-2 mb-8 px-3 py-1.5 rounded-full border border-emerald-400 border-opacity-40 bg-emerald-500 bg-opacity-10 text-sm font-medium text-emerald-300;
+}
+
+.staff__online span{
+    @apply w-2 h-2 rounded-full bg-emerald-400 motion-safe:animate-pulse;
+}

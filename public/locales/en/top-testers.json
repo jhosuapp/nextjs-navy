@@ -1,0 +1,50 @@
+{
+    "title": "Top Testers",
+    "subtitle": "The testers who have run the most tests at Navy. The monthly ranking resets every month.",
+    "periods": {
+        "current": "This month",
+        "previous": "Last month",
+        "all": "All time",
+        "more": "Other months",
+        "label": "Ranking period"
+    },
+    "summary": {
+        "tests": "Tests run",
+        "testers": "Active testers",
+        "average": "Average per tester"
+    },
+    "podium": {
+        "title": "Podium",
+        "tests": "tests",
+        "share": "{{value}}% of total"
+    },
+    "list": {
+        "title": "Leaderboard",
+        "position": "Position {{value}}",
+        "tests": "tests",
+        "more": "Show more testers",
+        "count": "{{count}} testers"
+    },
+    "trend": {
+        "up": "Up {{value}} places from last month",
+        "down": "Down {{value}} places from last month",
+        "same": "Same place as last month",
+        "new": "New this month",
+        "newShort": "New"
+    },
+    "filters": {
+        "search": "Search tester",
+        "onlyStaff": "Current staff only"
+    },
+    "retired": "Retired tester",
+    "empty": {
+        "title": "No results",
+        "search": "No tester matches your search.",
+        "period": "There are no tests in this period yet."
+    },
+    "notes": {
+        "inProgress": "Month in progress: the ranking updates every hour.",
+        "allTime": "All time includes every test recorded by the bot since the beginning.",
+        "updated": "Updated {{value}}"
+    }
+}

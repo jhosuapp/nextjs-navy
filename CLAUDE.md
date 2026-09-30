@@ -94,6 +94,8 @@ Public reads must go through the override-aware helpers in `@/config/lib/adminOv
 - Staff → `getPublicStaff()`, bans → `getPublicPunishments()`.
 - Any raw query on `tiers` → `FROM ${visibleTiersSql} AS tiers` (hides hidden players, applies nick overrides).
 
+Staff public-profile data (socials, bio, status) lives in `staff_profiles` (`prisma/manual-migrations/2026-09-30-staff-profiles.sql`, also hand-written) via `@/config/lib/staffProfiles`. Tester nicks/hides reuse `admin_overrides` with `entity = 'tester'`. Tester stats come from the bot tables `tier_testers` (all-time) and `tester_activity` (one row per test) through `@/config/lib/testers`; `tester_id = '0'` is a system row and is always excluded.
+
 Admin API routes use `createAdminHandler` (`@/config/lib/adminHandler`: rate limit + 405 + 401 + 500), write with `saveOverride()` and then call `refreshAfterChange()` to revalidate ISR pages. Admin pages use `getLayout = getAdminLayout` (persistent sidebar; `_app` skips the global `AnimatePresence` for them). Shared admin UI lives in `src/features/admin-core/`.
 
 ### Internationalisation
@@ -175,3 +177,13 @@ Import the store and select only the slice you need to avoid unnecessary re-rend
 ```ts
 const value = useSearchStore(state => state.value);
 ```
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

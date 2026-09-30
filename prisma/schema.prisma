@@ -125,6 +125,8 @@ model admin_users {
   created_at    DateTime @db.DateTime(0)
   /// 'admin' | 'founder'. Añadido a mano: prisma/manual-migrations/2026-09-28-admin-roles.sql
   role          String   @default("admin") @db.VarChar(16)
+  /// NULL = activa; con fecha = desactivada (no puede entrar). prisma/manual-migrations/2026-09-30-admin-users-disabled.sql
+  disabled_at   DateTime? @db.DateTime(0)
 
   @@map("admin_users")
 }
@@ -194,4 +196,25 @@ model admin_audit_log {
   @@index([created_at], map: "created_at_idx")
   @@index([entity, entity_key], map: "entity_idx")
   @@map("admin_audit_log")
+}
+
+/// Perfil público del staff (redes, bio, estado) editado desde el panel.
+/// Escrito a mano: ver prisma/manual-migrations/2026-09-30-staff-profiles.sql
+model staff_profiles {
+  discord_id       String   @id @db.VarChar(32)
+  bio              String?  @db.VarChar(160)
+  status_mode      String?  @db.VarChar(10)
+  instagram        String?  @db.VarChar(40)
+  tiktok           String?  @db.VarChar(40)
+  youtube          String?  @db.VarChar(60)
+  twitch           String?  @db.VarChar(40)
+  x                String?  @db.VarChar(40)
+  discord_username String?  @db.VarChar(40)
+  github           String?  @db.VarChar(40)
+  linkedin         String?  @db.VarChar(100)
+  show_namemc      Boolean  @default(true)
+  updated_by       String   @db.VarChar(60)
+  updated_at       DateTime @db.DateTime(0)
+
+  @@map("staff_profiles")
 }

@@ -1,24 +1,134 @@
-.cardStaff__image{
-    @apply w-20 h-20 block rounded-full relative overflow-hidden max-w-20 max-h-20 border-2 border-purple-300 border-opacity-50;
+.cardStaff{
+    @apply transition-colors hover:border-opacity-80;
 }
 
-.cardStaff__image{
-    @apply w-full h-full object-cover block;
+.cardStaff__body{
+    @apply flex flex-col gap-4 h-full;
+}
+
+/* Halo con el color del rol en la esquina superior. */
+.cardStaff__glow{
+    @apply absolute -top-16 -left-16 w-48 h-48 rounded-full opacity-25 blur-3xl pointer-events-none bg-[var(--role-colour)];
 }
 
 .cardStaff__content{
-    @apply flex gap-5 items-center;
+    @apply relative flex gap-5 items-center;
 }
 
-.cardStaff__info {
-    @apply text-white flex flex-col;
+.cardStaff__avatar{
+    @apply relative shrink-0;
 }
 
-.cardStaff__info p{
-    @apply bg-gradient-to-r from-purple-500 to-white bg-clip-text text-transparent font-medium text-lg capitalize;
+.cardStaff__image{
+    @apply w-20 h-20 flex items-start justify-center rounded-full relative overflow-hidden border-2 border-purple-300 border-opacity-50 bg-gradient-to-b from-purple-900/60 to-tertiary;
 }
 
-.cardStaff__info span,
+.cardStaff__image img{
+    @apply w-12 mt-2 object-contain;
+}
+
+.cardStaff__online{
+    @apply absolute bottom-0.5 right-0.5 w-5 h-5 rounded-full bg-emerald-400 border-4 border-tertiary;
+}
+
+.cardStaff__online__ping{
+    @apply absolute inset-0 rounded-full bg-emerald-400 motion-safe:animate-ping opacity-75;
+}
+
+.cardStaff__info{
+    @apply flex flex-col gap-1.5 min-w-0 text-white;
+}
+
+.cardStaff__nick{
+    @apply bg-clip-text text-transparent font-semibold text-xl truncate;
+}
+
+.cardStaff__badges{
+    @apply flex flex-wrap items-center gap-2;
+}
+
+.cardStaff__role{
+    @apply px-2 py-0.5 rounded-full border text-xs font-medium leading-4 bg-tertiary bg-opacity-60;
+}
+
+.cardStaff__status{
+    @apply inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full border text-xs font-medium leading-4;
+}
+
+.cardStaff__status span{
+    @apply w-1.5 h-1.5 rounded-full;
+}
+
+.cardStaff__status__active{
+    @apply text-emerald-300 border-emerald-400 border-opacity-40 bg-emerald-500 bg-opacity-10;
+}
+
+.cardStaff__status__active span{
+    @apply bg-emerald-400;
+}
+
+.cardStaff__status__inactive{
+    @apply text-gray-300 border-gray-400 border-opacity-40 bg-gray-500 bg-opacity-10;
+}
+
+.cardStaff__status__inactive span{
+    @apply bg-gray-400;
+}
+
+.cardStaff__status__paused{
+    @apply text-amber-300 border-amber-400 border-opacity-40 bg-amber-500 bg-opacity-10;
+}
+
+.cardStaff__status__paused span{
+    @apply bg-amber-400;
+}
+
 .cardStaff__info small{
-    @apply text-purple-300 text-opacity-50 text-base;
+    @apply text-purple-300 text-opacity-50 text-sm;
+}
+
+.cardStaff__bio{
+    @apply relative text-sm leading-relaxed text-purple-100 text-opacity-80 line-clamp-2;
+}
+
+.cardStaff__stats{
+    @apply relative grid grid-cols-2 gap-3;
+}
+
+.cardStaff__stats div{
+    @apply flex flex-col-reverse gap-0.5 px-3 py-2 rounded-md border border-purple-300 border-opacity-20 bg-tertiary bg-opacity-40;
+}
+
+.cardStaff__stats dt{
+    @apply text-xs text-purple-300 text-opacity-60;
+}
+
+.cardStaff__stats dd{
+    @apply text-lg font-bold text-white tabular-nums leading-tight;
+}
+
+.cardStaff__socials{
+    @apply relative flex flex-wrap gap-2 pt-4 mt-auto border-t border-purple-300 border-opacity-15;
+}
+
+.cardStaff__social{
+    @apply flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300;
+}
+
+.cardStaff__social img{
+    @apply w-4 h-4;
+}
+
+.cardStaff__discord{
+    @apply relative;
+}
+
+.cardStaff__tooltip{
+    @apply absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 rounded-sm whitespace-nowrap text-xs text-white bg-gradient-to-r from-purple-900 via-purple-700 to-purple-500 opacity-0 pointer-events-none transition-opacity;
+}
+
+.cardStaff__discord:hover .cardStaff__tooltip,
+.cardStaff__discord:focus-within .cardStaff__tooltip,
+.cardStaff__tooltip__visible{
+    @apply opacity-100;
 }

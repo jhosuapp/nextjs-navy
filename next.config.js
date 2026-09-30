@@ -37,6 +37,8 @@ const nextConfig = {
   async redirects() {
     return [
       { source: '/admin', destination: '/admin/applications', permanent: false },
+      // Partners se sustituyó por Top Testers (2026-09-30).
+      { source: '/partners', destination: '/top-testers', permanent: true },
     ];
   },
 

@@ -48,10 +48,13 @@ const useAdminLoginController = () => {
             await queryClient.invalidateQueries({ queryKey: ADMIN_SESSION_KEY });
             reset();
         } catch (error) {
+            const status = error instanceof AxiosError ? error.response?.status : undefined;
             const message =
-                error instanceof AxiosError && error.response?.status === 401
+                status === 401
                     ? t("login.feedback.invalid")
-                    : t("login.feedback.error");
+                    : status === 403
+                      ? t("login.feedback.disabled")
+                      : t("login.feedback.error");
             toast.error(message);
         }
     };

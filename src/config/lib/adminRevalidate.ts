@@ -7,13 +7,14 @@ import { invalidateCacheByPrefix } from "./cache";
  * Staff y baneos se regeneran cada 24 h; desde el panel se fuerza al instante.
  */
 
-export const REVALIDATE_TARGETS = ["home", "staff", "bans"] as const;
+export const REVALIDATE_TARGETS = ["home", "staff", "bans", "testers"] as const;
 export type RevalidateTarget = (typeof REVALIDATE_TARGETS)[number];
 
 const TARGET_PATHS: Record<RevalidateTarget, string> = {
     home: "/",
     staff: "/staff-navy",
     bans: "/bans",
+    testers: "/top-testers",
 };
 
 // Debe coincidir con `next-i18next.config.js`. El locale por defecto no lleva prefijo.

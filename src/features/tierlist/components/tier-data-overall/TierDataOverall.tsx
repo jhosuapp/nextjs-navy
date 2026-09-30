@@ -53,6 +53,7 @@ const TierDataOverall = ({ t }:Props):JSX.Element => {
                                     tierSword={ item?.games?.sword?.tier }
                                     tierNetherite={ item?.games?.netherite?.tier }
                                     tierCrystal={ item?.games?.crystal?.tier }
+                                    tierDiamond={ item?.games?.diamond?.tier }
                                     position={ index + 1 }
                                     continent={ item.region }
                                     combat_title={ `${t(`information.${combatTitleLower}.title`)} (${item.points} ${t('information.points')})` }
