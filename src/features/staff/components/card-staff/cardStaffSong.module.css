@@ -1,0 +1,139 @@
+.cardStaffSong{
+    @apply relative flex flex-col;
+}
+
+/* Chip: portada girando como un vinilo + ecualizador + aura del color del rol. */
+.cardStaffSong__chip{
+    @apply relative isolate flex items-center gap-3 w-full p-2 pr-3 rounded-full border border-purple-300 border-opacity-25 bg-tertiary bg-opacity-60 text-left overflow-hidden transition-colors hover:border-opacity-60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300;
+}
+
+.cardStaffSong__chip__active{
+    @apply border-opacity-60;
+}
+
+.cardStaffSong__aura{
+    @apply absolute inset-0 -z-10 opacity-20 bg-gradient-to-r from-[var(--song-tint)] via-transparent to-transparent transition-opacity;
+}
+
+.cardStaffSong__chip:hover .cardStaffSong__aura,
+.cardStaffSong__chip__active .cardStaffSong__aura{
+    @apply opacity-40;
+}
+
+.cardStaffSong__chip__playing .cardStaffSong__aura{
+    @apply opacity-60 motion-safe:animate-[songAura_2s_ease-in-out_infinite];
+}
+
+.cardStaffSong__disc{
+    @apply relative w-9 h-9 shrink-0 rounded-full overflow-hidden bg-purple-900 ring-2 ring-[var(--song-tint)] ring-opacity-60 shadow-[0_0_14px_var(--song-tint)] motion-safe:animate-[songSpin_6s_linear_infinite] [animation-play-state:paused];
+}
+
+/* El vinilo solo gira mientras suena. */
+.cardStaffSong__chip__playing .cardStaffSong__disc{
+    @apply [animation-play-state:running];
+}
+
+/* Agujero central del vinilo. */
+.cardStaffSong__disc::after{
+    @apply content-[''] absolute top-1/2 left-1/2 w-2 h-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-tertiary;
+}
+
+.cardStaffSong__disc img{
+    @apply w-full h-full object-cover;
+}
+
+.cardStaffSong__text{
+    @apply flex flex-col min-w-0 flex-1;
+}
+
+.cardStaffSong__title{
+    @apply text-sm font-medium text-white truncate leading-tight;
+}
+
+.cardStaffSong__artist{
+    @apply text-xs text-purple-300 text-opacity-60 truncate;
+}
+
+/* Ecualizador: solo se pinta mientras suena. */
+.cardStaffSong__bars{
+    @apply flex items-end gap-0.5 h-4 shrink-0;
+}
+
+.cardStaffSong__bars span{
+    @apply w-1 h-full rounded-sm bg-[var(--song-tint)] origin-bottom scale-y-50 motion-safe:animate-[songEq_0.9s_ease-in-out_infinite];
+}
+
+.cardStaffSong__bars span:nth-child(2){ @apply [animation-delay:-0.3s] [animation-duration:0.7s]; }
+.cardStaffSong__bars span:nth-child(3){ @apply [animation-delay:-0.6s] [animation-duration:1.1s]; }
+.cardStaffSong__bars span:nth-child(4){ @apply [animation-delay:-0.15s] [animation-duration:0.8s]; }
+
+/* Botón play/pausa. */
+.cardStaffSong__action{
+    @apply relative flex items-center justify-center w-8 h-8 shrink-0 rounded-full bg-white text-tertiary transition-transform;
+}
+
+.cardStaffSong__chip:hover .cardStaffSong__action{
+    @apply scale-105;
+}
+
+.cardStaffSong__action svg{
+    @apply w-4 h-4;
+}
+
+/* Cargando: anillo girando alrededor del botón. */
+.cardStaffSong__action__loading::after{
+    @apply content-[''] absolute -inset-1 rounded-full border-2 border-transparent border-t-[var(--song-tint)] animate-[songSpin_0.8s_linear_infinite];
+}
+
+/* Progreso de la canción en el borde inferior del chip. */
+.cardStaffSong__progress{
+    @apply absolute left-4 right-4 bottom-0 h-0.5 overflow-hidden rounded-full;
+}
+
+.cardStaffSong__progress span{
+    @apply block h-full w-full origin-left bg-[var(--song-tint)] transition-transform duration-500 ease-linear;
+}
+
+.cardStaffSong__panel{
+    @apply overflow-hidden;
+}
+
+.cardStaffSong__fallback{
+    @apply flex items-center justify-between gap-2 mt-2 text-xs text-purple-300 text-opacity-70;
+}
+
+.cardStaffSong__fallback button{
+    @apply shrink-0 underline-offset-2 hover:underline text-purple-300;
+}
+
+.cardStaffSong__embed{
+    @apply block w-full h-20 rounded-xl border-0 bg-tertiary;
+}
+
+/*
+ * Keyframes propios del módulo (como en settings.module.css): los que genera
+ * Tailwind con `@apply animate-*` salen vacíos al compilarse como CSS Module.
+ */
+@keyframes songSpin{
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes songEq{
+    0%, 100%{
+        transform: scaleY(0.3);
+    }
+    50%{
+        transform: scaleY(1);
+    }
+}
+
+@keyframes songAura{
+    0%, 100%{
+        opacity: 0.4;
+    }
+    50%{
+        opacity: 0.75;
+    }
+}

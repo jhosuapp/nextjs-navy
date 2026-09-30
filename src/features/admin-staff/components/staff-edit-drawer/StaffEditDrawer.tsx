@@ -14,6 +14,7 @@ import { formatDateTime } from "@/features/admin-core/helpers";
 import { ITranslations } from "@/shared/interfaces/globals";
 import { AdminStaffMember } from "../../interfaces";
 import { StaffFormValues } from "../../validations/staff-form.validation";
+import { SongPicker } from "../song-picker/SongPicker";
 import styles from "./staffEditDrawer.module.css";
 
 type Props = {
@@ -212,6 +213,18 @@ const StaffEditDrawer = memo(
                                             {...field}
                                         />
                                     </FieldShell>
+                                )}
+                            />
+
+                            <Controller
+                                name="song"
+                                control={control}
+                                render={({ field }) => (
+                                    <div className={styles.staffEdit__field}>
+                                        <span className={styles.staffEdit__label}>{t("staff.profile.song.label")}</span>
+                                        <SongPicker t={t} value={field.value} onChange={field.onChange} />
+                                        <p className={styles.staffEdit__hint}>{t("staff.profile.song.hint")}</p>
+                                    </div>
                                 )}
                             />
 

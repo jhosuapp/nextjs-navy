@@ -2,10 +2,13 @@ import { useMemo } from "react";
 import { useTranslation } from "next-i18next";
 import { GroupedStaffResponse } from "../interfaces";
 import { useOnlineStaffQuery } from "./useOnlineStaffQuery";
+import { useSpotifyPlayer } from "./useSpotifyPlayer";
 
 const useStaffController = (staff: GroupedStaffResponse) => {
     const { t, i18n } = useTranslation("staff");
     const onlineQuery = useOnlineStaffQuery();
+    // Un único reproductor para toda la página: pulsar otra canción para la anterior.
+    const { hostRef: playerHostRef, state: playerState, prepare: prepareSong, toggle: toggleSong, stop: stopSong } = useSpotifyPlayer();
 
     const onlineIds = useMemo(() => new Set(onlineQuery.data?.ids ?? []), [onlineQuery.data]);
 
@@ -33,6 +36,11 @@ const useStaffController = (staff: GroupedStaffResponse) => {
         onlineIds,
         onlineCount,
         hasOnlineData: onlineQuery.isSuccess,
+        playerHostRef,
+        playerState,
+        prepareSong,
+        toggleSong,
+        stopSong,
     };
 };
 

@@ -28,5 +28,12 @@
         "copied": "Copied!"
     },
     "premium": "Premium",
-    "noPremium": "Non-premium"
+    "noPremium": "Non-premium",
+    "song": {
+        "play": "Play {{title}} by {{artist}}",
+        "pause": "Pause {{title}}",
+        "player": "{{nick}}'s song on Spotify",
+        "fallback": "Your browser didn't allow playback here: press play in Spotify.",
+        "dismiss": "Close"
+    }
 }

@@ -1,0 +1,79 @@
+.songPicker {
+    @apply flex flex-col gap-3;
+}
+
+.songPicker__selected {
+    @apply flex flex-col gap-3 p-3 rounded-lg bg-white/[0.04] border border-white/10;
+}
+
+.songPicker__selectedHead {
+    @apply flex items-center gap-3 min-w-0;
+}
+
+.songPicker__cover {
+    @apply w-12 h-12 shrink-0 rounded-md object-cover bg-white/5;
+}
+
+.songPicker__meta {
+    @apply flex flex-col min-w-0 flex-1 text-left;
+}
+
+.songPicker__meta p {
+    @apply flex items-center gap-1.5 text-sm font-medium text-white truncate;
+}
+
+.songPicker__meta span {
+    @apply text-xs text-purple-200/60 truncate;
+}
+
+.songPicker__actions {
+    @apply flex shrink-0 gap-1;
+}
+
+.songPicker__embed {
+    @apply w-full h-20 rounded-xl border-0;
+}
+
+.songPicker__search {
+    @apply relative flex items-center gap-2;
+}
+
+.songPicker__searchIcon {
+    @apply absolute left-3 top-1/2 -translate-y-1/2 text-purple-200/50 pointer-events-none;
+}
+
+.songPicker__search input {
+    @apply !pl-9;
+}
+
+.songPicker__results {
+    @apply rounded-lg border border-white/10 bg-white/[0.02] overflow-hidden;
+}
+
+.songPicker__list {
+    @apply max-h-80 overflow-y-auto p-1 transition-opacity;
+}
+
+.songPicker__list__loading {
+    @apply opacity-60;
+}
+
+.songPicker__option {
+    @apply flex items-center gap-3 w-full p-2 rounded-md text-left transition-colors hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400;
+}
+
+.songPicker__option[aria-pressed="true"] {
+    @apply bg-purple-500/15;
+}
+
+.songPicker__explicit {
+    @apply inline-flex items-center justify-center w-4 h-4 shrink-0 rounded-sm bg-white/20 text-[10px] font-bold text-white no-underline;
+}
+
+.songPicker__duration {
+    @apply shrink-0 text-xs tabular-nums text-purple-200/50;
+}
+
+.songPicker__state {
+    @apply p-4 text-center text-xs text-purple-200/60;
+}

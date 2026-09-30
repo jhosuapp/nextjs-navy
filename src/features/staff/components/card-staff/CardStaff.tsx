@@ -2,13 +2,21 @@ import { memo, type CSSProperties, type JSX } from "react";
 import { CardWrapper } from "@/shared/components/card-wrapper/CardWrapper";
 import { ITranslations } from "@/shared/interfaces/globals";
 import { StaffMember } from "../../interfaces";
+import type { SpotifyPlayerState } from "../../hooks/useSpotifyPlayer";
 import { CardStaffSocials } from "./CardStaffSocials";
+import { CardStaffSong } from "./CardStaffSong";
 
 import styles from './cardStaff.module.css';
 
 type Props = {
     data: StaffMember;
     isOnline: boolean;
+    /** Estado del reproductor si está con la canción de este miembro; si no, `null`. */
+    songState: SpotifyPlayerState | null;
+    /** Precarga el reproductor (hover/foco/toque) para que el clic pueda sonar al instante. */
+    onPrepareSong: (trackId: string) => void;
+    onToggleSong: (trackId: string) => void;
+    onStopSong: () => void;
     locale: string;
     t: ITranslations;
 }
@@ -19,7 +27,7 @@ const FALLBACK_SKIN = 'MHF_Steve';
 // Discord usa #000000 para "sin color": se sustituye por el morado de la web.
 const roleTint = (colour: string): string => (colour.toLowerCase() === '#000000' ? '#a855f7' : colour);
 
-const CardStaff = memo(({ data, isOnline, locale, t }: Props): JSX.Element => {
+const CardStaff = memo(({ data, isOnline, songState, onPrepareSong, onToggleSong, onStopSong, locale, t }: Props): JSX.Element => {
     const nick = data.nick ?? 'N/A';
     const tint = roleTint(data.staff_role_colour);
     const format = new Intl.NumberFormat(locale);
@@ -69,6 +77,19 @@ const CardStaff = memo(({ data, isOnline, locale, t }: Props): JSX.Element => {
             </div>
 
             {data.bio && <p className={ styles.cardStaff__bio }>{ data.bio }</p>}
+
+            {data.song && (
+                <CardStaffSong
+                    song={ data.song }
+                    nick={ nick }
+                    tint={ tint }
+                    state={ songState }
+                    onPrepare={ onPrepareSong }
+                    onToggle={ onToggleSong }
+                    onStop={ onStopSong }
+                    t={ t }
+                />
+            )}
 
             {isTester && (
                 <dl className={ styles.cardStaff__stats }>

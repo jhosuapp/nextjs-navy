@@ -63,6 +63,8 @@ export const staffProfilePatchSchema = z
         linkedin: social("linkedin"),
         discord_username: social("discord_username"),
         show_namemc: z.boolean().optional(),
+        /** Solo el id: título/artista/portada los resuelve el servidor con la API de Spotify. */
+        spotify_track_id: z.string().regex(/^[A-Za-z0-9]{22}$/).nullable().optional(),
     })
     .strict()
     .refine(notEmpty);

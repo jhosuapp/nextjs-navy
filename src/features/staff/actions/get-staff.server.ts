@@ -58,6 +58,14 @@ export async function fetchStaffData(): Promise<{ data: GroupedStaffResponse; re
                     discord_username: profile?.discord_username ?? null,
                 },
                 show_namemc: profile?.show_namemc ?? true,
+                song: profile?.spotify_track_id
+                    ? {
+                          id: profile.spotify_track_id,
+                          title: profile.spotify_title ?? "",
+                          artist: profile.spotify_artist ?? "",
+                          cover: profile.spotify_cover,
+                      }
+                    : null,
                 tests_total: testsTotal,
                 tests_month: month.get(member.discord_id) ?? 0,
             };
