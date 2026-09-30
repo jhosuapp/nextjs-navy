@@ -39,7 +39,7 @@ export type AuditAction =
     | "password_change"
     | "status_change";
 
-export type AuditEntity = "staff" | "ban" | "user" | "application";
+export type AuditEntity = "staff" | "staff_profile" | "ban" | "user" | "tester" | "application";
 
 export type AuditEntry = {
     id: number;
@@ -52,7 +52,7 @@ export type AuditEntry = {
     created_at: string;
 };
 
-export type AuditFilter = "all" | AuditEntity | "system";
+export type AuditFilter = "all" | Exclude<AuditEntity, "staff_profile"> | "system";
 
 export type AuditResponse = PaginatedResponse<AuditEntry>;
 

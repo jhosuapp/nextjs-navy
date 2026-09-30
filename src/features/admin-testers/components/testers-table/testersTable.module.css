@@ -1,0 +1,11 @@
+.testersTable__badges {
+    @apply flex flex-wrap gap-1.5;
+}
+
+.testersTable__actions {
+    @apply flex items-center justify-end gap-1;
+}
+
+.testersTable__muted {
+    @apply text-purple-200/40;
+}

@@ -93,6 +93,7 @@
         "applications": "Candidaturas",
         "settings": "Configurações",
         "staff": "Staff",
+        "testers": "Testers",
         "bans": "Banimentos",
         "users": "Usuários",
         "expand": "Expandir menu",
@@ -145,7 +146,9 @@
         "date": "Data inválida",
         "passwordLength": "A senha deve ter entre 8 e 200 caracteres",
         "passwordMismatch": "As senhas não coincidem",
-        "passwordSame": "A nova senha deve ser diferente da atual"
+        "passwordSame": "A nova senha deve ser diferente da atual",
+        "bio": "Máximo de 160 caracteres",
+        "handle": "Usuário inválido (sem espaços nem URL)"
     },
     "staff": {
         "title": "Staff",
@@ -173,6 +176,73 @@
         "hide": {
             "title": "Ocultar {{nick}}?",
             "description": "Deixará de aparecer na página de staff e no perfil. Você pode restaurar quando quiser."
+        },
+        "profile": {
+            "title": "Perfil público",
+            "description": "Aparece no card de /staff-navy. Escreva só o usuário de cada rede, sem a URL.",
+            "status": "Status",
+            "statuses": {
+                "auto": "Automático",
+                "active": "Ativo",
+                "inactive": "Inativo",
+                "paused": "Em pausa"
+            },
+            "autoHint_one": "No automático aparece «{{status}}» ({{count}} teste nos últimos 30 dias).",
+            "autoHint_other": "No automático aparece «{{status}}» ({{count}} testes nos últimos 30 dias).",
+            "autoHintNoTester": "No automático não aparece status porque não fez testes.",
+            "bio": "Bio curta",
+            "bioHint": "{{count}}/{{max}} caracteres",
+            "handlePlaceholder": "usuário",
+            "socials": {
+                "instagram": "Instagram",
+                "tiktok": "TikTok",
+                "youtube": "YouTube",
+                "twitch": "Twitch",
+                "x": "X (Twitter)",
+                "github": "GitHub",
+                "linkedin": "LinkedIn",
+                "discord_username": "Usuário do Discord"
+            },
+            "namemc": "Mostrar NameMC",
+            "namemcHint": "Link automático para o perfil do NameMC com o nick.",
+            "namemcNoPremium": "Disponível só para contas premium."
+        }
+    },
+    "testers": {
+        "title": "Testers",
+        "description": "Testers do ranking de /top-testers. Dê nick aos testers aposentados ou tire-os do ranking; os testes do bot não são alterados.",
+        "searchPlaceholder": "Buscar por nick, cargo ou ID do Discord",
+        "retired": "Tester aposentado",
+        "active": "Ativo",
+        "inactive": "Inativo",
+        "filter": {
+            "visible": "No ranking",
+            "unnamed": "Sem nick",
+            "hidden": "Ocultos"
+        },
+        "columns": {
+            "tester": "Tester",
+            "role": "Cargo atual",
+            "month": "Este mês",
+            "total": "Total",
+            "status": "Status"
+        },
+        "empty": {
+            "visible": "Não há testers",
+            "unnamed": "Todos os testers têm nick",
+            "hidden": "Não há testers ocultos"
+        },
+        "edit": {
+            "title": "Editar tester",
+            "description": "O nick é usado em /top-testers para a skin e o nome.",
+            "nick": "Nick do Minecraft",
+            "detected": "Nick detectado: {{value}}",
+            "noDetected": "Nenhum nick detectado: aparece como «Tester aposentado».",
+            "notice": "ID do Discord: {{id}}. Deixe o campo vazio para voltar ao nick detectado."
+        },
+        "hide": {
+            "title": "Ocultar {{nick}}?",
+            "description": "Deixará de aparecer em /top-testers em todos os períodos. Você pode restaurá-lo quando quiser."
         }
     },
     "bans": {
@@ -274,6 +344,10 @@
                 "bans": {
                     "name": "Banimentos",
                     "hint": "/bans (a cada 24 h)"
+                },
+                "testers": {
+                    "name": "Top Testers",
+                    "hint": "/top-testers (a cada 1 h)"
                 }
             }
         },
@@ -323,13 +397,16 @@
                 "staff": "Staff",
                 "ban": "Banimentos",
                 "user": "Usuários",
+                "tester": "Testers",
                 "system": "Sistema"
             },
             "entities": {
                 "staff": "Staff",
                 "ban": "Banimento",
                 "user": "Usuário",
-                "application": "Candidatura"
+                "application": "Candidatura",
+                "staff_profile": "Perfil de staff",
+                "tester": "Tester"
             },
             "actions": {
                 "update": "Edição",

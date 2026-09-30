@@ -11,7 +11,7 @@ import type {
     AuditResponse,
 } from "@/features/admin-settings/interfaces";
 
-const FILTERS: AuditFilter[] = ["all", "application", "staff", "ban", "user", "system"];
+const FILTERS: AuditFilter[] = ["all", "application", "staff", "ban", "user", "tester", "system"];
 
 const parseFilter = (value: string): AuditFilter =>
     FILTERS.includes(value as AuditFilter) ? (value as AuditFilter) : "all";
@@ -19,6 +19,7 @@ const parseFilter = (value: string): AuditFilter =>
 const whereFor = (filter: AuditFilter): Prisma.admin_audit_logWhereInput => {
     if (filter === "all") return {};
     if (filter === "system") return { entity: null };
+    if (filter === "staff") return { entity: { in: ["staff", "staff_profile"] } };
     return { entity: filter };
 };
 
