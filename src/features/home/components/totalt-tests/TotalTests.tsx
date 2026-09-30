@@ -17,23 +17,30 @@ const TotalTests = ({ totalTests, t }:Props):JSX.Element => {
             <AnimatedCounter
                 value={ totalTests.sword }
                 label={ t('resume.swordTests') }
-                index={1}
+                index={1.5}
                 modalitie='sword'
                 modalitieImage='sword.webp'
             />
             <AnimatedCounter
                 value={ totalTests.netherite }
                 label={ t('resume.netheriteTests') }
-                index={0.5}
+                index={1}
                 modalitie='netherite'
                 modalitieImage='netherite.webp'
             />
             <AnimatedCounter
                 value={ totalTests.crystal }
                 label={ t('resume.crystalTests') }
-                index={0}
+                index={0.5}
                 modalitie='crystal'
                 modalitieImage='crystal.webp'
+            />
+            <AnimatedCounter
+                value={ totalTests.diamond }
+                label={ t('resume.diamondTests') }
+                index={0}
+                modalitie='diamond'
+                modalitieImage='diamond.webp'
             />
         </motion.article>
     )

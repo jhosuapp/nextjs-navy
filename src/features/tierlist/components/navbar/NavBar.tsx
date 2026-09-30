@@ -47,6 +47,12 @@ const NavBar = ({ t }:Props):JSX.Element => {
                     modalitieImage="crystal.webp" 
                     isButton
                 />
+                <ChipModalities 
+                    modalitie="diamond" 
+                    variant="blue" 
+                    modalitieImage="diamond.webp" 
+                    isButton
+                />
             </div>
             <form className={ styles.navBar__search } onSubmit={ onSubmit }>
                 <NavBarInformation t={ t } />

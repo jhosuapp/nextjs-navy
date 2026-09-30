@@ -16,7 +16,8 @@
     "resume": {
         "crystalTests": "Pruebas en Crystal",
         "swordTests": "Pruebas en Sword",
-        "netheriteTests": "Pruebas en Netherite"
+        "netheriteTests": "Pruebas en Netherite",
+        "diamondTests": "Pruebas en Diamond Pot"
     },
     "feedback": {
         "latestHighLoader": "Cargando resultados altos",

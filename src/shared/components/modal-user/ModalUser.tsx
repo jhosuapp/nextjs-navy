@@ -94,6 +94,13 @@ const ModalUser = ():JSX.Element => {
                             tier={ games?.crystal?.tier }
                             disabled={ !games?.crystal }
                         />
+                        <ChipModalities 
+                            modalitie="diamond" 
+                            variant="blue" 
+                            modalitieImage="diamond.webp" 
+                            tier={ games?.diamond?.tier }
+                            disabled={ !games?.diamond }
+                        />
                     </div>
                 </div>
             </motion.div>
