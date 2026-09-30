@@ -9,7 +9,7 @@ import { AuditFilter, CacheGroup, CachePurgeBody, RevalidateResult, RevalidateTa
 import { createPasswordSchema, PasswordFormValues } from "../validations/password.validation";
 import { ADMIN_AUDIT_KEY, ADMIN_CACHE_KEY, useAuditQuery, useCacheStatsQuery } from "./useAdminSettings.query";
 
-export const REVALIDATE_TARGETS: RevalidateTarget[] = ["home", "staff", "bans"];
+export const REVALIDATE_TARGETS: RevalidateTarget[] = ["home", "staff", "bans", "testers"];
 
 /** Revalidación manual de páginas ISR. */
 const useRevalidate = (t: ITranslations) => {

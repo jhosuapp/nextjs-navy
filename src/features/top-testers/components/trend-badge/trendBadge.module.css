@@ -1,0 +1,19 @@
+.trendBadge{
+    @apply inline-flex items-center justify-center gap-1 min-w-9 h-6 px-2 rounded-full text-xs font-semibold leading-none border tabular-nums;
+}
+
+.trendBadge__up{
+    @apply text-emerald-300 bg-emerald-500 bg-opacity-10 border-emerald-400 border-opacity-40;
+}
+
+.trendBadge__down{
+    @apply text-rose-300 bg-rose-500 bg-opacity-10 border-rose-400 border-opacity-40;
+}
+
+.trendBadge__same{
+    @apply text-purple-300 text-opacity-60 bg-purple-300 bg-opacity-5 border-purple-300 border-opacity-20;
+}
+
+.trendBadge__new{
+    @apply text-sky-300 bg-sky-500 bg-opacity-10 border-sky-400 border-opacity-40 uppercase tracking-wide;
+}

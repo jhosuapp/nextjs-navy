@@ -22,7 +22,7 @@ const Header = ():JSX.Element => {
         { text: t('nav.tierlist'),     path: paths.tierlist, prefetchKey: ['tierlist', 'infinite'], action: ()=> getTierlistOverallAction(1) },
         { text: t('nav.staff'),        path: paths.staff },
         { text: t('nav.bans'),         path: paths.bans },
-        { text: t('nav.partners'),     path: paths.partners },
+        { text: t('nav.topTesters'),   path: paths.topTesters },
         { text: t('nav.applications'), path: paths.applications }
     ], [t]);
 

@@ -1,6 +1,6 @@
 import { PaginatedResponse } from "@/features/admin-core/interfaces";
 
-export type RevalidateTarget = "home" | "staff" | "bans";
+export type RevalidateTarget = "home" | "staff" | "bans" | "testers";
 
 export type RevalidateResult = {
     target: RevalidateTarget;

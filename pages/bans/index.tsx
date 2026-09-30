@@ -19,9 +19,9 @@ const BansPage = ({ bans }: Props) => {
         <Layout
             title={t('seo.bansMetaTitle')}
             description={t('seo.bansMetaDescription')}
-            textPage={ t('nav.partners') }
-            linkPage={ paths.partners }
-            url={ paths.partners }
+            textPage={ t('nav.topTesters') }
+            linkPage={ paths.topTesters }
+            url={ paths.bans }
         >
             <PageTransition>
                 <BansView bans={ bans } />

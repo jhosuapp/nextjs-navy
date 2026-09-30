@@ -1,0 +1,147 @@
+.podium{
+    @apply relative;
+}
+
+.podium__list{
+    @apply flex flex-col gap-5 md:grid md:grid-cols-3 md:items-end md:gap-4 lg:gap-6;
+}
+
+/* ----- Tarjeta ----- */
+
+.podiumCard{
+    @apply flex flex-col;
+}
+
+.podiumCard__place1{
+    @apply md:order-2;
+}
+
+.podiumCard__place2{
+    @apply md:order-1;
+}
+
+.podiumCard__place3{
+    @apply md:order-3;
+}
+
+.podiumCard__card{
+    @apply relative flex flex-col items-center text-center gap-3 px-5 pt-10 pb-5 border-2 rounded-md rounded-b-none bg-tertiary bg-opacity-60 backdrop-blur-sm transition-transform duration-300 hover:-translate-y-1;
+}
+
+.podiumCard__place1 .podiumCard__card{
+    @apply border-yellow-300 border-opacity-70 pt-12 pb-7 bg-gradient-to-b from-yellow-500/15 to-tertiary/60;
+}
+
+.podiumCard__place2 .podiumCard__card{
+    @apply border-gray-300 border-opacity-50 bg-gradient-to-b from-gray-300/10 to-tertiary/60;
+}
+
+.podiumCard__place3 .podiumCard__card{
+    @apply border-orange-300 border-opacity-50 bg-gradient-to-b from-orange-400/10 to-tertiary/60;
+}
+
+.podiumCard__glow{
+    @apply absolute -inset-px -z-10 rounded-md bg-yellow-400/20 blur-2xl motion-safe:animate-pulse pointer-events-none;
+}
+
+/* Medalla con la posición, flotando sobre el borde superior. */
+.podiumCard__medal{
+    @apply absolute -top-6 left-1/2 -translate-x-1/2 flex items-center justify-center w-12 h-12 rounded-full border-4 border-tertiary text-lg font-bold text-neutral-black shadow-lg;
+}
+
+.podiumCard__place1 .podiumCard__medal{
+    @apply w-14 h-14 -top-7 text-xl bg-gradient-to-br from-yellow-200 via-yellow-400 to-yellow-600 shadow-yellow-500/40;
+}
+
+.podiumCard__place2 .podiumCard__medal{
+    @apply bg-gradient-to-br from-gray-100 via-gray-300 to-gray-500;
+}
+
+.podiumCard__place3 .podiumCard__medal{
+    @apply bg-gradient-to-br from-orange-200 via-orange-400 to-orange-600;
+}
+
+.podiumCard__crown{
+    @apply absolute -top-6 left-1/2 -translate-x-1/2 w-7 h-7 drop-shadow-[0_0_8px_rgba(250,204,21,0.8)];
+}
+
+.podiumCard__skin{
+    @apply w-24 h-24 flex items-end justify-center overflow-hidden rounded-full border-2 border-purple-300 border-opacity-30 bg-gradient-to-b from-purple-900/60 to-tertiary;
+}
+
+.podiumCard__place1 .podiumCard__skin{
+    @apply w-32 h-32 border-yellow-300 border-opacity-60;
+}
+
+.podiumCard__skin img{
+    @apply w-4/5 object-contain;
+}
+
+.podiumCard__identity{
+    @apply flex flex-col items-center gap-1.5 w-full min-w-0;
+}
+
+.podiumCard__nick{
+    @apply max-w-full truncate text-lg lg:text-xl font-semibold bg-gradient-to-r from-purple-300 to-white bg-clip-text text-transparent;
+}
+
+.podiumCard__place1 .podiumCard__nick{
+    @apply text-2xl from-yellow-200 to-white;
+}
+
+.podiumCard__nick__retired{
+    @apply text-purple-300 text-opacity-60 italic;
+}
+
+.podiumCard__tests{
+    @apply flex items-baseline gap-1.5 text-white;
+}
+
+.podiumCard__tests strong{
+    @apply text-4xl font-bold leading-none tabular-nums;
+}
+
+.podiumCard__place1 .podiumCard__tests strong{
+    @apply text-5xl;
+}
+
+.podiumCard__tests span{
+    @apply text-sm text-purple-300 text-opacity-60;
+}
+
+.podiumCard__meta{
+    @apply flex items-center gap-2 text-xs text-purple-300 text-opacity-60;
+}
+
+/* Botón invisible que cubre la tarjeta para abrir el perfil del jugador. */
+.podiumCard__hit{
+    @apply absolute inset-0 rounded-md cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-300;
+}
+
+/* ----- Escalón ----- */
+
+.podiumCard__step{
+    @apply hidden md:flex items-start justify-center pt-2 rounded-b-md border-2 border-t-0;
+}
+
+.podiumCard__step span{
+    @apply text-3xl font-black text-white text-opacity-20;
+}
+
+.podiumCard__place1 .podiumCard__step{
+    @apply h-24 border-yellow-300 border-opacity-70 bg-gradient-to-b from-yellow-400/30 to-yellow-400/5;
+}
+
+.podiumCard__place2 .podiumCard__step{
+    @apply h-16 border-gray-300 border-opacity-50 bg-gradient-to-b from-gray-300/25 to-gray-300/5;
+}
+
+.podiumCard__place3 .podiumCard__step{
+    @apply h-10 border-orange-300 border-opacity-50 bg-gradient-to-b from-orange-400/25 to-orange-400/5;
+}
+
+@media(max-width: 767px){
+    .podiumCard__card{
+        @apply rounded-b-md;
+    }
+}
