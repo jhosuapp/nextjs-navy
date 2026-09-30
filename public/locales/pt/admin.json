@@ -16,6 +16,7 @@
         },
         "feedback": {
             "invalid": "Usuário ou senha incorretos",
+            "disabled": "Sua conta está desativada. Fale com um fundador.",
             "error": "Ocorreu um erro ao iniciar sessão"
         }
     },

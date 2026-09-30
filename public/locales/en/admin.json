@@ -16,6 +16,7 @@
         },
         "feedback": {
             "invalid": "Wrong username or password",
+            "disabled": "Your account is disabled. Contact a founder.",
             "error": "An error occurred while signing in"
         }
     },

@@ -125,6 +125,8 @@ model admin_users {
   created_at    DateTime @db.DateTime(0)
   /// 'admin' | 'founder'. Añadido a mano: prisma/manual-migrations/2026-09-28-admin-roles.sql
   role          String   @default("admin") @db.VarChar(16)
+  /// NULL = activa; con fecha = desactivada (no puede entrar). prisma/manual-migrations/2026-09-30-admin-users-disabled.sql
+  disabled_at   DateTime? @db.DateTime(0)
 
   @@map("admin_users")
 }

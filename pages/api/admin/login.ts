@@ -35,6 +35,11 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             return res.status(401).json({ message: "Credenciales inválidas" });
         }
 
+        // Solo se revela tras acertar la contraseña, así no sirve para enumerar cuentas.
+        if (user.disabled_at) {
+            return res.status(403).json({ message: "Cuenta desactivada. Contacta con un fundador." });
+        }
+
         const token = createSessionToken({ uid: user.id, username: user.username });
         res.setHeader("Set-Cookie", buildSessionCookie(token));
 
