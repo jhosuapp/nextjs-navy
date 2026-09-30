@@ -32,7 +32,7 @@
 }
 
 .cardStaff__online__ping{
-    @apply absolute inset-0 rounded-full bg-emerald-400 motion-safe:animate-ping opacity-75;
+    @apply absolute inset-0 rounded-full bg-emerald-400 motion-safe:animate-[staffPing_1.2s_cubic-bezier(0,0,0.2,1)_infinite] opacity-75;
 }
 
 .cardStaff__info{
@@ -131,4 +131,12 @@
 .cardStaff__discord:focus-within .cardStaff__tooltip,
 .cardStaff__tooltip__visible{
     @apply opacity-100;
+}
+
+/* Keyframes propios: los de `@apply animate-*` salen vacíos en CSS Modules. */
+@keyframes staffPing{
+    75%, 100%{
+        transform: scale(2);
+        opacity: 0;
+    }
 }

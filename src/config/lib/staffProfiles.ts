@@ -10,7 +10,21 @@ import { StaffStatus } from "@/shared/constants/staffProfile";
 
 export type StaffProfileFields = Pick<
     staff_profiles,
-    "bio" | "status_mode" | "instagram" | "tiktok" | "youtube" | "twitch" | "x" | "github" | "linkedin" | "discord_username" | "show_namemc"
+    | "bio"
+    | "status_mode"
+    | "instagram"
+    | "tiktok"
+    | "youtube"
+    | "twitch"
+    | "x"
+    | "github"
+    | "linkedin"
+    | "discord_username"
+    | "show_namemc"
+    | "spotify_track_id"
+    | "spotify_title"
+    | "spotify_artist"
+    | "spotify_cover"
 >;
 
 export type StaffProfilePatch = Partial<StaffProfileFields>;
@@ -27,6 +41,10 @@ export const PROFILE_FIELDS = [
     "linkedin",
     "discord_username",
     "show_namemc",
+    "spotify_track_id",
+    "spotify_title",
+    "spotify_artist",
+    "spotify_cover",
 ] as const satisfies ReadonlyArray<keyof StaffProfileFields>;
 
 export const EMPTY_PROFILE: StaffProfileFields = {
@@ -41,6 +59,10 @@ export const EMPTY_PROFILE: StaffProfileFields = {
     linkedin: null,
     discord_username: null,
     show_namemc: true,
+    spotify_track_id: null,
+    spotify_title: null,
+    spotify_artist: null,
+    spotify_cover: null,
 };
 
 export const pickProfile = (row?: staff_profiles | null): StaffProfileFields => {

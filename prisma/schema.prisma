@@ -212,6 +212,11 @@ model staff_profiles {
   discord_username String?  @db.VarChar(40)
   github           String?  @db.VarChar(40)
   linkedin         String?  @db.VarChar(100)
+  /// Canción de Spotify: prisma/manual-migrations/2026-09-30-staff-profiles-song.sql
+  spotify_track_id String?  @db.VarChar(22)
+  spotify_title    String?  @db.VarChar(200)
+  spotify_artist   String?  @db.VarChar(200)
+  spotify_cover    String?  @db.VarChar(255)
   show_namemc      Boolean  @default(true)
   updated_by       String   @db.VarChar(60)
   updated_at       DateTime @db.DateTime(0)

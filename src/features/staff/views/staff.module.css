@@ -3,5 +3,17 @@
 }
 
 .staff__online span{
-    @apply w-2 h-2 rounded-full bg-emerald-400 motion-safe:animate-pulse;
+    @apply w-2 h-2 rounded-full bg-emerald-400 motion-safe:animate-[staffPulse_2s_ease-in-out_infinite];
+}
+
+/* Dentro del viewport pero invisible: si estuviera fuera de pantalla Chrome congela el iframe. */
+.staff__player{
+    @apply fixed bottom-0 left-0 w-[300px] h-20 opacity-0 pointer-events-none -z-10 overflow-hidden;
+}
+
+/* Keyframes propios: los de `@apply animate-*` salen vacíos en CSS Modules. */
+@keyframes staffPulse{
+    50%{
+        opacity: 0.4;
+    }
 }

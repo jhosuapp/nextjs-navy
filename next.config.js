@@ -60,13 +60,16 @@ const nextConfig = {
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
           {
             key: 'Content-Security-Policy',
+            // Spotify: `open.spotify.com` sirve el cargador de la iFrame API, que a su vez
+            // baja el script real de `embed-cdn.spotifycdn.com`; el reproductor es un
+            // iframe de `open.spotify.com` y las portadas vienen de `i.scdn.co`.
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://player.vimeo.com https://www.googletagmanager.com https://unpkg.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://player.vimeo.com https://www.googletagmanager.com https://unpkg.com https://open.spotify.com https://embed-cdn.spotifycdn.com",
               "style-src 'self' 'unsafe-inline'",
-              "img-src 'self' data: https://mc-heads.net https://render.crafty.gg https://minotar.net https://i.vimeocdn.com",
+              "img-src 'self' data: https://mc-heads.net https://render.crafty.gg https://minotar.net https://i.vimeocdn.com https://i.scdn.co",
               "font-src 'self'",
-              "frame-src https://player.vimeo.com",
+              "frame-src https://player.vimeo.com https://open.spotify.com",
               "connect-src 'self' https://www.google-analytics.com https://www.google.com",
             ].join('; '),
           },

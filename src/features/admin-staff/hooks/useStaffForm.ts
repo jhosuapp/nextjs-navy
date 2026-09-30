@@ -3,8 +3,18 @@ import { Resolver, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ITranslations } from "@/shared/interfaces/globals";
 import { normalizeHandle, STAFF_SOCIALS } from "@/shared/constants/staffProfile";
-import { AdminStaffMember, StaffEditableFields, StaffPatchBody, StaffProfileFields, StaffProfilePatchBody } from "../interfaces";
+import { AdminStaffMember, StaffEditableFields, StaffPatchBody, StaffProfileFields, StaffProfilePatchBody, StaffSong } from "../interfaces";
 import { createStaffFormSchema, StaffFormValues } from "../validations/staff-form.validation";
+
+const toSong = (profile: StaffProfileFields): StaffSong | null =>
+    profile.spotify_track_id
+        ? {
+              id: profile.spotify_track_id,
+              title: profile.spotify_title ?? "",
+              artist: profile.spotify_artist ?? "",
+              cover: profile.spotify_cover,
+          }
+        : null;
 
 const toFormValues = (fields: StaffEditableFields, profile: StaffProfileFields): StaffFormValues => ({
     nick: fields.nick ?? "",
@@ -22,6 +32,7 @@ const toFormValues = (fields: StaffEditableFields, profile: StaffProfileFields):
     linkedin: profile.linkedin ?? "",
     discord_username: profile.discord_username ?? "",
     show_namemc: profile.show_namemc,
+    song: toSong(profile),
 });
 
 /**
@@ -43,7 +54,7 @@ export const toStaffPatch = (values: StaffFormValues, original: StaffEditableFie
 
 /** PATCH del perfil público: solo los campos que cambian; vacío = `null`. */
 export const toProfilePatch = (values: StaffFormValues, profile: StaffProfileFields): StaffProfilePatchBody => {
-    const next: StaffProfileFields = {
+    const next: Omit<StaffProfileFields, "spotify_track_id" | "spotify_title" | "spotify_artist" | "spotify_cover"> = {
         bio: values.bio.trim() || null,
         status_mode: values.status_mode === "auto" ? null : values.status_mode,
         instagram: null,
@@ -62,9 +73,13 @@ export const toProfilePatch = (values: StaffFormValues, profile: StaffProfileFie
     }
 
     const patch: StaffProfilePatchBody = {};
-    for (const key of Object.keys(next) as Array<keyof StaffProfileFields>) {
+    for (const key of Object.keys(next) as Array<keyof typeof next>) {
         if (next[key] !== profile[key]) (patch as Record<string, unknown>)[key] = next[key];
     }
+
+    const songId = values.song?.id ?? null;
+    if (songId !== profile.spotify_track_id) patch.spotify_track_id = songId;
+
     return patch;
 };
 
@@ -103,6 +118,7 @@ const useStaffForm = (t: ITranslations, member: AdminStaffMember | null) => {
             linkedin: "",
             discord_username: "",
             show_namemc: true,
+            song: null,
         },
     });
 

@@ -101,3 +101,10 @@ export const socialUrl = (key: Exclude<StaffSocialKey, "discord_username">, hand
 };
 
 export const namemcUrl = (nick: string): string => `https://namemc.com/profile/${encodeURIComponent(nick)}`;
+
+/** Reproductor embebido de Spotify (compacto, tema oscuro). */
+export const spotifyEmbedUrl = (trackId: string): string =>
+    `https://open.spotify.com/embed/track/${encodeURIComponent(trackId)}?utm_source=generator&theme=0`;
+
+export const spotifyTrackUrl = (trackId: string): string =>
+    `https://open.spotify.com/track/${encodeURIComponent(trackId)}`;

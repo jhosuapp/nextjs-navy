@@ -11,6 +11,13 @@ export type StaffSocials = {
   discord_username: string | null;
 };
 
+export type StaffSong = {
+  id: string;
+  title: string;
+  artist: string;
+  cover: string | null;
+};
+
 export interface StaffMember {
   discord_id: string;
   uuid: string | null;
@@ -24,6 +31,8 @@ export interface StaffMember {
   status: StaffStatus | null;
   socials: StaffSocials;
   show_namemc: boolean;
+  /** Canción de Spotify elegida desde el panel. */
+  song: StaffSong | null;
   /** Tests como tester: histórico y mes en curso. */
   tests_total: number;
   tests_month: number;

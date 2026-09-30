@@ -51,6 +51,14 @@ export const createStaffFormSchema = (m: StaffFormMessages) =>
         linkedin: social("linkedin", m.handle),
         discord_username: social("discord_username", m.handle),
         show_namemc: z.boolean(),
+        song: z
+            .object({
+                id: z.string().regex(/^[A-Za-z0-9]{22}$/),
+                title: z.string(),
+                artist: z.string(),
+                cover: z.string().nullable(),
+            })
+            .nullable(),
     });
 
 export type StaffFormValues = z.infer<ReturnType<typeof createStaffFormSchema>>;

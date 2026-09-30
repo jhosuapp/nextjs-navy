@@ -206,7 +206,19 @@
             },
             "namemc": "Show NameMC",
             "namemcHint": "Automatic link to their NameMC profile using their nick.",
-            "namemcNoPremium": "Only available for premium accounts."
+            "namemcNoPremium": "Only available for premium accounts.",
+            "song": {
+                "label": "Profile song",
+                "hint": "Shown on the card with a Spotify player (30 s preview if the visitor isn't logged in to Spotify).",
+                "placeholder": "Search Spotify for a song or artist",
+                "searching": "Searching…",
+                "empty": "No results",
+                "error": "Couldn't search Spotify",
+                "explicit": "Explicit",
+                "change": "Change",
+                "remove": "Remove",
+                "preview": "Preview of {{title}}"
+            }
         }
     },
     "testers": {

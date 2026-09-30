@@ -37,9 +37,32 @@ export type StaffProfileFields = {
     linkedin: string | null;
     discord_username: string | null;
     show_namemc: boolean;
+    spotify_track_id: string | null;
+    spotify_title: string | null;
+    spotify_artist: string | null;
+    spotify_cover: string | null;
 };
 
-export type StaffProfilePatchBody = Partial<StaffProfileFields>;
+/** Metadatos de la canción: los resuelve el servidor, el panel solo envía el id. */
+type SpotifyMetaFields = "spotify_title" | "spotify_artist" | "spotify_cover";
+
+export type StaffProfilePatchBody = Partial<Omit<StaffProfileFields, SpotifyMetaFields>>;
+
+export type SpotifyTrackResult = {
+    id: string;
+    title: string;
+    artist: string;
+    cover: string | null;
+    duration_ms: number;
+    explicit: boolean;
+};
+
+export type SpotifySearchResponse = {
+    data: SpotifyTrackResult[];
+};
+
+/** Canción elegida en el formulario (lo mínimo para pintarla). */
+export type StaffSong = Pick<SpotifyTrackResult, "id" | "title" | "artist" | "cover">;
 
 /** Actividad como tester, para calcular el estado automático. */
 export type StaffActivity = {
