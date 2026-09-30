@@ -18,7 +18,7 @@ const TierlistPage = () => {
             description={t('seo.tierlistMetaDescription')}
             textPage={t('nav.staff')}
             linkPage={ paths.staff }
-            url={ paths.staff }
+            url={ paths.tierlist }
         >
             <ToastContainer />
             <PageTransition>
