@@ -41,7 +41,7 @@
 }
 
 .podiumCard__glow{
-    @apply absolute -inset-px -z-10 rounded-md bg-yellow-400/20 blur-2xl motion-safe:animate-pulse pointer-events-none;
+    @apply absolute -inset-px -z-10 rounded-md bg-yellow-400/20 blur-2xl motion-safe:animate-[podiumGlow_3s_ease-in-out_infinite] pointer-events-none;
 }
 
 /* Medalla con la posición, flotando sobre el borde superior. */
@@ -143,5 +143,15 @@
 @media(max-width: 767px){
     .podiumCard__card{
         @apply rounded-b-md;
+    }
+}
+
+/* Keyframes propios: los de `@apply animate-*` salen vacíos en CSS Modules. */
+@keyframes podiumGlow{
+    0%, 100%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.45;
     }
 }
